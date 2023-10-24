@@ -12,7 +12,7 @@ function parseQueryValues(value: string[] | string): string[] {
 
 export function parseStringParam(
   paramValue: string[] | string | undefined,
-  defaultValue = undefined,
+  defaultValue: string | undefined = undefined,
 ): string | undefined {
   const parsedValue = parseQueryValue(paramValue);
 
@@ -21,7 +21,7 @@ export function parseStringParam(
 
 export function parseNumberParam(
   paramValue: string[] | string | undefined,
-  defaultValue = NaN,
+  defaultValue: number | undefined = NaN,
 ): number {
   const parsedValue = parseQueryValue(paramValue);
 
@@ -39,7 +39,7 @@ export function parseJoinedStringParam(
 
 export function parseStringParams(
   paramValue: string[] | string | undefined,
-  defaultValue = undefined,
+  defaultValue: string[] | undefined = undefined,
 ): string[] | undefined {
   if (!paramValue || paramValue.length === 0) {
     return defaultValue;
@@ -50,7 +50,7 @@ export function parseStringParams(
 
 export function parseNumberParams(
   paramValue: string[] | string | undefined,
-  defaultValue = undefined,
+  defaultValue: number[] | undefined = undefined,
 ): number[] | undefined {
   if (!paramValue) {
     return defaultValue;
