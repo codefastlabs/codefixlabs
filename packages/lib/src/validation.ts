@@ -4,7 +4,7 @@ export function isValidPhoneNumber({
   phoneNumber,
   phoneCode,
 }: {
-  phoneNumber: string;
+  phoneNumber?: string | null | undefined;
   phoneCode: string;
 }): boolean {
   const parsedPhoneNumber = parsePhoneNumberFromString(
