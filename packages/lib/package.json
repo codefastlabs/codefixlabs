@@ -1,0 +1,57 @@
+{
+  "name": "@codefixlabs/lib",
+  "version": "0.0.0",
+  "license": "MIT",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "check-types": "tsc --noEmit",
+    "clean": "rm -rf .turbo node_modules",
+    "dev": "tsup --watch",
+    "lint": "eslint src/"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint-config-codefixlabs/react"
+    ]
+  },
+  "dependencies": {
+    "@codefixlabs/tsconfig": "workspace:*",
+    "@types/react": "18.2.31",
+    "eslint-config-codefixlabs": "workspace:*",
+    "libphonenumber-js": "1.10.48",
+    "react": "18.2.0",
+    "rehype-format": "5.0.0",
+    "rehype-parse": "9.0.0",
+    "rehype-raw": "7.0.0",
+    "rehype-remark": "10.0.0",
+    "rehype-sanitize": "6.0.0",
+    "rehype-stringify": "10.0.0",
+    "remark-parse": "11.0.0",
+    "remark-rehype": "11.0.0",
+    "remark-stringify": "11.0.0",
+    "tsup": "7.2.0",
+    "typescript": "5.2.2",
+    "unified": "11.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

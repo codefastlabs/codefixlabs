@@ -1,0 +1,45 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env"],
+  "globalEnv": ["NODE_ENV", "VERCEL_*"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["db:generate", "^build"],
+      "outputs": ["prisma/client/**", ".next/**", "!.next/cache/**"],
+      "env": [
+        "NEXT_PUBLIC_*",
+        "GITHUB_*",
+        "GOOGLE_*",
+        "NEXTAUTH_*",
+        "PUSHER_*",
+        "STRIPE_*",
+        "STOREFRONT_URL",
+        "EMAIL_*"
+      ]
+    },
+    "start": {
+      "dependsOn": ["build"]
+    },
+    "test": {
+      "outputs": ["coverage/**"]
+    },
+    "lint": {
+      "cache": false
+    },
+    "storybook": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:push": {},
+    "db:studio": {},
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

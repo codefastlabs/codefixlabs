@@ -1,0 +1,3 @@
+{
+  "extends": ["eslint-config-codefixlabs/next", "plugin:storybook/recommended"]
+}

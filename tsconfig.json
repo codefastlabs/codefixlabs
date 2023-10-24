@@ -1,0 +1,3 @@
+{
+  "extends": "@codefixlabs/tsconfig/base.json"
+}
