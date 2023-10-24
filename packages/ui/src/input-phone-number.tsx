@@ -27,7 +27,7 @@ export const InputPhoneNumber = forwardRef<
   > & {
     value?: {
       phoneCode: string;
-      phoneNumber: string;
+      phoneNumber?: string | null;
     };
     onChange?: (value: { phoneCode: string; phoneNumber: string }) => void;
   }
@@ -50,13 +50,11 @@ export const InputPhoneNumber = forwardRef<
         <PopoverTrigger
           className={twMerge(
             buttonVariants({
-              className: cx(
-                'px-3 font-normal',
-                props.size === 'sm' ? 'text-xs' : 'text-sm',
-              ),
               size: props.size,
               variant: 'outline',
             }),
+            'px-3 font-normal',
+            props.size === 'sm' ? 'text-xs' : 'text-sm',
           )}
         >
           {currentCountry ? (
@@ -69,7 +67,7 @@ export const InputPhoneNumber = forwardRef<
           )}
         </PopoverTrigger>
         <PopoverContent align="start">
-          <Command variant="dialog">
+          <Command loop variant="dialog">
             <CommandInput placeholder="Search for a country" />
             <CommandList className="max-h-[clamp(6.25rem,calc(var(--radix-popover-content-available-height)-3.75rem),25rem)]">
               <CommandEmpty>
@@ -121,10 +119,9 @@ export const InputPhoneNumber = forwardRef<
       <PrimitiveInput
         className={twMerge(className)}
         inputMode="tel"
-        pattern="[0-9]*"
         ref={forwardedRef}
         type="tel"
-        value={value?.phoneNumber}
+        value={value?.phoneNumber ?? ''}
         {...props}
         onBlur={(event) => {
           onChange?.({
