@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.5
+
+### Patch Changes
+
+- Input value may be null
+
 ## 0.1.4
 
 ### Patch Changes
