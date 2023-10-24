@@ -7,6 +7,7 @@
   ],
   "scripts": {
     "build": "turbo run build --filter='./apps/*'",
+    "changeset": "changeset",
     "clean": "turbo run clean && rm -rf node_modules",
     "dev": "turbo run dev",
     "postinstall": "pnpm exec simple-git-hooks",
@@ -16,8 +17,10 @@
     "pnpm:update": "pnpm update --latest --interactive --recursive",
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
+    "release": "turbo run build --filter=docs^... && changeset publish",
     "start": "turbo run start",
-    "storybook": "turbo run storybook"
+    "storybook": "turbo run storybook",
+    "version-packages": "changeset version"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged"
@@ -42,6 +45,7 @@
     "trailingComma": "all"
   },
   "devDependencies": {
+    "@changesets/cli": "2.26.2",
     "@codefixlabs/tsconfig": "workspace:*",
     "eslint": "8.52.0",
     "lint-staged": "15.0.2",
