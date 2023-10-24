@@ -1,5 +1,12 @@
 # @codefixlabs/ui
 
+## 0.1.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @codefixlabs/lib@0.1.4
+
 ## 0.1.7
 
 ### Patch Changes
