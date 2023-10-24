@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/ui",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "exports": {
     "./package.json": "./package.json",
@@ -70,7 +70,7 @@
     "@react-email/components": "0.0.7",
     "@tanstack/react-table": "8.10.7",
     "@tanstack/table-core": "8.10.7",
-    "@types/node": "20.8.7",
+    "@types/node": "20.8.8",
     "@types/pluralize": "0.0.32",
     "@types/react": "18.2.31",
     "autoprefixer": "10.4.16",
