@@ -1,6 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 import colors from 'tailwindcss/colors';
-import { hexToHsl } from '../lib/color';
+import { hexToHsl } from '../lib';
 
 export const stone = plugin(({ addBase }) => {
   addBase({
