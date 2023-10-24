@@ -50,7 +50,7 @@ import {
   isValidTime,
   matcherToArray,
   timeRegex,
-} from './lib/calendar';
+} from './lib';
 import { Popover, PopoverContent, PopoverTrigger } from './popover';
 
 /* -----------------------------------------------------------------------------

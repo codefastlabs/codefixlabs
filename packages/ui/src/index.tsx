@@ -1,6 +1,9 @@
 // Styles
 import './styles.css';
 
+// Libs
+export * from './lib';
+
 // Components
 export * from './email';
 export * from './accordion';
