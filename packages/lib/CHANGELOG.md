@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.5
+
+### Patch Changes
+
+- Make `parseStringParam` return type depend on `defaultValue`
+
 ## 0.1.4
 
 ### Patch Changes
