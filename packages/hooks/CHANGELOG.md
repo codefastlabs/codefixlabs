@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.1
+
+### Patch Changes
+
+- Remove `use client`
+
 ## 0.1.0
 
 ### Minor Changes

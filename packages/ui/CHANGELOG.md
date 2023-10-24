@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @codefixlabs/tailwindcss@0.1.7
+  - @codefixlabs/hooks@0.1.1
+  - @codefixlabs/lib@0.1.3
+
 ## 0.1.6
 
 ### Patch Changes

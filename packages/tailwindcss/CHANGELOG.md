@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.7
+
+### Patch Changes
+
+- Remove `use client`
+
 ## 0.1.6
 
 ### Patch Changes
