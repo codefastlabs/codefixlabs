@@ -10,19 +10,19 @@ function parseQueryValues(value: string[] | string): string[] {
   return Array.isArray(value) ? value : [value];
 }
 
-export function parseStringParam(
+export function parseStringParam<T extends string | undefined>(
   paramValue: string[] | string | undefined,
-  defaultValue: string | undefined = undefined,
-): string | undefined {
+  defaultValue: T = undefined as T,
+): string | T {
   const parsedValue = parseQueryValue(paramValue);
 
   return parsedValue || defaultValue;
 }
 
-export function parseNumberParam(
+export function parseNumberParam<T extends number | undefined>(
   paramValue: string[] | string | undefined,
-  defaultValue: number | undefined = NaN,
-): number {
+  defaultValue: T = undefined as T,
+): number | T {
   const parsedValue = parseQueryValue(paramValue);
 
   return Number(parsedValue) || defaultValue;
@@ -37,10 +37,10 @@ export function parseJoinedStringParam(
   return parsedValue?.split(separator) || [];
 }
 
-export function parseStringParams(
+export function parseStringParams<T extends string[] | undefined>(
   paramValue: string[] | string | undefined,
-  defaultValue: string[] | undefined = undefined,
-): string[] | undefined {
+  defaultValue: T = undefined as T,
+): string[] | T {
   if (!paramValue || paramValue.length === 0) {
     return defaultValue;
   }
@@ -48,10 +48,10 @@ export function parseStringParams(
   return parseQueryValues(paramValue);
 }
 
-export function parseNumberParams(
+export function parseNumberParams<T extends number[] | undefined>(
   paramValue: string[] | string | undefined,
-  defaultValue: number[] | undefined = undefined,
-): number[] | undefined {
+  defaultValue: T = undefined as T,
+): number[] | T {
   if (!paramValue) {
     return defaultValue;
   }
