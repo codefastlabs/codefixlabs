@@ -1,85 +1,106 @@
-import type { SearchParams } from './types';
+import type { SearchParams } from './types.ts';
 
-function parseValue(value: string[] | string | undefined): string | undefined {
+function parseQueryValue(
+  value: string[] | string | undefined,
+): string | undefined {
   return Array.isArray(value) ? value[0] : value;
 }
 
-function parseValues(
-  value: string[] | string | undefined,
-): string[] | undefined {
-  if (!value) {
-    return undefined;
-  }
-
+function parseQueryValues(value: string[] | string): string[] {
   return Array.isArray(value) ? value : [value];
 }
 
 export function parseStringParam(
-  searchParams: SearchParams,
-  paramName: string,
-  defaultValue = '',
-): string {
-  const result = parseValue(searchParams[paramName]);
+  paramValue: string[] | string | undefined,
+  defaultValue = undefined,
+): string | undefined {
+  const parsedValue = parseQueryValue(paramValue);
 
-  return result || defaultValue;
-}
-
-export function parseStringParams(
-  searchParams: SearchParams,
-  paramName: string,
-  defaultValue = [],
-): string[] {
-  const results = parseValues(searchParams[paramName]);
-
-  return results || defaultValue;
+  return parsedValue || defaultValue;
 }
 
 export function parseNumberParam(
-  searchParams: SearchParams,
-  paramName: string,
+  paramValue: string[] | string | undefined,
   defaultValue = NaN,
 ): number {
-  const result = Number(parseValue(searchParams[paramName]));
+  const parsedValue = parseQueryValue(paramValue);
 
-  return result || defaultValue;
+  return Number(parsedValue) || defaultValue;
+}
+
+export function parseJoinedStringParam(
+  paramValue: string[] | string | undefined,
+  separator = '|',
+): string[] {
+  const parsedValue = parseQueryValue(paramValue);
+
+  return parsedValue?.split(separator) || [];
+}
+
+export function parseStringParams(
+  paramValue: string[] | string | undefined,
+  defaultValue = undefined,
+): string[] | undefined {
+  if (!paramValue || paramValue.length === 0) {
+    return defaultValue;
+  }
+
+  return parseQueryValues(paramValue);
 }
 
 export function parseNumberParams(
-  searchParams: SearchParams,
-  paramName: string,
-  defaultValue = [],
-): number[] {
-  const results = parseValues(searchParams[paramName])?.map(Number);
+  paramValue: string[] | string | undefined,
+  defaultValue = undefined,
+): number[] | undefined {
+  if (!paramValue) {
+    return defaultValue;
+  }
 
-  return results || defaultValue;
+  const parsedValue = parseQueryValues(paramValue);
+
+  return parsedValue.map((value) => Number(value));
+}
+
+export function parseJoinedStringParams(
+  paramValue: string[] | string | undefined,
+  separator = '|',
+): string[][] | undefined {
+  if (!paramValue) {
+    return undefined;
+  }
+
+  const parsedValue = parseQueryValues(paramValue);
+
+  return parsedValue.map((value) => value.split(separator));
+}
+
+interface PaginationOptions {
+  pageParam?: string;
+  sizeParam?: string;
+  defaultPage?: number;
+  defaultSize?: number;
+}
+
+interface PaginationParams {
+  page: number;
+  size: number;
 }
 
 export function parsePaginationParams(
   searchParams: SearchParams,
-  initialData?: {
-    pageParam?: string;
-    sizeParam?: string;
-    defaultPage?: number;
-    defaultSize?: number;
-  },
-): {
-  page: number;
-  size: number;
-} {
-  const {
+  {
     pageParam = 'page',
     sizeParam = 'size',
     defaultPage = 1,
-    defaultSize = 10,
-  } = initialData || {};
-
+    defaultSize = 30,
+  }: PaginationOptions = {},
+): PaginationParams {
   const parsedPage = Math.max(
-    parseNumberParam(searchParams, pageParam, defaultPage),
+    parseNumberParam(searchParams[pageParam], defaultPage),
     defaultPage,
   );
-
   const parsedSize = Math.max(
-    parseNumberParam(searchParams, sizeParam, defaultSize),
+    parseNumberParam(searchParams[sizeParam], defaultSize),
     1,
   );
 
