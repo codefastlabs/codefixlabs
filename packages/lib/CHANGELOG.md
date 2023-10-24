@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.1
+
+### Patch Changes
+
+- Update search params
+
 ## 0.1.0
 
 ### Minor Changes
