@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.2
+
+### Patch Changes
+
+- Phone number may be null
+
 ## 0.1.1
 
 ### Patch Changes
