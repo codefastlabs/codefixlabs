@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Action,
   Cancel,
@@ -10,11 +12,11 @@ import {
   Trigger,
 } from '@radix-ui/react-alert-dialog';
 import type { VariantProps } from 'class-variance-authority';
-import { cva, cx } from 'class-variance-authority';
+import { cx } from 'class-variance-authority';
 import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { buttonVariants } from './button';
+import { alertDialogContentVariants, buttonVariants } from './cva';
 
 /* -----------------------------------------------------------------------------
  * Provider: AlertDialogContext
@@ -44,22 +46,6 @@ export function AlertDialog({
 /* -----------------------------------------------------------------------------
  * Component: AlertDialogContent
  * -------------------------------------------------------------------------- */
-const alertDialogContentVariants = cva(
-  [
-    'bg-background relative rounded-lg border shadow-lg focus:outline-none',
-    'data-state-open:animate-content-show data-state-closed:animate-content-hide',
-  ],
-  {
-    defaultVariants: {
-      scrollable: false,
-    },
-    variants: {
-      scrollable: {
-        true: 'flex max-h-full flex-col',
-      },
-    },
-  },
-);
 
 export const AlertDialogContent = forwardRef<
   React.ElementRef<typeof Content>,

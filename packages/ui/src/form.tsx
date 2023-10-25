@@ -1,6 +1,7 @@
+'use client';
+
 import { Slot } from '@radix-ui/react-slot';
 import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
 import * as React from 'react';
 import { createContext, forwardRef, useContext, useId } from 'react';
 import type {
@@ -11,8 +12,9 @@ import type {
 } from 'react-hook-form';
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
 import { twMerge } from 'tailwind-merge';
-import { getErrorMessage } from './lib/form';
+import { formItemVariants } from 'src/cva/form';
 import { Label } from './label';
+import { getErrorMessage } from '@/lib';
 
 interface FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
@@ -89,18 +91,6 @@ export function FormField<
 /* -----------------------------------------------------------------------------
  * Component: FormItem
  * -------------------------------------------------------------------------- */
-
-const formItemVariants = cva('', {
-  defaultVariants: {
-    inline: false,
-  },
-  variants: {
-    inline: {
-      false: 'space-y-2',
-      true: 'flex gap-2',
-    },
-  },
-});
 
 export const FormItem = forwardRef<
   React.ElementRef<'div'>,

@@ -1,9 +1,15 @@
+'use client';
+
 import { Content, List, Root, Trigger } from '@radix-ui/react-tabs';
 import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
 import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
+import {
+  tabsContentVariants,
+  tabsListVariants,
+  tabsTriggerVariants,
+} from 'src/cva/tabs';
 
 /* -----------------------------------------------------------------------------
  * Provider: TabsContext
@@ -34,19 +40,6 @@ export function Tabs({
  * Component: TabsList
  * -------------------------------------------------------------------------- */
 
-const tabsListVariants = cva('', {
-  defaultVariants: {
-    variant: 'default',
-  },
-  variants: {
-    variant: {
-      default:
-        'bg-muted text-muted-foreground inline-flex h-10 items-center justify-center gap-1 rounded-lg p-1',
-      simple: '',
-    },
-  },
-});
-
 export const TabsList = forwardRef<
   React.ElementRef<typeof List>,
   Omit<VariantProps<typeof tabsListVariants>, 'variant'> &
@@ -69,28 +62,6 @@ TabsList.displayName = List.displayName;
  * Component: TabsTrigger
  * -------------------------------------------------------------------------- */
 
-const tabsTriggerVariants = cva(
-  [
-    'transition-all',
-    'focus:ring-ring/40 focus:outline-none focus:ring-2',
-    'disabled:pointer-events-none disabled:opacity-50',
-  ],
-  {
-    defaultVariants: {
-      variant: 'default',
-    },
-    variants: {
-      variant: {
-        default: [
-          'inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium',
-          'data-state-active:bg-background data-state-active:text-foreground data-state-active:shadow-sm',
-        ],
-        simple: '',
-      },
-    },
-  },
-);
-
 export const TabsTrigger = forwardRef<
   React.ElementRef<typeof Trigger>,
   Omit<VariantProps<typeof tabsTriggerVariants>, 'variant'> &
@@ -112,21 +83,6 @@ TabsTrigger.displayName = Trigger.displayName;
 /* -----------------------------------------------------------------------------
  * Component: TabsContent
  * -------------------------------------------------------------------------- */
-
-const tabsContentVariants = cva(
-  ['focus:ring-ring/40 focus:outline-none focus:ring-2'],
-  {
-    defaultVariants: {
-      variant: 'default',
-    },
-    variants: {
-      variant: {
-        default: 'mt-2 rounded-lg',
-        simple: '',
-      },
-    },
-  },
-);
 
 export const TabsContent = forwardRef<
   React.ElementRef<typeof Content>,

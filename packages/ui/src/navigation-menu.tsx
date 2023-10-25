@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Content,
   Indicator,
@@ -9,11 +11,11 @@ import {
   Trigger,
   Viewport,
 } from '@radix-ui/react-navigation-menu';
-import { cva } from 'class-variance-authority';
 import { ChevronDownIcon } from 'lucide-react';
 import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { navigationMenuTriggerVariants } from 'src/cva/navigation-menu';
 
 /* -----------------------------------------------------------------------------
  * Component: NavigationMenuList
@@ -139,14 +141,6 @@ NavigationMenuSub.displayName = Sub.displayName;
 /* -----------------------------------------------------------------------------
  * Component: NavigationMenuTrigger
  * -------------------------------------------------------------------------- */
-
-export const navigationMenuTriggerVariants = cva([
-  'bg-background group inline-flex h-10 w-max items-center justify-center gap-1 rounded-md px-4 py-2 text-sm font-medium transition-colors',
-  'hover:bg-accent hover:text-accent-foreground',
-  'focus:bg-accent focus:text-accent-foreground focus:outline-none',
-  'disabled:pointer-events-none disabled:opacity-50',
-  'data-state-open:bg-accent/50 data-active:bg-accent/50',
-]);
 
 export const NavigationMenuTrigger = forwardRef<
   React.ElementRef<typeof Trigger>,

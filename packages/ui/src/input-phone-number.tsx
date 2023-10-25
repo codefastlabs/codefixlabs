@@ -1,9 +1,10 @@
+'use client';
+
+import { useCountries } from '@codefixlabs/hooks';
 import { cx } from 'class-variance-authority';
 import * as React from 'react';
 import { forwardRef, useMemo, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { useCountries } from '@codefixlabs/hooks';
-import { buttonVariants } from './button';
 import {
   Command,
   CommandEmpty,
@@ -12,6 +13,7 @@ import {
   CommandItem,
   CommandList,
 } from './command';
+import { buttonVariants } from './cva';
 import { PrimitiveInput } from './input';
 import { Popover, PopoverContent, PopoverTrigger } from './popover';
 

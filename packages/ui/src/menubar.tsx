@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Arrow,
   CheckboxItem,
@@ -18,11 +20,17 @@ import {
   Trigger,
 } from '@radix-ui/react-menubar';
 import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronRightIcon, DotIcon } from 'lucide-react';
 import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
+import {
+  menubarCheckboxItemVariants,
+  menubarItemVariants,
+  menubarLabelVariants,
+  menubarRadioItemVariants,
+  menubarSubTriggerVariants,
+} from 'src/cva/menubar';
 
 /* -----------------------------------------------------------------------------
  * Component: Menubar
@@ -158,38 +166,6 @@ export function MenubarShortcut({
  * Component: MenubarSubTrigger
  * -------------------------------------------------------------------------- */
 
-const menubarSubTriggerVariants = cva(
-  [
-    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
-  ],
-  {
-    defaultVariants: {
-      inset: false,
-      variant: 'default',
-    },
-    variants: {
-      inset: {
-        true: 'pl-8',
-      },
-      variant: {
-        default: [
-          'focus:bg-accent focus:text-accent-foreground',
-          'data-state-open:bg-accent data-state-open:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-          'data-highlighted:data-state-open:bg-accent data-highlighted:data-state-open:text-accent-foreground',
-        ],
-        destructive: [
-          'focus:bg-destructive-foreground focus:text-destructive',
-          'data-state-open:bg-destructive-foreground data-state-open:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-          'data-highlighted:data-state-open:bg-destructive-foreground data-highlighted:data-state-open:text-destructive',
-        ],
-      },
-    },
-  },
-);
-
 export const MenubarSubTrigger = forwardRef<
   React.ElementRef<typeof SubTrigger>,
   React.ComponentPropsWithoutRef<typeof SubTrigger> &
@@ -220,35 +196,6 @@ MenubarSubTrigger.displayName = SubTrigger.displayName;
 /* -----------------------------------------------------------------------------
  * Component: MenubarItem
  * -------------------------------------------------------------------------- */
-
-const menubarItemVariants = cva(
-  [
-    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
-  ],
-  {
-    defaultVariants: {
-      inset: false,
-      variant: 'default',
-    },
-    variants: {
-      inset: {
-        true: 'pl-8',
-      },
-      variant: {
-        default: [
-          'focus:bg-accent focus:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-        ],
-        destructive: [
-          'text-destructive',
-          'focus:bg-destructive-foreground focus:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-        ],
-      },
-    },
-  },
-);
 
 export const MenubarItem = forwardRef<
   React.ElementRef<typeof Item>,
@@ -303,31 +250,6 @@ MenubarItemIndicator.displayName = ItemIndicator.displayName;
  * Component: MenubarCheckboxItem
  * -------------------------------------------------------------------------- */
 
-const menubarCheckboxItemVariants = cva(
-  [
-    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
-  ],
-  {
-    defaultVariants: {
-      variant: 'default',
-    },
-    variants: {
-      variant: {
-        default: [
-          'focus:bg-accent focus:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-        ],
-        destructive: [
-          'text-destructive',
-          'focus:bg-destructive-foreground focus:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-        ],
-      },
-    },
-  },
-);
-
 export const MenubarCheckboxItem = forwardRef<
   React.ElementRef<typeof CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof CheckboxItem> & {
@@ -354,31 +276,6 @@ MenubarCheckboxItem.displayName = CheckboxItem.displayName;
 /* -----------------------------------------------------------------------------
  * Component: MenubarRadioItem
  * -------------------------------------------------------------------------- */
-
-const menubarRadioItemVariants = cva(
-  [
-    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
-  ],
-  {
-    defaultVariants: {
-      variant: 'default',
-    },
-    variants: {
-      variant: {
-        default: [
-          'focus:bg-accent focus:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-        ],
-        destructive: [
-          'text-destructive',
-          'focus:bg-destructive-foreground focus:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-        ],
-      },
-    },
-  },
-);
 
 export const MenubarRadioItem = forwardRef<
   React.ElementRef<typeof RadioItem>,
@@ -412,20 +309,6 @@ export const MenubarGroup = Group;
 /* -----------------------------------------------------------------------------
  * Component: MenubarLabel
  * -------------------------------------------------------------------------- */
-
-const menubarLabelVariants = cva(
-  'text-foreground cursor-default px-2 py-1.5 text-sm font-semibold',
-  {
-    defaultVariants: {
-      inset: false,
-    },
-    variants: {
-      inset: {
-        true: 'pl-8',
-      },
-    },
-  },
-);
 
 export const MenubarLabel = forwardRef<
   React.ElementRef<typeof Label>,

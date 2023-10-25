@@ -1,3 +1,5 @@
+'use client';
+
 import { Slot } from '@radix-ui/react-slot';
 import { cx } from 'class-variance-authority';
 import { format } from 'date-fns';
@@ -30,7 +32,7 @@ import {
   useSelectRange,
 } from 'react-day-picker';
 import { twMerge } from 'tailwind-merge';
-import { buttonVariants } from './button';
+import { buttonVariants } from './cva';
 import type { FormControl } from './form';
 import { Input } from './input';
 import { Label } from './label';

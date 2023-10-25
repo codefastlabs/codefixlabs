@@ -1,5 +1,6 @@
+'use client';
+
 import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
 import {
   CommandEmpty as Empty,
   CommandGroup as Group,
@@ -14,26 +15,12 @@ import { SearchIcon } from 'lucide-react';
 import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { commandVariants } from './cva';
 import { Dialog, DialogContent } from './dialog';
 
 /* -----------------------------------------------------------------------------
  * Component: Command
  * -------------------------------------------------------------------------- */
-
-const commandVariants = cva(
-  'bg-popover text-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-md',
-  {
-    defaultVariants: {
-      variant: 'primary',
-    },
-    variants: {
-      variant: {
-        dialog: '',
-        primary: 'border shadow-lg',
-      },
-    },
-  },
-);
 
 export const Command = forwardRef<
   React.ElementRef<typeof Root>,

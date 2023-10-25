@@ -1,3 +1,5 @@
+'use client';
+
 import { Slot } from '@radix-ui/react-slot';
 import { cx } from 'class-variance-authority';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';

@@ -1,44 +1,18 @@
+'use client';
+
 import type { VariantProps } from 'class-variance-authority';
-import { cva, cx } from 'class-variance-authority';
+import { cx } from 'class-variance-authority';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import * as React from 'react';
 import { forwardRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { inputVariants, primitiveInputVariants } from 'src/cva/input';
 import { Button } from './button';
 import type { IconType } from './icons';
 
 /* -----------------------------------------------------------------------------
  * Component: PrimitiveInput
  * -------------------------------------------------------------------------- */
-
-const primitiveInputVariants = cva(
-  [
-    'border-input min-w-0 rounded-md border bg-transparent px-3 py-2 text-base',
-    'sm:text-sm sm:file:text-sm',
-    'file:border-0 file:bg-transparent file:text-base file:font-medium',
-    'placeholder:text-muted-foreground placeholder:text-sm',
-    'focus:ring-ring/40 focus:outline-none focus:ring-2',
-    'disabled:cursor-not-allowed disabled:opacity-50',
-    'data-invalid:border-destructive',
-  ],
-  {
-    defaultVariants: {
-      inline: false,
-      size: 'md',
-    },
-    variants: {
-      inline: {
-        false: 'flex w-full',
-        true: 'inline-flex',
-      },
-      size: {
-        lg: 'h-12',
-        md: 'h-10',
-        sm: 'h-8 placeholder:text-xs',
-      },
-    },
-  },
-);
 
 export const PrimitiveInput = forwardRef<
   React.ElementRef<'input'>,
@@ -94,21 +68,6 @@ InputPassword.displayName = 'InputPassword';
 /* -----------------------------------------------------------------------------
  * Component: Input
  * -------------------------------------------------------------------------- */
-
-const inputVariants = cva('relative z-40', {
-  defaultVariants: {
-    hasEndIcon: false,
-    hasStartIcon: false,
-  },
-  variants: {
-    hasEndIcon: {
-      true: 'pr-10.5',
-    },
-    hasStartIcon: {
-      true: 'pl-10.5',
-    },
-  },
-});
 
 export const Input = forwardRef<
   React.ElementRef<typeof PrimitiveInput>,

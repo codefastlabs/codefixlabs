@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Arrow,
   CheckboxItem,
@@ -17,11 +19,17 @@ import {
   Trigger,
 } from '@radix-ui/react-dropdown-menu';
 import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronRightIcon, DotIcon } from 'lucide-react';
 import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
+import {
+  dropdownMenuCheckboxItemVariants,
+  dropdownMenuItemVariants,
+  dropdownMenuLabelVariants,
+  dropdownMenuRadioItemVariants,
+  dropdownMenuSubTriggerVariants,
+} from 'src/cva/dropdown-menu';
 
 /* -----------------------------------------------------------------------------
  * Component: DropdownMenuContent
@@ -97,38 +105,6 @@ DropdownMenuSubContent.displayName = SubContent.displayName;
  * Component: DropdownMenuSubTrigger
  * -------------------------------------------------------------------------- */
 
-const dropdownMenuSubTriggerVariants = cva(
-  [
-    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
-  ],
-  {
-    defaultVariants: {
-      inset: false,
-      variant: 'default',
-    },
-    variants: {
-      inset: {
-        true: 'pl-8',
-      },
-      variant: {
-        default: [
-          'focus:bg-accent focus:text-accent-foreground',
-          'data-state-open:bg-accent data-state-open:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-          'data-highlighted:data-state-open:bg-accent data-highlighted:data-state-open:text-accent-foreground',
-        ],
-        destructive: [
-          'focus:bg-destructive-foreground focus:text-destructive',
-          'data-state-open:bg-destructive-foreground data-state-open:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-          'data-highlighted:data-state-open:bg-destructive-foreground data-highlighted:data-state-open:text-destructive',
-        ],
-      },
-    },
-  },
-);
-
 export const DropdownMenuSubTrigger = forwardRef<
   React.ElementRef<typeof SubTrigger>,
   React.ComponentPropsWithoutRef<typeof SubTrigger> &
@@ -159,40 +135,6 @@ DropdownMenuSubTrigger.displayName = SubTrigger.displayName;
 /* -----------------------------------------------------------------------------
  * Component: DropdownMenuItem
  * -------------------------------------------------------------------------- */
-
-const dropdownMenuItemVariants = cva(
-  [
-    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
-  ],
-  {
-    defaultVariants: {
-      inset: false,
-      variant: 'default',
-    },
-    variants: {
-      inset: {
-        true: 'pl-8',
-      },
-      variant: {
-        default: [
-          'focus:bg-accent focus:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-        ],
-        destructive: [
-          'text-destructive',
-          'focus:bg-destructive-foreground focus:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-        ],
-        primary: [
-          'text-primary',
-          'focus:bg-primary-foreground focus:text-primary',
-          'data-highlighted:bg-primary-foreground data-highlighted:text-primary',
-        ],
-      },
-    },
-  },
-);
 
 export const DropdownMenuItem = forwardRef<
   React.ElementRef<typeof Item>,
@@ -255,31 +197,6 @@ DropdownMenuItemIndicator.displayName = ItemIndicator.displayName;
  * Component: DropdownMenuCheckboxItem
  * -------------------------------------------------------------------------- */
 
-const dropdownMenuCheckboxItemVariants = cva(
-  [
-    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
-  ],
-  {
-    defaultVariants: {
-      variant: 'default',
-    },
-    variants: {
-      variant: {
-        default: [
-          'focus:bg-accent focus:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-        ],
-        destructive: [
-          'text-destructive',
-          'focus:bg-destructive-foreground focus:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-        ],
-      },
-    },
-  },
-);
-
 export const DropdownMenuCheckboxItem = forwardRef<
   React.ElementRef<typeof CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof CheckboxItem> & {
@@ -313,31 +230,6 @@ DropdownMenuCheckboxItem.displayName = CheckboxItem.displayName;
 /* -----------------------------------------------------------------------------
  * Component: DropdownMenuRadioItem
  * -------------------------------------------------------------------------- */
-
-const dropdownMenuRadioItemVariants = cva(
-  [
-    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
-  ],
-  {
-    defaultVariants: {
-      variant: 'default',
-    },
-    variants: {
-      variant: {
-        default: [
-          'focus:bg-accent focus:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-        ],
-        destructive: [
-          'text-destructive',
-          'focus:bg-destructive-foreground focus:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-        ],
-      },
-    },
-  },
-);
 
 export const DropdownMenuRadioItem = forwardRef<
   React.ElementRef<typeof RadioItem>,
@@ -409,20 +301,6 @@ export const DropdownMenuGroup = Group;
 /* -----------------------------------------------------------------------------
  * Component: DropdownMenuLabel
  * -------------------------------------------------------------------------- */
-
-const dropdownMenuLabelVariants = cva(
-  'text-foreground cursor-default px-2 py-1.5 text-sm font-semibold',
-  {
-    defaultVariants: {
-      inset: false,
-    },
-    variants: {
-      inset: {
-        true: 'pl-8',
-      },
-    },
-  },
-);
 
 export const DropdownMenuLabel = forwardRef<
   React.ElementRef<typeof Label>,

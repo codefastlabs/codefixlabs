@@ -4,6 +4,9 @@ import './styles.css';
 // Libs
 export * from './lib';
 
+// CVA
+export * from './cva';
+
 // Components
 export * from './email';
 export * from './accordion';

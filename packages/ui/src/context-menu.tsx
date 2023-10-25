@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Arrow,
   CheckboxItem,
@@ -17,11 +19,17 @@ import {
   Trigger,
 } from '@radix-ui/react-context-menu';
 import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronRightIcon, DotIcon } from 'lucide-react';
 import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
+import {
+  contextMenuCheckboxItemVariants,
+  contextMenuItemVariants,
+  contextMenuLabelVariants,
+  contextMenuRadioItemVariants,
+  contextMenuSubTriggerVariants,
+} from './cva';
 
 /* -----------------------------------------------------------------------------
  * Component: ContextMenuItemIndicator
@@ -123,38 +131,6 @@ ContextMenuSubContent.displayName = SubContent.displayName;
  * Component: ContextMenuSubTrigger
  * -------------------------------------------------------------------------- */
 
-const contextMenuSubTriggerVariants = cva(
-  [
-    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
-  ],
-  {
-    defaultVariants: {
-      inset: false,
-      variant: 'default',
-    },
-    variants: {
-      inset: {
-        true: 'pl-8',
-      },
-      variant: {
-        default: [
-          'focus:bg-accent focus:text-accent-foreground',
-          'data-state-open:bg-accent data-state-open:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-          'data-highlighted:data-state-open:bg-accent data-highlighted:data-state-open:text-accent-foreground',
-        ],
-        destructive: [
-          'focus:bg-destructive-foreground focus:text-destructive',
-          'data-state-open:bg-destructive-foreground data-state-open:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-          'data-highlighted:data-state-open:bg-destructive-foreground data-highlighted:data-state-open:text-destructive',
-        ],
-      },
-    },
-  },
-);
-
 export const ContextMenuSubTrigger = forwardRef<
   React.ElementRef<typeof SubTrigger>,
   React.ComponentPropsWithoutRef<typeof SubTrigger> &
@@ -185,35 +161,6 @@ ContextMenuSubTrigger.displayName = SubTrigger.displayName;
 /* -----------------------------------------------------------------------------
  * Component: ContextMenuItem
  * -------------------------------------------------------------------------- */
-
-const contextMenuItemVariants = cva(
-  [
-    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
-  ],
-  {
-    defaultVariants: {
-      inset: false,
-      variant: 'default',
-    },
-    variants: {
-      inset: {
-        true: 'pl-8',
-      },
-      variant: {
-        default: [
-          'focus:bg-accent focus:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-        ],
-        destructive: [
-          'text-destructive',
-          'focus:bg-destructive-foreground focus:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-        ],
-      },
-    },
-  },
-);
 
 export const ContextMenuItem = forwardRef<
   React.ElementRef<typeof Item>,
@@ -256,31 +203,6 @@ ContextMenuItem.displayName = Item.displayName;
  * Component: ContextMenuCheckboxItem
  * -------------------------------------------------------------------------- */
 
-const contextMenuCheckboxItemVariants = cva(
-  [
-    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
-  ],
-  {
-    defaultVariants: {
-      variant: 'default',
-    },
-    variants: {
-      variant: {
-        default: [
-          'focus:bg-accent focus:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-        ],
-        destructive: [
-          'text-destructive',
-          'focus:bg-destructive-foreground focus:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-        ],
-      },
-    },
-  },
-);
-
 export const ContextMenuCheckboxItem = forwardRef<
   React.ElementRef<typeof CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof CheckboxItem> & {
@@ -312,31 +234,6 @@ ContextMenuCheckboxItem.displayName = CheckboxItem.displayName;
 /* -----------------------------------------------------------------------------
  * Component: ContextMenuRadioItem
  * -------------------------------------------------------------------------- */
-
-const contextMenuRadioItemVariants = cva(
-  [
-    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
-  ],
-  {
-    defaultVariants: {
-      variant: 'default',
-    },
-    variants: {
-      variant: {
-        default: [
-          'focus:bg-accent focus:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-        ],
-        destructive: [
-          'text-destructive',
-          'focus:bg-destructive-foreground focus:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-        ],
-      },
-    },
-  },
-);
 
 export const ContextMenuRadioItem = forwardRef<
   React.ElementRef<typeof RadioItem>,
@@ -387,20 +284,6 @@ export const ContextMenuGroup = Group;
 /* -----------------------------------------------------------------------------
  * Component: ContextMenuLabel
  * -------------------------------------------------------------------------- */
-
-const contextMenuLabelVariants = cva(
-  'text-foreground cursor-default px-2 py-1.5 text-sm font-semibold',
-  {
-    defaultVariants: {
-      inset: false,
-    },
-    variants: {
-      inset: {
-        true: 'pl-8',
-      },
-    },
-  },
-);
 
 export const ContextMenuLabel = forwardRef<
   React.ElementRef<typeof Label>,

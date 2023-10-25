@@ -1,9 +1,14 @@
+'use client';
+
 import { Indicator, Item, Root } from '@radix-ui/react-radio-group';
 import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
 import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
+import {
+  radioGroupItemVariants,
+  radioGroupVariants,
+} from 'src/cva/radio-group';
 
 /* -----------------------------------------------------------------------------
  * Provider: RadioGroupContext
@@ -16,18 +21,6 @@ export const RadioGroupContext = createContext<
 /* -----------------------------------------------------------------------------
  * Component: RadioGroup
  * -------------------------------------------------------------------------- */
-
-const radioGroupVariants = cva('', {
-  defaultVariants: {
-    variant: 'default',
-  },
-  variants: {
-    variant: {
-      default: 'grid gap-2',
-      simple: '',
-    },
-  },
-});
 
 export const RadioGroup = forwardRef<
   React.ElementRef<typeof Root>,
@@ -68,24 +61,6 @@ RadioGroupIndicator.displayName = Indicator.displayName;
 /* -----------------------------------------------------------------------------
  * Component: RadioGroupItem
  * -------------------------------------------------------------------------- */
-const radioGroupItemVariants = cva(
-  ['focus:outline-none', 'disabled:cursor-not-allowed disabled:opacity-50'],
-  {
-    defaultVariants: {
-      variant: 'default',
-    },
-    variants: {
-      variant: {
-        default: [
-          'text-primary border-muted-foreground h-4.25 w-4.25 aspect-square rounded-full border',
-          'focus:ring-ring/40 focus:ring-2',
-          'data-state-checked:border-primary',
-        ],
-        simple: ['group'],
-      },
-    },
-  },
-);
 
 export const RadioGroupItem = forwardRef<
   React.ElementRef<typeof Item>,

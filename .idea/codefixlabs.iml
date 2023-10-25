@@ -10,6 +10,11 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/ui/dist" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/apps/docs/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/hooks/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/lib/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/tailwindcss/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/ui/.turbo" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

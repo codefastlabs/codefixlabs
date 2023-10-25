@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Close,
   Content,
@@ -9,12 +11,12 @@ import {
   Trigger,
 } from '@radix-ui/react-dialog';
 import type { VariantProps } from 'class-variance-authority';
-import { cva, cx } from 'class-variance-authority';
+import { cx } from 'class-variance-authority';
 import { XIcon } from 'lucide-react';
 import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { buttonVariants } from './button';
+import { buttonVariants, dialogContentVariants } from './cva';
 
 /* -----------------------------------------------------------------------------
  * Provider: DialogContext
@@ -53,23 +55,6 @@ export const DialogClose = Close;
 /* -----------------------------------------------------------------------------
  * Component: DialogContent
  * -------------------------------------------------------------------------- */
-
-const dialogContentVariants = cva(
-  [
-    'bg-background relative rounded-lg border shadow-lg focus:outline-none',
-    'data-state-open:animate-content-show data-state-closed:animate-content-hide',
-  ],
-  {
-    defaultVariants: {
-      scrollable: false,
-    },
-    variants: {
-      scrollable: {
-        true: 'flex max-h-full flex-col overflow-hidden',
-      },
-    },
-  },
-);
 
 export const DialogContent = forwardRef<
   React.ElementRef<typeof Content>,
