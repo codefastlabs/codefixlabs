@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.10
+
+### Patch Changes
+
+- Extract cva class
+
 ## 0.1.9
 
 ### Patch Changes
