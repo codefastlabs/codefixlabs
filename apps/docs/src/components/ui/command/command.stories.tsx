@@ -8,7 +8,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '@codefixlabs/ui';
+} from '@codefixlabs/ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
   CalendarIcon,

@@ -1,1 +1,1 @@
-export * from './color';
+export * from '@/lib/color';

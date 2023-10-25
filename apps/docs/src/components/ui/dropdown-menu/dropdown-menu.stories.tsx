@@ -12,7 +12,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@codefixlabs/ui';
+} from '@codefixlabs/ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { MenuIcon } from 'lucide-react';
 import type { ComponentProps } from 'react';

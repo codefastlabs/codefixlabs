@@ -14,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
   Switch,
-} from '@codefixlabs/ui';
+} from '@codefixlabs/ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { BellIcon, CheckIcon } from 'lucide-react';
 

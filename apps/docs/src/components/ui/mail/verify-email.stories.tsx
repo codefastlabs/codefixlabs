@@ -1,4 +1,4 @@
-import { VerifyEmailTemplate } from '@codefixlabs/ui';
+import { VerifyEmailTemplate } from '@codefixlabs/ui/email';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof VerifyEmailTemplate> = {

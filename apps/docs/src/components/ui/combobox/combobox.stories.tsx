@@ -1,5 +1,5 @@
 import { getFirstInitials, wait } from '@codefixlabs/lib';
-import type { Option } from '@codefixlabs/ui';
+import type { Option } from '@codefixlabs/ui/react';
 import {
   Avatar,
   Button,
@@ -20,7 +20,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@codefixlabs/ui';
+} from '@codefixlabs/ui/react';
 import { faker } from '@faker-js/faker';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';

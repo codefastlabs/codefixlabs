@@ -9,7 +9,7 @@ import {
   FormMessage,
   InputPassword,
   Label,
-} from '@codefixlabs/ui';
+} from '@codefixlabs/ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { ComponentProps } from 'react';

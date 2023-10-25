@@ -1,4 +1,4 @@
-import { Button } from '@codefixlabs/ui';
+import { Button } from '@codefixlabs/ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
   ActivitySquare,

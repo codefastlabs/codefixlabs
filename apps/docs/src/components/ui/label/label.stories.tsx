@@ -1,4 +1,4 @@
-import { Input, Label } from '@codefixlabs/ui';
+import { Input, Label } from '@codefixlabs/ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import { useId } from 'react';

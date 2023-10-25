@@ -4,8 +4,7 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuTrigger,
-  navigationMenuTriggerVariants,
-} from '@codefixlabs/ui';
+} from '@codefixlabs/ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Link from 'next/link';
 import type {
@@ -16,6 +15,7 @@ import type {
   RefAttributes,
 } from 'react';
 import { forwardRef } from 'react';
+import { navigationMenuTriggerVariants } from '@codefixlabs/ui/cva';
 
 const meta: Meta<typeof NavigationMenu> = {
   component: NavigationMenu,

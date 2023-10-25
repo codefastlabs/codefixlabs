@@ -1,4 +1,4 @@
-import { Toggle } from '@codefixlabs/ui';
+import { Toggle } from '@codefixlabs/ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ItalicIcon } from 'lucide-react';
 

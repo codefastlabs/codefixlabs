@@ -1,4 +1,4 @@
-import { MagicLinkTemplate } from '@codefixlabs/ui';
+import { MagicLinkTemplate } from '@codefixlabs/ui/email';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof MagicLinkTemplate> = {

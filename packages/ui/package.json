@@ -4,17 +4,41 @@
   "license": "MIT",
   "exports": {
     "./package.json": "./package.json",
-    "./styles.css": "./dist/index.css",
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+    "./styles.css": "./dist/styles.css",
+    "./cva": {
+      "types": "./dist/cva/index.d.ts",
+      "import": "./dist/cva/index.mjs",
+      "require": "./dist/cva/index.js"
+    },
+    "./email": {
+      "types": "./dist/email/index.d.ts",
+      "import": "./dist/email/index.mjs",
+      "require": "./dist/email/index.js"
+    },
+    "./lib": {
+      "types": "./dist/lib/index.d.ts",
+      "import": "./dist/lib/index.mjs",
+      "require": "./dist/lib/index.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.mjs",
+      "require": "./dist/react/index.js"
     }
   },
   "typesVersions": {
     "*": {
-      "*": [
-        "dist/*"
+      "cva": [
+        "dist/cva/index.d.ts"
+      ],
+      "email": [
+        "dist/email/index.d.ts"
+      ],
+      "lib": [
+        "dist/lib/index.d.ts"
+      ],
+      "react": [
+        "dist/react/index.d.ts"
       ]
     }
   },

@@ -19,7 +19,7 @@ import {
   Input,
   InputPassword,
   Label,
-} from '@codefixlabs/ui';
+} from '@codefixlabs/ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
