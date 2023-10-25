@@ -30,7 +30,7 @@ export const Basic: Story = {
         <Button variant="outline">Show Dialog</Button>
       </AlertDialogTrigger>
 
-      <AlertDialogContent className="max-w-lg">
+      <AlertDialogContent className="w-screen max-w-lg">
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
         </AlertDialogHeader>
@@ -56,7 +56,7 @@ export const Scrolling: Story = {
         <Button variant="outline">Edit Profile</Button>
       </AlertDialogTrigger>
 
-      <AlertDialogContent className="max-w-lg">
+      <AlertDialogContent className="w-screen max-w-lg">
         <AlertDialogHeader>
           <AlertDialogTitle className="text-center">
             Edit profile

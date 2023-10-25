@@ -69,8 +69,8 @@ export const WithText: Story = {
 const formSchema = z.object({
   phone: z
     .object({
-      phoneCode: z.string().nonempty('Phone Code is required.'),
-      phoneNumber: z.string().nonempty('Phone Number is required.'),
+      phoneCode: z.string().min(1, 'Phone Code is required.'),
+      phoneNumber: z.string().min(1, 'Phone Number is required.'),
     })
     .refine((value) => isValidPhoneNumber(value), {
       message: 'Phone Number is invalid.',

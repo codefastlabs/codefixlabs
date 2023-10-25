@@ -44,7 +44,7 @@ export const Basic: Story = {
         <Button variant="outline">Edit Profile</Button>
       </DialogTrigger>
 
-      <DialogContent>
+      <DialogContent className="w-screen max-w-lg">
         <DialogHeader>
           <DialogTitle className="text-center">Edit profile</DialogTitle>
         </DialogHeader>
@@ -74,7 +74,7 @@ export const Basic: Story = {
           </div>
         </DialogBody>
         <DialogFooter>
-          <DialogClose asChild>
+          <DialogClose asChild className="ml-auto">
             <Button type="submit">Save changes</Button>
           </DialogClose>
         </DialogFooter>
@@ -97,7 +97,7 @@ export const Scrolling: Story = {
         <Button variant="outline">Edit Profile</Button>
       </DialogTrigger>
 
-      <DialogContent>
+      <DialogContent className="w-screen max-w-lg">
         <DialogHeader>
           <DialogTitle className="text-center">Edit profile</DialogTitle>
         </DialogHeader>
@@ -118,7 +118,7 @@ export const Scrolling: Story = {
         </DialogBody>
 
         <DialogFooter>
-          <DialogClose asChild>
+          <DialogClose asChild className="ml-auto">
             <Button type="submit">Save changes</Button>
           </DialogClose>
         </DialogFooter>
@@ -139,11 +139,11 @@ export const Scrollable: Story = {
  * -------------------------------------------------------------------------- */
 
 const dialogFormSchema = z.object({
-  confirmPassword: z.string().nonempty().max(255),
+  confirmPassword: z.string().min(1).max(255),
   email: z.string().email().max(255),
-  firstName: z.string().nonempty().max(255),
-  lastName: z.string().nonempty().max(255),
-  password: z.string().nonempty().max(255),
+  firstName: z.string().min(1).max(255),
+  lastName: z.string().min(1).max(255),
+  password: z.string().min(1).max(255),
 });
 
 type DialogFormSchema = z.infer<typeof dialogFormSchema>;
@@ -178,7 +178,7 @@ function DialogForm(
       <DialogTrigger asChild>
         <Button variant="outline">Edit Profile</Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="w-screen max-w-lg">
         <DialogHeader>
           <DialogTitle className="text-center">Edit profile</DialogTitle>
         </DialogHeader>

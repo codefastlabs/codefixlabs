@@ -67,8 +67,13 @@ export const DrawerClose = Close;
 export const DrawerContent = forwardRef<
   React.ElementRef<typeof Content>,
   Omit<VariantProps<typeof drawerContentVariants>, 'position' | 'scrollable'> &
-    React.ComponentPropsWithoutRef<typeof Content>
->(({ children, className, ...props }, forwardedRef) => {
+    React.ComponentPropsWithoutRef<typeof Content> & {
+      classNames?: {
+        content?: string;
+        overlay?: string;
+      };
+    }
+>(({ children, className, classNames, ...props }, forwardedRef) => {
   const { variant, scrollable, position } = useContext(DrawerContext);
 
   return (
@@ -76,18 +81,20 @@ export const DrawerContent = forwardRef<
       <Overlay
         className={cx(
           [
-            'bg-background/80 fixed inset-0 z-40 flex backdrop-blur',
+            'bg-background/80 fixed inset-0 z-40 flex',
             'data-state-open:animate-overlay-show data-state-closed:animate-overlay-hide',
           ],
           {
             'justify-end': position === 'right',
             'justify-start': position === 'left',
           },
+          classNames?.overlay,
         )}
       >
         <Content
           className={twMerge(
             drawerContentVariants({ className, position, scrollable }),
+            classNames?.content,
           )}
           ref={forwardedRef}
           {...props}
@@ -99,12 +106,12 @@ export const DrawerContent = forwardRef<
                 aria-label="Close"
                 className={twMerge(
                   buttonVariants({
-                    className: 'absolute right-4 top-3.5',
                     icon: true,
                     shape: 'pill',
                     size: 'sm',
                     variant: 'ghost',
                   }),
+                  'absolute right-4 top-3.5',
                 )}
               >
                 <XIcon className="h-4 w-4" />

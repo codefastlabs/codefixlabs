@@ -59,8 +59,13 @@ export const DialogClose = Close;
 export const DialogContent = forwardRef<
   React.ElementRef<typeof Content>,
   Omit<VariantProps<typeof dialogContentVariants>, 'scrollable'> &
-    React.ComponentPropsWithoutRef<typeof Content>
->(({ children, className, ...props }, forwardedRef) => {
+    React.ComponentPropsWithoutRef<typeof Content> & {
+      classNames?: {
+        content?: string;
+        overlay?: string;
+      };
+    }
+>(({ children, className, classNames, ...props }, forwardedRef) => {
   const { variant, scrollable } = useContext(DialogContext);
 
   return (
@@ -68,16 +73,20 @@ export const DialogContent = forwardRef<
       <Overlay
         className={cx(
           [
-            'bg-background/80 fixed inset-0 z-40 p-4 backdrop-blur sm:p-10',
+            'bg-background/80 fixed inset-0 z-40 p-4 sm:p-10',
             'data-state-open:animate-overlay-show data-state-closed:animate-overlay-hide',
           ],
           scrollable
             ? 'flex items-center justify-center'
             : 'grid place-items-center overflow-auto',
+          classNames?.overlay,
         )}
       >
         <Content
-          className={twMerge(dialogContentVariants({ className, scrollable }))}
+          className={twMerge(
+            dialogContentVariants({ className, scrollable }),
+            classNames?.content,
+          )}
           ref={forwardedRef}
           {...props}
         >
@@ -88,12 +97,12 @@ export const DialogContent = forwardRef<
                 aria-label="Close"
                 className={twMerge(
                   buttonVariants({
-                    className: 'absolute right-4 top-3.5',
                     icon: true,
                     shape: 'pill',
                     size: 'sm',
                     variant: 'ghost',
                   }),
+                  'absolute right-4 top-3.5',
                 )}
               >
                 <XIcon className="h-4 w-4" />
