@@ -1,12 +1,20 @@
+function removeEmoji(text: string): string {
+  return text.replace(/\p{Emoji}/gu, '');
+}
+
+function convertSpecialTextToLatin(text: string): string {
+  return text.normalize('NFKD').replace(/[\u0300-\u036F]/g, '');
+}
+
 export const getFirstInitials = (
-  str: string | null | undefined,
+  text: string | null | undefined,
   fallback?: string,
 ): string => {
-  if (!str) {
+  if (!text) {
     return fallback || '';
   }
 
-  return str
+  return convertSpecialTextToLatin(removeEmoji(text))
     .split(' ')
     .slice(0, 2)
     .map((word) => word.charAt(0).toUpperCase())
