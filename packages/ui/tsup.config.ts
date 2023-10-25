@@ -9,6 +9,6 @@ export default defineConfig((options: Options) => ({
   format: ['esm', 'cjs'],
   minify: true,
   sourcemap: true,
-  splitting: true,
+  splitting: false,
   ...options,
 }));
