@@ -1,5 +1,14 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.9
+
+### Patch Changes
+
+- Change splitting from true to false
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.2
+  - @codefixlabs/tsconfig@0.1.2
+
 ## 0.1.8
 
 ### Patch Changes

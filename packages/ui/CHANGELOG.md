@@ -1,5 +1,17 @@
 # @codefixlabs/ui
 
+## 0.1.12
+
+### Patch Changes
+
+- Change splitting from true to false
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.2
+  - @codefixlabs/hooks@0.1.3
+  - @codefixlabs/lib@0.1.7
+  - @codefixlabs/tailwindcss@0.1.9
+  - @codefixlabs/tsconfig@0.1.2
+
 ## 0.1.11
 
 ### Patch Changes

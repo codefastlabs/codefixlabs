@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.2
+
+### Patch Changes
+
+- Change splitting from true to false
+
 ## 0.1.1
 
 ### Patch Changes

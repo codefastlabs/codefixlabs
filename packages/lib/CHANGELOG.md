@@ -1,5 +1,14 @@
 # @codefixlabs/lib
 
+## 0.1.7
+
+### Patch Changes
+
+- Change splitting from true to false
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.2
+  - @codefixlabs/tsconfig@0.1.2
+
 ## 0.1.6
 
 ### Patch Changes
