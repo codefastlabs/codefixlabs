@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.17
+
+### Patch Changes
+
+- Update alert dialog
+
 ## 0.1.16
 
 ### Patch Changes
