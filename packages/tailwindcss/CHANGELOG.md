@@ -1,5 +1,14 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.11
+
+### Patch Changes
+
+- Rename email to mail
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.4
+  - @codefixlabs/tsconfig@0.1.4
+
 ## 0.1.10
 
 ### Patch Changes

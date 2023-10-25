@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.4
+
+### Patch Changes
+
+- Rename email to mail
+
 ## 0.1.3
 
 ### Patch Changes

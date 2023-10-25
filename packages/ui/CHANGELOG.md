@@ -1,5 +1,17 @@
 # @codefixlabs/ui
 
+## 0.1.14
+
+### Patch Changes
+
+- Rename email to mail
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.4
+  - @codefixlabs/hooks@0.1.5
+  - @codefixlabs/lib@0.1.9
+  - @codefixlabs/tailwindcss@0.1.11
+  - @codefixlabs/tsconfig@0.1.4
+
 ## 0.1.13
 
 ### Patch Changes
