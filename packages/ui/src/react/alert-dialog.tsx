@@ -50,8 +50,13 @@ export function AlertDialog({
 export const AlertDialogContent = forwardRef<
   React.ElementRef<typeof Content>,
   Omit<VariantProps<typeof alertDialogContentVariants>, 'scrollable'> &
-    React.ComponentPropsWithoutRef<typeof Content>
->(({ className, ...props }, forwardedRef) => {
+    React.ComponentPropsWithoutRef<typeof Content> & {
+      classNames?: {
+        content?: string;
+        overlay?: string;
+      };
+    }
+>(({ className, classNames, ...props }, forwardedRef) => {
   const { scrollable } = useContext(AlertDialogContext);
 
   return (
@@ -59,17 +64,19 @@ export const AlertDialogContent = forwardRef<
       <Overlay
         className={cx(
           [
-            'bg-background/80 fixed inset-0 z-40 p-4 backdrop-blur sm:p-10',
+            'bg-background/80 fixed inset-0 z-40 p-4 sm:p-10',
             'data-state-open:animate-overlay-show data-state-closed:animate-overlay-hide',
           ],
           scrollable
             ? 'flex items-center justify-center'
             : 'grid place-items-center overflow-auto',
+          classNames?.overlay,
         )}
       >
         <Content
           className={twMerge(
             alertDialogContentVariants({ className, scrollable }),
+            classNames?.content,
           )}
           ref={forwardedRef}
           {...props}
@@ -90,7 +97,7 @@ export const AlertDialogAction = forwardRef<
   React.ComponentPropsWithoutRef<typeof Action>
 >(({ className, ...props }, forwardedRef) => (
   <Action
-    className={twMerge(buttonVariants({ className, variant: 'destructive' }))}
+    className={twMerge(buttonVariants({ variant: 'destructive' }), className)}
     ref={forwardedRef}
     {...props}
   />
@@ -109,7 +116,7 @@ export const AlertDialogCancel = forwardRef<
   <Cancel
     ref={forwardedRef}
     {...props}
-    className={twMerge(buttonVariants({ className, variant: 'outline' }))}
+    className={twMerge(buttonVariants({ variant: 'outline' }), className)}
   />
 ));
 

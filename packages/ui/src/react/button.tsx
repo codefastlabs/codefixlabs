@@ -68,13 +68,13 @@ export const Button = forwardRef<
         className={twMerge(
           buttonVariants({
             block,
-            className,
             icon: icon || !Children.count(children),
             justify,
             shape,
             size,
             variant,
           }),
+          className,
         )}
         data-disabled={loading || props.disabled ? true : undefined}
         disabled={loading || props.disabled}
@@ -104,9 +104,9 @@ export const Button = forwardRef<
           <EndIcon
             className={twMerge(
               innerButtonVariants({
-                className: classNames?.endIcon,
                 loading: loading && !startIcon,
               }),
+              classNames?.endIcon,
             )}
           />
         ) : null}
