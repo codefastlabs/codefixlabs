@@ -1,5 +1,14 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.8
+
+### Patch Changes
+
+- Run update
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.1
+  - @codefixlabs/tsconfig@0.1.1
+
 ## 0.1.7
 
 ### Patch Changes

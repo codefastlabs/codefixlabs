@@ -1,5 +1,14 @@
 # @codefixlabs/hooks
 
+## 0.1.2
+
+### Patch Changes
+
+- Run update
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.1
+  - @codefixlabs/tsconfig@0.1.1
+
 ## 0.1.1
 
 ### Patch Changes

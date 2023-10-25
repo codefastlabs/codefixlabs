@@ -1,5 +1,17 @@
 # @codefixlabs/ui
 
+## 0.1.11
+
+### Patch Changes
+
+- Run update
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.1
+  - @codefixlabs/hooks@0.1.2
+  - @codefixlabs/lib@0.1.6
+  - @codefixlabs/tailwindcss@0.1.8
+  - @codefixlabs/tsconfig@0.1.1
+
 ## 0.1.10
 
 ### Patch Changes
