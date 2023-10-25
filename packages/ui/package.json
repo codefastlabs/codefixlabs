@@ -10,15 +10,15 @@
       "import": "./dist/cva/index.mjs",
       "require": "./dist/cva/index.js"
     },
-    "./email": {
-      "types": "./dist/email/index.d.ts",
-      "import": "./dist/email/index.mjs",
-      "require": "./dist/email/index.js"
-    },
     "./lib": {
       "types": "./dist/lib/index.d.ts",
       "import": "./dist/lib/index.mjs",
       "require": "./dist/lib/index.js"
+    },
+    "./mail": {
+      "types": "./dist/mail/index.d.ts",
+      "import": "./dist/mail/index.mjs",
+      "require": "./dist/mail/index.js"
     },
     "./react": {
       "types": "./dist/react/index.d.ts",
@@ -31,11 +31,11 @@
       "cva": [
         "dist/cva/index.d.ts"
       ],
-      "email": [
-        "dist/email/index.d.ts"
-      ],
       "lib": [
         "dist/lib/index.d.ts"
+      ],
+      "mail": [
+        "dist/mail/index.d.ts"
       ],
       "react": [
         "dist/react/index.d.ts"

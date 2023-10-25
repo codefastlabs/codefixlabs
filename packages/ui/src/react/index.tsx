@@ -1,3 +1,5 @@
+'use client';
+
 export * from '@/react/accordion';
 export * from '@/react/alert';
 export * from '@/react/alert-dialog';
