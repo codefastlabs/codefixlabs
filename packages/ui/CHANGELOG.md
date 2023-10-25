@@ -1,5 +1,17 @@
 # @codefixlabs/ui
 
+## 0.1.15
+
+### Patch Changes
+
+- Extra toolbar
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.5
+  - @codefixlabs/hooks@0.1.6
+  - @codefixlabs/lib@0.1.10
+  - @codefixlabs/tailwindcss@0.1.12
+  - @codefixlabs/tsconfig@0.1.5
+
 ## 0.1.14
 
 ### Patch Changes

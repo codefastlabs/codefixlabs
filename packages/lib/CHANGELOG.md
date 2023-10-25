@@ -1,5 +1,14 @@
 # @codefixlabs/lib
 
+## 0.1.10
+
+### Patch Changes
+
+- Extra toolbar
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.5
+  - @codefixlabs/tsconfig@0.1.5
+
 ## 0.1.9
 
 ### Patch Changes

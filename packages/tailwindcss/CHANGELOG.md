@@ -1,5 +1,14 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.12
+
+### Patch Changes
+
+- Extra toolbar
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.5
+  - @codefixlabs/tsconfig@0.1.5
+
 ## 0.1.11
 
 ### Patch Changes
