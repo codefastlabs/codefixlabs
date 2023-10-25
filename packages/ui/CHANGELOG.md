@@ -1,5 +1,15 @@
 # @codefixlabs/ui
 
+## 0.1.18
+
+### Patch Changes
+
+- Updated dependencies
+  - @codefixlabs/tsconfig@0.1.6
+  - @codefixlabs/hooks@0.1.7
+  - @codefixlabs/lib@0.1.11
+  - @codefixlabs/tailwindcss@0.1.13
+
 ## 0.1.17
 
 ### Patch Changes

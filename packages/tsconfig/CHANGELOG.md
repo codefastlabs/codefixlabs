@@ -1,5 +1,11 @@
 # @codefixlabs/tsconfig
 
+## 0.1.6
+
+### Patch Changes
+
+- Change target to ES2015
+
 ## 0.1.5
 
 ### Patch Changes
