@@ -1,5 +1,14 @@
 # @codefixlabs/hooks
 
+## 0.1.4
+
+### Patch Changes
+
+- Group ui lib and tsup config
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.3
+  - @codefixlabs/tsconfig@0.1.3
+
 ## 0.1.3
 
 ### Patch Changes

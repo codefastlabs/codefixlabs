@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.3
+
+### Patch Changes
+
+- Group ui lib and tsup config
+
 ## 0.1.2
 
 ### Patch Changes
