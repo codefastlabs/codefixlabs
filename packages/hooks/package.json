@@ -34,13 +34,13 @@
   },
   "dependencies": {
     "@codefixlabs/tsconfig": "workspace:*",
-    "@types/react": "18.2.31",
-    "country-state-city": "3.2.1",
+    "@types/react": "^18.2.31",
+    "country-state-city": "^3.2.1",
     "eslint-config-codefixlabs": "workspace:*",
-    "react": "18.2.0",
-    "tsup": "7.2.0",
-    "typescript": "5.2.2",
-    "zustand": "4.4.4"
+    "react": "^18.2.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "zustand": "^4.4.4"
   },
   "publishConfig": {
     "access": "public"
