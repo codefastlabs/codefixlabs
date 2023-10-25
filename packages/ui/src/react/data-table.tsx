@@ -409,20 +409,28 @@ export function DataTableViewOptions<TData>({
  * -------------------------------------------------------------------------- */
 
 export function DataTableToolbar<TData>({
-  table,
+  children,
   className,
+  table,
 }: {
-  table: TableType<TData>;
+  children?: React.ReactNode;
   className?: string;
+  table: TableType<TData>;
 }): React.JSX.Element {
   return (
     <div
-      className={twMerge('flex items-center justify-between gap-4', className)}
+      className={twMerge(
+        'flex flex-wrap items-center justify-between gap-4',
+        className,
+      )}
     >
       <div className="flex grow items-center gap-2">
         <DataTableSearch table={table} />
       </div>
-      <DataTableViewOptions table={table} />
+      <div className="flex flex-wrap items-center gap-2">
+        <DataTableViewOptions table={table} />
+        {children}
+      </div>
     </div>
   );
 }
@@ -739,10 +747,12 @@ export function DataTable<TData>({
   columns = [],
   classNames = {},
   showFooter = false,
+  toolbar,
   ...props
 }: Omit<TableOptions<TData>, 'getCoreRowModel'> & {
   classNames?: React.ComponentProps<typeof DataTableContent>['classNames'];
   showFooter?: boolean;
+  toolbar?: React.ReactNode;
 }): React.JSX.Element {
   const table = useReactTable({
     columns,
@@ -757,7 +767,9 @@ export function DataTable<TData>({
 
   return (
     <div className={twMerge('space-y-4', classNames.root)}>
-      <DataTableToolbar className={classNames.toolbar} table={table} />
+      <DataTableToolbar className={classNames.toolbar} table={table}>
+        {toolbar}
+      </DataTableToolbar>
       <DataTableContent
         classNames={classNames}
         columns={columns}
