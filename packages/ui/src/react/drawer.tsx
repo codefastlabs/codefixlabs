@@ -93,7 +93,8 @@ export const DrawerContent = forwardRef<
       >
         <Content
           className={twMerge(
-            drawerContentVariants({ className, position, scrollable }),
+            drawerContentVariants({ position, scrollable }),
+            className,
             classNames?.content,
           )}
           ref={forwardedRef}

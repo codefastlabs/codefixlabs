@@ -147,7 +147,7 @@ export const NavigationMenuTrigger = forwardRef<
   React.ComponentPropsWithoutRef<typeof Trigger>
 >(({ children, className, ...props }, forwardedRef) => (
   <Trigger
-    className={twMerge(navigationMenuTriggerVariants({ className }))}
+    className={twMerge(navigationMenuTriggerVariants(), className)}
     ref={forwardedRef}
     {...props}
   >

@@ -26,7 +26,7 @@ export const RadioGroup = forwardRef<
 >(({ className, variant = 'default', ...props }, forwardedRef) => (
   <RadioGroupContext.Provider value={{ variant }}>
     <Root
-      className={twMerge(radioGroupVariants({ className, variant }))}
+      className={twMerge(radioGroupVariants({ variant }), className)}
       ref={forwardedRef}
       {...props}
     />
@@ -68,7 +68,7 @@ export const RadioGroupItem = forwardRef<
 
   return (
     <Item
-      className={twMerge(radioGroupItemVariants({ className, variant }))}
+      className={twMerge(radioGroupItemVariants({ variant }), className)}
       ref={forwardedRef}
       {...props}
     >

@@ -128,7 +128,7 @@ export const ToolbarToggleItem = forwardRef<
   <ToggleItem
     ref={forwardedRef}
     {...props}
-    className={twMerge(toolbarToggleItemVariants({ className, size, variant }))}
+    className={twMerge(toolbarToggleItemVariants({ size, variant }), className)}
   />
 ));
 

@@ -80,7 +80,7 @@ export const SelectTrigger = forwardRef<
     VariantProps<typeof selectTriggerVariants>
 >(({ children, className, size, block, ...props }, forwardedRef) => (
   <Trigger
-    className={twMerge(selectTriggerVariants({ block, className, size }))}
+    className={twMerge(selectTriggerVariants({ block, size }), className)}
     ref={forwardedRef}
     {...props}
   >
@@ -159,9 +159,9 @@ export const SelectContent = forwardRef<
     <Content
       className={twMerge(
         selectContentVariants({
-          className,
           position: props.position ?? 'item-aligned',
         }),
+        className,
       )}
       ref={forwardedRef}
       sideOffset={5}
@@ -214,7 +214,7 @@ export const SelectItem = forwardRef<
     VariantProps<typeof selectItemVariants>
 >(({ children, className, variant, ...props }, forwardedRef) => (
   <Item
-    className={twMerge(selectItemVariants({ className, variant }))}
+    className={twMerge(selectItemVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   >

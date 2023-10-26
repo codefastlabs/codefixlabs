@@ -84,7 +84,8 @@ export const DialogContent = forwardRef<
       >
         <Content
           className={twMerge(
-            dialogContentVariants({ className, scrollable }),
+            dialogContentVariants({ scrollable }),
+            className,
             classNames?.content,
           )}
           ref={forwardedRef}

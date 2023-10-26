@@ -31,7 +31,7 @@ export const ToastViewport = forwardRef<
     VariantProps<typeof toastViewportVariants>
 >(({ className, position = 'bottom-right', ...props }, forwardedRef) => (
   <Viewport
-    className={twMerge(toastViewportVariants({ className, position }))}
+    className={twMerge(toastViewportVariants({ position }), className)}
     ref={forwardedRef}
     {...props}
   />
@@ -49,7 +49,7 @@ export const Toast = forwardRef<
     VariantProps<typeof toastVariants>
 >(({ className, variant, ...props }, forwardedRef) => (
   <Root
-    className={twMerge(toastVariants({ className, variant }))}
+    className={twMerge(toastVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   />

@@ -49,7 +49,7 @@ export const TabsList = forwardRef<
 
   return (
     <List
-      className={twMerge(tabsListVariants({ className, variant }))}
+      className={twMerge(tabsListVariants({ variant }), className)}
       ref={forwardedRef}
       {...props}
     />
@@ -71,7 +71,7 @@ export const TabsTrigger = forwardRef<
 
   return (
     <Trigger
-      className={twMerge(tabsTriggerVariants({ className, variant }))}
+      className={twMerge(tabsTriggerVariants({ variant }), className)}
       ref={forwardedRef}
       {...props}
     />
@@ -93,7 +93,7 @@ export const TabsContent = forwardRef<
 
   return (
     <Content
-      className={twMerge(tabsContentVariants({ className, variant }))}
+      className={twMerge(tabsContentVariants({ variant }), className)}
       ref={forwardedRef}
       {...props}
     />

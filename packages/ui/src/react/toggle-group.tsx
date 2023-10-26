@@ -37,7 +37,7 @@ export const ToggleGroupItem = forwardRef<
     VariantProps<typeof toggleGroupItemVariants>
 >(({ className, variant = 'primary', size = 'md', ...props }, forwardedRef) => (
   <Item
-    className={twMerge(toggleGroupItemVariants({ className, size, variant }))}
+    className={twMerge(toggleGroupItemVariants({ size, variant }), className)}
     ref={forwardedRef}
     {...props}
   />

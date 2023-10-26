@@ -17,7 +17,7 @@ export function Badge({
   VariantProps<typeof badgeVariants>): React.JSX.Element {
   return (
     <div
-      className={twMerge(badgeVariants({ className, variant }))}
+      className={twMerge(badgeVariants({ variant }), className)}
       {...props}
     />
   );

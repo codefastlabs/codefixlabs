@@ -20,7 +20,7 @@ export const PrimitiveInput = forwardRef<
     VariantProps<typeof primitiveInputVariants>
 >(({ className, size, inline, ...props }, forwardedRef) => (
   <input
-    className={twMerge(primitiveInputVariants({ className, inline, size }))}
+    className={twMerge(primitiveInputVariants({ inline, size }), className)}
     ref={forwardedRef}
     {...props}
   />

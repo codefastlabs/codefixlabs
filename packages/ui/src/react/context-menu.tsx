@@ -139,10 +139,10 @@ export const ContextMenuSubTrigger = forwardRef<
   <SubTrigger
     className={twMerge(
       contextMenuSubTriggerVariants({
-        className,
         inset,
         variant,
       }),
+      className,
     )}
     ref={forwardedRef}
     {...props}
@@ -175,10 +175,10 @@ export const ContextMenuItem = forwardRef<
     <Item
       className={twMerge(
         contextMenuItemVariants({
-          className,
           inset,
           variant,
         }),
+        className,
       )}
       ref={forwardedRef}
       {...props}
@@ -212,9 +212,9 @@ export const ContextMenuCheckboxItem = forwardRef<
   <CheckboxItem
     className={twMerge(
       contextMenuCheckboxItemVariants({
-        className,
         variant,
       }),
+      className,
     )}
     ref={forwardedRef}
     {...props}
@@ -242,7 +242,7 @@ export const ContextMenuRadioItem = forwardRef<
   } & VariantProps<typeof contextMenuRadioItemVariants>
 >(({ children, className, variant, shortcut, ...props }, forwardedRef) => (
   <RadioItem
-    className={twMerge(contextMenuRadioItemVariants({ className, variant }))}
+    className={twMerge(contextMenuRadioItemVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   >
@@ -291,7 +291,7 @@ export const ContextMenuLabel = forwardRef<
     VariantProps<typeof contextMenuLabelVariants>
 >(({ className, inset = false, ...props }, forwardedRef) => (
   <Label
-    className={twMerge(contextMenuLabelVariants({ className, inset }))}
+    className={twMerge(contextMenuLabelVariants({ inset }), className)}
     ref={forwardedRef}
     {...props}
   />

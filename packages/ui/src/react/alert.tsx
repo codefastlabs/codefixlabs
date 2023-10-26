@@ -15,7 +15,7 @@ export const Alert = forwardRef<
   React.ComponentProps<'div'> & VariantProps<typeof alertVariants>
 >(({ className, variant, ...props }, forwardedRef) => (
   <div
-    className={twMerge(alertVariants({ className, variant }))}
+    className={twMerge(alertVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   />

@@ -174,10 +174,10 @@ export const MenubarSubTrigger = forwardRef<
   <SubTrigger
     className={twMerge(
       menubarSubTriggerVariants({
-        className,
         inset,
         variant,
       }),
+      className,
     )}
     ref={forwardedRef}
     {...props}
@@ -208,7 +208,7 @@ export const MenubarItem = forwardRef<
     forwardedRef,
   ) => (
     <Item
-      className={twMerge(menubarItemVariants({ className, inset, variant }))}
+      className={twMerge(menubarItemVariants({ inset, variant }), className)}
       ref={forwardedRef}
       {...props}
     >
@@ -257,7 +257,7 @@ export const MenubarCheckboxItem = forwardRef<
   } & VariantProps<typeof menubarCheckboxItemVariants>
 >(({ children, className, variant, shortcut, ...props }, forwardedRef) => (
   <CheckboxItem
-    className={twMerge(menubarCheckboxItemVariants({ className, variant }))}
+    className={twMerge(menubarCheckboxItemVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   >
@@ -284,7 +284,7 @@ export const MenubarRadioItem = forwardRef<
   } & VariantProps<typeof menubarRadioItemVariants>
 >(({ children, className, variant, shortcut, ...props }, forwardedRef) => (
   <RadioItem
-    className={twMerge(menubarRadioItemVariants({ className, variant }))}
+    className={twMerge(menubarRadioItemVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   >
@@ -316,7 +316,7 @@ export const MenubarLabel = forwardRef<
     VariantProps<typeof menubarLabelVariants>
 >(({ className, inset = false, ...props }, forwardedRef) => (
   <Label
-    className={twMerge(menubarLabelVariants({ className, inset }))}
+    className={twMerge(menubarLabelVariants({ inset }), className)}
     ref={forwardedRef}
     {...props}
   />

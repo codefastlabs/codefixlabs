@@ -25,7 +25,7 @@ export const Label = forwardRef<
     forwardedRef,
   ) => (
     <Root
-      className={twMerge(labelVariants({ className, invalid, required }))}
+      className={twMerge(labelVariants({ invalid, required }), className)}
       ref={forwardedRef}
       {...props}
     >

@@ -28,7 +28,7 @@ export const Command = forwardRef<
     VariantProps<typeof commandVariants>
 >(({ className, variant = 'primary', ...props }, forwardedRef) => (
   <Root
-    className={twMerge(commandVariants({ className, variant }))}
+    className={twMerge(commandVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   />

@@ -75,7 +75,8 @@ export const AlertDialogContent = forwardRef<
       >
         <Content
           className={twMerge(
-            alertDialogContentVariants({ className, scrollable }),
+            alertDialogContentVariants({ scrollable }),
+            className,
             classNames?.content,
           )}
           ref={forwardedRef}

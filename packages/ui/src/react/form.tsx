@@ -101,7 +101,7 @@ export const FormItem = forwardRef<
   return (
     <FormItemContext.Provider value={{ id }}>
       <div
-        className={twMerge(formItemVariants({ className, inline }))}
+        className={twMerge(formItemVariants({ inline }), className)}
         ref={forwardedRef}
         {...props}
       />

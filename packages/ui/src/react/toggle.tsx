@@ -17,7 +17,7 @@ export const Toggle = forwardRef<
     VariantProps<typeof toggleVariants>
 >(({ className, variant, size, ...props }, forwardedRef) => (
   <Root
-    className={twMerge(toggleVariants({ className, size, variant }))}
+    className={twMerge(toggleVariants({ size, variant }), className)}
     ref={forwardedRef}
     {...props}
   />

@@ -113,10 +113,10 @@ export const DropdownMenuSubTrigger = forwardRef<
   <SubTrigger
     className={twMerge(
       dropdownMenuSubTriggerVariants({
-        className,
         inset,
         variant,
       }),
+      className,
     )}
     ref={forwardedRef}
     {...props}
@@ -149,10 +149,10 @@ export const DropdownMenuItem = forwardRef<
     <Item
       className={twMerge(
         dropdownMenuItemVariants({
-          className,
           inset,
           variant,
         }),
+        className,
       )}
       ref={forwardedRef}
       {...props}
@@ -206,9 +206,9 @@ export const DropdownMenuCheckboxItem = forwardRef<
   <CheckboxItem
     className={twMerge(
       dropdownMenuCheckboxItemVariants({
-        className,
         variant,
       }),
+      className,
     )}
     ref={forwardedRef}
     {...props}
@@ -238,7 +238,7 @@ export const DropdownMenuRadioItem = forwardRef<
   } & VariantProps<typeof dropdownMenuRadioItemVariants>
 >(({ children, className, variant, shortcut, ...props }, forwardedRef) => (
   <RadioItem
-    className={twMerge(dropdownMenuRadioItemVariants({ className, variant }))}
+    className={twMerge(dropdownMenuRadioItemVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   >
@@ -308,7 +308,7 @@ export const DropdownMenuLabel = forwardRef<
     VariantProps<typeof dropdownMenuLabelVariants>
 >(({ className, inset = false, ...props }, forwardedRef) => (
   <Label
-    className={twMerge(dropdownMenuLabelVariants({ className, inset }))}
+    className={twMerge(dropdownMenuLabelVariants({ inset }), className)}
     ref={forwardedRef}
     {...props}
   />
