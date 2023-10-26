@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.20
+
+### Patch Changes
+
+- Refactor class order in multiple components for consistency
+
 ## 0.1.19
 
 ### Patch Changes
