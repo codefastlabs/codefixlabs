@@ -33,9 +33,6 @@
     ]
   },
   "dependencies": {
-    "@codefixlabs/tsconfig": "workspace:*",
-    "@types/react": "^18.2.33",
-    "eslint-config-codefixlabs": "workspace:*",
     "libphonenumber-js": "^1.10.49",
     "react": "^18.2.0",
     "rehype-format": "^5.0.0",
@@ -47,9 +44,14 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.0.0",
     "remark-stringify": "^11.0.0",
-    "tsup": "^7.2.0",
-    "typescript": "^5.2.2",
     "unified": "^11.0.4"
+  },
+  "devDependencies": {
+    "@codefixlabs/tsconfig": "workspace:*",
+    "@types/react": "^18.2.33",
+    "eslint-config-codefixlabs": "workspace:*",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
   },
   "publishConfig": {
     "access": "public"

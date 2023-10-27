@@ -6,31 +6,62 @@ To create a new app, run the following command:
 
 ```sh
 cd apps
-pnpm create next-app
-pnpm add @codefixlabs/hooks@workspace @codefixlabs/tailwindcss@workspace @codefixlabs/tsconfig@workspace @codefixlabs/ui@workspace @codefixlabs/lib@workspace eslint-config-codefixlabs@workspace
-pnpm add class-variance-authority zod react-hook-form @hookform/resolvers prisma @prisma/client axios @next-auth/prisma-adapter next-auth tailwind-merge date-fns @faker-js/faker path-to-regexp slugify lucide-react @types/pluralize pluralize
+npx create-next-app --ts --tailwind --eslint --use-bun --app --import-alias "@/*" --src-dir "next-movies"
+# codefixlabs
+bun add @codefixlabs/hooks @codefixlabs/tsconfig @codefixlabs/ui @codefixlabs/lib
+bun add -D @codefixlabs/tailwindcss eslint-config-codefixlabs
+# prettier
+bun add -D prettier-plugin-packagejson prettier-plugin-tailwindcss
+# pre-commit
+bun add -D lint-staged simple-git-hooks
+# other
+bun add class-variance-authority zod react-hook-form @hookform/resolvers @prisma/client @next-auth/prisma-adapter next-auth tailwind-merge date-fns path-to-regexp slugify lucide-react pluralize
+bun add -D prisma @types/pluralize @faker-js/faker
 ```
 
 Update `package.json`
 
 ```diff
 {
-  "name": "@codefixlabs/airbnb",
-  "version": "0.0.0",
+  "name": "next-movies",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-+   "clean": "rm -rf .turbo .next node_modules",
++   "clean": "rm -rf .next node_modules",
 +   "db:generate": "prisma generate",
-+   "db:push": "prisma db push --skip-generate",
-+   "db:studio": "prisma studio"
++   "db:push": "prisma db push",
++   "db:studio": "prisma studio",
++   "prettier": "prettier --write --ignore-unknown .",
++   "prettier:check": "prettier --check --ignore-unknown .",
++   "postinstall": "pnpm exec simple-git-hooks",
   },
-  "dependencies": {
-    ...
-  }
++ "simple-git-hooks": {
++   "pre-commit": "pnpm exec lint-staged"
++ },
++ "lint-staged": {
++   "*": "prettier --write --ignore-unknown ."
++ },
++ "prettier": {
++   "plugins": [
++     "prettier-plugin-packagejson",
++     "prettier-plugin-tailwindcss"
++   ],
++   "singleQuote": true,
++   "tailwindAttributes": [
++     "classNames"
++   ],
++   "tailwindFunctions": [
++     "cva",
++     "cx",
++     "twMerge"
++   ],
++   "trailingComma": "all"
++ },
+  ...
 }
 ```
 
@@ -55,7 +86,6 @@ Update `tsconfig.json`
 -   "isolatedModules": true,
 -   "jsx": "preserve",
 -   "incremental": true,
-+   "baseUrl": "./",
     "plugins": [
       {
         "name": "next"
@@ -101,13 +131,12 @@ Update `prisma/schema.prisma`
 ```diff
 generator client {
   provider = "prisma-client-js"
-+ output   = "client"
 }
 
 datasource db {
   provider     = "mysql"
   url          = env("DATABASE_URL")
-+  relationMode = "prisma"
++  relationMode = "foreignKeys"
 }
 
 + model User {
@@ -115,21 +144,6 @@ datasource db {
 +  email String  @unique
 +  name  String?
 + }
-```
-
-Update `tsconfig.json`
-
-```diff
-{
-  ...
-  "compilerOptions": {
-    ...
-    "paths": {
-      "@/*": ["./src/*"],
-    }
-  },
-  ...
-}
 ```
 
 Create `/src/lib/database/index.ts`
@@ -152,7 +166,11 @@ if (process.env.NODE_ENV !== 'production') {
 /** @type {import('next').NextConfig} */
 - const nextConfig = {
 + experimental: {
-+   optimizePackageImports: ['@codefixlabs/ui'],
++   optimizePackageImports: [
++     '@codefixlabs/hooks',
++     '@codefixlabs/lib',
++     '@codefixlabs/ui',
++   ],
 + },
 };
 
@@ -164,9 +182,10 @@ module.exports = nextConfig
 In `postcss.config.js`
 
 ```diff
+/* eslint-disable sort-keys */
 module.exports = {
   plugins: {
-+  "tailwindcss/nesting": {},
++  'tailwindcss/nesting': {},
     tailwindcss: {},
     autoprefixer: {},
   },
@@ -176,25 +195,25 @@ module.exports = {
 In `tailwind.config.ts`
 
 ```diff
-+ import { sharedConfig } from "@codefixlabs/tailwindcss";
-import type { Config } from "tailwindcss"
++ import { sharedConfig } from '@codefixlabs/tailwindcss';
+import type { Config } from 'tailwindcss'
 
-const config: Pick<Config, "presets"> = {
+const config: Pick<Config, 'presets' | 'theme'> = {
 + presets: [sharedConfig],
 - content: [
 -   "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
 -   "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
 -   "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
 - ],
-- theme: {
--   extend: {
--     backgroundImage: {
--       "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
--       "gradient-conic":
--         "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
--     },
--   },
-- },
+  theme: {
+    extend: {
+      backgroundImage: {
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
+    },
+  },
 - plugins: [],
 }
 

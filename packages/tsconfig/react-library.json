@@ -3,10 +3,11 @@
   "display": "React Library",
   "extends": "./base.json",
   "compilerOptions": {
+    "target": "ES2015",
     "lib": ["ES2021", "DOM"],
     "module": "ESNext",
-    "target": "ES2015",
+    "noEmit": true,
     "jsx": "react-jsx",
-    "noEmit": true
+    "strictNullChecks": true
   }
 }

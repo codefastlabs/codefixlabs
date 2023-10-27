@@ -1,11 +1,12 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
 
 export const sharedConfig: Config = {
   content: [
-    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@codefixlabs/ui/dist/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   darkMode: ['class'],
@@ -15,18 +16,6 @@ export const sharedConfig: Config = {
         perspective: (value) => ({
           perspective: value,
         }),
-      });
-    }),
-    plugin(({ addBase }) => {
-      addBase({
-        'html, body, :root': {
-          '@apply h-full': {},
-        },
-      });
-      addBase({
-        body: {
-          '@apply bg-background text-foreground': {},
-        },
       });
     }),
   ],
@@ -215,6 +204,7 @@ export const sharedConfig: Config = {
         sans: [`var(--font-sans, ${fontFamily.sans.join(', ')})`],
       },
       height: {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
         screen: ['100vh', '100dvh'],
       },
@@ -409,14 +399,17 @@ export const sharedConfig: Config = {
         },
       },
       maxHeight: {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
         screen: ['100vh', '100dvh'],
       },
       minHeight: {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
         screen: ['100vh', '100dvh'],
       },
       spacing: {
+        /* eslint-disable sort-keys */
         0.75: '0.1875rem' /* 3px */,
         1.25: '0.3125rem' /* 5px */,
         1.75: '0.4375rem' /* 7px */,
@@ -425,69 +418,53 @@ export const sharedConfig: Config = {
         3.25: '0.8125rem' /* 13px */,
         3.75: '0.9375rem' /* 15px */,
         4.25: '1.0625rem' /* 17px */,
-        // eslint-disable-next-line sort-keys
         4.5: '1.125rem' /* 18px */,
         4.75: '1.1875rem' /* 19px */,
         5.25: '1.3125rem' /* 21px */,
-        // eslint-disable-next-line sort-keys
         5.5: '1.375rem' /* 22px */,
         5.75: '1.4375rem' /* 23px */,
         6.25: '1.5625rem' /* 25px */,
-        // eslint-disable-next-line sort-keys
         6.5: '1.625rem' /* 26px */,
         6.75: '1.6875rem' /* 27px */,
         7.25: '1.8125rem' /* 29px */,
-        // eslint-disable-next-line sort-keys
         7.5: '1.875rem' /* 30px */,
         7.75: '1.9375rem' /* 31px */,
         8.25: '2.0625rem' /* 33px */,
-        // eslint-disable-next-line sort-keys
         8.5: '2.125rem' /* 34px */,
         8.75: '2.1875rem' /* 35px */,
         9.25: '2.3125rem' /* 37px */,
-        // eslint-disable-next-line sort-keys
         9.5: '2.375rem' /* 38px */,
         9.75: '2.4375rem' /* 39px */,
         10.25: '2.5625rem' /* 41px */,
-        // eslint-disable-next-line sort-keys
         10.5: '2.625rem' /* 42px */,
         10.75: '2.6875rem' /* 43px */,
         11.25: '2.8125rem' /* 45px */,
-        // eslint-disable-next-line sort-keys
         11.5: '2.875rem' /* 46px */,
         11.75: '2.9375rem' /* 47px */,
         12.25: '3.0625rem' /* 49px */,
-        // eslint-disable-next-line sort-keys
         12.5: '3.125rem' /* 50px */,
         12.75: '3.1875rem' /* 51px */,
         13.25: '3.3125rem' /* 53px */,
-        // eslint-disable-next-line sort-keys
         13.5: '3.375rem' /* 54px */,
         13.75: '3.4375rem' /* 55px */,
         14.25: '3.5625rem' /* 57px */,
-        // eslint-disable-next-line sort-keys
         14.5: '3.625rem' /* 58px */,
         14.75: '3.6875rem' /* 59px */,
         15: '3.75rem' /* 60px */,
         15.25: '3.8125rem' /* 61px */,
-        // eslint-disable-next-line sort-keys
         15.5: '3.875rem' /* 62px */,
         15.75: '3.9375rem' /* 63px */,
         16.25: '4.0625rem' /* 65px */,
-        // eslint-disable-next-line sort-keys
         16.5: '4.125rem' /* 66px */,
         16.75: '4.1875rem' /* 67px */,
         17.25: '4.3125rem' /* 69px */,
-        // eslint-disable-next-line sort-keys
         17.5: '4.375rem' /* 70px */,
         17.75: '4.4375rem' /* 71px */,
         18: '4.5rem' /* 72px */,
         18.25: '4.5625rem' /* 73px */,
-        // eslint-disable-next-line sort-keys
         18.5: '4.625rem' /* 74px */,
         18.75: '4.6875rem' /* 75px */,
         19.25: '4.8125rem' /* 77px */,
-        // eslint-disable-next-line sort-keys
         19.5: '4.875rem' /* 78px */,
         19.75: '4.9375rem' /* 79px */,
       },
