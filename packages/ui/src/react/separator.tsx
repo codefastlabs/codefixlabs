@@ -1,7 +1,6 @@
 'use client';
 
 import { Root } from '@radix-ui/react-separator';
-import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 

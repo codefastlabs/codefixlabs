@@ -2,7 +2,6 @@
 
 import { Content, List, Root, Trigger } from '@radix-ui/react-tabs';
 import type { VariantProps } from 'class-variance-authority';
-import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
 import {

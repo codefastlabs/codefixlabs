@@ -3,7 +3,6 @@
 import { Slot } from '@radix-ui/react-slot';
 import { cx } from 'class-variance-authority';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
-import * as React from 'react';
 import { Fragment, useMemo, useState } from 'react';
 import { Button } from '@/react/button';
 import {
@@ -129,7 +128,7 @@ export function Combobox({
   selected: Option | Option['value'] | undefined;
   block?: boolean;
   disabled?: boolean;
-  icon?: IconType;
+  icon?: React.ReactNode;
   slot?: {
     FormControl?: typeof FormControl;
   };
@@ -153,11 +152,8 @@ export function Combobox({
           <Button
             block={block}
             className={classNameTrigger}
-            classNames={{
-              endIcon: 'h-3.5 w-3.5',
-            }}
             disabled={disabled}
-            endIcon={ChevronsUpDownIcon}
+            endIcon={<ChevronsUpDownIcon className="h-3.5 w-3.5" />}
             justify="between"
             startIcon={icon}
             variant="outline"

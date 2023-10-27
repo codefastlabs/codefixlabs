@@ -10,7 +10,7 @@ type ButtonVariant =
   | 'primary'
   | 'secondary';
 
-const sizes: {
+const btnSizes: {
   icon: boolean;
   sizes: {
     className: ClassValue;
@@ -21,6 +21,7 @@ const sizes: {
   {
     icon: true,
     sizes: [
+      // --- sm
       {
         className: 'px-2 h-8',
         size: 'sm',
@@ -31,7 +32,7 @@ const sizes: {
         size: 'sm',
         variant: ['outline'],
       },
-      // ---
+      // --- md
       {
         className: 'px-3 h-10',
         size: 'md',
@@ -42,7 +43,7 @@ const sizes: {
         size: 'md',
         variant: ['outline'],
       },
-      // ---
+      // --- lg
       {
         className: 'px-4 h-12',
         size: 'lg',
@@ -58,6 +59,7 @@ const sizes: {
   {
     icon: false,
     sizes: [
+      // --- sm
       {
         className: 'px-4 h-8',
         size: 'sm',
@@ -68,7 +70,7 @@ const sizes: {
         size: 'sm',
         variant: ['outline'],
       },
-      // ---
+      // --- md
       {
         className: 'px-5 h-10',
         size: 'md',
@@ -79,7 +81,7 @@ const sizes: {
         size: 'md',
         variant: ['outline'],
       },
-      // ---
+      // --- lg
       {
         className: 'px-6 h-12',
         size: 'lg',
@@ -95,13 +97,13 @@ const sizes: {
 ];
 
 // Flatten the array and group variants if the size is the same
-const compoundSizes = sizes.flatMap<{
+const compoundSizes = btnSizes.flatMap<{
   className: ClassValue;
   icon: boolean;
   size: ButtonSize;
   variant: ButtonVariant[];
-}>(({ icon, sizes: _sizes }) =>
-  _sizes.map(({ variant, size, className }) => ({
+}>(({ icon, sizes }) =>
+  sizes.map(({ variant, size, className }) => ({
     className,
     icon,
     size,
@@ -114,6 +116,7 @@ export const buttonVariants = cva(
     'relative select-none items-center gap-2 whitespace-nowrap text-sm font-medium transition-colors',
     'focus:ring-ring/40 focus:outline-none focus:ring-2',
     'data-disabled:cursor-not-allowed',
+    'data-disabled:ring-0',
   ],
   {
     compoundVariants: [

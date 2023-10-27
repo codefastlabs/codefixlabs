@@ -10,7 +10,6 @@ import {
   Trigger,
 } from '@radix-ui/react-popover';
 import { XIcon } from 'lucide-react';
-import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Button } from '@/react/button';
@@ -120,7 +119,11 @@ export const PopoverContent = forwardRef<
               asChild
               className="absolute right-2.5 top-2.5"
             >
-              <Button shape="pill" startIcon={XIcon} variant="ghost" />
+              <Button
+                shape="pill"
+                startIcon={<XIcon className="h-4 w-4" />}
+                variant="ghost"
+              />
             </PopoverClose>
           )}
         </>

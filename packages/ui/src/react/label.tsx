@@ -3,7 +3,6 @@
 import { Root } from '@radix-ui/react-label';
 import type { VariantProps } from 'class-variance-authority';
 import { InfoIcon } from 'lucide-react';
-import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/react/tooltip';

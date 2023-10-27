@@ -1,12 +1,11 @@
 'use client';
 
 import type { VariantProps } from 'class-variance-authority';
-import { Loader2Icon } from 'lucide-react';
-import * as React from 'react';
-import { Children, forwardRef, useMemo } from 'react';
+import { Children, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import type { IconType } from '@/react/icons';
-import { buttonVariants, innerButtonVariants } from '@/cva';
+import { Loader2Icon } from 'lucide-react';
+import type { innerButtonVariants } from '@/cva';
+import { buttonVariants } from '@/cva';
 
 /* -----------------------------------------------------------------------------
  * Component: Button
@@ -15,21 +14,16 @@ import { buttonVariants, innerButtonVariants } from '@/cva';
 export const Button = forwardRef<
   React.ElementRef<'button'>,
   VariantProps<typeof buttonVariants> &
+    VariantProps<typeof innerButtonVariants> &
     React.ComponentPropsWithoutRef<'button'> & {
-      endIcon?: IconType;
-      startIcon?: IconType;
-      classNames?: {
-        startIcon?: string;
-        endIcon?: string;
-      };
-      loading?: boolean;
+      endIcon?: React.ReactNode;
+      startIcon?: React.ReactNode;
     }
 >(
   (
     {
       children,
       className,
-      classNames,
       variant,
       size,
       block,
@@ -43,26 +37,6 @@ export const Button = forwardRef<
     },
     forwardedRef,
   ) => {
-    const StartIcon = useMemo(() => {
-      if (loading && (startIcon || !endIcon)) {
-        return Loader2Icon;
-      }
-
-      return startIcon;
-    }, [startIcon, endIcon, loading]);
-
-    const EndIcon = useMemo(() => {
-      if (loading && !startIcon && endIcon) {
-        return Loader2Icon;
-      }
-
-      return endIcon;
-    }, [startIcon, endIcon, loading]);
-
-    const hasIcon = useMemo(() => {
-      return Boolean(startIcon) || Boolean(endIcon);
-    }, [startIcon, endIcon]);
-
     return (
       <button
         className={twMerge(
@@ -82,33 +56,18 @@ export const Button = forwardRef<
         type="button"
         {...props}
       >
-        {StartIcon ? (
-          <StartIcon
-            className={twMerge(
-              innerButtonVariants({
-                loading,
-              }),
-              classNames?.startIcon,
-              !hasIcon && 'absolute',
-            )}
-          />
+        {startIcon}
+
+        {children ? (
+          <span className={loading ? 'opacity-0' : undefined}>{children}</span>
         ) : null}
 
-        {children && !hasIcon && loading ? (
-          <span className="opacity-0">{children}</span>
-        ) : (
-          children
-        )}
+        {endIcon}
 
-        {EndIcon ? (
-          <EndIcon
-            className={twMerge(
-              innerButtonVariants({
-                loading: loading && !startIcon,
-              }),
-              classNames?.endIcon,
-            )}
-          />
+        {loading ? (
+          <span className="absolute inset-0 flex items-center justify-center">
+            <Loader2Icon className="h-4 w-4 animate-spin" />
+          </span>
         ) : null}
       </button>
     );

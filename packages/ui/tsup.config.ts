@@ -10,7 +10,7 @@ export default defineConfig((options: Options) => [
     format: ['esm', 'cjs'],
     minify: true,
     sourcemap: true,
-    splitting: false,
+    splitting: true,
     ...options,
   },
   {
@@ -18,7 +18,7 @@ export default defineConfig((options: Options) => [
     entry: ['src/styles.css'],
     minify: true,
     sourcemap: true,
-    splitting: false,
+    splitting: true,
     ...options,
   },
 ]);

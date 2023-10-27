@@ -7,7 +7,6 @@ import {
   Root,
   Trigger,
 } from '@radix-ui/react-hover-card';
-import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 

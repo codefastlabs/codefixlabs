@@ -31,7 +31,6 @@ import {
   SlidersHorizontalIcon,
 } from 'lucide-react';
 import pluralize from 'pluralize';
-import * as React from 'react';
 import { useId, useMemo, useTransition } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Badge } from '@/react/badge';
@@ -105,14 +104,14 @@ export function DataTableColumnHeader<TData, TValue>({
 }): React.JSX.Element {
   const endIcon = useMemo(() => {
     if (column.getIsSorted() === 'desc') {
-      return ArrowDownIcon;
+      return <ArrowDownIcon className="h-4 w-4" />;
     }
 
     if (column.getIsSorted() === 'asc') {
-      return ArrowUpIcon;
+      return <ArrowUpIcon className="h-4 w-4" />;
     }
 
-    return ChevronsUpDownIcon;
+    return <ChevronsUpDownIcon className="h-4 w-4" />;
   }, [column]);
 
   return (
@@ -285,7 +284,7 @@ export function DataTablePageButtons<TData>({
           table.setPageIndex(0);
         }}
         size="sm"
-        startIcon={ChevronsLeftIcon}
+        startIcon={<ChevronsLeftIcon className="h-4 w-4" />}
         title="First page"
         variant="outline"
       />
@@ -296,14 +295,14 @@ export function DataTablePageButtons<TData>({
           table.previousPage();
         }}
         size="sm"
-        startIcon={ChevronLeftIcon}
+        startIcon={<ChevronLeftIcon className="h-4 w-4" />}
         title="Previous page"
         variant="outline"
       />
       <Button
         aria-label="Next page"
         disabled={!table.getCanNextPage()}
-        endIcon={ChevronRightIcon}
+        endIcon={<ChevronRightIcon className="h-4 w-4" />}
         onClick={() => {
           table.nextPage();
         }}
@@ -314,7 +313,7 @@ export function DataTablePageButtons<TData>({
       <Button
         aria-label="Last page"
         disabled={!table.getCanNextPage()}
-        endIcon={ChevronsRightIcon}
+        endIcon={<ChevronsRightIcon className="h-4 w-4" />}
         onClick={() => {
           table.setPageIndex(table.getPageCount() - 1);
         }}
@@ -369,7 +368,7 @@ export function DataTableViewOptions<TData>({
       <DropdownMenuTrigger asChild>
         <Button
           aria-label="Toggle columns"
-          startIcon={SlidersHorizontalIcon}
+          startIcon={<SlidersHorizontalIcon className="h-4 w-4" />}
           variant="outline"
         >
           View
@@ -625,7 +624,7 @@ export function DataTableFacetedFilter<TData, TValue>({
       <PopoverTrigger asChild>
         <Button
           className="border-dashed"
-          startIcon={PlusCircleIcon}
+          startIcon={<PlusCircleIcon className="h-4 w-4" />}
           variant="outline"
         >
           {title}

@@ -7,7 +7,6 @@ import {
   Thumb,
   Viewport,
 } from '@radix-ui/react-scroll-area';
-import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge'; /* -----------------------------------------------------------------------------
  * Component: ScrollAreaViewport

@@ -8,7 +8,6 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from 'lucide-react';
-import * as React from 'react';
 import {
   useCallback,
   useEffect,

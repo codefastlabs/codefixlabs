@@ -1,7 +1,6 @@
 'use client';
 
 import { cx } from 'class-variance-authority';
-import * as React from 'react';
 import {
   Toast,
   ToastDescription,

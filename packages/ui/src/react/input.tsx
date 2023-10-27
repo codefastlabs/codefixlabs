@@ -3,7 +3,6 @@
 import type { VariantProps } from 'class-variance-authority';
 import { cx } from 'class-variance-authority';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
-import * as React from 'react';
 import { forwardRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import type { IconType } from '@/react/icons';
@@ -56,7 +55,13 @@ export const InputPassword = forwardRef<
         onClick={toggleShowPassword}
         shape="pill"
         size="sm"
-        startIcon={type === 'password' ? EyeIcon : EyeOffIcon}
+        startIcon={
+          type === 'password' ? (
+            <EyeIcon className="h-4 w-4" />
+          ) : (
+            <EyeOffIcon className="h-4 w-4" />
+          )
+        }
         variant="ghost"
       />
     </div>

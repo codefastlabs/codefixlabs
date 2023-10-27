@@ -21,7 +21,6 @@ import {
 } from '@radix-ui/react-menubar';
 import type { VariantProps } from 'class-variance-authority';
 import { CheckIcon, ChevronRightIcon, DotIcon } from 'lucide-react';
-import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import {

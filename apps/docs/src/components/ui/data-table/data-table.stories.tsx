@@ -109,7 +109,7 @@ const columns: ColumnDef<Payment>[] = [
             <Button
               aria-label="Open menu"
               className="data-state-open:bg-accent"
-              startIcon={MoreHorizontalIcon}
+              startIcon={<MoreHorizontalIcon className="h-4 w-4" />}
               variant="ghost"
             />
           </DropdownMenuTrigger>

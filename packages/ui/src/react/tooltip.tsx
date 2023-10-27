@@ -8,7 +8,6 @@ import {
   Root,
   Trigger,
 } from '@radix-ui/react-tooltip';
-import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 

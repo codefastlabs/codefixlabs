@@ -1,17 +1,17 @@
 import { Button } from '@codefixlabs/ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
-  ActivitySquare,
-  ArrowUpRightSquare,
-  GanttChartSquare,
-  GitFork,
+  ActivitySquareIcon,
+  ArrowUpRightSquareIcon,
+  GanttChartSquareIcon,
+  GitForkIcon,
 } from 'lucide-react';
 
 const icons = {
-  ActivitySquare,
-  ArrowUpRightSquare,
-  GanttChartSquare,
-  GitFork,
+  ActivitySquareIcon: <ActivitySquareIcon className="h-4 w-4" />,
+  ArrowUpRightSquareIcon: <ArrowUpRightSquareIcon className="h-4 w-4" />,
+  GanttChartSquareIcon: <GanttChartSquareIcon className="h-4 w-4" />,
+  GitForkIcon: <GitForkIcon className="h-4 w-4" />,
 };
 
 const meta: Meta<typeof Button> = {
@@ -89,7 +89,7 @@ export const Basic: Story = {
 
 export const Icon: Story = {
   args: {
-    startIcon: GitFork,
+    startIcon: <GitForkIcon className="h-4 w-4" />,
   },
 };
 
@@ -166,13 +166,13 @@ export const Disabled: Story = {
 export const IconLeft: Story = {
   args: {
     ...Basic.args,
-    startIcon: GitFork,
+    startIcon: <GitForkIcon className="h-4 w-4" />,
   },
 };
 
 export const IconRight: Story = {
   args: {
     ...Basic.args,
-    endIcon: GanttChartSquare,
+    endIcon: <GanttChartSquareIcon className="h-4 w-4" />,
   },
 };

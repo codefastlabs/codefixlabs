@@ -2,7 +2,6 @@
 
 import { Range, Root, Thumb, Track } from '@radix-ui/react-slider';
 import { cx } from 'class-variance-authority';
-import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge'; /* -----------------------------------------------------------------------------
  * Component: Slider

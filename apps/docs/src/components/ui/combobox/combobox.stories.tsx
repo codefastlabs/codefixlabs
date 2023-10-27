@@ -228,7 +228,11 @@ function ComboboxAssignMemberWithCustomTrigger(): React.JSX.Element {
   return (
     <Popover onOpenChange={setOpen} open={open} variant="simple">
       <PopoverTrigger asChild className="data-state-open:bg-accent">
-        <Button size="sm" startIcon={UserPlus2Icon} variant="ghost">
+        <Button
+          size="sm"
+          startIcon={<UserPlus2Icon className="h-4 w-4" />}
+          variant="ghost"
+        >
           Allocate task
         </Button>
       </PopoverTrigger>

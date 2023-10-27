@@ -20,7 +20,6 @@ import {
 } from '@radix-ui/react-select';
 import type { VariantProps } from 'class-variance-authority';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
-import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import {
