@@ -7,8 +7,8 @@ To create a new app, run the following command:
 ```sh
 cd apps
 pnpm create next-app
-pnpm add --exact @codefixlabs/hooks@workspace @codefixlabs/tailwindcss@workspace @codefixlabs/tsconfig@workspace @codefixlabs/ui@workspace @codefixlabs/lib@workspace eslint-config-codefixlabs@workspace
-pnpm add --exact class-variance-authority zod react-hook-form @hookform/resolvers prisma @prisma/client axios @next-auth/prisma-adapter next-auth tailwind-merge date-fns @faker-js/faker path-to-regexp slugify lucide-react @types/pluralize pluralize
+pnpm add @codefixlabs/hooks@workspace @codefixlabs/tailwindcss@workspace @codefixlabs/tsconfig@workspace @codefixlabs/ui@workspace @codefixlabs/lib@workspace eslint-config-codefixlabs@workspace
+pnpm add class-variance-authority zod react-hook-form @hookform/resolvers prisma @prisma/client axios @next-auth/prisma-adapter next-auth tailwind-merge date-fns @faker-js/faker path-to-regexp slugify lucide-react @types/pluralize pluralize
 ```
 
 Update `package.json`

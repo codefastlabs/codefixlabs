@@ -94,25 +94,37 @@
     "@react-email/components": "^0.0.7",
     "@tanstack/react-table": "^8.10.7",
     "@tanstack/table-core": "^8.10.7",
-    "@types/node": "^20.8.8",
+    "@types/node": "^20.8.9",
     "@types/pluralize": "^0.0.32",
-    "@types/react": "^18.2.31",
+    "@types/react": "^18.2.33",
     "autoprefixer": "^10.4.16",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
     "date-fns": "^2.30.0",
     "eslint-config-codefixlabs": "workspace:*",
-    "lucide-react": "^0.288.0",
+    "lucide-react": "^0.289.0",
     "pluralize": "^8.0.0",
     "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-day-picker": "^8.9.1",
     "react-hook-form": "^7.47.0",
     "tailwind-merge": "^1.14.0",
-    "tailwindcss": "^3.3.4",
+    "tailwindcss": "^3.3.5",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "@tanstack/react-table": ">=8.10.7",
+    "react-day-picker": ">=8.9.1"
+  },
+  "peerDependenciesMeta": {
+    "@tanstack/react-table": {
+      "optional": true
+    },
+    "react-day-picker": {
+      "optional": true
+    }
   },
   "publishConfig": {
     "access": "public"
