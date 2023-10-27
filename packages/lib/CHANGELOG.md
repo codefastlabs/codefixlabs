@@ -1,5 +1,14 @@
 # @codefixlabs/lib
 
+## 0.1.13
+
+### Patch Changes
+
+- Update dependencies
+- Updated dependencies
+  - eslint-config-codefixlabs@0.1.6
+  - @codefixlabs/tsconfig@0.1.7
+
 ## 0.1.12
 
 ### Patch Changes
