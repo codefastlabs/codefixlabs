@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const tabsListVariants = cva('', {
+export const tabsListVariants = cva(undefined, {
   defaultVariants: {
     variant: 'default',
   },
@@ -8,7 +8,7 @@ export const tabsListVariants = cva('', {
     variant: {
       default:
         'bg-muted text-muted-foreground inline-flex h-10 items-center justify-center gap-1 rounded-lg p-1',
-      simple: '',
+      simple: undefined,
     },
   },
 });
@@ -29,7 +29,7 @@ export const tabsTriggerVariants = cva(
           'inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium',
           'data-state-active:bg-background data-state-active:text-foreground data-state-active:shadow-sm',
         ],
-        simple: '',
+        simple: undefined,
       },
     },
   },
@@ -44,7 +44,7 @@ export const tabsContentVariants = cva(
     variants: {
       variant: {
         default: 'mt-2 rounded-lg',
-        simple: '',
+        simple: undefined,
       },
     },
   },

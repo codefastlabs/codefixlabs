@@ -1,13 +1,13 @@
 import { cva } from 'class-variance-authority';
 
-export const radioGroupVariants = cva('', {
+export const radioGroupVariants = cva(undefined, {
   defaultVariants: {
     variant: 'default',
   },
   variants: {
     variant: {
       default: 'grid gap-2',
-      simple: '',
+      simple: undefined,
     },
   },
 });

@@ -48,7 +48,7 @@ export const selectContentVariants = cva(
     },
     variants: {
       position: {
-        'item-aligned': '',
+        'item-aligned': undefined,
         popper:
           'max-h-[var(--radix-select-content-available-height)] w-[var(--radix-select-trigger-width)]',
       },

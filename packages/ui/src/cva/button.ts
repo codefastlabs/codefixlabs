@@ -21,7 +21,7 @@ const btnSizes: {
   {
     icon: true,
     sizes: [
-      // --- sm
+      // --- 32px
       {
         className: 'px-2 h-8',
         size: 'sm',
@@ -32,7 +32,7 @@ const btnSizes: {
         size: 'sm',
         variant: ['outline'],
       },
-      // --- md
+      // --- 40px
       {
         className: 'px-3 h-10',
         size: 'md',
@@ -43,7 +43,7 @@ const btnSizes: {
         size: 'md',
         variant: ['outline'],
       },
-      // --- lg
+      // --- 48px
       {
         className: 'px-4 h-12',
         size: 'lg',
@@ -59,7 +59,7 @@ const btnSizes: {
   {
     icon: false,
     sizes: [
-      // --- sm
+      // --- 32px
       {
         className: 'px-4 h-8',
         size: 'sm',
@@ -70,7 +70,7 @@ const btnSizes: {
         size: 'sm',
         variant: ['outline'],
       },
-      // --- md
+      // --- 40px
       {
         className: 'px-5 h-10',
         size: 'md',
@@ -81,7 +81,7 @@ const btnSizes: {
         size: 'md',
         variant: ['outline'],
       },
-      // --- lg
+      // --- 48px
       {
         className: 'px-6 h-12',
         size: 'lg',
@@ -113,23 +113,12 @@ const compoundSizes = btnSizes.flatMap<{
 
 export const buttonVariants = cva(
   [
-    'relative select-none items-center gap-2 whitespace-nowrap text-sm font-medium transition-colors',
+    'relative select-none items-center gap-2 overflow-hidden whitespace-nowrap text-sm font-medium transition-colors',
     'focus:ring-ring/40 focus:outline-none focus:ring-2',
-    'data-disabled:cursor-not-allowed',
-    'data-disabled:ring-0',
+    'data-disabled:cursor-not-allowed data-disabled:ring-0',
   ],
   {
-    compoundVariants: [
-      {
-        className: 'data-disabled:bg-opacity-50',
-        variant: ['primary', 'secondary', 'destructive'],
-      },
-      {
-        className: 'data-disabled:opacity-50',
-        variant: ['ghost', 'outline'],
-      },
-      ...compoundSizes,
-    ],
+    compoundVariants: [...compoundSizes],
     defaultVariants: {
       block: false,
       icon: false,
@@ -144,8 +133,8 @@ export const buttonVariants = cva(
         true: 'flex w-full',
       },
       icon: {
-        false: '',
-        true: '',
+        false: undefined,
+        true: undefined,
       },
       justify: {
         between: 'justify-between',
@@ -157,21 +146,40 @@ export const buttonVariants = cva(
         square: 'rounded-sm',
       },
       size: {
-        lg: '',
-        md: '',
-        sm: '',
+        lg: undefined,
+        md: undefined,
+        sm: undefined,
       },
       variant: {
-        destructive:
-          'bg-destructive text-destructive-foreground [&:not([data-disabled])]:hover:bg-destructive/90',
-        ghost: '[&:not([data-disabled])]:hover:bg-accent',
+        destructive: [
+          'bg-destructive text-destructive-foreground',
+          '[&:not([data-disabled])]:hover:bg-destructive/90',
+          '[&:not([data-disabled])]:focus:bg-destructive/90',
+          'data-disabled:bg-destructive/60',
+        ],
+        ghost: [
+          '[&:not([data-disabled])]:hover:bg-accent',
+          'data-disabled:opacity-60',
+        ],
         link: 'text-primary rounded-none hover:underline',
-        outline:
-          'border-input [&:not([data-disabled])]:hover:bg-accent [&:not([data-disabled])]:hover:text-accent-foreground border',
-        primary:
-          'bg-primary text-primary-foreground [&:not([data-disabled])]:hover:bg-primary/90',
-        secondary:
-          'bg-secondary text-secondary-foreground [&:not([data-disabled])]:hover:bg-secondary/90',
+        outline: [
+          'border-input border',
+          '[&:not([data-disabled])]:hover:bg-accent [&:not([data-disabled])]:hover:text-accent-foreground',
+          '[&:not([data-disabled])]:focus:bg-accent [&:not([data-disabled])]:focus:text-accent-foreground',
+          'data-disabled:opacity-60',
+        ],
+        primary: [
+          'bg-primary text-primary-foreground',
+          '[&:not([data-disabled])]:hover:bg-primary/90',
+          '[&:not([data-disabled])]:focus:bg-primary/90',
+          'data-disabled:bg-primary/60',
+        ],
+        secondary: [
+          'bg-secondary text-secondary-foreground',
+          '[&:not([data-disabled])]:hover:bg-secondary/90',
+          '[&:not([data-disabled])]:focus:bg-secondary/90',
+          'data-disabled:bg-secondary/60',
+        ],
       },
     },
   },

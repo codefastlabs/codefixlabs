@@ -4,6 +4,7 @@ import type { VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 import { Children, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { Loader2Icon } from 'lucide-react';
 import { buttonVariants } from '@/cva/button';
 
 /* -----------------------------------------------------------------------------
@@ -55,14 +56,45 @@ export const Button = forwardRef<
         type="button"
         {...props}
       >
-        {startIcon}
+        <IconButton loading={loading}>{startIcon}</IconButton>
 
         {children}
 
-        {endIcon}
+        <IconButton loading={loading ? !startIcon : false}>
+          {endIcon}
+        </IconButton>
+
+        {loading && !(startIcon || endIcon) ? (
+          <span className="absolute inset-0 flex items-center justify-center bg-inherit">
+            <Loader2Icon className="h-4.5 w-4.5 animate-spin" />
+          </span>
+        ) : null}
       </button>
     );
   },
 );
 
 Button.displayName = 'Button';
+
+/* -----------------------------------------------------------------------------
+ * Component: IconButton
+ * -------------------------------------------------------------------------- */
+
+export function IconButton({
+  children,
+
+  loading,
+}: {
+  children: React.ReactNode;
+  loading?: boolean;
+}): React.JSX.Element {
+  return (
+    <>
+      {loading && children ? (
+        <Loader2Icon className="h-4 w-4 animate-spin" />
+      ) : (
+        children
+      )}
+    </>
+  );
+}

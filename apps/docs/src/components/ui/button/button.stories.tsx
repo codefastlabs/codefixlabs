@@ -1,16 +1,16 @@
 import { Button } from '@codefixlabs/ui/react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
-  ActivitySquareIcon,
-  ArrowUpRightSquareIcon,
-  GanttChartSquareIcon,
+  AlarmCheckIcon,
+  CogIcon,
+  GalleryThumbnailsIcon,
   GitForkIcon,
 } from 'lucide-react';
 
 const icons = {
-  ActivitySquareIcon: <ActivitySquareIcon className="h-4 w-4" />,
-  ArrowUpRightSquareIcon: <ArrowUpRightSquareIcon className="h-4 w-4" />,
-  GanttChartSquareIcon: <GanttChartSquareIcon className="h-4 w-4" />,
+  AlarmCheckIcon: <AlarmCheckIcon className="h-4 w-4" />,
+  CogIcon: <CogIcon className="h-4 w-4" />,
+  GalleryThumbnailsIcon: <GalleryThumbnailsIcon className="h-4 w-4" />,
   GitForkIcon: <GitForkIcon className="h-4 w-4" />,
 };
 
@@ -25,10 +25,10 @@ const meta: Meta<typeof Button> = {
     endIcon: {
       control: {
         labels: {
-          BellIcon: 'Bell',
-          BookmarkIcon: 'Bookmark',
-          GearIcon: 'Gear',
-          LayersIcon: 'Layers',
+          AlarmCheckIcon: 'AlarmCheckIcon',
+          CogIcon: 'CogIcon',
+          GalleryThumbnailsIcon: 'GalleryThumbnailsIcon',
+          GitForkIcon: 'GitForkIcon',
         },
         type: 'select',
       },
@@ -49,10 +49,10 @@ const meta: Meta<typeof Button> = {
     startIcon: {
       control: {
         labels: {
-          BellIcon: 'Bell',
-          BookmarkIcon: 'Bookmark',
-          GearIcon: 'Gear',
-          LayersIcon: 'Layers',
+          AlarmCheckIcon: 'AlarmCheckIcon',
+          CogIcon: 'CogIcon',
+          GalleryThumbnailsIcon: 'GalleryThumbnailsIcon',
+          GitForkIcon: 'GitForkIcon',
         },
         type: 'select',
       },
@@ -156,6 +156,31 @@ export const Loading: Story = {
   },
 };
 
+export const LoadingWithIcon: Story = {
+  args: {
+    ...Basic.args,
+    loading: true,
+    startIcon: <GitForkIcon className="h-4 w-4" />,
+  },
+};
+
+export const LoadingWithIconRight: Story = {
+  args: {
+    ...Basic.args,
+    endIcon: <CogIcon className="h-4 w-4" />,
+    loading: true,
+  },
+};
+
+export const LoadingWithIconBoth: Story = {
+  args: {
+    ...Basic.args,
+    endIcon: <CogIcon className="h-4 w-4" />,
+    loading: true,
+    startIcon: <GitForkIcon className="h-4 w-4" />,
+  },
+};
+
 export const Disabled: Story = {
   args: {
     ...Basic.args,
@@ -173,6 +198,6 @@ export const IconLeft: Story = {
 export const IconRight: Story = {
   args: {
     ...Basic.args,
-    endIcon: <GanttChartSquareIcon className="h-4 w-4" />,
+    endIcon: <CogIcon className="h-4 w-4" />,
   },
 };

@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const formItemVariants = cva('', {
+export const formItemVariants = cva(undefined, {
   defaultVariants: {
     inline: false,
   },

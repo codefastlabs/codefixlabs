@@ -8,7 +8,7 @@ export const commandVariants = cva(
     },
     variants: {
       variant: {
-        dialog: '',
+        dialog: undefined,
         primary: 'border shadow-lg',
       },
     },
