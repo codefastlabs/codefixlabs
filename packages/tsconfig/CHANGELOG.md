@@ -1,5 +1,11 @@
 # @codefixlabs/tsconfig
 
+## 0.1.8
+
+### Patch Changes
+
+- Button loading state
+
 ## 0.1.7
 
 ### Patch Changes

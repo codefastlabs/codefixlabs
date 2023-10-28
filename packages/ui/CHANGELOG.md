@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.22
+
+### Patch Changes
+
+- Button loading state
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.9
+  - @codefixlabs/lib@0.1.14
+
 ## 0.1.21
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.7
+
+### Patch Changes
+
+- Button loading state
+
 ## 0.1.6
 
 ### Patch Changes
