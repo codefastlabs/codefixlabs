@@ -11,5 +11,9 @@ export function isValidPhoneNumber({
     `${phoneCode}${phoneNumber}`,
   );
 
-  return Boolean(parsedPhoneNumber?.isValid());
+  if (!parsedPhoneNumber) {
+    return false;
+  }
+
+  return parsedPhoneNumber.isValid();
 }

@@ -2,6 +2,7 @@
 
 import { useCountries } from '@codefixlabs/hooks';
 import { cx } from 'class-variance-authority';
+import * as React from 'react';
 import { forwardRef, useMemo, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
@@ -14,7 +15,7 @@ import {
   CommandItem,
   CommandList,
 } from '@/react/command';
-import { buttonVariants } from '@/cva';
+import { buttonVariants } from '@/cva/button';
 
 /* -----------------------------------------------------------------------------
  * Component: InputPhoneNumber

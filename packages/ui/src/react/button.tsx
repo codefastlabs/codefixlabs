@@ -1,11 +1,10 @@
 'use client';
 
 import type { VariantProps } from 'class-variance-authority';
+import * as React from 'react';
 import { Children, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { Loader2Icon } from 'lucide-react';
-import type { innerButtonVariants } from '@/cva';
-import { buttonVariants } from '@/cva';
+import { buttonVariants } from '@/cva/button';
 
 /* -----------------------------------------------------------------------------
  * Component: Button
@@ -14,10 +13,10 @@ import { buttonVariants } from '@/cva';
 export const Button = forwardRef<
   React.ElementRef<'button'>,
   VariantProps<typeof buttonVariants> &
-    VariantProps<typeof innerButtonVariants> &
     React.ComponentPropsWithoutRef<'button'> & {
       endIcon?: React.ReactNode;
       startIcon?: React.ReactNode;
+      loading?: boolean;
     }
 >(
   (
@@ -58,17 +57,9 @@ export const Button = forwardRef<
       >
         {startIcon}
 
-        {children ? (
-          <span className={loading ? 'opacity-0' : undefined}>{children}</span>
-        ) : null}
+        {children}
 
         {endIcon}
-
-        {loading ? (
-          <span className="absolute inset-0 flex items-center justify-center">
-            <Loader2Icon className="h-4 w-4 animate-spin" />
-          </span>
-        ) : null}
       </button>
     );
   },

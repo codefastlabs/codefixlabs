@@ -2,6 +2,7 @@
 
 import { Indicator, Root } from '@radix-ui/react-checkbox';
 import { CheckIcon, MinusIcon } from 'lucide-react';
+import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 

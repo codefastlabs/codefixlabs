@@ -2,6 +2,7 @@
 
 import { Slot } from '@radix-ui/react-slot';
 import type { VariantProps } from 'class-variance-authority';
+import * as React from 'react';
 import { createContext, forwardRef, useContext, useId } from 'react';
 import type {
   ControllerProps,
@@ -12,7 +13,7 @@ import type {
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
 import { twMerge } from 'tailwind-merge';
 import { Label } from '@/react/label';
-import { getErrorMessage } from '@/lib';
+import { getErrorMessage } from '@/lib/form';
 import { formItemVariants } from '@/cva/form';
 
 interface FormFieldContextValue<

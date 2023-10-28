@@ -2,6 +2,7 @@
 
 import { Root, Thumb } from '@radix-ui/react-switch';
 import { cx } from 'class-variance-authority';
+import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 

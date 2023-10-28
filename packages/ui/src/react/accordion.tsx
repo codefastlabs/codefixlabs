@@ -8,6 +8,7 @@ import {
   Trigger,
 } from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from 'lucide-react';
+import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 

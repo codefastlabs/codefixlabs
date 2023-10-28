@@ -10,6 +10,7 @@ import {
   Viewport,
 } from '@radix-ui/react-toast';
 import type { VariantProps } from 'class-variance-authority';
+import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { toastVariants, toastViewportVariants } from '@/cva/toast';

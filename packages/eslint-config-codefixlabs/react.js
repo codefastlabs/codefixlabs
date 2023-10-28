@@ -22,7 +22,6 @@ module.exports = {
     'import/no-default-export': 'off',
     'import/no-extraneous-dependencies': ['error', { includeTypes: true }],
     'newline-before-return': 'error',
-    'no-undef': 'off',
     'sort-keys': ['error', 'asc', { natural: true }],
   },
   settings: {

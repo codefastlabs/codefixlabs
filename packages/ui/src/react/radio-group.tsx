@@ -2,6 +2,7 @@
 
 import { Indicator, Item, Root } from '@radix-ui/react-radio-group';
 import type { VariantProps } from 'class-variance-authority';
+import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { radioGroupItemVariants, radioGroupVariants } from '@/cva/radio-group';

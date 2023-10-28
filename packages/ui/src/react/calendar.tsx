@@ -8,6 +8,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from 'lucide-react';
+import * as React from 'react';
 import {
   useCallback,
   useEffect,
@@ -51,8 +52,8 @@ import {
   isValidTime,
   matcherToArray,
   timeRegex,
-} from '@/lib';
-import { buttonVariants } from '@/cva';
+} from '@/lib/calendar';
+import { buttonVariants } from '@/cva/button';
 
 /* -----------------------------------------------------------------------------
  * Component: DatePicker

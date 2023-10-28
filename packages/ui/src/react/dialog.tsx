@@ -13,9 +13,11 @@ import {
 import type { VariantProps } from 'class-variance-authority';
 import { cx } from 'class-variance-authority';
 import { XIcon } from 'lucide-react';
+import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { buttonVariants, dialogContentVariants } from '@/cva';
+import { buttonVariants } from '@/cva/button';
+import { dialogContentVariants } from '@/cva/dialog-content';
 
 /* -----------------------------------------------------------------------------
  * Provider: DialogContext

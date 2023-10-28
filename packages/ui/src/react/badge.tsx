@@ -2,7 +2,8 @@
 
 import type { VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
-import { badgeVariants } from '@/cva';
+import * as React from 'react';
+import { badgeVariants } from '@/cva/badge';
 
 /* -----------------------------------------------------------------------------
  * Component: Badge

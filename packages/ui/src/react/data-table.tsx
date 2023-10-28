@@ -31,6 +31,7 @@ import {
   SlidersHorizontalIcon,
 } from 'lucide-react';
 import pluralize from 'pluralize';
+import * as React from 'react';
 import { useId, useMemo, useTransition } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Badge } from '@/react/badge';

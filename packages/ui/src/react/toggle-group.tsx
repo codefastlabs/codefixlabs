@@ -2,6 +2,7 @@
 
 import { Item, Root } from '@radix-ui/react-toggle-group';
 import type { VariantProps } from 'class-variance-authority';
+import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { toggleGroupItemVariants } from '@/cva/toggle-group';

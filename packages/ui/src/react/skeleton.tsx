@@ -1,6 +1,7 @@
 'use client';
 
 import { twMerge } from 'tailwind-merge';
+import * as React from 'react';
 
 /* -----------------------------------------------------------------------------
  * Component: Skeleton

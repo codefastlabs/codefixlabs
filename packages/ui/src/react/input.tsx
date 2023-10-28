@@ -3,6 +3,7 @@
 import type { VariantProps } from 'class-variance-authority';
 import { cx } from 'class-variance-authority';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
+import * as React from 'react';
 import { forwardRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import type { IconType } from '@/react/icons';

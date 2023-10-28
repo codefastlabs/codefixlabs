@@ -176,18 +176,3 @@ export const buttonVariants = cva(
     },
   },
 );
-
-export const innerButtonVariants = cva(
-  'h-4 w-4 shrink-0 text-base text-opacity-100',
-  {
-    defaultVariants: {
-      loading: false,
-    },
-    variants: {
-      loading: {
-        false: undefined,
-        true: 'animate-spin',
-      },
-    },
-  },
-);

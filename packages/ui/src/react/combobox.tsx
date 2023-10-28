@@ -3,6 +3,7 @@
 import { Slot } from '@radix-ui/react-slot';
 import { cx } from 'class-variance-authority';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
+import * as React from 'react';
 import { Fragment, useMemo, useState } from 'react';
 import { Button } from '@/react/button';
 import {

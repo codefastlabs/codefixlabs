@@ -12,10 +12,11 @@ import {
   CommandSeparator as Separator,
 } from 'cmdk';
 import { SearchIcon } from 'lucide-react';
+import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Dialog, DialogContent } from '@/react/dialog';
-import { commandVariants } from '@/cva';
+import { commandVariants } from '@/cva/command';
 
 /* -----------------------------------------------------------------------------
  * Component: Command

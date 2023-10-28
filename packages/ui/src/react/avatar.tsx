@@ -2,6 +2,7 @@
 
 import { getFirstInitials } from '@codefixlabs/lib';
 import { Fallback, Image, Root } from '@radix-ui/react-avatar';
+import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 

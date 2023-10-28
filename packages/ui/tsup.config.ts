@@ -8,7 +8,7 @@ export default defineConfig((options: Options) => [
     entry: ['src/**/*.tsx', 'src/**/*.ts'],
     external: ['react'],
     format: ['esm', 'cjs'],
-    minify: true,
+    minify: !options.watch,
     sourcemap: true,
     splitting: true,
     ...options,
@@ -16,7 +16,7 @@ export default defineConfig((options: Options) => [
   {
     clean: !options.watch,
     entry: ['src/styles.css'],
-    minify: true,
+    minify: !options.watch,
     sourcemap: true,
     splitting: true,
     ...options,
