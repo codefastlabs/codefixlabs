@@ -6,7 +6,6 @@ import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import * as React from 'react';
 import { forwardRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import type { IconType } from '@/react/icons';
 import { Button } from '@/react/button';
 import { inputVariants, primitiveInputVariants } from '@/cva/input';
 
@@ -78,57 +77,56 @@ InputPassword.displayName = 'InputPassword';
 export const Input = forwardRef<
   React.ElementRef<typeof PrimitiveInput>,
   React.ComponentPropsWithoutRef<typeof PrimitiveInput> & {
-    startIcon?: IconType;
-    endIcon?: IconType;
+    startIcon?: React.ReactNode;
+    endIcon?: React.ReactNode;
     classNames?: {
       startIcon?: string;
       endIcon?: string;
       input?: string;
     };
   }
->(
-  (
-    { startIcon: StartIcon, endIcon: EndIcon, classNames, className, ...props },
-    forwardedRef,
-  ) => (
-    <div
-      className={twMerge(
-        'relative',
-        props.inline ? 'inline-block' : 'w-full',
-        className,
-      )}
-    >
-      {StartIcon ? (
-        <StartIcon
-          className={twMerge(
-            'h-4.5 w-4.5 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2',
-            classNames?.startIcon,
-          )}
-        />
-      ) : null}
-
-      <PrimitiveInput
+>(({ startIcon, endIcon, classNames, className, ...props }, forwardedRef) => (
+  <div
+    className={twMerge(
+      'relative',
+      props.inline ? 'inline-block' : 'w-full',
+      className,
+    )}
+  >
+    {startIcon ? (
+      <span
         className={twMerge(
-          inputVariants({
-            className: twMerge('max-h-full', classNames?.input),
-            hasEndIcon: Boolean(EndIcon),
-            hasStartIcon: Boolean(StartIcon),
-          }),
+          'text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2',
+          classNames?.startIcon,
         )}
-        ref={forwardedRef}
-        {...props}
-      />
+      >
+        {startIcon}
+      </span>
+    ) : null}
 
-      {EndIcon ? (
-        <EndIcon
-          className={twMerge(
-            'h-4.5 w-4.5 text-muted-foreground absolute right-3 top-1/2 -translate-y-1/2',
-            classNames?.endIcon,
-          )}
-        />
-      ) : null}
-    </div>
-  ),
-);
+    <PrimitiveInput
+      className={twMerge(
+        inputVariants({
+          className: twMerge('max-h-full', classNames?.input),
+          hasEndIcon: Boolean(endIcon),
+          hasStartIcon: Boolean(startIcon),
+        }),
+      )}
+      ref={forwardedRef}
+      {...props}
+    />
+
+    {endIcon ? (
+      <span
+        className={twMerge(
+          'text-muted-foreground absolute right-3 top-1/2 -translate-y-1/2',
+          classNames?.endIcon,
+        )}
+      >
+        {endIcon}
+      </span>
+    ) : null}
+  </div>
+));
 
 Input.displayName = PrimitiveInput.displayName;

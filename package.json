@@ -11,7 +11,7 @@
     "clean": "turbo run clean && rm -rf node_modules",
     "dev": "turbo run dev",
     "postinstall": "pnpm exec simple-git-hooks",
-    "lint": "turbo run lint -- --fix",
+    "lint": "turbo run lint",
     "pnpm:install": "pnpm install",
     "pnpm:reinstall": "pnpm run clean && pnpm install",
     "pnpm:update": "pnpm update --latest --interactive --recursive",

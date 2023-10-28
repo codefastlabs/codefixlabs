@@ -349,7 +349,7 @@ export function DataTableSearch<TData>({
       className="w-full max-w-sm"
       onChange={onChange}
       placeholder="Search all columns..."
-      startIcon={SearchIcon}
+      startIcon={<SearchIcon className="w-4.5 h-4.5" />}
       type="search"
     />
   );
