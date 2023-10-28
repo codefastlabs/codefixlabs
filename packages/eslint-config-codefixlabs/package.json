@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-codefixlabs",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
@@ -11,9 +11,11 @@
       "./library"
     ]
   },
-  "dependencies": {
-    "@vercel/style-guide": "^5.0.1",
-    "eslint-config-turbo": "^1.10.16"
+  "devDependencies": {
+    "@vercel/style-guide": "^5.0.2-canary.1",
+    "eslint-config-turbo": "^1.10.16",
+    "eslint-plugin-mdx": "^2.2.0",
+    "eslint-plugin-storybook": "^0.6.15"
   },
   "publishConfig": {
     "access": "public"

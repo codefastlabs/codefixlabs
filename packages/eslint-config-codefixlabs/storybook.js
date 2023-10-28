@@ -4,12 +4,16 @@ const project = resolve(process.cwd(), 'tsconfig.json');
 
 module.exports = {
   extends: [
-    '@vercel/style-guide/eslint/node',
-    '@vercel/style-guide/eslint/typescript',
-    '@vercel/style-guide/eslint/browser',
-    '@vercel/style-guide/eslint/react',
-    '@vercel/style-guide/eslint/next',
-  ].map(require.resolve),
+    'plugin:storybook/recommended',
+    'plugin:mdx/recommended',
+    ...[
+      '@vercel/style-guide/eslint/node',
+      '@vercel/style-guide/eslint/typescript',
+      '@vercel/style-guide/eslint/browser',
+      '@vercel/style-guide/eslint/react',
+      '@vercel/style-guide/eslint/next',
+    ].map(require.resolve),
+  ],
   globals: {
     JSX: true,
     React: true,

@@ -69,7 +69,7 @@ function SwitchReactHookForm(): React.JSX.Element {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     await wait(1000);
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console -- demo
     console.log('data', data);
   };
 

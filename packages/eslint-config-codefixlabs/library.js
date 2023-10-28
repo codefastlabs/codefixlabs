@@ -17,11 +17,8 @@ module.exports = {
   },
   rules: {
     curly: ['error', 'all'],
-    'eslint-comments/require-description': 'off',
     'import/no-default-export': 'off',
-    'import/no-extraneous-dependencies': ['error', { includeTypes: true }],
     'newline-before-return': 'error',
-    'sort-keys': ['error', 'asc', { natural: true }],
   },
   settings: {
     'import/resolver': {
