@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.9
+
+### Patch Changes
+
+- Convert devDependencies to dependencies
+
 ## 0.1.8
 
 ### Patch Changes
