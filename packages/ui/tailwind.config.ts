@@ -1,8 +1,7 @@
 import type { Config } from 'tailwindcss';
 import { sharedConfig } from '@codefixlabs/tailwindcss';
 
-const config: Config = {
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+const config: Pick<Config, 'presets'> = {
   presets: [sharedConfig],
 };
 

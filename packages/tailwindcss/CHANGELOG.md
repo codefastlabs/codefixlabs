@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.16
+
+### Patch Changes
+
+- Change content src
+
 ## 0.1.15
 
 ### Patch Changes

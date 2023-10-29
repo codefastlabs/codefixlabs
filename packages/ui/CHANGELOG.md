@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.24
+
+### Patch Changes
+
+- Change content src
+
 ## 0.1.23
 
 ### Patch Changes
