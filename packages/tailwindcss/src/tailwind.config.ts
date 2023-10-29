@@ -204,7 +204,7 @@ export const sharedConfig: Config = {
         sans: [`var(--font-sans, ${fontFamily.sans.join(', ')})`],
       },
       height: {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- fix later
         // @ts-expect-error
         screen: ['100vh', '100dvh'],
       },
@@ -399,17 +399,16 @@ export const sharedConfig: Config = {
         },
       },
       maxHeight: {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- fix later
         // @ts-expect-error
         screen: ['100vh', '100dvh'],
       },
       minHeight: {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- fix later
         // @ts-expect-error
         screen: ['100vh', '100dvh'],
       },
       spacing: {
-        /* eslint-disable sort-keys */
         0.75: '0.1875rem' /* 3px */,
         1.25: '0.3125rem' /* 5px */,
         1.75: '0.4375rem' /* 7px */,
