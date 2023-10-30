@@ -23,6 +23,7 @@ module.exports = {
     project,
   },
   rules: {
+    '@typescript-eslint/explicit-function-return-type': 'off',
     curly: ['error', 'all'],
     'import/no-default-export': 'off',
     'newline-before-return': 'error',

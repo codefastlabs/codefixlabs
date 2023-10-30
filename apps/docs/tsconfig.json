@@ -1,7 +1,6 @@
 {
   "extends": "@codefixlabs/tsconfig/nextjs.json",
   "compilerOptions": {
-    "baseUrl": "./",
     "plugins": [
       {
         "name": "next"

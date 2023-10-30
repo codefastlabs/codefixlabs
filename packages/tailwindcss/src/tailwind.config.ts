@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
+import typography from '@tailwindcss/typography';
 
 export const sharedConfig: Config = {
   content: [
@@ -9,6 +10,7 @@ export const sharedConfig: Config = {
   ],
   darkMode: ['class'],
   plugins: [
+    typography,
     plugin(({ matchUtilities }) => {
       matchUtilities({
         perspective: (value) => ({

@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.10
+
+### Patch Changes
+
+- Built-in typography plugin
+
 ## 0.1.9
 
 ### Patch Changes
