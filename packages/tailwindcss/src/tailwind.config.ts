@@ -104,7 +104,6 @@ export const sharedConfig: Config = {
         },
         background: 'hsl(var(--ui-background))',
         border: 'hsl(var(--ui-border))',
-
         card: {
           DEFAULT: 'hsl(var(--ui-card))',
           foreground: 'hsl(var(--ui-card-foreground))',
@@ -113,43 +112,33 @@ export const sharedConfig: Config = {
           DEFAULT: 'hsl(var(--ui-destructive))',
           foreground: 'hsl(var(--ui-destructive-foreground))',
         },
-
         foreground: 'hsl(var(--ui-foreground))',
-
         info: {
           DEFAULT: 'hsl(var(--ui-info))',
           foreground: 'hsl(var(--ui-info-foreground))',
         },
-
         input: 'hsl(var(--ui-input))',
-
         muted: {
           DEFAULT: 'hsl(var(--ui-muted))',
           foreground: 'hsl(var(--ui-muted-foreground))',
         },
-
         popover: {
           DEFAULT: 'hsl(var(--ui-popover))',
           foreground: 'hsl(var(--ui-popover-foreground))',
         },
-
         primary: {
           DEFAULT: 'hsl(var(--ui-primary))',
           foreground: 'hsl(var(--ui-primary-foreground))',
         },
-
         ring: 'hsl(var(--ui-ring))',
-
         secondary: {
           DEFAULT: 'hsl(var(--ui-secondary))',
           foreground: 'hsl(var(--ui-secondary-foreground))',
         },
-
         success: {
           DEFAULT: 'hsl(var(--ui-success))',
           foreground: 'hsl(var(--ui-success-foreground))',
         },
-
         warning: {
           DEFAULT: 'hsl(var(--ui-warning))',
           foreground: 'hsl(var(--ui-warning-foreground))',
@@ -498,7 +487,7 @@ export const sharedConfig: Config = {
               css,
             ],
           },
-          DEFAULT: {
+          base: {
             css: [
               {
                 'tbody tr th': {

@@ -35,14 +35,14 @@ const content = `<p class="lead">Until now, trying to style an article, document
 export const Basic: Story = {
   args: {
     content,
-  },
-};
-
-export const MaxHeight: Story = {
-  args: {
-    content,
     classNames: {
       editor: 'max-h-96 overflow-y-auto',
     },
+  },
+};
+
+export const FullContent: Story = {
+  args: {
+    content,
   },
 };

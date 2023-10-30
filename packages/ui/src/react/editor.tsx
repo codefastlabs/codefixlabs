@@ -13,7 +13,39 @@ import { Youtube } from '@tiptap/extension-youtube';
 import { Highlight } from '@tiptap/extension-highlight';
 import { TaskItem } from '@tiptap/extension-task-item';
 import { TaskList } from '@tiptap/extension-task-list';
-import { BoldIcon, ItalicIcon } from 'lucide-react';
+import { TextAlign } from '@tiptap/extension-text-align';
+import {
+  AlignCenterIcon,
+  AlignJustifyIcon,
+  AlignLeftIcon,
+  AlignRightIcon,
+  BoldIcon,
+  CodeIcon,
+  Heading1Icon,
+  Heading2Icon,
+  Heading3Icon,
+  Heading4Icon,
+  HighlighterIcon,
+  ItalicIcon,
+  ListIcon,
+  ListOrderedIcon,
+  ListTodoIcon,
+  MinusIcon,
+  PilcrowIcon,
+  QuoteIcon,
+  Redo2Icon,
+  RemoveFormattingIcon,
+  SquareCodeIcon,
+  StrikethroughIcon,
+  Undo2Icon,
+  WrapTextIcon,
+} from 'lucide-react';
+import { Separator } from '@/react/separator';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/react/tooltip';
+
+/* -----------------------------------------------------------------------------
+ * Component: Editor
+ * -------------------------------------------------------------------------- */
 
 export const Editor = forwardRef<
   React.ElementRef<'div'>,
@@ -28,8 +60,10 @@ export const Editor = forwardRef<
   const editor = useEditor({
     editorProps: {
       attributes: {
-        class:
-          'prose prose-sm max-w-full dark:prose-invert sm:prose-base lg:prose-lg focus:outline-none',
+        class: twMerge(
+          'prose prose-sm dark:prose-invert sm:prose-base max-w-full p-4 focus:outline-none',
+          classNames?.editor,
+        ),
       },
     },
     extensions: [
@@ -43,15 +77,22 @@ export const Editor = forwardRef<
       Image,
       Youtube.configure({
         HTMLAttributes: {
-          class: 'w-full aspect-video',
+          class: 'w-full h-auto aspect-video',
         },
       }),
       Highlight,
       TaskItem,
       TaskList,
+      TextAlign.configure({
+        types: ['heading', 'paragraph'],
+      }),
     ],
     content,
   });
+
+  if (!editor) {
+    return null;
+  }
 
   return (
     <div
@@ -63,15 +104,15 @@ export const Editor = forwardRef<
       ref={forwardedRef}
       {...props}
     >
-      {editor ? (
-        <MenuBar
-          className={twMerge('bg-border p-2', classNames?.menuBar)}
-          editor={editor}
-        />
-      ) : null}
+      <MenuBar
+        className={twMerge('top-42 sticky inset-x-0 p-1', classNames?.menuBar)}
+        editor={editor}
+      />
 
       <EditorContent
-        className={twMerge('p-4', classNames?.editor)}
+        className={twMerge(
+          'overflow-hidden focus-within:rounded focus-within:ring',
+        )}
         editor={editor}
       />
     </div>
@@ -80,6 +121,23 @@ export const Editor = forwardRef<
 
 Editor.displayName = 'Editor';
 
+/* -----------------------------------------------------------------------------
+ * Component: MenuBar
+ * -------------------------------------------------------------------------- */
+
+type Item =
+  | {
+      icon: React.ReactNode;
+      title: string;
+      shortcut?: string;
+      action: () => boolean;
+      isActive?: () => boolean;
+      type?: undefined;
+    }
+  | {
+      type: 'divider';
+    };
+
 export function MenuBar({
   className,
   editor,
@@ -87,34 +145,48 @@ export function MenuBar({
   className?: string;
   editor: TiptapEditor;
 }): React.JSX.Element {
-  const items = [
+  const items: Item[] = [
     {
-      icon: <BoldIcon className="h-4 w-4" />,
+      icon: <BoldIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Bold',
+      // Cmd B
+      shortcut: '⌘B',
       action: () => editor.chain().focus().toggleBold().run(),
       isActive: () => editor.isActive('bold'),
     },
     {
-      icon: <ItalicIcon className="h-4 w-4" />,
+      icon: <ItalicIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Italic',
+      // Cmd I
+      shortcut: '⌘I',
       action: () => editor.chain().focus().toggleItalic().run(),
       isActive: () => editor.isActive('italic'),
     },
     {
-      icon: 'strikethrough',
+      icon: (
+        <StrikethroughIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />
+      ),
       title: 'Strike',
+      // Cmd Shift X
+      shortcut: '⌘⇧X',
       action: () => editor.chain().focus().toggleStrike().run(),
       isActive: () => editor.isActive('strike'),
     },
     {
-      icon: 'code-view',
+      icon: <CodeIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Code',
+      // Cmd E
+      shortcut: '⌘E',
       action: () => editor.chain().focus().toggleCode().run(),
       isActive: () => editor.isActive('code'),
     },
     {
-      icon: 'mark-pen-line',
+      icon: (
+        <HighlighterIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />
+      ),
       title: 'Highlight',
+      // Cmd Shift H
+      shortcut: '⌘⇧H',
       action: () => editor.chain().focus().toggleHighlight().run(),
       isActive: () => editor.isActive('highlight'),
     },
@@ -122,44 +194,114 @@ export function MenuBar({
       type: 'divider',
     },
     {
-      icon: 'h-1',
+      icon: <AlignLeftIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
+      title: 'Align Left',
+      // Cmd Shift L
+      shortcut: '⌘⇧L',
+      action: () => editor.chain().focus().setTextAlign('left').run(),
+      isActive: () => editor.isActive({ textAlign: 'left' }),
+    },
+    {
+      icon: (
+        <AlignCenterIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />
+      ),
+      title: 'Align Center',
+      // Cmd Shift E
+      shortcut: '⌘⇧E',
+      action: () => editor.chain().focus().setTextAlign('center').run(),
+      isActive: () => editor.isActive({ textAlign: 'center' }),
+    },
+    {
+      icon: <AlignRightIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
+      title: 'Align Right',
+      // Cmd Shift R
+      shortcut: '⌘⇧R',
+      action: () => editor.chain().focus().setTextAlign('right').run(),
+      isActive: () => editor.isActive({ textAlign: 'right' }),
+    },
+    {
+      icon: (
+        <AlignJustifyIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />
+      ),
+      title: 'Align Justify',
+      shortcut: '⌘⇧J',
+      action: () => editor.chain().focus().setTextAlign('justify').run(),
+      isActive: () => editor.isActive({ textAlign: 'justify' }),
+    },
+    {
+      type: 'divider',
+    },
+    {
+      icon: <Heading1Icon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Heading 1',
+      // Cmd Opt 1
+      shortcut: '⌘⌥1',
       action: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
       isActive: () => editor.isActive('heading', { level: 1 }),
     },
     {
-      icon: 'h-2',
+      icon: <Heading2Icon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Heading 2',
+      // Cmd Opt 2
+      shortcut: '⌘⌥2',
       action: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
       isActive: () => editor.isActive('heading', { level: 2 }),
     },
     {
-      icon: 'paragraph',
+      icon: <Heading3Icon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
+      title: 'Heading 3',
+      // Cmd Opt 3
+      shortcut: '⌘⌥3',
+      action: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
+      isActive: () => editor.isActive('heading', { level: 3 }),
+    },
+    {
+      icon: <Heading4Icon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
+      title: 'Heading 4',
+      // Cmd Opt 4
+      shortcut: '⌘⌥4',
+      action: () => editor.chain().focus().toggleHeading({ level: 4 }).run(),
+      isActive: () => editor.isActive('heading', { level: 4 }),
+    },
+    {
+      icon: <PilcrowIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Paragraph',
+      // Cmd Opt 0
+      shortcut: '⌘⌥0',
       action: () => editor.chain().focus().setParagraph().run(),
       isActive: () => editor.isActive('paragraph'),
     },
     {
-      icon: 'list-unordered',
+      icon: <ListIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Bullet List',
+      // Cmd Shift 8
+      shortcut: '⌘⇧8',
       action: () => editor.chain().focus().toggleBulletList().run(),
       isActive: () => editor.isActive('bulletList'),
     },
     {
-      icon: 'list-ordered',
+      icon: (
+        <ListOrderedIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />
+      ),
       title: 'Ordered List',
+      // Cmd Shift 7
+      shortcut: '⌘⇧7',
       action: () => editor.chain().focus().toggleOrderedList().run(),
       isActive: () => editor.isActive('orderedList'),
     },
     {
-      icon: 'list-check-2',
+      icon: <ListTodoIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Task List',
+      // Cmd Shift 9
+      shortcut: '⌘⇧9',
       action: () => editor.chain().focus().toggleTaskList().run(),
       isActive: () => editor.isActive('taskList'),
     },
     {
-      icon: 'code-box-line',
+      icon: <SquareCodeIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Code Block',
+      // Cmd Opt C
+      shortcut: '⌘⌥C',
       action: () => editor.chain().focus().toggleCodeBlock().run(),
       isActive: () => editor.isActive('codeBlock'),
     },
@@ -167,13 +309,15 @@ export function MenuBar({
       type: 'divider',
     },
     {
-      icon: 'double-quotes-l',
+      icon: <QuoteIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Blockquote',
+      // Cmd Shift B
+      shortcut: '⌘⇧B',
       action: () => editor.chain().focus().toggleBlockquote().run(),
       isActive: () => editor.isActive('blockquote'),
     },
     {
-      icon: 'separator',
+      icon: <MinusIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Horizontal Rule',
       action: () => editor.chain().focus().setHorizontalRule().run(),
     },
@@ -181,12 +325,20 @@ export function MenuBar({
       type: 'divider',
     },
     {
-      icon: 'text-wrap',
+      icon: <WrapTextIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Hard Break',
+      // Shift Enter
+      shortcut: '⇧↩',
       action: () => editor.chain().focus().setHardBreak().run(),
     },
     {
-      icon: 'format-clear',
+      icon: (
+        <RemoveFormattingIcon
+          absoluteStrokeWidth
+          size={18}
+          strokeWidth={1.25}
+        />
+      ),
       title: 'Clear Format',
       action: () => editor.chain().focus().clearNodes().unsetAllMarks().run(),
     },
@@ -194,50 +346,81 @@ export function MenuBar({
       type: 'divider',
     },
     {
-      icon: 'arrow-go-back-line',
+      icon: <Undo2Icon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Undo',
+      // Cmd Z
+      shortcut: '⌘Z',
       action: () => editor.chain().focus().undo().run(),
     },
     {
-      icon: 'arrow-go-forward-line',
+      icon: <Redo2Icon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Redo',
+      // Cmd Shift Z
+      shortcut: '⌘⇧Z',
       action: () => editor.chain().focus().redo().run(),
     },
   ];
 
   return (
-    <div className={twMerge('flex flex-wrap gap-x-3 gap-y-1', className)}>
+    <div
+      className={twMerge(
+        'flex flex-wrap items-center gap-x-1 gap-y-1',
+        className,
+      )}
+    >
       {items.map((item, index) => (
         // eslint-disable-next-line react/no-array-index-key -- it's fine
         <Fragment key={index}>
-          {item.type === 'divider' ? <div>|</div> : <MenuItem {...item} />}
+          {item.type === 'divider' ? (
+            <Separator className="h-4" orientation="vertical" />
+          ) : (
+            <MenuItem {...item} />
+          )}
         </Fragment>
       ))}
     </div>
   );
 }
 
+/* -----------------------------------------------------------------------------
+ * Component: MenuItem
+ * -------------------------------------------------------------------------- */
+
 export function MenuItem({
+  action,
   className,
   icon,
-  title,
-  action,
   isActive,
+  shortcut,
+  title,
 }: {
+  action: () => boolean;
   className?: string;
-  icon?: React.ReactNode;
-  title?: string;
-  action?: () => void;
+  icon: React.ReactNode;
   isActive?: () => boolean;
+  shortcut?: string;
+  title: string;
 }): React.JSX.Element {
   return (
-    <button
-      className={twMerge(isActive?.() ? 'text-sky-500' : '', className)}
-      onClick={action}
-      title={title}
-      type="button"
-    >
-      {icon}
-    </button>
+    <Tooltip>
+      <TooltipTrigger
+        className={twMerge(
+          'text-accent-foreground bg-accent rounded p-1.5 transition',
+          isActive?.()
+            ? 'bg-primary text-primary-foreground'
+            : 'hover:bg-primary hover:text-primary-foreground',
+          className,
+        )}
+        onClick={action}
+      >
+        {icon}
+      </TooltipTrigger>
+      <TooltipContent className="flex items-center gap-2">
+        <span>{title}</span>
+        {shortcut ? (
+          <span className="text-accent-foreground opacity-50">{shortcut}</span>
+        ) : null}
+      </TooltipContent>
+    </Tooltip>
   );
 }
