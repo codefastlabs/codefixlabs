@@ -1,0 +1,111 @@
+
+Chromatic CLI v7.5.4
+https://www.chromatic.com/docs/cli
+
+Authenticating with Chromatic
+    → Connecting to https://index.chromatic.com
+Authenticated with Chromatic
+    → Using project token '****************3460'
+Retrieving git information
+Retrieved git information
+    → Commit 'bd52c60' on branch 'main'; found 1 parent build
+Collecting Storybook metadata
+Collected Storybook metadata
+    → Storybook 7.5.1 for React; using the @storybook/nextjs builder (7.5.1); supported addons found: Links, Essentials, Interactions, A11y
+Initializing build
+Initialized build
+    → Build 2 initialized
+Building your Storybook
+    → Running command: pnpm run build-storybook --output-dir /var/folders/js/g7p2b9397gs52_xv34mxcchr0000gn/T/chromatic--16666-dW8TavCPNGdu
+Storybook built in 48 seconds
+    → View build log at /Users/vuongphan/Projects/GitHub/codefixlabs/codefixlabs/apps/docs/build-storybook.log
+Publish your built Storybook
+    → Validating Storybook files
+Publishing your built Storybook
+    → Retrieving target location
+    → Starting publish
+    → [                    ] 0%
+    → [=                   ] 4%
+    → [===                 ] 15%
+    → [===                 ] 16%
+    → [=====               ] 26%
+    → [=====               ] 27%
+    → [======              ] 28%
+    → [======              ] 31%
+    → [======              ] 32%
+    → [=======             ] 33%
+    → [=======             ] 35%
+    → [=======             ] 37%
+    → [========            ] 38%
+    → [========            ] 39%
+    → [========            ] 40%
+    → [========            ] 41%
+    → [=========           ] 43%
+    → [=========           ] 44%
+    → [==========          ] 48%
+    → [==========          ] 49%
+    → [==========          ] 51%
+    → [==========          ] 52%
+    → [===========         ] 56%
+    → [===========         ] 57%
+    → [============        ] 58%
+    → [============        ] 60%
+    → [============        ] 61%
+    → [============        ] 62%
+    → [=============       ] 63%
+    → [=============       ] 64%
+    → [=============       ] 65%
+    → [=============       ] 66%
+    → [=============       ] 67%
+    → [==============      ] 69%
+    → [==============      ] 70%
+    → [==============      ] 71%
+    → [==============      ] 72%
+    → [===============     ] 73%
+    → [===============     ] 75%
+    → [===============     ] 76%
+    → [===============     ] 77%
+    → [================    ] 78%
+    → [================    ] 80%
+    → [================    ] 81%
+    → [================    ] 82%
+    → [=================   ] 83%
+    → [=================   ] 84%
+    → [=================   ] 85%
+    → [=================   ] 86%
+    → [=================   ] 87%
+    → [==================  ] 88%
+    → [==================  ] 89%
+    → [==================  ] 90%
+    → [==================  ] 91%
+    → [=================== ] 93%
+    → [=================== ] 96%
+    → [=================== ] 97%
+    → [====================] 99%
+Publish complete in 50 seconds
+    → View your Storybook at https://653f0916131ec9487222ceda-fetqaphuin.chromatic.com
+Verifying your Storybook
+    → This may take a few minutes
+Started build 2
+    → Continue setup at https://www.chromatic.com/setup?appId=653f0916131ec9487222ceda
+Running 124 tests
+    → This may take a few minutes
+ℹ Speed up Continuous Integration
+Your project is linked to GitHub so Chromatic will report results there.
+This means you can pass the --exit-once-uploaded flag to skip waiting for build results.
+Read more here: https://www.chromatic.com/docs/cli#chromatic-options
+    → [                    ] 1/124  Accordion › Basic 
+    → [=                   ] 5/124  Alert › Basic 
+    → [===                 ] 16/124  Button › Destructive 
+    → [======              ] 37/124  Checkbox › With Text 
+    → [==========          ] 63/124  Drawer › Basic 
+    → [==============      ] 84/124  Input › Password 
+    → [================    ] 102/124  Scroll Area › Basic 
+    → [=================== ] 120/124  Textarea › React Hook Form 
+✔ Build passed. Welcome to Chromatic!
+We found 42 components with 124 stories and took 124 snapshots.
+ℹ Please continue setup at https://www.chromatic.com/setup?appId=653f0916131ec9487222ceda
+Build 2 auto-accepted
+    → Tested 124 stories across 42 components; captured 124 snapshots in 44 seconds
+
+

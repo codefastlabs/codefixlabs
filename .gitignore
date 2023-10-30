@@ -26,6 +26,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+build-storybook.log*
+chromatic.log*
 
 # local env files
 .env*.local
