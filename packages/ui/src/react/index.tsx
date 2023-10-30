@@ -18,6 +18,7 @@ export * from '@/react/data-table';
 export * from '@/react/dialog';
 export * from '@/react/drawer';
 export * from '@/react/dropdown-menu';
+export * from '@/react/editor';
 export * from '@/react/form';
 export * from '@/react/hover-card';
 export * from '@/react/icons';

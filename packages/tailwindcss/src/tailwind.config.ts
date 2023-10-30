@@ -2,6 +2,7 @@ import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
 import typography from '@tailwindcss/typography';
+import { em } from '@/lib';
 
 export const sharedConfig: Config = {
   content: [
@@ -469,6 +470,83 @@ export const sharedConfig: Config = {
       },
       transformOrigin: {
         'top-center': 'top center',
+      },
+      typography: () => {
+        const css = {
+          'td p, th p': {
+            marginTop: '0',
+            marginBottom: '0',
+          },
+          'tbody tr th:first-child': {
+            paddingLeft: '0',
+          },
+          'tbody tr th:last-child': {
+            paddingRight: '0',
+          },
+        };
+
+        return {
+          sm: {
+            css: [
+              {
+                'tbody tr th': {
+                  paddingRight: em(12, 12),
+                  paddingBottom: em(8, 12),
+                  paddingLeft: em(12, 12),
+                },
+              },
+              css,
+            ],
+          },
+          DEFAULT: {
+            css: [
+              {
+                'tbody tr th': {
+                  paddingRight: em(8, 14),
+                  paddingBottom: em(8, 14),
+                  paddingLeft: em(8, 14),
+                },
+              },
+              css,
+            ],
+          },
+          lg: {
+            css: [
+              {
+                'tbody tr th': {
+                  paddingRight: em(12, 16),
+                  paddingBottom: em(12, 16),
+                  paddingLeft: em(12, 16),
+                },
+              },
+              css,
+            ],
+          },
+          xl: {
+            css: [
+              {
+                'tbody tr th': {
+                  paddingRight: em(12, 18),
+                  paddingBottom: em(16, 18),
+                  paddingLeft: em(12, 18),
+                },
+              },
+              css,
+            ],
+          },
+          '2xl': {
+            css: [
+              {
+                'tbody tr th': {
+                  paddingRight: em(12, 20),
+                  paddingBottom: em(16, 20),
+                  paddingLeft: em(12, 20),
+                },
+              },
+              css,
+            ],
+          },
+        };
       },
     },
   },

@@ -92,6 +92,18 @@
     "@react-email/components": "^0.0.9",
     "@tanstack/react-table": "^8.10.7",
     "@tanstack/table-core": "^8.10.7",
+    "@tiptap/extension-highlight": "^2.1.12",
+    "@tiptap/extension-image": "^2.1.12",
+    "@tiptap/extension-table": "^2.1.12",
+    "@tiptap/extension-table-cell": "^2.1.12",
+    "@tiptap/extension-table-header": "^2.1.12",
+    "@tiptap/extension-table-row": "^2.1.12",
+    "@tiptap/extension-task-item": "^2.1.12",
+    "@tiptap/extension-task-list": "^2.1.12",
+    "@tiptap/extension-youtube": "^2.1.12",
+    "@tiptap/pm": "^2.1.12",
+    "@tiptap/react": "^2.1.12",
+    "@tiptap/starter-kit": "^2.1.12",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
@@ -115,18 +127,6 @@
     "tailwindcss": "^3.3.5",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
-  },
-  "peerDependencies": {
-    "@tanstack/react-table": ">=8.10.7",
-    "react-day-picker": ">=8.9.1"
-  },
-  "peerDependenciesMeta": {
-    "@tanstack/react-table": {
-      "optional": true
-    },
-    "react-day-picker": {
-      "optional": true
-    }
   },
   "publishConfig": {
     "access": "public"

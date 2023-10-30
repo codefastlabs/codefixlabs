@@ -1,3 +1,9 @@
+const round = (num: number): string =>
+  num
+    .toFixed(7)
+    .replace(/(?<temp>\.[0-9]+?)0+$/, '$1')
+    .replace(/\.0$/, '');
+
 const formatNumber = (
   number: number,
   options: {
@@ -61,3 +67,7 @@ export const hexToHsl = (hex: string): string => {
     formatNumber(l, { maximumFractionDigits: 2, style: 'percent' }),
   ].join(' ');
 };
+
+export const em = (px: number, base: number): string => `${round(px / base)}em`;
+
+export const rem = (px: number): string => `${round(px / 16)}rem`;
