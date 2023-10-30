@@ -1,11 +1,5 @@
 # @codefixlabs/tailwindcss
 
-## 0.1.17
-
-### Patch Changes
-
-- Built-in typography plugin
-
 ## 0.1.16
 
 ### Patch Changes
