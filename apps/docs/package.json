@@ -53,7 +53,5 @@
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2"
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "@codefixlabs/docs@0.0.0"
+  }
 }
