@@ -5,6 +5,14 @@ const meta: Meta<typeof Editor> = {
   title: 'UI/Editor',
   component: Editor,
   tags: ['autodocs'],
+  argTypes: {
+    onBeforeCreate: { action: 'onBeforeCreate' },
+    onBlur: { action: 'onBlur' },
+    onCreate: { action: 'onCreate' },
+    onDestroy: { action: 'onDestroy' },
+    onFocus: { action: 'onFocus' },
+    onUpdate: { action: 'onUpdate' },
+  },
 };
 
 export default meta;
@@ -36,7 +44,7 @@ export const Basic: Story = {
   args: {
     content,
     classNames: {
-      editor: 'max-h-96 overflow-y-auto',
+      editor: 'max-h-[620px] overflow-y-auto',
     },
   },
 };

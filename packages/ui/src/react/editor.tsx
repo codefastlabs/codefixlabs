@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { forwardRef, Fragment } from 'react';
+import { forwardRef, Fragment, useCallback } from 'react';
 import { twMerge } from 'tailwind-merge';
-import type { Editor as TiptapEditor } from '@tiptap/react';
+import type { Editor as TiptapEditor, EditorOptions } from '@tiptap/react';
 import { EditorContent, useEditor } from '@tiptap/react';
 import { StarterKit } from '@tiptap/starter-kit';
 import { TableRow } from '@tiptap/extension-table-row';
@@ -26,19 +26,20 @@ import {
   Heading3Icon,
   Heading4Icon,
   HighlighterIcon,
+  ImageIcon,
   ItalicIcon,
   ListIcon,
   ListOrderedIcon,
-  ListTodoIcon,
   MinusIcon,
   PilcrowIcon,
-  QuoteIcon,
   Redo2Icon,
   RemoveFormattingIcon,
   SquareCodeIcon,
   StrikethroughIcon,
+  TextQuoteIcon,
   Undo2Icon,
   WrapTextIcon,
+  YoutubeIcon,
 } from 'lucide-react';
 import { Separator } from '@/react/separator';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/react/tooltip';
@@ -49,15 +50,17 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/react/tooltip';
 
 export const Editor = forwardRef<
   React.ElementRef<'div'>,
-  React.ComponentPropsWithoutRef<'div'> & {
+  {
+    className?: string;
     classNames?: {
       root?: string;
       editor?: string;
       menuBar?: string;
     };
-  }
->(({ classNames, className, content, ...props }, forwardedRef) => {
+  } & Omit<EditorOptions, 'editorProps' | 'extensions'>
+>(({ classNames, className, ...props }, forwardedRef) => {
   const editor = useEditor({
+    ...props,
     editorProps: {
       attributes: {
         class: twMerge(
@@ -87,7 +90,6 @@ export const Editor = forwardRef<
         types: ['heading', 'paragraph'],
       }),
     ],
-    content,
   });
 
   if (!editor) {
@@ -102,10 +104,9 @@ export const Editor = forwardRef<
         classNames?.root,
       )}
       ref={forwardedRef}
-      {...props}
     >
       <MenuBar
-        className={twMerge('top-42 sticky inset-x-0 p-1', classNames?.menuBar)}
+        className={twMerge('bg-background p-1', classNames?.menuBar)}
         editor={editor}
       />
 
@@ -145,6 +146,36 @@ export function MenuBar({
   className?: string;
   editor: TiptapEditor;
 }): React.JSX.Element {
+  const addImage = useCallback(() => {
+    // eslint-disable-next-line no-alert -- work in progress
+    const url = window.prompt('URL');
+
+    if (url) {
+      return editor.chain().focus().setImage({ src: url }).run();
+    }
+
+    return false;
+  }, [editor]);
+
+  const addYoutubeVideo = useCallback(() => {
+    // eslint-disable-next-line no-alert -- work in progress
+    const url = window.prompt('URL');
+
+    if (url) {
+      return editor
+        .chain()
+        .focus()
+        .setYoutubeVideo({
+          src: url,
+          width: 640,
+          height: 480,
+        })
+        .run();
+    }
+
+    return false;
+  }, [editor]);
+
   const items: Item[] = [
     {
       icon: <BoldIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
@@ -289,14 +320,14 @@ export function MenuBar({
       action: () => editor.chain().focus().toggleOrderedList().run(),
       isActive: () => editor.isActive('orderedList'),
     },
-    {
+    /* {
       icon: <ListTodoIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Task List',
       // Cmd Shift 9
       shortcut: '⌘⇧9',
       action: () => editor.chain().focus().toggleTaskList().run(),
       isActive: () => editor.isActive('taskList'),
-    },
+    }, */
     {
       icon: <SquareCodeIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Code Block',
@@ -309,12 +340,22 @@ export function MenuBar({
       type: 'divider',
     },
     {
-      icon: <QuoteIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
+      icon: <TextQuoteIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
       title: 'Blockquote',
       // Cmd Shift B
       shortcut: '⌘⇧B',
       action: () => editor.chain().focus().toggleBlockquote().run(),
       isActive: () => editor.isActive('blockquote'),
+    },
+    {
+      icon: <ImageIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
+      title: 'Image',
+      action: addImage,
+    },
+    {
+      icon: <YoutubeIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,
+      title: 'YouTube',
+      action: addYoutubeVideo,
     },
     {
       icon: <MinusIcon absoluteStrokeWidth size={18} strokeWidth={1.25} />,

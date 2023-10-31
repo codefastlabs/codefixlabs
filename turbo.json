@@ -4,8 +4,8 @@
   "globalEnv": ["NODE_ENV", "VERCEL_*"],
   "pipeline": {
     "build": {
-      "dependsOn": ["db:generate", "^build"],
-      "outputs": ["prisma/client/**", ".next/**", "!.next/cache/**"],
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"],
       "env": [
         "NEXT_PUBLIC_*",
         "GITHUB_*",
@@ -32,11 +32,6 @@
     "clean": {
       "cache": false
     },
-    "db:generate": {
-      "cache": false
-    },
-    "db:push": {},
-    "db:studio": {},
     "dev": {
       "cache": false,
       "persistent": true
