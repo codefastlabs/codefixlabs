@@ -505,11 +505,16 @@ export function DataTableContent<TData, TValue>({
         'overflow-auto rounded-md border',
         classNames.container,
       )}
+      data-class="container"
     >
-      <Table className={classNames.table}>
-        <TableHeader className={classNames.header}>
+      <Table className={classNames.table} data-class="talbe">
+        <TableHeader className={classNames.header} data-class="header">
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow className={classNames.headerRow} key={headerGroup.id}>
+            <TableRow
+              className={classNames.headerRow}
+              data-class="headerRow"
+              key={headerGroup.id}
+            >
               {headerGroup.headers.map((header) => (
                 <TableHead
                   className={twMerge(
@@ -517,6 +522,7 @@ export function DataTableContent<TData, TValue>({
                     header.column.columnDef.meta?.className,
                     header.column.columnDef.meta?.classNames?.headerCell,
                   )}
+                  data-class="headerCell"
                   key={header.id}
                 >
                   {!header.isPlaceholder &&
@@ -529,11 +535,12 @@ export function DataTableContent<TData, TValue>({
             </TableRow>
           ))}
         </TableHeader>
-        <TableBody className={classNames.body}>
+        <TableBody className={classNames.body} data-class="body">
           {table.getRowModel().rows.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
                 className={classNames.row}
+                data-class="row"
                 data-state={row.getIsSelected() && 'selected'}
                 key={row.id}
               >
@@ -544,6 +551,7 @@ export function DataTableContent<TData, TValue>({
                       cell.column.columnDef.meta?.className,
                       cell.column.columnDef.meta?.classNames?.cell,
                     )}
+                    data-class="cell"
                     key={cell.id}
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -557,10 +565,12 @@ export function DataTableContent<TData, TValue>({
                 'align-middle hover:bg-transparent',
                 classNames.emptyRow,
               )}
+              data-class="emptyRow"
             >
               <TableCell
                 className={twMerge('h-24 text-center', classNames.emptyCell)}
                 colSpan={columns.length}
+                data-class="emptyCell"
               >
                 No results.
               </TableCell>
@@ -568,9 +578,13 @@ export function DataTableContent<TData, TValue>({
           )}
         </TableBody>
         {showFooter ? (
-          <TableFooter className={classNames.footer}>
+          <TableFooter className={classNames.footer} data-class="footer">
             {table.getFooterGroups().map((footerGroup) => (
-              <TableRow className={classNames.footerRow} key={footerGroup.id}>
+              <TableRow
+                className={classNames.footerRow}
+                data-class="footerRow"
+                key={footerGroup.id}
+              >
                 {footerGroup.headers.map((header) => (
                   <TableHead
                     className={twMerge(
@@ -578,6 +592,7 @@ export function DataTableContent<TData, TValue>({
                       header.column.columnDef.meta?.className,
                       header.column.columnDef.meta?.classNames?.headerCell,
                     )}
+                    data-class="headerCell"
                     key={header.id}
                   >
                     {!header.isPlaceholder &&
@@ -765,8 +780,12 @@ export function DataTable<TData>({
   });
 
   return (
-    <div className={twMerge('space-y-4', classNames.root)}>
-      <DataTableToolbar className={classNames.toolbar} table={table}>
+    <div className={twMerge('space-y-4', classNames.root)} data-class="root">
+      <DataTableToolbar
+        className={classNames.toolbar}
+        data-class="toolbar"
+        table={table}
+      >
         {toolbar}
       </DataTableToolbar>
       <DataTableContent
@@ -775,7 +794,11 @@ export function DataTable<TData>({
         showFooter={showFooter}
         table={table}
       />
-      <DataTablePagination className={classNames.pagination} table={table} />
+      <DataTablePagination
+        className={classNames.pagination}
+        data-class="pagination"
+        table={table}
+      />
     </div>
   );
 }

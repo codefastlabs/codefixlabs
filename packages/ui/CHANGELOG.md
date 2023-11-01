@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.29
+
+### Patch Changes
+
+- Enhance class positioning with data-class attribute
+
 ## 0.1.28
 
 ### Patch Changes
