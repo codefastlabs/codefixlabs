@@ -32,8 +32,9 @@ import {
 } from 'lucide-react';
 import pluralize from 'pluralize';
 import * as React from 'react';
-import { useId, useMemo, useTransition } from 'react';
+import { useId, useMemo } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { useDebouncedCallback } from 'use-debounce';
 import { Badge } from '@/react/badge';
 import { Button } from '@/react/button';
 import {
@@ -335,14 +336,11 @@ export function DataTableSearch<TData>({
 }: {
   table: TableType<TData>;
 }): React.JSX.Element {
-  const [_isPending, startTransition] = useTransition();
-  const onChange: React.ChangeEventHandler<HTMLInputElement> = ({
-    target: { value },
-  }) => {
-    startTransition(() => {
-      table.setGlobalFilter(value);
-    });
-  };
+  const onChange = useDebouncedCallback<
+    React.ChangeEventHandler<HTMLInputElement>
+  >(({ target: { value } }) => {
+    table.setGlobalFilter(value);
+  }, 300);
 
   return (
     <Input

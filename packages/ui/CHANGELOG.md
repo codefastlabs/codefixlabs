@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.26
+
+### Patch Changes
+
+- Use search debounce
+
 ## 0.1.25
 
 ### Patch Changes
