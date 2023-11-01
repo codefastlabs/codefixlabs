@@ -32,7 +32,7 @@ import {
 } from 'lucide-react';
 import pluralize from 'pluralize';
 import * as React from 'react';
-import { useId, useMemo } from 'react';
+import { useId } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useDebouncedCallback } from 'use-debounce';
 import { Badge } from '@/react/badge';
@@ -104,24 +104,24 @@ export function DataTableColumnHeader<TData, TValue>({
   column: Column<TData, TValue>;
   title: string;
 }): React.JSX.Element {
-  const endIcon = useMemo(() => {
-    if (column.getIsSorted() === 'desc') {
-      return <ArrowDownIcon className="h-4 w-4" />;
-    }
+  const endIcon = (): React.JSX.Element => {
+    const isSorted = column.getIsSorted();
 
-    if (column.getIsSorted() === 'asc') {
+    if (isSorted === 'desc') {
+      return <ArrowDownIcon className="h-4 w-4" />;
+    } else if (isSorted === 'asc') {
       return <ArrowUpIcon className="h-4 w-4" />;
     }
 
     return <ChevronsUpDownIcon className="h-4 w-4" />;
-  }, [column]);
+  };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
           className="data-state-open:bg-accent -ml-4"
-          endIcon={endIcon}
+          endIcon={endIcon()}
           size="sm"
           variant="ghost"
         >

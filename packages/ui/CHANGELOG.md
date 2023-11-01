@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.28
+
+### Patch Changes
+
+- Reduced redundant calls to `column.getIsSorted()`
+
 ## 0.1.27
 
 ### Patch Changes
