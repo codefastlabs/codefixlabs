@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.30
+
+### Patch Changes
+
+- Rename data-class to data-test-id
+
 ## 0.1.29
 
 ### Patch Changes
