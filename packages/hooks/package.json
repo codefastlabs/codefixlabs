@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/hooks",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "license": "MIT",
   "exports": {
     "./package.json": "./package.json",
@@ -35,7 +35,7 @@
   "dependencies": {
     "country-state-city": "^3.2.1",
     "react": "^18.2.0",
-    "zustand": "^4.4.4"
+    "zustand": "^4.4.5"
   },
   "devDependencies": {
     "@codefixlabs/tsconfig": "workspace:*",

@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.10
+
+### Patch Changes
+
+- Show deault search value
+
 ## 0.1.9
 
 ### Patch Changes

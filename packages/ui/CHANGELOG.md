@@ -1,5 +1,13 @@
 # @codefixlabs/ui
 
+## 0.1.27
+
+### Patch Changes
+
+- Show deault search value
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.10
+
 ## 0.1.26
 
 ### Patch Changes
