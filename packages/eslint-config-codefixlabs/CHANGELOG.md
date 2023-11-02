@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.10
+
+### Patch Changes
+
+- Update eslint config
+
 ## 0.1.9
 
 ### Patch Changes

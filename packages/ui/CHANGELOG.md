@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.31
+
+### Patch Changes
+
+- Update eslint config
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.11
+  - @codefixlabs/lib@0.1.15
+
 ## 0.1.30
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/lib",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "license": "MIT",
   "exports": {
     "./package.json": "./package.json",
@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@codefixlabs/tsconfig": "workspace:*",
-    "@types/react": "^18.2.33",
+    "@types/react": "^18.2.34",
     "eslint-config-codefixlabs": "workspace:*",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"

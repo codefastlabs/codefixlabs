@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.15
+
+### Patch Changes
+
+- Update eslint config
+
 ## 0.1.14
 
 ### Patch Changes
