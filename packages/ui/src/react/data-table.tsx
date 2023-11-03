@@ -408,11 +408,13 @@ export function DataTableViewOptions<TData>({
  * -------------------------------------------------------------------------- */
 
 export function DataTableToolbar<TData>({
-  children,
+  startToolbar,
+  endToolbar,
   className,
   table,
 }: {
-  children?: React.ReactNode;
+  startToolbar?: React.ReactNode;
+  endToolbar?: React.ReactNode;
   className?: string;
   table: TableType<TData>;
 }): React.JSX.Element {
@@ -425,10 +427,11 @@ export function DataTableToolbar<TData>({
     >
       <div className="flex grow items-center gap-2">
         <DataTableSearch table={table} />
+        {startToolbar}
       </div>
       <div className="flex flex-wrap items-center gap-2">
         <DataTableViewOptions table={table} />
-        {children}
+        {endToolbar}
       </div>
     </div>
   );
@@ -761,12 +764,14 @@ export function DataTable<TData>({
   columns = [],
   classNames = {},
   showFooter = false,
-  toolbar,
+  startToolbar,
+  endToolbar,
   ...props
 }: Omit<TableOptions<TData>, 'getCoreRowModel'> & {
   classNames?: React.ComponentProps<typeof DataTableContent>['classNames'];
   showFooter?: boolean;
-  toolbar?: React.ReactNode;
+  startToolbar?: React.ReactNode;
+  endToolbar?: React.ReactNode;
 }): React.JSX.Element {
   const table = useReactTable({
     columns,
@@ -784,10 +789,10 @@ export function DataTable<TData>({
       <DataTableToolbar
         className={classNames.toolbar}
         data-test-id="toolbar"
+        endToolbar={endToolbar}
+        startToolbar={startToolbar}
         table={table}
-      >
-        {toolbar}
-      </DataTableToolbar>
+      />
       <DataTableContent
         classNames={classNames}
         columns={columns}

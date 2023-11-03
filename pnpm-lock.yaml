@@ -90,8 +90,8 @@ importers:
         specifier: ^2.30.0
         version: 2.30.0
       lucide-react:
-        specifier: ^0.291.0
-        version: 0.291.0(react@18.2.0)
+        specifier: ^0.292.0
+        version: 0.292.0(react@18.2.0)
       next:
         specifier: ^14.0.1
         version: 14.0.1(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)
@@ -175,8 +175,8 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
       zustand:
-        specifier: ^4.4.5
-        version: 4.4.5(@types/react@18.2.34)(react@18.2.0)
+        specifier: ^4.4.6
+        version: 4.4.6(@types/react@18.2.34)(react@18.2.0)
     devDependencies:
       '@codefixlabs/tsconfig':
         specifier: workspace:*
@@ -369,8 +369,8 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
       '@react-email/components':
-        specifier: ^0.0.10
-        version: 0.0.10(@types/react@18.2.34)(react@18.2.0)
+        specifier: ^0.0.11
+        version: 0.0.11(@types/react@18.2.34)(react@18.2.0)
       '@tanstack/react-table':
         specifier: ^8.10.7
         version: 8.10.7(react-dom@18.2.0)(react@18.2.0)
@@ -429,8 +429,8 @@ importers:
         specifier: ^2.30.0
         version: 2.30.0
       lucide-react:
-        specifier: ^0.291.0
-        version: 0.291.0(react@18.2.0)
+        specifier: ^0.292.0
+        version: 0.292.0(react@18.2.0)
       pluralize:
         specifier: ^8.0.0
         version: 8.0.0
@@ -4316,8 +4316,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-email/components@0.0.10(@types/react@18.2.34)(react@18.2.0):
-    resolution: {integrity: sha512-LmBZbN0qx4fq1gGeBniNrBfG32302bRCZJ7j9w0YJHuK3Q9bNFjf0UjKMxCIJn03OVUnAW/7GRzObCPwit9c7Q==}
+  /@react-email/components@0.0.11(@types/react@18.2.34)(react@18.2.0):
+    resolution: {integrity: sha512-wj9Sra/AGQvadb3ZABz44ll9Fb9FvXPEmODXRWbNRSc8pJTFGWorrsm4M/yj8dnewd4HtnbLkV1eDOvuiLAVLA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: 18.2.0
@@ -4334,7 +4334,7 @@ packages:
       '@react-email/img': 0.0.6(react@18.2.0)
       '@react-email/link': 0.0.6(react@18.2.0)
       '@react-email/preview': 0.0.7(react@18.2.0)
-      '@react-email/render': 0.0.8
+      '@react-email/render': 0.0.9
       '@react-email/row': 0.0.6(react@18.2.0)
       '@react-email/section': 0.0.10(react@18.2.0)
       '@react-email/tailwind': 0.0.12(react@18.2.0)
@@ -4426,8 +4426,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-email/render@0.0.8:
-    resolution: {integrity: sha512-DwrCG5t2nXlXYcchZz8h4NOhBYoU5Rpogz54Z18mANUmwMtzl88x6NwRDwzZoAVAlTLOPqvsQbYtWHvfpTfmmA==}
+  /@react-email/render@0.0.9:
+    resolution: {integrity: sha512-nrim7wiACnaXsGtL7GF6jp3Qmml8J6vAjAH88jkC8lIbfNZaCyuPQHANjyYIXlvQeAbsWADQJFZgOHUqFqjh/A==}
     engines: {node: '>=18.0.0'}
     dependencies:
       html-to-text: 9.0.5
@@ -11536,8 +11536,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-react@0.291.0(react@18.2.0):
-    resolution: {integrity: sha512-79jHlT9Je2PXSvXIBGDkItCK7In2O9iKnnSJ/bJxvIBOFaX2Ex0xEcC4fRS/g0F2uQGFejjmn2qWhwdc5wicMQ==}
+  /lucide-react@0.292.0(react@18.2.0):
+    resolution: {integrity: sha512-rRgUkpEHWpa5VCT66YscInCQmQuPCB1RFRzkkxMxg4b+jaL0V12E3riWWR2Sh5OIiUhCwGW/ZExuEO4Az32E6Q==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
@@ -16485,8 +16485,8 @@ packages:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: false
 
-  /zustand@4.4.5(@types/react@18.2.34)(react@18.2.0):
-    resolution: {integrity: sha512-jgIrBBLKncQW74PA2Lclct3gwD4aPughwGE4FqlXrv3rDqQox7JCn8rwUiFK6ygJcbBAvfTf8fF+ICg7HLD2FQ==}
+  /zustand@4.4.6(@types/react@18.2.34)(react@18.2.0):
+    resolution: {integrity: sha512-Rb16eW55gqL4W2XZpJh0fnrATxYEG3Apl2gfHTyDSE965x/zxslTikpNch0JgNjJA9zK6gEFW8Fl6d1rTZaqgg==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       '@types/react': '>=16.8'

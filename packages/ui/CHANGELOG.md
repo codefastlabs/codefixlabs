@@ -1,5 +1,13 @@
 # @codefixlabs/ui
 
+## 0.1.32
+
+### Patch Changes
+
+- Refactor slot toolbar
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.12
+
 ## 0.1.31
 
 ### Patch Changes
