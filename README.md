@@ -6,17 +6,17 @@ To create a new app, run the following command:
 
 ```sh
 cd apps
-npx create-next-app --ts --tailwind --eslint --use-bun --app --import-alias "@/*" --src-dir "next-movies"
+npx create-next-app --ts --tailwind --eslint --use-pnpm --app --import-alias "@/*" --src-dir "next-movies"
 # codefixlabs
-bun add @codefixlabs/hooks @codefixlabs/tsconfig @codefixlabs/ui @codefixlabs/lib
-bun add -D @codefixlabs/tailwindcss eslint-config-codefixlabs
+pnpm add @codefixlabs/hooks @codefixlabs/tsconfig @codefixlabs/ui @codefixlabs/lib
+pnpm add -D @codefixlabs/tailwindcss eslint-config-codefixlabs
 # prettier
-bun add -D prettier-plugin-packagejson prettier-plugin-tailwindcss
+pnpm add -D prettier-plugin-packagejson prettier-plugin-tailwindcss
 # pre-commit
-bun add -D lint-staged simple-git-hooks
+pnpm add -D lint-staged simple-git-hooks
 # other
-bun add class-variance-authority zod react-hook-form @hookform/resolvers @prisma/client @next-auth/prisma-adapter next-auth tailwind-merge date-fns path-to-regexp slugify lucide-react pluralize
-bun add -D prisma @types/pluralize @faker-js/faker
+pnpm add class-variance-authority zod react-hook-form @hookform/resolvers @prisma/client @next-auth/prisma-adapter next-auth tailwind-merge date-fns path-to-regexp slugify lucide-react pluralize
+pnpm add -D prisma @types/pluralize @faker-js/faker
 ```
 
 Update `package.json`
