@@ -154,11 +154,8 @@ importers:
   packages/eslint-config-codefixlabs:
     dependencies:
       '@vercel/style-guide':
-        specifier: ^5.0.2-canary.1
-        version: 5.0.2-canary.1(eslint@8.52.0)(prettier@3.0.3)(typescript@5.2.2)
-      eslint-config-turbo:
-        specifier: ^1.10.16
-        version: 1.10.16(eslint@8.52.0)
+        specifier: canary
+        version: 5.1.0-canary.1(eslint@8.52.0)(prettier@3.0.3)(typescript@5.2.2)
       eslint-plugin-mdx:
         specifier: ^2.2.0
         version: 2.2.0(eslint@8.52.0)
@@ -6697,11 +6694,11 @@ packages:
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  /@vercel/style-guide@5.0.2-canary.1(eslint@8.52.0)(prettier@3.0.3)(typescript@5.2.2):
-    resolution: {integrity: sha512-pHHBUqZuFjuPng+MaS8VHDPKAqELXiaue33VcqbX6IcbyCFlI3E/wFDpJx/uMDZbhjxH7fxKxZFBnyF5+rPvEg==}
+  /@vercel/style-guide@5.1.0-canary.1(eslint@8.52.0)(prettier@3.0.3)(typescript@5.2.2):
+    resolution: {integrity: sha512-YRLxYPH6REbUVtsYWhlKPY++/UZAjbPRXvRcXvr1Rt3thwEpul3/TbkadB+cDxM51C0/2rKBlP839trJuHGH0g==}
     engines: {node: '>=16'}
     peerDependencies:
-      '@next/eslint-plugin-next': '>=12.3.0 <14'
+      '@next/eslint-plugin-next': '>=12.3.0 <15'
       eslint: '>=8.48.0 <9'
       prettier: '>=3.0.0 <4'
       typescript: '>=4.8.0 <6'
@@ -8647,11 +8644,6 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /dotenv@16.0.3:
-    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
-    engines: {node: '>=12'}
-    dev: false
-
   /dotenv@16.3.1:
     resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
     engines: {node: '>=12'}
@@ -8967,15 +8959,6 @@ packages:
       eslint: 8.52.0
     dev: false
 
-  /eslint-config-turbo@1.10.16(eslint@8.52.0):
-    resolution: {integrity: sha512-O3NQI72bQHV7FvSC6lWj66EGx8drJJjuT1kuInn6nbMLOHdMBhSUX/8uhTAlHRQdlxZk2j9HtgFCIzSc93w42g==}
-    peerDependencies:
-      eslint: '>6.6.0'
-    dependencies:
-      eslint: 8.52.0
-      eslint-plugin-turbo: 1.10.16(eslint@8.52.0)
-    dev: false
-
   /eslint-import-resolver-alias@1.1.2(eslint-plugin-import@2.28.1):
     resolution: {integrity: sha512-WdviM1Eu834zsfjHtcGHtGfcu+F30Od3V7I9Fi57uhBEwPkjDcii7/yW8jAT+gOhn4P/vOxxNAXbFAKsrrc15w==}
     engines: {node: '>= 4'}
@@ -9277,15 +9260,6 @@ packages:
     dependencies:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-    dev: false
-
-  /eslint-plugin-turbo@1.10.16(eslint@8.52.0):
-    resolution: {integrity: sha512-ZjrR88MTN64PNGufSEcM0tf+V1xFYVbeiMeuIqr0aiABGomxFLo4DBkQ7WI4WzkZtWQSIA2sP+yxqSboEfL9MQ==}
-    peerDependencies:
-      eslint: '>6.6.0'
-    dependencies:
-      dotenv: 16.0.3
-      eslint: 8.52.0
     dev: false
 
   /eslint-plugin-unicorn@48.0.1(eslint@8.52.0):

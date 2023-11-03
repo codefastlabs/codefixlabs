@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.11
+
+### Patch Changes
+
+- Remove eslint turbo
+
 ## 0.1.10
 
 ### Patch Changes
