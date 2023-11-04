@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.18
+
+### Patch Changes
+
+- Add font family serif, mono
+
 ## 0.1.17
 
 ### Patch Changes

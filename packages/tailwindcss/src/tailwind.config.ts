@@ -191,7 +191,9 @@ export const sharedConfig: Config = {
         valid: 'valid="true"',
       },
       fontFamily: {
+        mono: [`var(--font-mono, ${fontFamily.mono.join(', ')})`],
         sans: [`var(--font-sans, ${fontFamily.sans.join(', ')})`],
+        serif: [`var(--font-serif, ${fontFamily.serif.join(', ')})`],
       },
       height: {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- fix later
