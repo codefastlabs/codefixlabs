@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.33
+
+### Patch Changes
+
+- Button focus on state open
+
 ## 0.1.32
 
 ### Patch Changes

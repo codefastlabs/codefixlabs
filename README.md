@@ -15,7 +15,7 @@ pnpm add -D prettier-plugin-packagejson prettier-plugin-tailwindcss
 # pre-commit
 pnpm add -D lint-staged simple-git-hooks
 # other
-pnpm add class-variance-authority zod react-hook-form @hookform/resolvers @prisma/client @next-auth/prisma-adapter next-auth tailwind-merge date-fns path-to-regexp slugify lucide-react pluralize
+pnpm add class-variance-authority zod react-hook-form @hookform/resolvers @prisma/client @auth/prisma-adapter next-auth@beta tailwind-merge date-fns path-to-regexp slugify lucide-react pluralize
 pnpm add -D prisma @types/pluralize @faker-js/faker
 ```
 
@@ -86,6 +86,7 @@ Update `tsconfig.json`
 -   "isolatedModules": true,
 -   "jsx": "preserve",
 -   "incremental": true,
++   "declaration": false,
     "plugins": [
       {
         "name": "next"
@@ -146,12 +147,18 @@ datasource db {
 + }
 ```
 
-Create `/src/lib/database/index.ts`
+Create `/src/lib/prisma.ts`
 
 ```ts
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client/edge';
 
-const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
+// PrismaClient is attached to the `global` object in development to prevent
+// exhausting your database connection limit.
+//
+// Learn more:
+// https://pris.ly/d/help/next-js-best-practices
+
+const globalForPrisma = global as unknown as { prisma?: PrismaClient };
 
 export const prisma = globalForPrisma.prisma || new PrismaClient();
 

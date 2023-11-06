@@ -475,6 +475,24 @@ export function DataTablePagination<TData>({
  * Component: DataTableContent
  * -------------------------------------------------------------------------- */
 
+interface TableClassNames {
+  root?: string;
+  container?: string;
+  table?: string;
+  header?: string;
+  headerRow?: string;
+  footer?: string;
+  footerRow?: string;
+  headerCell?: string;
+  body?: string;
+  row?: string;
+  cell?: string;
+  emptyRow?: string;
+  emptyCell?: string;
+  toolbar?: string;
+  pagination?: string;
+}
+
 export function DataTableContent<TData, TValue>({
   table,
   columns = [],
@@ -484,23 +502,7 @@ export function DataTableContent<TData, TValue>({
   table: TableType<TData>;
   columns: ColumnDef<TData, TValue>[];
   showFooter?: boolean;
-  classNames?: {
-    root?: string;
-    container?: string;
-    table?: string;
-    header?: string;
-    headerRow?: string;
-    footer?: string;
-    footerRow?: string;
-    headerCell?: string;
-    body?: string;
-    row?: string;
-    cell?: string;
-    emptyRow?: string;
-    emptyCell?: string;
-    toolbar?: string;
-    pagination?: string;
-  };
+  classNames?: TableClassNames;
 }): React.JSX.Element {
   return (
     <div
@@ -768,7 +770,7 @@ export function DataTable<TData>({
   endToolbar,
   ...props
 }: Omit<TableOptions<TData>, 'getCoreRowModel'> & {
-  classNames?: React.ComponentProps<typeof DataTableContent>['classNames'];
+  classNames?: TableClassNames;
   showFooter?: boolean;
   startToolbar?: React.ReactNode;
   endToolbar?: React.ReactNode;

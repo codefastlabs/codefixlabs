@@ -115,6 +115,7 @@ export const buttonVariants = cva(
   [
     'relative select-none items-center gap-2 overflow-hidden whitespace-nowrap text-sm font-medium transition-colors',
     'focus:ring-ring/40 focus:outline-none focus:ring-2',
+    'data-state-open:ring-ring/20 data-state-open:outline-none data-state-open:ring-2',
     'data-disabled:cursor-not-allowed data-disabled:ring-0',
   ],
   {
