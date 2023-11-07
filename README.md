@@ -189,7 +189,6 @@ module.exports = nextConfig
 In `postcss.config.js`
 
 ```diff
-/* eslint-disable sort-keys */
 module.exports = {
   plugins: {
 +  'tailwindcss/nesting': {},
@@ -202,10 +201,12 @@ module.exports = {
 In `tailwind.config.ts`
 
 ```diff
-+ import { sharedConfig } from '@codefixlabs/tailwindcss';
++ import { sharedConfig } from '@codefixlabs/tailwindcss/tailwind.config';
++ import { stone } from '@codefixlabs/tailwindcss/color/stone';
 import type { Config } from 'tailwindcss'
 
-const config: Pick<Config, 'presets' | 'theme'> = {
+const config: Pick<Config, 'presets' | 'theme' | 'plugins'> = {
++ plugins: [stone],
 + presets: [sharedConfig],
 - content: [
 -   "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",

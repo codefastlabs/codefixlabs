@@ -2,7 +2,7 @@ import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
 import typography from '@tailwindcss/typography';
-import { em } from '@/lib';
+import { em } from '@/lib/utils';
 
 export const sharedConfig: Config = {
   content: [

@@ -1,4 +1,4 @@
-import { Calendar } from '@codefixlabs/ui/react';
+import { Calendar } from '@codefixlabs/ui/react/calendar';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import { useState } from 'react';

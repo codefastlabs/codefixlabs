@@ -1,4 +1,4 @@
-import { AspectRatio } from '@codefixlabs/ui/react';
+import { AspectRatio } from '@codefixlabs/ui/react/aspect-ratio';
 import type { Meta, StoryObj } from '@storybook/react';
 import Image from 'next/image';
 

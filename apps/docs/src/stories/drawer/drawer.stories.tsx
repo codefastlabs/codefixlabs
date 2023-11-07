@@ -1,5 +1,5 @@
+import { Button } from '@codefixlabs/ui/react/button';
 import {
-  Button,
   Drawer,
   DrawerBody,
   DrawerClose,
@@ -9,7 +9,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@codefixlabs/ui/react';
+} from '@codefixlabs/ui/react/drawer';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Drawer> = {

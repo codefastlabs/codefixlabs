@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@codefixlabs/ui/react';
+} from '@codefixlabs/ui/react/accordion';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Accordion> = {

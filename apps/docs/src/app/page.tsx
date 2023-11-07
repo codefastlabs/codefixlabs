@@ -1,14 +1,14 @@
+import { BellIcon, CheckIcon } from 'lucide-react';
 import {
-  Button,
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-  Switch,
-} from '@codefixlabs/ui/react';
-import { BellIcon, CheckIcon } from 'lucide-react';
+} from '@codefixlabs/ui/react/card';
+import { Switch } from '@codefixlabs/ui/react/switch';
+import { Button } from '@codefixlabs/ui/react/button';
 
 const notifications = [
   {

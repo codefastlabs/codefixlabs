@@ -2,12 +2,13 @@
   "name": "@codefixlabs/lib",
   "version": "0.1.16",
   "license": "MIT",
+  "sideEffects": false,
   "exports": {
     "./package.json": "./package.json",
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js"
     }
   },
   "typesVersions": {

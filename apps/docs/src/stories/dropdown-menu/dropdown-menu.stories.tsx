@@ -1,5 +1,5 @@
+import { Button } from '@codefixlabs/ui/react/button';
 import {
-  Button,
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
@@ -12,7 +12,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@codefixlabs/ui/react';
+} from '@codefixlabs/ui/react/dropdown-menu';
 import type { Meta, StoryObj } from '@storybook/react';
 import { MenuIcon } from 'lucide-react';
 import type { ComponentProps } from 'react';

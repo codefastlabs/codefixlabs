@@ -1,6 +1,6 @@
 'use client';
 
-import { getFirstInitials } from '@codefixlabs/lib';
+import { getFirstInitials } from '@codefixlabs/lib/string';
 import { Fallback, Image, Root } from '@radix-ui/react-avatar';
 import * as React from 'react';
 import { forwardRef } from 'react';

@@ -1,21 +1,22 @@
-import { isValidPhoneNumber, wait } from '@codefixlabs/lib';
+import { wait } from '@codefixlabs/lib/wait';
 import {
-  Button,
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-  InputPhoneNumber,
-  Label,
-} from '@codefixlabs/ui/react';
+} from '@codefixlabs/ui/react/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { isValidPhoneNumber } from '@codefixlabs/lib/validation';
+import { InputPhoneNumber } from '@codefixlabs/ui/react/input-phone-number';
+import { Label } from '@codefixlabs/ui/react/label';
+import { Button } from '@codefixlabs/ui/react/button';
 
 const meta: Meta<typeof InputPhoneNumber> = {
   argTypes: {

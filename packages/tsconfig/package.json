@@ -2,6 +2,7 @@
   "name": "@codefixlabs/tsconfig",
   "version": "0.1.8",
   "license": "MIT",
+  "sideEffects": false,
   "publishConfig": {
     "access": "public"
   }

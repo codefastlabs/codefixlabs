@@ -1,20 +1,20 @@
-import { wait } from '@codefixlabs/lib';
+import { wait } from '@codefixlabs/lib/wait';
 import {
-  Button,
   Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  Label,
-  Switch,
-} from '@codefixlabs/ui/react';
+} from '@codefixlabs/ui/react/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { Switch } from '@codefixlabs/ui/react/switch';
+import { Button } from '@codefixlabs/ui/react/button';
+import { Label } from '@codefixlabs/ui/react/label';
 
 const meta: Meta<typeof Switch> = {
   argTypes: {

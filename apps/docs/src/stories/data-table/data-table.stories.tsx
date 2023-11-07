@@ -1,19 +1,21 @@
 import {
-  Button,
-  Checkbox,
-  DataTable,
-  DataTableColumnHeader,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@codefixlabs/ui/react';
+} from '@codefixlabs/ui/react/dropdown-menu';
 import { faker } from '@faker-js/faker';
 import type { Meta, StoryObj } from '@storybook/react';
 import { MoreHorizontalIcon } from 'lucide-react';
 import type { ColumnDef } from '@tanstack/react-table';
+import {
+  DataTable,
+  DataTableColumnHeader,
+} from '@codefixlabs/ui/react/data-table';
+import { Checkbox } from '@codefixlabs/ui/react/checkbox';
+import { Button } from '@codefixlabs/ui/react/button';
 
 const meta: Meta<typeof DataTable> = {
   component: DataTable,
@@ -62,7 +64,11 @@ const columns: ColumnDef<Payment>[] = [
             : table.getIsAllPageRowsSelected()
         }
         onCheckedChange={(value) => {
-          table.toggleAllPageRowsSelected(Boolean(value));
+          if (table.getIsSomePageRowsSelected()) {
+            table.toggleAllPageRowsSelected(false);
+          } else {
+            table.toggleAllPageRowsSelected(Boolean(value));
+          }
         }}
       />
     ),

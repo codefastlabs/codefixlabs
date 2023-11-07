@@ -1,15 +1,14 @@
-import { getFirstInitials, wait } from '@codefixlabs/lib';
-import type { Option } from '@codefixlabs/ui/react';
+import type { Option } from '@codefixlabs/ui/react/combobox';
+import { Combobox } from '@codefixlabs/ui/react/combobox';
 import {
-  Avatar,
-  Button,
-  Combobox,
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
+} from '@codefixlabs/ui/react/command';
+import {
   Form,
   FormControl,
   FormDescription,
@@ -17,10 +16,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+} from '@codefixlabs/ui/react/form';
+import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@codefixlabs/ui/react';
+} from '@codefixlabs/ui/react/popover';
+import { Button } from '@codefixlabs/ui/react/button';
+import { Avatar } from '@codefixlabs/ui/react/avatar';
 import { faker } from '@faker-js/faker';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
@@ -31,6 +34,8 @@ import { useState } from 'react';
 import type { ControllerRenderProps, SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { getFirstInitials } from '@codefixlabs/lib/string';
+import { wait } from '@codefixlabs/lib/wait';
 
 const meta: Meta<typeof Combobox> = {
   component: Combobox,

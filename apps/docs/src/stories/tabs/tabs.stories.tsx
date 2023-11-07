@@ -1,19 +1,21 @@
 import {
-  Button,
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-  Input,
-  Label,
+} from '@codefixlabs/ui/react/card';
+import type { Meta, StoryObj } from '@storybook/react';
+import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@codefixlabs/ui/react';
-import type { Meta, StoryObj } from '@storybook/react';
+} from '@codefixlabs/ui/react/tabs';
+import { Label } from '@codefixlabs/ui/react/label';
+import { Input } from '@codefixlabs/ui/react/input';
+import { Button } from '@codefixlabs/ui/react/button';
 
 const meta: Meta<typeof Tabs> = {
   argTypes: {

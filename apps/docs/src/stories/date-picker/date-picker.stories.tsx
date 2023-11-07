@@ -1,7 +1,5 @@
-import { wait } from '@codefixlabs/lib';
+import { wait } from '@codefixlabs/lib/wait';
 import {
-  Button,
-  DatePicker,
   Form,
   FormControl,
   FormDescription,
@@ -9,7 +7,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@codefixlabs/ui/react';
+} from '@codefixlabs/ui/react/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import { add } from 'date-fns';
@@ -19,6 +17,8 @@ import type { FieldPathValue, SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import type { DateRange } from 'react-day-picker';
+import { DatePicker } from '@codefixlabs/ui/react/calendar';
+import { Button } from '@codefixlabs/ui/react/button';
 
 const meta: Meta<typeof DatePicker> = {
   component: DatePicker,
