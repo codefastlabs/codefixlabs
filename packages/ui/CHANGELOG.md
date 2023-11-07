@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.35
+
+### Patch Changes
+
+- Export sub-path patterns
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.14
+  - @codefixlabs/lib@0.1.17
+
 ## 0.1.34
 
 ### Patch Changes

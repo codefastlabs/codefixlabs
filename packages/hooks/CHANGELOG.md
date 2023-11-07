@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.14
+
+### Patch Changes
+
+- Export sub-path patterns
+
 ## 0.1.13
 
 ### Patch Changes

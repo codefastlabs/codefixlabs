@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.17
+
+### Patch Changes
+
+- Export sub-path patterns
+
 ## 0.1.16
 
 ### Patch Changes

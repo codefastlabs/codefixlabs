@@ -1,5 +1,11 @@
 # @codefixlabs/tsconfig
 
+## 0.1.9
+
+### Patch Changes
+
+- Export sub-path patterns
+
 ## 0.1.8
 
 ### Patch Changes

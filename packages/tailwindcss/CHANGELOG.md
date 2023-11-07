@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.20
+
+### Patch Changes
+
+- Export sub-path patterns
+
 ## 0.1.19
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.12
+
+### Patch Changes
+
+- Export sub-path patterns
+
 ## 0.1.11
 
 ### Patch Changes
