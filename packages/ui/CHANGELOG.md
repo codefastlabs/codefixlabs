@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.34
+
+### Patch Changes
+
+- Update tsup config
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.13
+  - @codefixlabs/lib@0.1.16
+
 ## 0.1.33
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.16
+
+### Patch Changes
+
+- Update tsup config
+
 ## 0.1.15
 
 ### Patch Changes

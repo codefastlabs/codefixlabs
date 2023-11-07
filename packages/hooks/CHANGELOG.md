@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.13
+
+### Patch Changes
+
+- Update tsup config
+
 ## 0.1.12
 
 ### Patch Changes
