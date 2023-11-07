@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.36
+
+### Patch Changes
+
+- Update subpath types
+
 ## 0.1.35
 
 ### Patch Changes

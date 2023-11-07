@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import { forwardRef, Fragment, useCallback } from 'react';
 import { twMerge } from 'tailwind-merge';
