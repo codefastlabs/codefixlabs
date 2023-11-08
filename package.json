@@ -6,9 +6,9 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo run build --force",
     "changeset": "changeset",
-    "clean": "turbo run clean && rm -rf node_modules/.cache",
+    "clean": "turbo run clean",
     "dev": "turbo run dev",
     "postinstall": "pnpm exec simple-git-hooks",
     "lint": "turbo run lint",

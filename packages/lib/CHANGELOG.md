@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.20
+
+### Patch Changes
+
+- Optimizing performance
+
 ## 0.1.19
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.13
+
+### Patch Changes
+
+- Optimizing performance
+
 ## 0.1.12
 
 ### Patch Changes

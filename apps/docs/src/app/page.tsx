@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import { buttonVariants } from '@codefixlabs/ui/cva';
 import { Demo } from '@/ui/demo';
 
 export default function Home(): React.JSX.Element {
@@ -11,6 +13,14 @@ export default function Home(): React.JSX.Element {
         </pre>
 
         <Demo />
+
+        <Link
+          className={buttonVariants()}
+          href="https://phimmoi.one"
+          target="_blank"
+        >
+          Movies
+        </Link>
       </div>
 
       <article className="prose lg:prose-xl">
