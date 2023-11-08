@@ -4,7 +4,7 @@ import { defineConfig } from 'tsup';
 export default defineConfig((options: Options) => ({
   clean: !options.watch,
   dts: true,
-  entry: ['src/index.ts'],
+  entry: ['src/**/*.ts'],
   external: ['react'],
   format: ['esm', 'cjs'],
   sourcemap: true,

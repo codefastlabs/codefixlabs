@@ -1,4 +1,4 @@
-import { Button } from '@codefixlabs/ui/button';
+import { Button } from '@codefixlabs/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
   AlarmCheckIcon,

@@ -1,12 +1,16 @@
 import { wait } from '@codefixlabs/lib';
 import {
+  Button,
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from '@codefixlabs/ui/form';
+  Label,
+  RadioGroup,
+  RadioGroupItem,
+} from '@codefixlabs/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { ComponentProps } from 'react';
@@ -14,9 +18,6 @@ import { useId } from 'react';
 import type { FieldPathValue, SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { RadioGroup, RadioGroupItem } from '@codefixlabs/ui/radio-group';
-import { Label } from '@codefixlabs/ui/label';
-import { Button } from '@codefixlabs/ui/button';
 
 const meta: Meta<typeof RadioGroup> = {
   argTypes: {

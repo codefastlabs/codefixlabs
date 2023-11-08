@@ -1,14 +1,14 @@
-import type { Option } from '@codefixlabs/ui/combobox';
-import { Combobox } from '@codefixlabs/ui/combobox';
+import type { Option } from '@codefixlabs/ui';
 import {
+  Avatar,
+  Button,
+  Combobox,
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
-} from '@codefixlabs/ui/command';
-import {
   Form,
   FormControl,
   FormDescription,
@@ -16,14 +16,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@codefixlabs/ui/form';
-import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@codefixlabs/ui/popover';
-import { Button } from '@codefixlabs/ui/button';
-import { Avatar } from '@codefixlabs/ui/avatar';
+} from '@codefixlabs/ui';
 import { faker } from '@faker-js/faker';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';

@@ -1,5 +1,5 @@
-import { Checkbox } from '@codefixlabs/ui/checkbox';
 import {
+  Checkbox,
   Table,
   TableBody,
   TableCaption,
@@ -7,7 +7,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@codefixlabs/ui/table';
+} from '@codefixlabs/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Table> = {

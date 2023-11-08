@@ -1,4 +1,4 @@
-import { Badge } from '@codefixlabs/ui/badge';
+import { Badge } from '@codefixlabs/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Badge> = {

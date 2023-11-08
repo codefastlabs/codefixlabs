@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.16
+
+### Patch Changes
+
+- Optimizing performance
+
 ## 0.1.15
 
 ### Patch Changes

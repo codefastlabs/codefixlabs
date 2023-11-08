@@ -1,11 +1,11 @@
-import { Button } from '@codefixlabs/ui/button';
-import { Input } from '@codefixlabs/ui/input';
-import { Label } from '@codefixlabs/ui/label';
 import {
+  Button,
+  Input,
+  Label,
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@codefixlabs/ui/popover';
+} from '@codefixlabs/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { SlidersHorizontalIcon } from 'lucide-react';
 

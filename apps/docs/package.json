@@ -6,7 +6,7 @@
     "build": "next build",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic",
-    "clean": "rm -rf .next .turbo node_modules",
+    "clean": "rm -rf .next .turbo",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
@@ -38,6 +38,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
     "storybook": "^7.5.3",
+    "tailwind-merge": "^2.0.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {

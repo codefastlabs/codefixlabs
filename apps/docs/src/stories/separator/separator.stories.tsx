@@ -1,4 +1,4 @@
-import { Separator } from '@codefixlabs/ui/separator';
+import { Separator } from '@codefixlabs/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Separator> = {

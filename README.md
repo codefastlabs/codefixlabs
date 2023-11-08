@@ -31,7 +31,7 @@ Update `package.json`
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-+   "clean": "rm -rf .next node_modules",
++   "clean": "rm -rf .next",
 +   "db:generate": "prisma generate",
 +   "db:push": "prisma db push",
 +   "db:studio": "prisma studio",

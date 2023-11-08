@@ -1,4 +1,4 @@
-import { Alert, AlertDescription, AlertTitle } from '@codefixlabs/ui/alert';
+import { Alert, AlertDescription, AlertTitle } from '@codefixlabs/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { TerminalIcon } from 'lucide-react';
 

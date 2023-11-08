@@ -1,5 +1,6 @@
 import { wait } from '@codefixlabs/lib';
 import {
+  Button,
   Form,
   FormControl,
   FormDescription,
@@ -7,7 +8,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@codefixlabs/ui/form';
+  Input,
+  Label,
+} from '@codefixlabs/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import { CogIcon, SearchIcon } from 'lucide-react';
@@ -15,9 +18,6 @@ import * as React from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Input } from '@codefixlabs/ui/input';
-import { Label } from '@codefixlabs/ui/label';
-import { Button } from '@codefixlabs/ui/button';
 
 const meta: Meta<typeof Input> = {
   component: Input,

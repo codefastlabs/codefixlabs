@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Editor } from '@codefixlabs/ui/editor';
+import { Editor } from '@codefixlabs/ui';
 
 const meta: Meta<typeof Editor> = {
   title: 'UI/Editor',

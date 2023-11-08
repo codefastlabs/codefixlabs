@@ -1,4 +1,4 @@
-import { Skeleton } from '@codefixlabs/ui/skeleton';
+import { Skeleton } from '@codefixlabs/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Skeleton> = {

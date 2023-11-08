@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.41
+
+### Patch Changes
+
+- Optimizing performance
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.16
+  - @codefixlabs/lib@0.1.19
+
 ## 0.1.40
 
 ### Patch Changes

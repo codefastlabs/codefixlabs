@@ -1,24 +1,22 @@
 import {
+  Button,
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@codefixlabs/ui/card';
-import { Switch } from '@codefixlabs/ui/switch';
-import type { Meta, StoryObj } from '@storybook/react';
-import { BellIcon, CheckIcon } from 'lucide-react';
-import { Label } from '@codefixlabs/ui/label';
-import { Input } from '@codefixlabs/ui/input';
-import {
+  Input,
+  Label,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@codefixlabs/ui/select';
-import { Button } from '@codefixlabs/ui/button';
+  Switch,
+} from '@codefixlabs/ui';
+import type { Meta, StoryObj } from '@storybook/react';
+import { BellIcon, CheckIcon } from 'lucide-react';
 
 const meta: Meta<typeof Card> = {
   component: Card,

@@ -1,4 +1,6 @@
 import {
+  Button,
+  Checkbox,
   Form,
   FormControl,
   FormDescription,
@@ -6,7 +8,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@codefixlabs/ui/form';
+  Label,
+} from '@codefixlabs/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import Link from 'next/link';
@@ -16,9 +19,6 @@ import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { wait } from '@codefixlabs/lib';
-import { Checkbox } from '@codefixlabs/ui/checkbox';
-import { Label } from '@codefixlabs/ui/label';
-import { Button } from '@codefixlabs/ui/button';
 
 const meta: Meta<typeof Checkbox> = {
   argTypes: {

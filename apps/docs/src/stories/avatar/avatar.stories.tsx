@@ -1,4 +1,4 @@
-import { Avatar } from '@codefixlabs/ui/avatar';
+import { Avatar } from '@codefixlabs/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Avatar> = {

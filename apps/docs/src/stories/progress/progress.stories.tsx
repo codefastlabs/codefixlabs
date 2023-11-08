@@ -1,4 +1,4 @@
-import { Progress } from '@codefixlabs/ui/progress';
+import { Progress } from '@codefixlabs/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Progress> = {

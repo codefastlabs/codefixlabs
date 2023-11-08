@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/hooks",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -25,7 +25,7 @@
   "scripts": {
     "build": "tsup",
     "check-types": "tsc --noEmit",
-    "clean": "rm -rf .turbo dist node_modules",
+    "clean": "rm -rf .turbo dist",
     "dev": "tsup --watch",
     "lint": "eslint src/"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/lib",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -25,7 +25,7 @@
   "scripts": {
     "build": "tsup",
     "check-types": "tsc --noEmit",
-    "clean": "rm -rf .turbo dist node_modules",
+    "clean": "rm -rf .turbo dist",
     "dev": "tsup --watch",
     "lint": "eslint src/"
   },

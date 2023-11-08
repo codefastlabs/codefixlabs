@@ -1,12 +1,12 @@
 import {
+  Button,
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@codefixlabs/ui/collapsible';
+} from '@codefixlabs/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ChevronsUpDownIcon } from 'lucide-react';
 import { useState } from 'react';
-import { Button } from '@codefixlabs/ui/button';
 
 const meta: Meta<typeof Collapsible> = {
   component: Collapsible,

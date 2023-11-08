@@ -1,6 +1,6 @@
 import { wait } from '@codefixlabs/lib';
-import { Button } from '@codefixlabs/ui/button';
 import {
+  Button,
   Dialog,
   DialogBody,
   DialogClose,
@@ -10,17 +10,16 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@codefixlabs/ui/dialog';
-import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from '@codefixlabs/ui/form';
-import { Input, InputPassword } from '@codefixlabs/ui/input';
-import { Label } from '@codefixlabs/ui/label';
+  Input,
+  InputPassword,
+  Label,
+} from '@codefixlabs/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';

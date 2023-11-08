@@ -1,5 +1,6 @@
 import { wait } from '@codefixlabs/lib';
 import {
+  Button,
   Form,
   FormControl,
   FormDescription,
@@ -7,15 +8,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@codefixlabs/ui/form';
+  Label,
+  Textarea,
+} from '@codefixlabs/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Textarea } from '@codefixlabs/ui/textarea';
-import { Label } from '@codefixlabs/ui/label';
-import { Button } from '@codefixlabs/ui/button';
 
 const meta: Meta<typeof Textarea> = {
   component: Textarea,

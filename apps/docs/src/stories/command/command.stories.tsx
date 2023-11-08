@@ -1,5 +1,5 @@
-import { Button } from '@codefixlabs/ui/button';
 import {
+  Button,
   Command,
   CommandDialog,
   CommandEmpty,
@@ -8,7 +8,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '@codefixlabs/ui/command';
+} from '@codefixlabs/ui';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
   CalendarIcon,
