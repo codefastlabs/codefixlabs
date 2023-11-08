@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.18
+
+### Patch Changes
+
+- aaedd29: Optimizing performance
+
 ## 0.1.17
 
 ### Patch Changes

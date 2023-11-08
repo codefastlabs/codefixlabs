@@ -1,6 +1,6 @@
 'use client';
 
-import { useCountries } from '@codefixlabs/hooks/use-countries';
+import { useCountries } from '@codefixlabs/hooks';
 import { cx } from 'class-variance-authority';
 import * as React from 'react';
 import { forwardRef, useMemo, useState } from 'react';

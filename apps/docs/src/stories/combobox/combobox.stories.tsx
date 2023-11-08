@@ -34,8 +34,7 @@ import { useState } from 'react';
 import type { ControllerRenderProps, SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { getFirstInitials } from '@codefixlabs/lib/string';
-import { wait } from '@codefixlabs/lib/wait';
+import { getFirstInitials, wait } from '@codefixlabs/lib';
 
 const meta: Meta<typeof Combobox> = {
   component: Combobox,

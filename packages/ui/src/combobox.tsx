@@ -16,7 +16,6 @@ import {
   CommandSeparator,
 } from '@/command';
 import type { FormControl } from '@/form';
-import type { IconType } from '@/icons';
 import { Popover, PopoverContent, PopoverTrigger } from '@/popover';
 
 /* -----------------------------------------------------------------------------
@@ -24,7 +23,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/popover';
  * -------------------------------------------------------------------------- */
 
 export interface Option {
-  icon?: IconType;
+  icon?: React.ReactNode;
   label: string;
   value: string;
 }
@@ -81,14 +80,14 @@ function ComboboxGroupItem({
 }): React.JSX.Element {
   return (
     <CommandGroup heading={heading}>
-      {options.map(({ icon: Icon, ...option }) => (
+      {options.map((option) => (
         <CommandItem
           key={option.value}
           onSelect={() => onSelect?.(option)}
           value={`${option.label.trim()}_${option.value}`}
           {...props}
         >
-          {Icon ? <Icon className="h-4 w-4" /> : null}
+          {option.icon}
           {option.label}
           <CheckIcon
             className={cx(

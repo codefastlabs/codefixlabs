@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/ui",
-  "version": "0.1.39",
+  "version": "0.1.40",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -66,7 +66,6 @@
     "@radix-ui/react-toggle-group": "^1.0.4",
     "@radix-ui/react-toolbar": "^1.0.4",
     "@radix-ui/react-tooltip": "^1.0.7",
-    "@react-email/components": "^0.0.11",
     "@tanstack/react-table": "^8.10.7",
     "@tanstack/table-core": "^8.10.7",
     "@tiptap/extension-highlight": "^2.1.12",

@@ -167,23 +167,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 ```
 
-## Next.js
-
-```diff
-/** @type {import('next').NextConfig} */
-- const nextConfig = {
-+ experimental: {
-+   optimizePackageImports: [
-+     '@codefixlabs/hooks',
-+     '@codefixlabs/lib',
-+     '@codefixlabs/ui',
-+   ],
-+ },
-};
-
-module.exports = nextConfig
-```
-
 ## Tailwind CSS
 
 In `postcss.config.js`
@@ -201,8 +184,7 @@ module.exports = {
 In `tailwind.config.ts`
 
 ```diff
-+ import { sharedConfig } from '@codefixlabs/tailwindcss/tailwind.config';
-+ import { stone } from '@codefixlabs/tailwindcss/color/stone';
++ import { sharedConfig, stone } from '@codefixlabs/tailwindcss';
 import type { Config } from 'tailwindcss'
 
 const config: Pick<Config, 'presets' | 'theme' | 'plugins'> = {

@@ -1,4 +1,4 @@
-import { wait } from '@codefixlabs/lib/wait';
+import { isValidPhoneNumber, wait } from '@codefixlabs/lib';
 import {
   Form,
   FormControl,
@@ -13,7 +13,6 @@ import type { ComponentProps } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { isValidPhoneNumber } from '@codefixlabs/lib/validation';
 import { InputPhoneNumber } from '@codefixlabs/ui/input-phone-number';
 import { Label } from '@codefixlabs/ui/label';
 import { Button } from '@codefixlabs/ui/button';

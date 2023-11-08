@@ -15,7 +15,7 @@ import { useId } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { wait } from '@codefixlabs/lib/wait';
+import { wait } from '@codefixlabs/lib';
 import { Checkbox } from '@codefixlabs/ui/checkbox';
 import { Label } from '@codefixlabs/ui/label';
 import { Button } from '@codefixlabs/ui/button';

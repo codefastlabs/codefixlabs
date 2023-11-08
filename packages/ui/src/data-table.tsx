@@ -56,7 +56,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/dropdown-menu';
-import type { IconType } from '@/icons';
 import { Input } from '@/input';
 import { Label } from '@/label';
 import { Popover, PopoverContent, PopoverTrigger } from '@/popover';
@@ -623,7 +622,7 @@ export function DataTableContent<TData, TValue>({
 export interface FacetOption {
   label: string;
   value: string;
-  icon?: IconType;
+  icon?: React.ReactNode;
   prefix?: string;
 }
 
@@ -671,6 +670,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                         key={option.value}
                         variant="secondary"
                       >
+                        {option.icon}
                         {option.label}
                       </Badge>
                     ))

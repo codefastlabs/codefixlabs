@@ -1,4 +1,4 @@
-import { wait } from '@codefixlabs/lib/wait';
+import { wait } from '@codefixlabs/lib';
 import {
   Form,
   FormControl,

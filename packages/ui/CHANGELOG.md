@@ -1,5 +1,15 @@
 # @codefixlabs/ui
 
+## 0.1.40
+
+### Patch Changes
+
+- aaedd29: Optimizing performance
+- Optimizing performance
+- Updated dependencies [aaedd29]
+  - @codefixlabs/hooks@0.1.15
+  - @codefixlabs/lib@0.1.18
+
 ## 0.1.39
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.21
+
+### Patch Changes
+
+- aaedd29: Optimizing performance
+
 ## 0.1.20
 
 ### Patch Changes
