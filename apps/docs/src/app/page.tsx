@@ -1,8 +1,6 @@
-import Link from 'next/link';
-import { buttonVariants } from '@codefixlabs/ui/cva';
-import { Demo } from '@/ui/demo';
+import { HomeClient } from '@/ui/home/home-client';
 
-export default function Home(): React.JSX.Element {
+export default function Page(): React.JSX.Element {
   return (
     <main className="flex h-full flex-col items-center justify-center space-y-8 p-4">
       <h1 className="font-bold">Docs</h1>
@@ -12,15 +10,7 @@ export default function Home(): React.JSX.Element {
           bun storybook
         </pre>
 
-        <Demo />
-
-        <Link
-          className={buttonVariants()}
-          href="https://phimmoi.one"
-          target="_blank"
-        >
-          Movies
-        </Link>
+        <HomeClient />
       </div>
 
       <article className="prose lg:prose-xl">

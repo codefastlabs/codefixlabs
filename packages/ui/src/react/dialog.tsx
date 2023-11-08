@@ -14,8 +14,8 @@ import { XIcon } from 'lucide-react';
 import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { buttonVariants } from '@/cva/button';
-import { dialogContentVariants } from '@/cva/dialog-content';
+import { buttonVariants } from '@/classes/button';
+import { dialogContentVariants } from '@/classes/dialog-content';
 
 /* -----------------------------------------------------------------------------
  * Provider: DialogContext

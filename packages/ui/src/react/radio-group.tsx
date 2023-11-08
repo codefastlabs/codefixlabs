@@ -3,7 +3,10 @@ import type { VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { radioGroupItemVariants, radioGroupVariants } from '@/cva/radio-group';
+import {
+  radioGroupItemVariants,
+  radioGroupVariants,
+} from '@/classes/radio-group';
 
 /* -----------------------------------------------------------------------------
  * Provider: RadioGroupContext

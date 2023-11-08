@@ -13,7 +13,7 @@ import { ChevronDownIcon } from 'lucide-react';
 import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { navigationMenuTriggerVariants } from '@/cva/navigation-menu';
+import { navigationMenuTriggerVariants } from '@/classes/navigation-menu';
 
 /* -----------------------------------------------------------------------------
  * Component: NavigationMenuList

@@ -1,5 +1,6 @@
 'use client';
 
+import { twMerge } from 'tailwind-merge';
 import { BellIcon, CheckIcon } from 'lucide-react';
 import {
   Button,
@@ -11,7 +12,6 @@ import {
   CardTitle,
   Switch,
 } from '@codefixlabs/ui';
-import { twMerge } from 'tailwind-merge';
 
 const notifications = [
   {
@@ -28,7 +28,11 @@ const notifications = [
   },
 ];
 
-export function Demo({ className }: { className?: string }): React.JSX.Element {
+export function HomeClient({
+  className,
+}: {
+  className?: string;
+}): React.JSX.Element {
   return (
     <div className={twMerge(className)}>
       <Card className="w-screen max-w-md">

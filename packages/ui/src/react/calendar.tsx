@@ -34,6 +34,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
 import { Label } from '@/react/label';
 import { Input } from '@/react/input';
 import type { FormControl } from '@/react/form';
+import { buttonVariants } from '@/classes/button';
 import {
   createDate,
   dateRegex,
@@ -51,7 +52,6 @@ import {
   matcherToArray,
   timeRegex,
 } from '@/lib/calendar';
-import { buttonVariants } from '@/cva/button';
 
 /* -----------------------------------------------------------------------------
  * Component: DatePicker

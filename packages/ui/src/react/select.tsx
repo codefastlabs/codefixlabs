@@ -25,7 +25,7 @@ import {
   selectContentVariants,
   selectItemVariants,
   selectTriggerVariants,
-} from '@/cva/select';
+} from '@/classes/select';
 
 /* -----------------------------------------------------------------------------
  * Component: Select

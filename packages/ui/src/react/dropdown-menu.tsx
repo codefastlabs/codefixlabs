@@ -27,7 +27,7 @@ import {
   dropdownMenuLabelVariants,
   dropdownMenuRadioItemVariants,
   dropdownMenuSubTriggerVariants,
-} from '@/cva/dropdown-menu';
+} from '@/classes/dropdown-menu';
 
 /* -----------------------------------------------------------------------------
  * Component: DropdownMenuContent

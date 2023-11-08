@@ -5,7 +5,7 @@ import * as React from 'react';
 import { forwardRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Button } from '@/react/button';
-import { inputVariants, primitiveInputVariants } from '@/cva/input';
+import { inputVariants, primitiveInputVariants } from '@/classes/input';
 
 /* -----------------------------------------------------------------------------
  * Component: PrimitiveInput

@@ -13,7 +13,7 @@ import {
   CommandItem,
   CommandList,
 } from '@/react/command';
-import { buttonVariants } from '@/cva/button';
+import { buttonVariants } from '@/classes/button';
 
 /* -----------------------------------------------------------------------------
  * Component: InputPhoneNumber

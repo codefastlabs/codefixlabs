@@ -14,8 +14,8 @@ import { XIcon } from 'lucide-react';
 import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { drawerContentVariants } from '@/cva/drawer-content';
-import { buttonVariants } from '@/cva/button';
+import { drawerContentVariants } from '@/classes/drawer-content';
+import { buttonVariants } from '@/classes/button';
 
 /* -----------------------------------------------------------------------------
  * Provider: DrawerContext

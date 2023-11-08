@@ -14,7 +14,7 @@ import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Dialog, DialogContent } from '@/react/dialog';
-import { commandVariants } from '@/cva/command';
+import { commandVariants } from '@/classes/command';
 
 /* -----------------------------------------------------------------------------
  * Component: Command

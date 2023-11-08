@@ -7,7 +7,7 @@ import {
   tabsContentVariants,
   tabsListVariants,
   tabsTriggerVariants,
-} from '@/cva/tabs';
+} from '@/classes/tabs';
 
 /* -----------------------------------------------------------------------------
  * Provider: TabsContext

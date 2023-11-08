@@ -11,8 +11,12 @@ import type {
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
 import { twMerge } from 'tailwind-merge';
 import { Label } from '@/react/label';
+import { formItemVariants } from '@/classes/form';
 import { getErrorMessage } from '@/lib/form';
-import { formItemVariants } from '@/cva/form';
+
+/* -----------------------------------------------------------------------------
+ * Contexts
+ * -------------------------------------------------------------------------- */
 
 interface FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,

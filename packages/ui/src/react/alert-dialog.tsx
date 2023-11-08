@@ -14,8 +14,8 @@ import { cx } from 'class-variance-authority';
 import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { alertDialogContentVariants } from '@/cva/alert-dialog';
-import { buttonVariants } from '@/cva/button';
+import { alertDialogContentVariants } from '@/classes/alert-dialog';
+import { buttonVariants } from '@/classes/button';
 
 /* -----------------------------------------------------------------------------
  * Provider: AlertDialogContext

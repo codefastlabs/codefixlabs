@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Children, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Loader2Icon } from 'lucide-react';
-import { buttonVariants } from '@/cva/button';
+import { buttonVariants } from '@/classes/button';
 
 /* -----------------------------------------------------------------------------
  * Component: Button

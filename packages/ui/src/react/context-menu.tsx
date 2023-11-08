@@ -27,7 +27,7 @@ import {
   menubarLabelVariants,
   menubarRadioItemVariants,
   menubarSubTriggerVariants,
-} from '@/cva/menubar';
+} from '@/classes/menubar';
 
 /* -----------------------------------------------------------------------------
  * Component: ContextMenuItemIndicator
