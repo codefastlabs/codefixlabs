@@ -5,20 +5,20 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@codefixlabs/ui/react/card';
-import { Switch } from '@codefixlabs/ui/react/switch';
+} from '@codefixlabs/ui/card';
+import { Switch } from '@codefixlabs/ui/switch';
 import type { Meta, StoryObj } from '@storybook/react';
 import { BellIcon, CheckIcon } from 'lucide-react';
-import { Label } from '@codefixlabs/ui/react/label';
-import { Input } from '@codefixlabs/ui/react/input';
+import { Label } from '@codefixlabs/ui/label';
+import { Input } from '@codefixlabs/ui/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@codefixlabs/ui/react/select';
-import { Button } from '@codefixlabs/ui/react/button';
+} from '@codefixlabs/ui/select';
+import { Button } from '@codefixlabs/ui/button';
 
 const meta: Meta<typeof Card> = {
   component: Card,

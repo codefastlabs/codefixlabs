@@ -4,7 +4,7 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuTrigger,
-} from '@codefixlabs/ui/react/navigation-menu';
+} from '@codefixlabs/ui/navigation-menu';
 import type { Meta, StoryObj } from '@storybook/react';
 import Link from 'next/link';
 import type {

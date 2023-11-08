@@ -1,4 +1,4 @@
-import { Slider } from '@codefixlabs/ui/react/slider';
+import { Slider } from '@codefixlabs/ui/slider';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Slider> = {

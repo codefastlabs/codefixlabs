@@ -43,8 +43,8 @@ import {
   WrapTextIcon,
   YoutubeIcon,
 } from 'lucide-react';
-import { Separator } from '@/react/separator';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/react/tooltip';
+import { Separator } from '@/separator';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/tooltip';
 
 /* -----------------------------------------------------------------------------
  * Component: Editor

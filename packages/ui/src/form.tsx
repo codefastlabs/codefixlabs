@@ -12,7 +12,7 @@ import type {
 } from 'react-hook-form';
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
 import { twMerge } from 'tailwind-merge';
-import { Label } from '@/react/label';
+import { Label } from '@/label';
 import { getErrorMessage } from '@/lib/form';
 import { formItemVariants } from '@/cva/form';
 

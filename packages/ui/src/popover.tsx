@@ -13,7 +13,7 @@ import { XIcon } from 'lucide-react';
 import * as React from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { Button } from '@/react/button';
+import { Button } from '@/button';
 
 /* -----------------------------------------------------------------------------
  * Provider: PopoverContext

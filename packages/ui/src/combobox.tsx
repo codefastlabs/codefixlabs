@@ -5,7 +5,7 @@ import { cx } from 'class-variance-authority';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 import * as React from 'react';
 import { Fragment, useMemo, useState } from 'react';
-import { Button } from '@/react/button';
+import { Button } from '@/button';
 import {
   Command,
   CommandEmpty,
@@ -14,10 +14,10 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '@/react/command';
-import type { FormControl } from '@/react/form';
-import type { IconType } from '@/react/icons';
-import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
+} from '@/command';
+import type { FormControl } from '@/form';
+import type { IconType } from '@/icons';
+import { Popover, PopoverContent, PopoverTrigger } from '@/popover';
 
 /* -----------------------------------------------------------------------------
  * Utils

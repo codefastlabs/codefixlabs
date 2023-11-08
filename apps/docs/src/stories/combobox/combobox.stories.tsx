@@ -1,5 +1,5 @@
-import type { Option } from '@codefixlabs/ui/react/combobox';
-import { Combobox } from '@codefixlabs/ui/react/combobox';
+import type { Option } from '@codefixlabs/ui/combobox';
+import { Combobox } from '@codefixlabs/ui/combobox';
 import {
   Command,
   CommandEmpty,
@@ -7,7 +7,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@codefixlabs/ui/react/command';
+} from '@codefixlabs/ui/command';
 import {
   Form,
   FormControl,
@@ -16,14 +16,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@codefixlabs/ui/react/form';
+} from '@codefixlabs/ui/form';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@codefixlabs/ui/react/popover';
-import { Button } from '@codefixlabs/ui/react/button';
-import { Avatar } from '@codefixlabs/ui/react/avatar';
+} from '@codefixlabs/ui/popover';
+import { Button } from '@codefixlabs/ui/button';
+import { Avatar } from '@codefixlabs/ui/avatar';
 import { faker } from '@faker-js/faker';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';

@@ -7,7 +7,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@codefixlabs/ui/react/form';
+} from '@codefixlabs/ui/form';
 import {
   Select,
   SelectContent,
@@ -17,14 +17,14 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from '@codefixlabs/ui/react/select';
+} from '@codefixlabs/ui/select';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import Link from 'next/link';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Button } from '@codefixlabs/ui/react/button';
+import { Button } from '@codefixlabs/ui/button';
 
 const meta: Meta<typeof Select> = {
   component: Select,

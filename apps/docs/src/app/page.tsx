@@ -6,9 +6,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@codefixlabs/ui/react/card';
-import { Switch } from '@codefixlabs/ui/react/switch';
-import { Button } from '@codefixlabs/ui/react/button';
+} from '@codefixlabs/ui/card';
+import { Switch } from '@codefixlabs/ui/switch';
+import { Button } from '@codefixlabs/ui/button';
 
 const notifications = [
   {

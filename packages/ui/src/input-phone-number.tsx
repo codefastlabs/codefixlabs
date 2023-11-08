@@ -5,8 +5,8 @@ import { cx } from 'class-variance-authority';
 import * as React from 'react';
 import { forwardRef, useMemo, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
-import { PrimitiveInput } from '@/react/input';
+import { Popover, PopoverContent, PopoverTrigger } from '@/popover';
+import { PrimitiveInput } from '@/input';
 import {
   Command,
   CommandEmpty,
@@ -14,7 +14,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/react/command';
+} from '@/command';
 import { buttonVariants } from '@/cva/button';
 
 /* -----------------------------------------------------------------------------

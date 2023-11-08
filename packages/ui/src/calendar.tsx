@@ -32,10 +32,10 @@ import {
   useSelectRange,
 } from 'react-day-picker';
 import { twMerge } from 'tailwind-merge';
-import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
-import { Label } from '@/react/label';
-import { Input } from '@/react/input';
-import type { FormControl } from '@/react/form';
+import { Popover, PopoverContent, PopoverTrigger } from '@/popover';
+import { Label } from '@/label';
+import { Input } from '@/input';
+import type { FormControl } from '@/form';
 import {
   createDate,
   dateRegex,

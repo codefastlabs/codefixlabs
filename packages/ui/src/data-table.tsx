@@ -35,8 +35,8 @@ import * as React from 'react';
 import { useId } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useDebouncedCallback } from 'use-debounce';
-import { Badge } from '@/react/badge';
-import { Button } from '@/react/button';
+import { Badge } from '@/badge';
+import { Button } from '@/button';
 import {
   Command,
   CommandEmpty,
@@ -45,7 +45,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '@/react/command';
+} from '@/command';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -55,19 +55,19 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/react/dropdown-menu';
-import type { IconType } from '@/react/icons';
-import { Input } from '@/react/input';
-import { Label } from '@/react/label';
-import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
+} from '@/dropdown-menu';
+import type { IconType } from '@/icons';
+import { Input } from '@/input';
+import { Label } from '@/label';
+import { Popover, PopoverContent, PopoverTrigger } from '@/popover';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/react/select';
-import { Separator } from '@/react/separator';
+} from '@/select';
+import { Separator } from '@/separator';
 import {
   Table,
   TableBody,
@@ -76,7 +76,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/react/table';
+} from '@/table';
 
 /* -----------------------------------------------------------------------------
  * Declarations

@@ -11,7 +11,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from '@codefixlabs/ui/react/menubar';
+} from '@codefixlabs/ui/menubar';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import { useState } from 'react';

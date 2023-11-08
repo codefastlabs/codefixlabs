@@ -8,8 +8,8 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
-} from '@/react/toast';
-import { useToast } from '@/react/use-toast';
+} from '@/toast';
+import { useToast } from '@/use-toast';
 
 /* -----------------------------------------------------------------------------
  * Component: Toaster

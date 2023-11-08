@@ -9,8 +9,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from '@codefixlabs/ui/react/alert-dialog';
-import { Button } from '@codefixlabs/ui/react/button';
+} from '@codefixlabs/ui/alert-dialog';
+import { Button } from '@codefixlabs/ui/button';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof AlertDialog> = {

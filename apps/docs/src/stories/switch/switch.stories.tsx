@@ -6,15 +6,15 @@ import {
   FormField,
   FormItem,
   FormLabel,
-} from '@codefixlabs/ui/react/form';
+} from '@codefixlabs/ui/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Switch } from '@codefixlabs/ui/react/switch';
-import { Button } from '@codefixlabs/ui/react/button';
-import { Label } from '@codefixlabs/ui/react/label';
+import { Switch } from '@codefixlabs/ui/switch';
+import { Button } from '@codefixlabs/ui/button';
+import { Label } from '@codefixlabs/ui/label';
 
 const meta: Meta<typeof Switch> = {
   argTypes: {

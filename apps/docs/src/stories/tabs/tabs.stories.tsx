@@ -5,17 +5,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@codefixlabs/ui/react/card';
+} from '@codefixlabs/ui/card';
 import type { Meta, StoryObj } from '@storybook/react';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@codefixlabs/ui/react/tabs';
-import { Label } from '@codefixlabs/ui/react/label';
-import { Input } from '@codefixlabs/ui/react/input';
-import { Button } from '@codefixlabs/ui/react/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@codefixlabs/ui/tabs';
+import { Label } from '@codefixlabs/ui/label';
+import { Input } from '@codefixlabs/ui/input';
+import { Button } from '@codefixlabs/ui/button';
 
 const meta: Meta<typeof Tabs> = {
   argTypes: {

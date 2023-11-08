@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.39
+
+### Patch Changes
+
+- Flat ui
+
 ## 0.1.38
 
 ### Patch Changes

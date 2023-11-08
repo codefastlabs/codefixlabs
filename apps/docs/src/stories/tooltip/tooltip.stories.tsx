@@ -1,9 +1,9 @@
-import { Button } from '@codefixlabs/ui/react/button';
+import { Button } from '@codefixlabs/ui/button';
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@codefixlabs/ui/react/tooltip';
+} from '@codefixlabs/ui/tooltip';
 import type { Meta, StoryObj } from '@storybook/react';
 import { PlusIcon } from 'lucide-react';
 

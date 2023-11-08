@@ -5,7 +5,7 @@ import {
   ToolbarSeparator,
   ToolbarToggleGroup,
   ToolbarToggleItem,
-} from '@codefixlabs/ui/react/toolbar';
+} from '@codefixlabs/ui/toolbar';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
   AlignCenterIcon,

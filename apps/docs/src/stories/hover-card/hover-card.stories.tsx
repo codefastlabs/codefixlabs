@@ -2,12 +2,12 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from '@codefixlabs/ui/react/hover-card';
+} from '@codefixlabs/ui/hover-card';
 import type { Meta, StoryObj } from '@storybook/react';
 import { CalendarIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Avatar } from '@codefixlabs/ui/react/avatar';
+import { Avatar } from '@codefixlabs/ui/avatar';
 
 const meta: Meta<typeof HoverCard> = {
   component: HoverCard,

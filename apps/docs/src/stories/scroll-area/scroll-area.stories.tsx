@@ -1,4 +1,4 @@
-import { ScrollArea } from '@codefixlabs/ui/react/scroll-area';
+import { ScrollArea } from '@codefixlabs/ui/scroll-area';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ScrollArea> = {

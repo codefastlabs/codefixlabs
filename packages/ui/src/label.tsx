@@ -6,7 +6,7 @@ import { InfoIcon } from 'lucide-react';
 import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/react/tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/tooltip';
 import { labelVariants } from '@/cva/label';
 
 /* -----------------------------------------------------------------------------

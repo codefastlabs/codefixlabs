@@ -2,7 +2,7 @@
 
 import type * as React from 'react';
 import { useEffect, useState } from 'react';
-import type { Toast, ToastAction } from '@/react/toast';
+import type { Toast, ToastAction } from '@/toast';
 
 const TOAST_LIMIT = 20;
 const TOAST_EXPIRE_DISMISS_DELAY = 1000;

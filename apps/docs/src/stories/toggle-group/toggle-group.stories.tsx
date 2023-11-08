@@ -1,7 +1,4 @@
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from '@codefixlabs/ui/react/toggle-group';
+import { ToggleGroup, ToggleGroupItem } from '@codefixlabs/ui/toggle-group';
 import type { Meta, StoryObj } from '@storybook/react';
 import { AlignCenterIcon, AlignLeftIcon, AlignRightIcon } from 'lucide-react';
 

@@ -7,7 +7,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@codefixlabs/ui/react/form';
+} from '@codefixlabs/ui/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import { CogIcon, SearchIcon } from 'lucide-react';
@@ -15,9 +15,9 @@ import * as React from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Input } from '@codefixlabs/ui/react/input';
-import { Label } from '@codefixlabs/ui/react/label';
-import { Button } from '@codefixlabs/ui/react/button';
+import { Input } from '@codefixlabs/ui/input';
+import { Label } from '@codefixlabs/ui/label';
+import { Button } from '@codefixlabs/ui/button';
 
 const meta: Meta<typeof Input> = {
   component: Input,

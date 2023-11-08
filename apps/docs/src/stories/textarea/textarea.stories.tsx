@@ -7,15 +7,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@codefixlabs/ui/react/form';
+} from '@codefixlabs/ui/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Textarea } from '@codefixlabs/ui/react/textarea';
-import { Label } from '@codefixlabs/ui/react/label';
-import { Button } from '@codefixlabs/ui/react/button';
+import { Textarea } from '@codefixlabs/ui/textarea';
+import { Label } from '@codefixlabs/ui/label';
+import { Button } from '@codefixlabs/ui/button';
 
 const meta: Meta<typeof Textarea> = {
   component: Textarea,
