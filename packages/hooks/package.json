@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@codefixlabs/tsconfig": "workspace:*",
-    "@types/react": "^18.2.36",
+    "@types/react": "^18.2.37",
     "eslint-config-codefixlabs": "workspace:*",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
