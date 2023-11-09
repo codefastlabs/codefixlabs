@@ -16,18 +16,157 @@ import {
   SubTrigger,
   Trigger,
 } from '@radix-ui/react-context-menu';
-import type { VariantProps } from 'class-variance-authority';
 import { CheckIcon, ChevronRightIcon, DotIcon } from 'lucide-react';
 import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import {
-  menubarCheckboxItemVariants,
-  menubarItemVariants,
-  menubarLabelVariants,
-  menubarRadioItemVariants,
-  menubarSubTriggerVariants,
-} from '@/classes/menubar';
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
+
+/* -----------------------------------------------------------------------------
+ * Classes
+ * -------------------------------------------------------------------------- */
+
+const contextMenuSubTriggerVariants = cva(
+  [
+    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
+    'data-disabled:opacity-50 data-disabled:pointer-events-none',
+  ],
+  {
+    defaultVariants: {
+      inset: false,
+      variant: 'default',
+    },
+    variants: {
+      inset: {
+        true: 'pl-8',
+      },
+      variant: {
+        default: [
+          'focus:bg-accent focus:text-accent-foreground',
+          'data-state-open:bg-accent data-state-open:text-accent-foreground',
+          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+          'data-highlighted:data-state-open:bg-accent data-highlighted:data-state-open:text-accent-foreground',
+        ],
+        destructive: [
+          'focus:bg-destructive-foreground focus:text-destructive',
+          'data-state-open:bg-destructive-foreground data-state-open:text-destructive',
+          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
+          'data-highlighted:data-state-open:bg-destructive-foreground data-highlighted:data-state-open:text-destructive',
+        ],
+      },
+    },
+  },
+);
+
+type ContextMenuSubTriggerVariants = VariantProps<
+  typeof contextMenuSubTriggerVariants
+>;
+
+const contextMenuItemVariants = cva(
+  [
+    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
+    'data-disabled:opacity-50 data-disabled:pointer-events-none',
+  ],
+  {
+    defaultVariants: {
+      inset: false,
+      variant: 'default',
+    },
+    variants: {
+      inset: {
+        true: 'pl-8',
+      },
+      variant: {
+        default: [
+          'focus:bg-accent focus:text-accent-foreground',
+          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+        ],
+        destructive: [
+          'text-destructive',
+          'focus:bg-destructive-foreground focus:text-destructive',
+          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
+        ],
+      },
+    },
+  },
+);
+
+type ContextMenuItemVariants = VariantProps<typeof contextMenuItemVariants>;
+
+const contextMenuCheckboxItemVariants = cva(
+  [
+    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
+    'data-disabled:opacity-50 data-disabled:pointer-events-none',
+  ],
+  {
+    defaultVariants: {
+      variant: 'default',
+    },
+    variants: {
+      variant: {
+        default: [
+          'focus:bg-accent focus:text-accent-foreground',
+          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+        ],
+        destructive: [
+          'text-destructive',
+          'focus:bg-destructive-foreground focus:text-destructive',
+          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
+        ],
+      },
+    },
+  },
+);
+
+type ContextMenuCheckboxItemVariants = VariantProps<
+  typeof contextMenuCheckboxItemVariants
+>;
+
+const contextMenuRadioItemVariants = cva(
+  [
+    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
+    'data-disabled:opacity-50 data-disabled:pointer-events-none',
+  ],
+  {
+    defaultVariants: {
+      variant: 'default',
+    },
+    variants: {
+      variant: {
+        default: [
+          'focus:bg-accent focus:text-accent-foreground',
+          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+        ],
+        destructive: [
+          'text-destructive',
+          'focus:bg-destructive-foreground focus:text-destructive',
+          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
+        ],
+      },
+    },
+  },
+);
+
+type ContextMenuRadioItemVariants = VariantProps<
+  typeof contextMenuRadioItemVariants
+>;
+
+const contextMenuLabelVariants = cva(
+  'text-foreground cursor-default px-2 py-1.5 text-sm font-semibold',
+  {
+    defaultVariants: {
+      inset: false,
+    },
+    variants: {
+      inset: {
+        true: 'pl-8',
+      },
+    },
+  },
+);
+
+type ContextMenuLabelVariants = VariantProps<typeof contextMenuLabelVariants>;
 
 /* -----------------------------------------------------------------------------
  * Component: ContextMenuItemIndicator
@@ -132,11 +271,11 @@ ContextMenuSubContent.displayName = SubContent.displayName;
 export const ContextMenuSubTrigger = forwardRef<
   React.ElementRef<typeof SubTrigger>,
   React.ComponentPropsWithoutRef<typeof SubTrigger> &
-    VariantProps<typeof menubarSubTriggerVariants>
+    ContextMenuSubTriggerVariants
 >(({ children, className, inset, variant, ...props }, forwardedRef) => (
   <SubTrigger
     className={twMerge(
-      menubarSubTriggerVariants({
+      contextMenuSubTriggerVariants({
         inset,
         variant,
       }),
@@ -164,7 +303,7 @@ export const ContextMenuItem = forwardRef<
   React.ElementRef<typeof Item>,
   React.ComponentPropsWithoutRef<typeof Item> & {
     shortcut?: string;
-  } & VariantProps<typeof menubarItemVariants>
+  } & ContextMenuItemVariants
 >(
   (
     { children, className, inset, variant, shortcut, ...props },
@@ -172,7 +311,7 @@ export const ContextMenuItem = forwardRef<
   ) => (
     <Item
       className={twMerge(
-        menubarItemVariants({
+        contextMenuItemVariants({
           inset,
           variant,
         }),
@@ -205,11 +344,11 @@ export const ContextMenuCheckboxItem = forwardRef<
   React.ElementRef<typeof CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof CheckboxItem> & {
     shortcut?: string;
-  } & VariantProps<typeof menubarCheckboxItemVariants>
+  } & ContextMenuCheckboxItemVariants
 >(({ children, className, variant, shortcut, ...props }, forwardedRef) => (
   <CheckboxItem
     className={twMerge(
-      menubarCheckboxItemVariants({
+      contextMenuCheckboxItemVariants({
         variant,
       }),
       className,
@@ -237,10 +376,10 @@ export const ContextMenuRadioItem = forwardRef<
   React.ElementRef<typeof RadioItem>,
   React.ComponentPropsWithoutRef<typeof RadioItem> & {
     shortcut?: string;
-  } & VariantProps<typeof menubarRadioItemVariants>
+  } & ContextMenuRadioItemVariants
 >(({ children, className, variant, shortcut, ...props }, forwardedRef) => (
   <RadioItem
-    className={twMerge(menubarRadioItemVariants({ variant }), className)}
+    className={twMerge(contextMenuRadioItemVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   >
@@ -285,11 +424,10 @@ export const ContextMenuGroup = Group;
 
 export const ContextMenuLabel = forwardRef<
   React.ElementRef<typeof Label>,
-  React.ComponentPropsWithoutRef<typeof Label> &
-    VariantProps<typeof menubarLabelVariants>
+  React.ComponentPropsWithoutRef<typeof Label> & ContextMenuLabelVariants
 >(({ className, inset = false, ...props }, forwardedRef) => (
   <Label
-    className={twMerge(menubarLabelVariants({ inset }), className)}
+    className={twMerge(contextMenuLabelVariants({ inset }), className)}
     ref={forwardedRef}
     {...props}
   />

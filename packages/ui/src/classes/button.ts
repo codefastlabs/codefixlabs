@@ -1,3 +1,4 @@
+import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import type { ClassValue } from 'clsx';
 
@@ -185,3 +186,5 @@ export const buttonVariants = cva(
     },
   },
 );
+
+export type ButtonVariants = VariantProps<typeof buttonVariants>;

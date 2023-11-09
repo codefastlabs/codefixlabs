@@ -17,15 +17,102 @@ import {
   Viewport,
 } from '@radix-ui/react-select';
 import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import {
-  selectContentVariants,
-  selectItemVariants,
-  selectTriggerVariants,
-} from '@/classes/select';
+
+/* -----------------------------------------------------------------------------
+ * Classes
+ * -------------------------------------------------------------------------- */
+
+const selectTriggerVariants = cva(
+  [
+    'border-input h-10 select-none items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm',
+    'focus:ring-ring/40 focus:outline-none focus:ring-2',
+    'disabled:opacity-50/40 disabled:cursor-not-allowed',
+    'placeholder:text-muted-foreground',
+  ],
+  {
+    defaultVariants: {
+      block: false,
+      size: 'md',
+    },
+    variants: {
+      block: {
+        false: 'inline-flex',
+        true: 'flex w-full',
+      },
+      size: {
+        lg: 'h-12',
+        md: 'h-10',
+        sm: 'h-8',
+      },
+    },
+  },
+);
+
+type SelectTriggerVariants = VariantProps<typeof selectTriggerVariants>;
+
+const selectContentVariants = cva(
+  [
+    'bg-popover text-popover-foreground relative z-40 w-[var(--radix-select-trigger-width)] min-w-max overflow-hidden rounded-md border shadow-lg',
+    [
+      'data-state-open:data-side-top:animate-slide-in-from-top',
+      'data-state-open:data-side-bottom:animate-slide-in-from-bottom',
+      'data-state-open:data-side-left:animate-slide-in-from-left',
+      'data-state-open:data-side-right:animate-slide-in-from-right',
+    ],
+    [
+      'data-state-closed:data-side-top:animate-slide-out-to-top',
+      'data-state-closed:data-side-bottom:animate-slide-out-to-bottom',
+      'data-state-closed:data-side-left:animate-slide-out-to-left',
+      'data-state-closed:data-side-right:animate-slide-out-to-right',
+    ],
+  ],
+  {
+    defaultVariants: {
+      position: 'item-aligned',
+    },
+    variants: {
+      position: {
+        'item-aligned': undefined,
+        popper:
+          'max-h-[var(--radix-select-content-available-height)] w-[var(--radix-select-trigger-width)]',
+      },
+    },
+  },
+);
+
+type SelectContentVariants = VariantProps<typeof selectContentVariants>;
+
+const selectItemVariants = cva(
+  [
+    'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
+    'data-disabled:opacity-50 data-disabled:pointer-events-none',
+  ],
+  {
+    defaultVariants: {
+      variant: 'default',
+    },
+    variants: {
+      variant: {
+        default: [
+          'focus:bg-accent focus:text-accent-foreground',
+          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+        ],
+        destructive: [
+          'text-destructive',
+          'focus:bg-destructive-foreground focus:text-destructive',
+          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
+        ],
+      },
+    },
+  },
+);
+
+type SelectItemVariants = VariantProps<typeof selectItemVariants>;
 
 /* -----------------------------------------------------------------------------
  * Component: Select
@@ -74,8 +161,7 @@ SelectIcon.displayName = Icon.displayName;
 
 export const SelectTrigger = forwardRef<
   React.ElementRef<typeof Trigger>,
-  React.ComponentPropsWithoutRef<typeof Trigger> &
-    VariantProps<typeof selectTriggerVariants>
+  React.ComponentPropsWithoutRef<typeof Trigger> & SelectTriggerVariants
 >(({ children, className, size, block, ...props }, forwardedRef) => (
   <Trigger
     className={twMerge(selectTriggerVariants({ block, size }), className)}
@@ -151,7 +237,7 @@ export function SelectViewport({
 export const SelectContent = forwardRef<
   React.ElementRef<typeof Content>,
   React.ComponentPropsWithoutRef<typeof Content> &
-    Omit<VariantProps<typeof selectContentVariants>, 'position'>
+    Omit<SelectContentVariants, 'position'>
 >(({ children, className, ...props }, forwardedRef) => (
   <Portal>
     <Content
@@ -208,8 +294,7 @@ SelectItemIndicator.displayName = ItemIndicator.displayName;
 
 export const SelectItem = forwardRef<
   React.ElementRef<typeof Item>,
-  React.ComponentPropsWithoutRef<typeof Item> &
-    VariantProps<typeof selectItemVariants>
+  React.ComponentPropsWithoutRef<typeof Item> & SelectItemVariants
 >(({ children, className, variant, ...props }, forwardedRef) => (
   <Item
     className={twMerge(selectItemVariants({ variant }), className)}

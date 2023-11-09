@@ -1,3 +1,7 @@
+// Classes
+export * from '@/classes/button';
+
+// React components
 export * from '@/react/accordion';
 export * from '@/react/alert';
 export * from '@/react/alert-dialog';

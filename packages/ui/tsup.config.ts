@@ -19,6 +19,14 @@ async function addDirectivesToChunkFiles(distPath = DIST_PATH): Promise<void> {
         // eslint-disable-next-line no-await-in-loop -- We need to wait for each file to be read
         const data = await fs.readFile(filePath, 'utf8');
 
+        const isSkipFile = data.includes('// src/classes/');
+
+        if (isSkipFile) {
+          // eslint-disable-next-line no-console -- We need to log the result
+          console.log(`Directive has been skipped for ${file}`);
+          continue;
+        }
+
         const updatedContent = `'use client';\n${data}`;
 
         // eslint-disable-next-line no-await-in-loop -- We need to wait for each file to be written

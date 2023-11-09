@@ -1,4 +1,5 @@
 import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import {
   CommandEmpty as Empty,
   CommandGroup as Group,
@@ -14,7 +15,27 @@ import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Dialog, DialogContent } from '@/react/dialog';
-import { commandVariants } from '@/classes/command';
+
+/* -----------------------------------------------------------------------------
+ * Classes
+ * -------------------------------------------------------------------------- */
+
+const commandVariants = cva(
+  'bg-popover text-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-md',
+  {
+    defaultVariants: {
+      variant: 'primary',
+    },
+    variants: {
+      variant: {
+        dialog: undefined,
+        primary: 'border shadow-lg',
+      },
+    },
+  },
+);
+
+type CommandVariants = VariantProps<typeof commandVariants>;
 
 /* -----------------------------------------------------------------------------
  * Component: Command
@@ -22,8 +43,7 @@ import { commandVariants } from '@/classes/command';
 
 export const Command = forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root> &
-    VariantProps<typeof commandVariants>
+  React.ComponentPropsWithoutRef<typeof Root> & CommandVariants
 >(({ className, variant = 'primary', ...props }, forwardedRef) => (
   <Root
     className={twMerge(commandVariants({ variant }), className)}

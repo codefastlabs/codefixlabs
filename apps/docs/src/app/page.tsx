@@ -1,5 +1,6 @@
 import {
   Button,
+  buttonVariants,
   Card,
   CardContent,
   CardDescription,
@@ -9,6 +10,7 @@ import {
   Switch,
 } from '@codefixlabs/ui';
 import { BellIcon, CheckIcon } from 'lucide-react';
+import Link from 'next/link';
 
 const notifications = [
   {
@@ -81,6 +83,15 @@ export default function Page(): React.JSX.Element {
             </Button>
           </CardFooter>
         </Card>
+      </div>
+
+      <div className="space-x-2">
+        <Link className={buttonVariants()} href="/">
+          Link styled as a button
+        </Link>
+        <Link className={buttonVariants({ variant: 'outline' })} href="/">
+          Link styled as a button
+        </Link>
       </div>
 
       <article className="prose lg:prose-xl">

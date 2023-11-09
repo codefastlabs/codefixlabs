@@ -1,5 +1,6 @@
 import { Slot } from '@radix-ui/react-slot';
 import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import * as React from 'react';
 import { createContext, forwardRef, useContext, useId } from 'react';
 import type {
@@ -11,8 +12,25 @@ import type {
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
 import { twMerge } from 'tailwind-merge';
 import { Label } from '@/react/label';
-import { formItemVariants } from '@/classes/form';
 import { getErrorMessage } from '@/lib/form';
+
+/* -----------------------------------------------------------------------------
+ * Classes
+ * -------------------------------------------------------------------------- */
+
+const formItemVariants = cva(undefined, {
+  defaultVariants: {
+    inline: false,
+  },
+  variants: {
+    inline: {
+      false: 'space-y-2',
+      true: 'flex gap-2',
+    },
+  },
+});
+
+type FormItemVariants = VariantProps<typeof formItemVariants>;
 
 /* -----------------------------------------------------------------------------
  * Contexts
@@ -96,7 +114,7 @@ export function FormField<
 
 export const FormItem = forwardRef<
   React.ElementRef<'div'>,
-  React.ComponentProps<'div'> & VariantProps<typeof formItemVariants>
+  React.ComponentProps<'div'> & FormItemVariants
 >(({ className, inline = false, ...props }, forwardedRef) => {
   const id = useId();
 

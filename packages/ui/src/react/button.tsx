@@ -1,8 +1,8 @@
-import type { VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 import { Children, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Loader2Icon } from 'lucide-react';
+import type { ButtonVariants } from '@/classes/button';
 import { buttonVariants } from '@/classes/button';
 
 /* -----------------------------------------------------------------------------
@@ -11,7 +11,7 @@ import { buttonVariants } from '@/classes/button';
 
 export const Button = forwardRef<
   React.ElementRef<'button'>,
-  VariantProps<typeof buttonVariants> &
+  ButtonVariants &
     React.ComponentPropsWithoutRef<'button'> & {
       endIcon?: React.ReactNode;
       startIcon?: React.ReactNode;
