@@ -23,7 +23,7 @@ async function addDirectivesToChunkFiles(distPath = DIST_PATH): Promise<void> {
 
         if (isSkipFile) {
           // eslint-disable-next-line no-console -- We need to log the result
-          console.log(`Directive has been skipped for ${file}`);
+          console.log(`Directive 'use client'; has been skipped for ${file}`);
           continue;
         }
 
@@ -33,7 +33,7 @@ async function addDirectivesToChunkFiles(distPath = DIST_PATH): Promise<void> {
         await fs.writeFile(filePath, updatedContent, 'utf8');
 
         // eslint-disable-next-line no-console -- We need to log the result
-        console.log(`Directive has been added to ${file}`);
+        console.log(`Directive 'use client'; has been added to ${file}`);
       }
     }
   } catch (err) {

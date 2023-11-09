@@ -108,6 +108,23 @@ Update `tsconfig.json`
 }
 ```
 
+## Next.js
+
+```diff
+/** @type {import('next').NextConfig} */
+- const nextConfig = {
++ experimental: {
++   optimizePackageImports: [
++     '@codefixlabs/hooks',
++     '@codefixlabs/lib',
++     '@codefixlabs/ui',
++   ],
++ },
+};
+
+module.exports = nextConfig
+```
+
 ## ESLint
 
 Update `.eslintrc.json`

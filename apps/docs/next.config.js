@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ['@codefixlabs/ui'],
+    optimizePackageImports: ['@codefixlabs/lib', '@codefixlabs/ui'],
   },
 };
 
