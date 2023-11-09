@@ -7,6 +7,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  InputPhoneNumber,
   Switch,
 } from '@codefixlabs/ui';
 import { BellIcon, CheckIcon } from 'lucide-react';
@@ -92,6 +93,10 @@ export default function Page(): React.JSX.Element {
         <Link className={buttonVariants({ variant: 'outline' })} href="/">
           Link styled as a button
         </Link>
+      </div>
+
+      <div className="">
+        <InputPhoneNumber placeholder="Enter your phone number" />
       </div>
 
       <article className="prose lg:prose-xl">
