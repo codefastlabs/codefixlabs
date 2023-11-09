@@ -1,5 +1,11 @@
 # @codefixlabs/tsconfig
 
+## 0.1.10
+
+### Patch Changes
+
+- Add directives to chunk files
+
 ## 0.1.9
 
 ### Patch Changes

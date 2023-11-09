@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.21
+
+### Patch Changes
+
+- Add directives to chunk files
+
 ## 0.1.20
 
 ### Patch Changes

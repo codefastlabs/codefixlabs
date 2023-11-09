@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.44
+
+### Patch Changes
+
+- Add directives to chunk files
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.18
+  - @codefixlabs/lib@0.1.21
+
 ## 0.1.43
 
 ### Patch Changes

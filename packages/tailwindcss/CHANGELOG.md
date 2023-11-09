@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.24
+
+### Patch Changes
+
+- Add directives to chunk files
+
 ## 0.1.23
 
 ### Patch Changes

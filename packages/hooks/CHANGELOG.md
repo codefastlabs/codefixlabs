@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.18
+
+### Patch Changes
+
+- Add directives to chunk files
+
 ## 0.1.17
 
 ### Patch Changes
