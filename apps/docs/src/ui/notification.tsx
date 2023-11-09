@@ -28,7 +28,7 @@ const notifications = [
   },
 ];
 
-export function HomeClient({
+export function Notification({
   className,
 }: {
   className?: string;
