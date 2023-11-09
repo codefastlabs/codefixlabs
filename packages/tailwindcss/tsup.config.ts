@@ -9,6 +9,7 @@ export default defineConfig((options: Options) => ({
   format: ['esm', 'cjs'],
   sourcemap: true,
   splitting: true,
+  target: 'esnext',
   treeshake: true,
   ...options,
 }));
