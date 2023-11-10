@@ -18,7 +18,12 @@ import {
 } from '@radix-ui/react-select';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  Loader2Icon,
+} from 'lucide-react';
 import * as React from 'react';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
@@ -31,7 +36,8 @@ const selectTriggerVariants = cva(
   [
     'border-input h-10 select-none items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm',
     'focus:ring-ring/40 focus:outline-none focus:ring-2',
-    'disabled:opacity-50/40 disabled:cursor-not-allowed',
+    'data-state-open:ring-ring/10 data-state-open:outline-none data-state-open:ring-2',
+    'disabled:cursor-not-allowed disabled:opacity-50',
     'placeholder:text-muted-foreground',
   ],
   {
@@ -161,21 +167,34 @@ SelectIcon.displayName = Icon.displayName;
 
 export const SelectTrigger = forwardRef<
   React.ElementRef<typeof Trigger>,
-  React.ComponentPropsWithoutRef<typeof Trigger> & SelectTriggerVariants
->(({ children, className, size, block, ...props }, forwardedRef) => (
-  <Trigger
-    className={twMerge(selectTriggerVariants({ block, size }), className)}
-    ref={forwardedRef}
-    {...props}
-  >
-    <>
-      {children}
-      <SelectIcon className="flex h-4 w-4">
-        <ChevronDownIcon className="h-4 w-4 opacity-50" />
-      </SelectIcon>
-    </>
-  </Trigger>
-));
+  React.ComponentPropsWithoutRef<typeof Trigger> &
+    SelectTriggerVariants & {
+      loading?: boolean;
+    }
+>(
+  (
+    { children, className, size, block, disabled, loading, ...props },
+    forwardedRef,
+  ) => (
+    <Trigger
+      className={twMerge(selectTriggerVariants({ block, size }), className)}
+      disabled={loading ? true : disabled}
+      ref={forwardedRef}
+      {...props}
+    >
+      <>
+        {children}
+        <SelectIcon className="flex h-4 w-4">
+          {loading ? (
+            <Loader2Icon className="h-4 w-4 animate-spin" />
+          ) : (
+            <ChevronDownIcon className="h-4 w-4 opacity-50" />
+          )}
+        </SelectIcon>
+      </>
+    </Trigger>
+  ),
+);
 
 SelectTrigger.displayName = Trigger.displayName;
 

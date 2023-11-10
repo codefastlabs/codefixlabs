@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.47
+
+### Patch Changes
+
+- Add loading state
+
 ## 0.1.46
 
 ### Patch Changes
