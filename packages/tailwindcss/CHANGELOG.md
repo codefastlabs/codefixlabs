@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.26
+
+### Patch Changes
+
+- Content ext
+
 ## 0.1.25
 
 ### Patch Changes

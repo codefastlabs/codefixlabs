@@ -7,7 +7,7 @@ import { em } from '@/lib/utils';
 export const sharedConfig: Config = {
   content: [
     './src/**/*.{ts,tsx,mdx}',
-    './node_modules/@codefixlabs/ui/dist/**/*.{ts,tsx,mdx}',
+    './node_modules/@codefixlabs/ui/dist/**/*.mjs',
   ],
   darkMode: ['class'],
   plugins: [
