@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.49
+
+### Patch Changes
+
+- Remove data state open highlight ring
+
 ## 0.1.48
 
 ### Patch Changes
