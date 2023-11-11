@@ -36,7 +36,6 @@ const selectTriggerVariants = cva(
   [
     'border-input h-10 select-none items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm',
     'focus:ring-ring/40 focus:outline-none focus:ring-2',
-    'data-state-open:ring-ring/10 data-state-open:outline-none data-state-open:ring-2',
     'disabled:cursor-not-allowed disabled:opacity-50',
     'placeholder:text-muted-foreground',
   ],
