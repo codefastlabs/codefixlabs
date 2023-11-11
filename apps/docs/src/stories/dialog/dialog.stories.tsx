@@ -182,6 +182,7 @@ function DialogForm(
         <DialogHeader>
           <DialogTitle className="text-center">Edit profile</DialogTitle>
         </DialogHeader>
+
         <Form {...form}>
           <form
             className="grid overflow-auto"

@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.25
+
+### Patch Changes
+
+- Dark mode
+
 ## 0.1.24
 
 ### Patch Changes

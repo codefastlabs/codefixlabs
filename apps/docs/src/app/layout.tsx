@@ -13,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }): React.JSX.Element {
   return (
-    <html className={nunito.variable} lang="en">
-      <body>{children}</body>
+    <html className={`${nunito.variable} dark`} lang="en">
+      <body className="bg-background text-foreground">{children}</body>
     </html>
   );
 }

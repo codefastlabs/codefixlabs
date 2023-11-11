@@ -96,10 +96,16 @@ export default function Page(): React.JSX.Element {
       </div>
 
       <div className="">
-        <InputPhoneNumber placeholder="Enter your phone number" />
+        <InputPhoneNumber
+          defaultValue={{
+            phoneCode: '+84',
+            phoneNumber: '987654321',
+          }}
+          placeholder="Enter your phone number"
+        />
       </div>
 
-      <article className="prose lg:prose-xl">
+      <article className="prose dark:prose-invert lg:prose-xl">
         <h1>Garlic bread with cheese: What the science tells us</h1>
         <p>
           For years parents have espoused the health benefits of eating garlic

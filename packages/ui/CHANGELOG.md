@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.48
+
+### Patch Changes
+
+- Dark mode
+
 ## 0.1.47
 
 ### Patch Changes

@@ -6,12 +6,18 @@ import { em } from '@/lib/utils';
 
 export const sharedConfig: Config = {
   content: [
-    './src/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@codefixlabs/ui/dist/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{ts,tsx,mdx}',
+    './node_modules/@codefixlabs/ui/dist/**/*.{ts,tsx,mdx}',
   ],
   darkMode: ['class'],
   plugins: [
-    typography,
+    plugin(({ addBase }) => {
+      addBase({
+        '.dark': {
+          'color-scheme': 'dark',
+        },
+      });
+    }),
     plugin(({ matchUtilities }) => {
       matchUtilities({
         perspective: (value) => ({
@@ -19,6 +25,7 @@ export const sharedConfig: Config = {
         }),
       });
     }),
+    typography,
   ],
   theme: {
     extend: {
