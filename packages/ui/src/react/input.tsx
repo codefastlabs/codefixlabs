@@ -41,7 +41,7 @@ const primitiveInputVariants = cva(
 
 type PrimitiveInputVariants = VariantProps<typeof primitiveInputVariants>;
 
-const inputVariants = cva('relative z-40', {
+const inputVariants = cva('relative', {
   defaultVariants: {
     hasEndIcon: false,
     hasStartIcon: false,

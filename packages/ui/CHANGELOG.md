@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.50
+
+### Patch Changes
+
+- Revert z-index input
+
 ## 0.1.49
 
 ### Patch Changes
