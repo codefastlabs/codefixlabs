@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.22
+
+### Patch Changes
+
+- Update select trigger size
+
 ## 0.1.21
 
 ### Patch Changes

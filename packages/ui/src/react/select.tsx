@@ -34,7 +34,7 @@ import { twMerge } from 'tailwind-merge';
 
 const selectTriggerVariants = cva(
   [
-    'border-input h-10 select-none items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm',
+    'border-input select-none items-center justify-between gap-2 rounded-md border bg-transparent text-sm',
     'focus:ring-ring/40 focus:outline-none focus:ring-2',
     'disabled:cursor-not-allowed disabled:opacity-50',
     'placeholder:text-muted-foreground',
@@ -50,9 +50,9 @@ const selectTriggerVariants = cva(
         true: 'flex w-full',
       },
       size: {
-        lg: 'h-12',
-        md: 'h-10',
-        sm: 'h-8',
+        lg: 'px-5.75 h-12',
+        md: 'px-4.75 h-10',
+        sm: 'px-3.75 h-8',
       },
     },
   },

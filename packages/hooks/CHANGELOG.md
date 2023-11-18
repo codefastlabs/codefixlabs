@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.20
+
+### Patch Changes
+
+- Update select trigger size
+
 ## 0.1.19
 
 ### Patch Changes

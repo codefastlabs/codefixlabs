@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.51
+
+### Patch Changes
+
+- Update select trigger size
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.20
+  - @codefixlabs/lib@0.1.22
+
 ## 0.1.50
 
 ### Patch Changes
