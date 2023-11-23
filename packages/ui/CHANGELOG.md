@@ -1,5 +1,12 @@
 # @codefixlabs/ui
 
+## 0.1.53
+
+### Patch Changes
+
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.22
+
 ## 0.1.52
 
 ### Patch Changes

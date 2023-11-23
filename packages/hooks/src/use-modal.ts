@@ -67,17 +67,14 @@ export function useModalOpen<T>(type: ModalType): UseModal<T>['isOpen'] {
   return store((state) => state.isOpen);
 }
 
-export function useModalData<T>(
-  type: ModalType,
-  initialData?: T,
-): T | undefined {
+export function useModalData<T>(type: ModalType, initialData: T): T {
   let store = getModalStore<T>(type);
 
   if (!store) {
     store = setModalStore<T>(type, createModalStore<T>(initialData));
   }
 
-  return store((state) => state.data);
+  return store((state) => state.data ?? initialData);
 }
 
 export function switchModal<T>(

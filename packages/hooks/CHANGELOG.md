@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.22
+
+### Patch Changes
+
+- Modal with initial data
+
 ## 0.1.21
 
 ### Patch Changes
