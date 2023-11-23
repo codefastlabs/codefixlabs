@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.21
+
+### Patch Changes
+
+- Updated useModalData function in `use-modal.ts`
+
 ## 0.1.20
 
 ### Patch Changes

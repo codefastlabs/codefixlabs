@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.23
+
+### Patch Changes
+
+- Updated useModalData function in `use-modal.ts`
+
 ## 0.1.22
 
 ### Patch Changes

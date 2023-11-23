@@ -45,14 +45,14 @@
     "@codefixlabs/tailwindcss": "workspace:*",
     "@codefixlabs/tsconfig": "workspace:*",
     "@next/eslint-plugin-next": "^14.0.3",
-    "@types/node": "^20.9.1",
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
+    "@types/node": "^20.9.4",
+    "@types/react": "^18.2.38",
+    "@types/react-dom": "^18.2.17",
     "autoprefixer": "^10.4.16",
     "chromatic": "^9.1.0",
     "eslint-config-codefixlabs": "workspace:*",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.2"
   }
 }

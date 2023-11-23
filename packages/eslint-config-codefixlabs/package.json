@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-codefixlabs",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "license": "MIT",
   "sideEffects": false,
   "main": "index.js",
@@ -10,7 +10,7 @@
     ]
   },
   "dependencies": {
-    "@vercel/style-guide": "canary",
+    "@vercel/style-guide": "^5.1.0",
     "eslint-plugin-mdx": "^2.2.0",
     "eslint-plugin-storybook": "^0.6.15"
   },

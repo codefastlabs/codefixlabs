@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/tailwindcss",
-  "version": "0.1.27",
+  "version": "0.1.28",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -40,8 +40,8 @@
   "devDependencies": {
     "@codefixlabs/tsconfig": "workspace:*",
     "eslint-config-codefixlabs": "workspace:*",
-    "tsup": "^7.3.0",
-    "typescript": "^5.2.2"
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.2"
   },
   "publishConfig": {
     "access": "public"

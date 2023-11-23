@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.28
+
+### Patch Changes
+
+- Updated useModalData function in `use-modal.ts`
+
 ## 0.1.27
 
 ### Patch Changes

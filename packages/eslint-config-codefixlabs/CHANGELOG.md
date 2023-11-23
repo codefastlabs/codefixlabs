@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.15
+
+### Patch Changes
+
+- Updated useModalData function in `use-modal.ts`
+
 ## 0.1.14
 
 ### Patch Changes
