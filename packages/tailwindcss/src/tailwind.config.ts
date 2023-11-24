@@ -2,6 +2,7 @@ import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
 import typography from '@tailwindcss/typography';
+import containerQueries from '@tailwindcss/container-queries';
 import { em } from '@/lib/utils';
 
 export const sharedConfig: Config = {
@@ -26,6 +27,7 @@ export const sharedConfig: Config = {
       });
     }),
     typography,
+    containerQueries,
   ],
   theme: {
     extend: {

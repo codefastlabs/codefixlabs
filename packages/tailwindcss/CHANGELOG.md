@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.29
+
+### Patch Changes
+
+- Built-in container-queries
+
 ## 0.1.28
 
 ### Patch Changes
