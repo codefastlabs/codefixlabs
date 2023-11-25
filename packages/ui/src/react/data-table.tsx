@@ -105,12 +105,12 @@ export function DataTableColumnHeader<TData, TValue>({
     const isSorted = column.getIsSorted();
 
     if (isSorted === 'desc') {
-      return <ArrowDownIcon className="h-4 w-4" />;
+      return <ArrowDownIcon size={16} />;
     } else if (isSorted === 'asc') {
-      return <ArrowUpIcon className="h-4 w-4" />;
+      return <ArrowUpIcon size={16} />;
     }
 
-    return <ChevronsUpDownIcon className="h-4 w-4" />;
+    return <ChevronsUpDownIcon size={16} />;
   };
 
   return (
@@ -132,7 +132,7 @@ export function DataTableColumnHeader<TData, TValue>({
             column.toggleSorting(false);
           }}
         >
-          <ArrowUpIcon className="text-muted-foreground/70 mr-2 h-3.5 w-3.5" />
+          <ArrowUpIcon className="text-muted-foreground/70 mr-2" size={14} />
           Ascending
         </DropdownMenuItem>
         <DropdownMenuItem
@@ -140,7 +140,7 @@ export function DataTableColumnHeader<TData, TValue>({
             column.toggleSorting(true);
           }}
         >
-          <ArrowDownIcon className="text-muted-foreground/70 mr-2 h-3.5 w-3.5" />
+          <ArrowDownIcon className="text-muted-foreground/70 mr-2" size={14} />
           Descending
         </DropdownMenuItem>
         <DropdownMenuItem
@@ -148,7 +148,7 @@ export function DataTableColumnHeader<TData, TValue>({
             column.clearSorting();
           }}
         >
-          <CheckIcon className="text-muted-foreground/70 mr-2 h-3.5 w-3.5" />
+          <CheckIcon className="text-muted-foreground/70 mr-2" size={14} />
           None
         </DropdownMenuItem>
         <DropdownMenuSeparator />
@@ -157,7 +157,7 @@ export function DataTableColumnHeader<TData, TValue>({
             column.toggleVisibility(false);
           }}
         >
-          <EyeOffIcon className="text-muted-foreground/70 mr-2 h-3.5 w-3.5" />
+          <EyeOffIcon className="text-muted-foreground/70 mr-2" size={14} />
           Hide column
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -284,7 +284,7 @@ export function DataTablePageButtons<TData>({
           table.setPageIndex(0);
         }}
         size="sm"
-        startIcon={<ChevronsLeftIcon className="h-4 w-4" />}
+        startIcon={<ChevronsLeftIcon size={16} />}
         title="First page"
         variant="outline"
       />
@@ -295,14 +295,14 @@ export function DataTablePageButtons<TData>({
           table.previousPage();
         }}
         size="sm"
-        startIcon={<ChevronLeftIcon className="h-4 w-4" />}
+        startIcon={<ChevronLeftIcon size={16} />}
         title="Previous page"
         variant="outline"
       />
       <Button
         aria-label="Next page"
         disabled={!table.getCanNextPage()}
-        endIcon={<ChevronRightIcon className="h-4 w-4" />}
+        endIcon={<ChevronRightIcon size={16} />}
         onClick={() => {
           table.nextPage();
         }}
@@ -313,7 +313,7 @@ export function DataTablePageButtons<TData>({
       <Button
         aria-label="Last page"
         disabled={!table.getCanNextPage()}
-        endIcon={<ChevronsRightIcon className="h-4 w-4" />}
+        endIcon={<ChevronsRightIcon size={16} />}
         onClick={() => {
           table.setPageIndex(table.getPageCount() - 1);
         }}
@@ -346,7 +346,7 @@ export function DataTableSearch<TData>({
       defaultValue={(table.getState().globalFilter as string) || ''}
       onChange={onChange}
       placeholder="Search all columns..."
-      startIcon={<SearchIcon className="w-4.5 h-4.5" />}
+      startIcon={<SearchIcon size={18} />}
       type="search"
     />
   );
@@ -366,7 +366,7 @@ export function DataTableViewOptions<TData>({
       <DropdownMenuTrigger asChild>
         <Button
           aria-label="Toggle columns"
-          startIcon={<SlidersHorizontalIcon className="h-4 w-4" />}
+          startIcon={<SlidersHorizontalIcon size={16} />}
           variant="outline"
         >
           View
@@ -391,7 +391,7 @@ export function DataTableViewOptions<TData>({
               }}
             >
               <DropdownMenuItemIndicator>
-                <CheckIcon className="h-4 w-4" />
+                <CheckIcon size={16} />
               </DropdownMenuItemIndicator>
               {column.id.replaceAll('_', ' ')}
             </DropdownMenuCheckboxItem>
@@ -642,7 +642,7 @@ export function DataTableFacetedFilter<TData, TValue>({
       <PopoverTrigger asChild>
         <Button
           className="border-dashed"
-          startIcon={<PlusCircleIcon className="h-4 w-4" />}
+          startIcon={<PlusCircleIcon size={16} />}
           variant="outline"
         >
           {title}
@@ -719,7 +719,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                           : '[&_svg]:invisible',
                       )}
                     >
-                      <CheckIcon className="h-3 w-3" />
+                      <CheckIcon size={12} />
                     </div>
                     <span className="flex flex-row-reverse gap-[0.3125rem]">
                       <span>{option.label}</span>

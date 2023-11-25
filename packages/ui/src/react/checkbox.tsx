@@ -46,9 +46,9 @@ export const Checkbox = forwardRef<
   >
     <CheckboxIndicator>
       {props.checked === 'indeterminate' ? (
-        <MinusIcon className="h-3.25 w-3.25" />
+        <MinusIcon size={13} />
       ) : (
-        <CheckIcon className="h-3.25 w-3.25" />
+        <CheckIcon size={13} />
       )}
     </CheckboxIndicator>
   </Root>

@@ -160,7 +160,10 @@ export const NavigationMenuTrigger = forwardRef<
     <>
       {children}
 
-      <ChevronDownIcon className="group-data-state-open:rotate-180 text-accent-foreground h-4 w-4 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)]" />
+      <ChevronDownIcon
+        className="group-data-state-open:rotate-180 text-accent-foreground transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)]"
+        size={16}
+      />
     </>
   </Trigger>
 ));

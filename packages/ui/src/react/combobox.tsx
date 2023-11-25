@@ -151,7 +151,7 @@ export function Combobox({
             block={block}
             className={classNameTrigger}
             disabled={disabled}
-            endIcon={<ChevronsUpDownIcon className="h-3.5 w-3.5" />}
+            endIcon={<ChevronsUpDownIcon size={14} />}
             justify="between"
             startIcon={icon}
             variant="outline"

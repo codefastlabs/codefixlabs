@@ -411,11 +411,11 @@ function CalendarDay(props: DayProps): React.JSX.Element {
  * -------------------------------------------------------------------------- */
 
 function ChevronLeft(rest: StyledComponent): React.JSX.Element {
-  return <ChevronLeftIcon {...rest} className="h-4 w-4" />;
+  return <ChevronLeftIcon {...rest} size={16} />;
 }
 
 function ChevronRight(rest: StyledComponent): React.JSX.Element {
-  return <ChevronRightIcon {...rest} className="h-4 w-4" />;
+  return <ChevronRightIcon {...rest} size={16} />;
 }
 
 export function Calendar({

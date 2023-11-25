@@ -317,7 +317,7 @@ export const MenubarSubTrigger = forwardRef<
     <>
       {children}
       <MenubarShortcut>
-        <ChevronRightIcon className="text-accent-foreground h-4 w-4" />
+        <ChevronRightIcon className="text-accent-foreground" size={16} />
       </MenubarShortcut>
     </>
   </SubTrigger>
@@ -395,7 +395,7 @@ export const MenubarCheckboxItem = forwardRef<
   >
     <>
       <MenubarItemIndicator>
-        <CheckIcon className="h-4 w-4" />
+        <CheckIcon size={16} />
       </MenubarItemIndicator>
       {children}
       {shortcut ? <MenubarShortcut>{shortcut}</MenubarShortcut> : null}
@@ -422,7 +422,7 @@ export const MenubarRadioItem = forwardRef<
   >
     <>
       <MenubarItemIndicator>
-        <DotIcon className="h-4 w-4" />
+        <DotIcon size={16} />
       </MenubarItemIndicator>
       {children}
       {shortcut ? <MenubarShortcut>{shortcut}</MenubarShortcut> : null}

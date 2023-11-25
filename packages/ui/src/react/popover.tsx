@@ -120,7 +120,7 @@ export const PopoverContent = forwardRef<
             >
               <Button
                 shape="pill"
-                startIcon={<XIcon className="h-4 w-4" />}
+                startIcon={<XIcon size={16} />}
                 variant="ghost"
               />
             </PopoverClose>

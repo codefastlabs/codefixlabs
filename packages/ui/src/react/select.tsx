@@ -185,9 +185,9 @@ export const SelectTrigger = forwardRef<
         {children}
         <SelectIcon className="flex h-4 w-4">
           {loading ? (
-            <Loader2Icon className="h-4 w-4 animate-spin" />
+            <Loader2Icon className="animate-spin" size={16} />
           ) : (
-            <ChevronDownIcon className="h-4 w-4 opacity-50" />
+            <ChevronDownIcon className="opacity-50" size={16} />
           )}
         </SelectIcon>
       </>
@@ -271,13 +271,13 @@ export const SelectContent = forwardRef<
     >
       <>
         <SelectScrollUpButton>
-          <ChevronUpIcon className="h-4 w-4 opacity-50" />
+          <ChevronUpIcon className="opacity-50" size={16} />
         </SelectScrollUpButton>
 
         <SelectViewport>{children}</SelectViewport>
 
         <SelectScrollDownButton>
-          <ChevronDownIcon className="h-4 w-4 opacity-50" />
+          <ChevronDownIcon className="opacity-50" size={16} />
         </SelectScrollDownButton>
       </>
     </Content>
@@ -322,7 +322,7 @@ export const SelectItem = forwardRef<
     <>
       <SelectItemText>{children}</SelectItemText>
       <SelectItemIndicator>
-        <CheckIcon className="h-4 w-4" />
+        <CheckIcon size={16} />
       </SelectItemIndicator>
     </>
   </Item>

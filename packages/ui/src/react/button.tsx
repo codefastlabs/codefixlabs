@@ -64,7 +64,7 @@ export const Button = forwardRef<
 
         {loading && !(startIcon || endIcon) ? (
           <span className="absolute inset-0 flex items-center justify-center bg-inherit">
-            <Loader2Icon className="h-4.5 w-4.5 animate-spin" />
+            <Loader2Icon className="animate-spin" size={18} />
           </span>
         ) : null}
       </button>
@@ -89,7 +89,7 @@ export function IconButton({
   return (
     <>
       {loading && children ? (
-        <Loader2Icon className="h-4 w-4 animate-spin" />
+        <Loader2Icon className="animate-spin" size={16} />
       ) : (
         children
       )}

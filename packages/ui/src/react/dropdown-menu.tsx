@@ -266,7 +266,7 @@ export const DropdownMenuSubTrigger = forwardRef<
     <>
       {children}
       <DropdownMenuShortcut>
-        <ChevronRightIcon className="text-accent-foreground h-4 w-4" />
+        <ChevronRightIcon className="text-accent-foreground" size={16} />
       </DropdownMenuShortcut>
     </>
   </SubTrigger>
@@ -357,7 +357,7 @@ export const DropdownMenuCheckboxItem = forwardRef<
   >
     <>
       <DropdownMenuItemIndicator>
-        <CheckIcon className="h-4 w-4" />
+        <CheckIcon size={16} />
       </DropdownMenuItemIndicator>
       {children}
       {shortcut ? (
@@ -386,7 +386,7 @@ export const DropdownMenuRadioItem = forwardRef<
   >
     <>
       <DropdownMenuItemIndicator>
-        <DotIcon className="h-4 w-4" />
+        <DotIcon size={16} />
       </DropdownMenuItemIndicator>
       {children}
       {shortcut ? (

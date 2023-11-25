@@ -60,7 +60,7 @@ export const Label = forwardRef<
         {tooltip ? (
           <Tooltip delayDuration={250}>
             <TooltipTrigger className="shrink-0" type="button">
-              <InfoIcon className="text-muted-foreground h-5 w-5" />
+              <InfoIcon className="text-muted-foreground" size={16} />
             </TooltipTrigger>
 
             <TooltipContent>{tooltip}</TooltipContent>

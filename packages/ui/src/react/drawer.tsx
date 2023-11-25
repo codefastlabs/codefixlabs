@@ -140,7 +140,7 @@ export const DrawerContent = forwardRef<
                   'absolute right-4 top-3.5',
                 )}
               >
-                <XIcon className="h-4 w-4" />
+                <XIcon size={16} />
               </DrawerClose>
             )}
           </>

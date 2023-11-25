@@ -287,7 +287,7 @@ export const ContextMenuSubTrigger = forwardRef<
     <>
       {children}
       <ContextMenuShortcut>
-        <ChevronRightIcon className="text-accent-foreground h-4 w-4" />
+        <ChevronRightIcon className="text-accent-foreground" size={16} />
       </ContextMenuShortcut>
     </>
   </SubTrigger>
@@ -358,7 +358,7 @@ export const ContextMenuCheckboxItem = forwardRef<
   >
     <>
       <ContextMenuItemIndicator>
-        <CheckIcon className="h-4 w-4" />
+        <CheckIcon size={16} />
       </ContextMenuItemIndicator>
       {children}
       {shortcut ? <ContextMenuShortcut>{shortcut}</ContextMenuShortcut> : null}
@@ -385,7 +385,7 @@ export const ContextMenuRadioItem = forwardRef<
   >
     <>
       <ContextMenuItemIndicator>
-        <DotIcon className="h-4 w-4" />
+        <DotIcon size={16} />
       </ContextMenuItemIndicator>
       {children}
       {shortcut ? <ContextMenuShortcut>{shortcut}</ContextMenuShortcut> : null}

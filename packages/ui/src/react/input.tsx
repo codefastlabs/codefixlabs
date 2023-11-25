@@ -102,11 +102,7 @@ export const InputPassword = forwardRef<
         shape="pill"
         size="sm"
         startIcon={
-          type === 'password' ? (
-            <EyeIcon className="h-4 w-4" />
-          ) : (
-            <EyeOffIcon className="h-4 w-4" />
-          )
+          type === 'password' ? <EyeIcon size={16} /> : <EyeOffIcon size={16} />
         }
         variant="ghost"
       />

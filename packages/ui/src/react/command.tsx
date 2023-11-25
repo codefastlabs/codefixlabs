@@ -63,7 +63,7 @@ export const CommandInput = forwardRef<
   React.ComponentPropsWithoutRef<typeof Input>
 >(({ className, ...props }, forwardedRef) => (
   <div className="flex items-center gap-2 border-b px-3">
-    <SearchIcon className="h-5 w-5 shrink-0 opacity-50" />
+    <SearchIcon className="shrink-0 opacity-50" size={20} />
     <Input
       className={twMerge(
         'h-11 w-full min-w-0 rounded-md bg-transparent py-3 text-sm outline-none',
