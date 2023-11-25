@@ -222,19 +222,19 @@ export const FormMessage = forwardRef<
   const { error, formMessageId } = useFormField();
   const body = error ? getErrorMessage(error) : children;
 
-  if (!body) {
-    return null;
-  }
-
   return (
-    <p
-      className={twMerge('text-destructive text-xs', className)}
-      id={formMessageId}
-      ref={forwardedRef}
-      {...props}
-    >
-      {body}
-    </p>
+    <>
+      {body ? (
+        <p
+          className={twMerge('text-destructive text-xs', className)}
+          id={formMessageId}
+          ref={forwardedRef}
+          {...props}
+        >
+          {body}
+        </p>
+      ) : null}
+    </>
   );
 });
 

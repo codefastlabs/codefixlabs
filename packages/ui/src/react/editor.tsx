@@ -92,31 +92,31 @@ export const Editor = forwardRef<
     ],
   });
 
-  if (!editor) {
-    return null;
-  }
-
   return (
-    <div
-      className={twMerge(
-        'divide-y rounded-md border',
-        className,
-        classNames?.root,
-      )}
-      ref={forwardedRef}
-    >
-      <MenuBar
-        className={twMerge('bg-background p-1', classNames?.menuBar)}
-        editor={editor}
-      />
+    <>
+      {editor ? (
+        <div
+          className={twMerge(
+            'divide-y rounded-md border',
+            className,
+            classNames?.root,
+          )}
+          ref={forwardedRef}
+        >
+          <MenuBar
+            className={twMerge('bg-background p-1', classNames?.menuBar)}
+            editor={editor}
+          />
 
-      <EditorContent
-        className={twMerge(
-          'overflow-hidden focus-within:rounded focus-within:ring',
-        )}
-        editor={editor}
-      />
-    </div>
+          <EditorContent
+            className={twMerge(
+              'overflow-hidden focus-within:rounded focus-within:ring',
+            )}
+            editor={editor}
+          />
+        </div>
+      ) : null}
+    </>
   );
 });
 

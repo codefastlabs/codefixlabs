@@ -251,15 +251,16 @@ export function DataTablePageCount<TData>({
   ...props
 }: React.ComponentProps<'p'> & {
   table: TableType<TData>;
-}): React.JSX.Element | null {
-  if (table.getPageCount() <= 1) {
-    return null;
-  }
-
+}): React.JSX.Element {
   return (
-    <p className={twMerge('text-sm font-normal', className)} {...props}>
-      Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
-    </p>
+    <>
+      {table.getPageCount() > 1 ? (
+        <p className={twMerge('text-sm font-normal', className)} {...props}>
+          Page {table.getState().pagination.pageIndex + 1} of{' '}
+          {table.getPageCount()}
+        </p>
+      ) : null}
+    </>
   );
 }
 
