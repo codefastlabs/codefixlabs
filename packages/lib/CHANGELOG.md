@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.24
+
+### Patch Changes
+
+- Bump package
+
 ## 0.1.23
 
 ### Patch Changes
