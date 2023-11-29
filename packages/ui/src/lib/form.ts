@@ -19,5 +19,16 @@ export const getErrorMessage = (error: FieldError | FieldError[]): string => {
     return error.root.message;
   }
 
+  if (Object.keys(error).length) {
+    const firstKey = Object.keys(error).at(0) as keyof typeof error | undefined;
+    if (!firstKey) {
+      return '';
+    }
+
+    const firstError = error[firstKey] as FieldError;
+
+    return getErrorMessage(firstError);
+  }
+
   return '';
 };

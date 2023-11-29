@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.57
+
+### Patch Changes
+
+- Generate parent error
+
 ## 0.1.56
 
 ### Patch Changes
