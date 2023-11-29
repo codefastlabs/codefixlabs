@@ -12,7 +12,6 @@ import type {
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
 import { twMerge } from 'tailwind-merge';
 import { Label } from '@/react/label';
-import { getErrorMessage } from '@/lib/form';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -220,7 +219,7 @@ export const FormMessage = forwardRef<
   React.ComponentPropsWithoutRef<'p'>
 >(({ children, className, ...props }, forwardedRef) => {
   const { error, formMessageId } = useFormField();
-  const body = error ? getErrorMessage(error) : children;
+  const body = error ? String(error.message) : children;
 
   return (
     <>
