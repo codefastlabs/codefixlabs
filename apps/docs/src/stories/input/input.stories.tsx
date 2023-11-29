@@ -165,7 +165,7 @@ export const ReactHookForm: Story = {
 export const StartIcon: Story = {
   args: {
     placeholder: 'Search...',
-    startIcon: <SearchIcon className="w-4.5 h-4.5" />,
+    startIcon: <SearchIcon size={18} />,
     type: 'text',
   },
 };
@@ -173,7 +173,7 @@ export const StartIcon: Story = {
 // End Icon
 export const EndIcon: Story = {
   args: {
-    endIcon: <SearchIcon className="w-4.5 h-4.5" />,
+    endIcon: <SearchIcon size={18} />,
     placeholder: 'Search...',
     type: 'text',
   },
@@ -182,9 +182,9 @@ export const EndIcon: Story = {
 // Start and End Icon
 export const StartAndEndIcon: Story = {
   args: {
-    endIcon: <CogIcon className="w-4.5 h-4.5" />,
+    endIcon: <CogIcon size={18} />,
     placeholder: 'Search...',
-    startIcon: <SearchIcon className="w-4.5 h-4.5" />,
+    startIcon: <SearchIcon size={18} />,
     type: 'text',
   },
 };
@@ -194,7 +194,7 @@ export const InlineWithStartIcon: Story = {
   args: {
     inline: true,
     placeholder: 'Search...',
-    startIcon: <SearchIcon className="w-4.5 h-4.5" />,
+    startIcon: <SearchIcon size={18} />,
     type: 'text',
   },
 };
@@ -202,7 +202,7 @@ export const InlineWithStartIcon: Story = {
 // Inline with End Icon
 export const InlineWithEndIcon: Story = {
   args: {
-    endIcon: <SearchIcon className="w-4.5 h-4.5" />,
+    endIcon: <SearchIcon size={18} />,
     inline: true,
     placeholder: 'Search...',
     type: 'text',
@@ -212,10 +212,10 @@ export const InlineWithEndIcon: Story = {
 // Inline with Start and End Icon
 export const InlineWithStartAndEndIcon: Story = {
   args: {
-    endIcon: <CogIcon className="w-4.5 h-4.5" />,
+    endIcon: <CogIcon size={18} />,
     inline: true,
     placeholder: 'Search...',
-    startIcon: <SearchIcon className="w-4.5 h-4.5" />,
+    startIcon: <SearchIcon size={18} />,
     type: 'text',
   },
 };

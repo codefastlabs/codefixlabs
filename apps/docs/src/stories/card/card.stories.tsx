@@ -59,7 +59,7 @@ export const Basic: Story = {
       </CardHeader>
       <CardContent className="grid gap-6">
         <div className="flex items-center space-x-4 rounded-md border p-4">
-          <BellIcon className="h-4 w-4" />
+          <BellIcon size={16} />
           <div className="flex-1 space-y-1">
             <p className="text-sm font-medium leading-none">
               Push Notifications

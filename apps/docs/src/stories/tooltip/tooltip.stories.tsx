@@ -30,7 +30,7 @@ export const Basic: Story = {
         <Button
           aria-label="Customise options"
           shape="pill"
-          startIcon={<PlusIcon className="h-4 w-4" />}
+          startIcon={<PlusIcon size={16} />}
           variant="outline"
         />
       </TooltipTrigger>

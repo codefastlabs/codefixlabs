@@ -162,7 +162,7 @@ function ComboboxAssignMember(): React.JSX.Element {
           />
         ) : (
           <div className="flex h-9 w-9 items-center justify-center rounded-full border border-dashed">
-            <UserPlus2Icon className="h-6 w-6" />
+            <UserPlus2Icon size={24} />
           </div>
         )}
       </PopoverTrigger>
@@ -230,7 +230,7 @@ function ComboboxAssignMemberWithCustomTrigger(): React.JSX.Element {
       <PopoverTrigger asChild className="data-state-open:bg-accent">
         <Button
           size="sm"
-          startIcon={<UserPlus2Icon className="h-4 w-4" />}
+          startIcon={<UserPlus2Icon size={16} />}
           variant="ghost"
         >
           Allocate task

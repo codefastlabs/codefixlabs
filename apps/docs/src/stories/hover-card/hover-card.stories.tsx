@@ -55,7 +55,7 @@ export const Basic: Story = {
               The React Framework – created and maintained by @vercel.
             </p>
             <div className="flex items-center pt-2">
-              <CalendarIcon className="mr-2 h-4 w-4 opacity-70" />
+              <CalendarIcon className="mr-2 opacity-70" size={16} />
               <span className="text-muted-foreground text-xs">
                 Joined December 2021
               </span>

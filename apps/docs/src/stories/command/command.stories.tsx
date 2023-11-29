@@ -45,15 +45,15 @@ export const Basic: Story = {
         <CommandGroup heading="Suggestions">
           <CommandItem>
             Calendar
-            <CalendarIcon className="order-first h-4 w-4" />
+            <CalendarIcon className="order-first" size={16} />
           </CommandItem>
           <CommandItem>
             Search Emoji
-            <SmileIcon className="order-first h-4 w-4" />
+            <SmileIcon className="order-first" size={16} />
           </CommandItem>
           <CommandItem>
             Table
-            <TableIcon className="order-first h-4 w-4" />
+            <TableIcon className="order-first" size={16} />
           </CommandItem>
         </CommandGroup>
 
@@ -62,15 +62,15 @@ export const Basic: Story = {
         <CommandGroup heading="Settings">
           <CommandItem>
             Profile
-            <UserIcon className="order-first h-4 w-4" />
+            <UserIcon className="order-first" size={16} />
           </CommandItem>
           <CommandItem>
             Billing
-            <CreditCardIcon className="order-first h-4 w-4" />
+            <CreditCardIcon className="order-first" size={16} />
           </CommandItem>
           <CommandItem>
             Settings
-            <SettingsIcon className="order-first h-4 w-4" />
+            <SettingsIcon className="order-first" size={16} />
           </CommandItem>
         </CommandGroup>
       </CommandList>
@@ -104,15 +104,15 @@ function CommandWithDialog(): React.JSX.Element {
           <CommandGroup heading="Suggestions">
             <CommandItem>
               Calendar
-              <CalendarIcon className="order-first h-4 w-4" />
+              <CalendarIcon className="order-first" size={16} />
             </CommandItem>
             <CommandItem>
               Search Emoji
-              <SmileIcon className="order-first h-4 w-4" />
+              <SmileIcon className="order-first" size={16} />
             </CommandItem>
             <CommandItem>
               Table
-              <TableIcon className="order-first h-4 w-4" />
+              <TableIcon className="order-first" size={16} />
             </CommandItem>
           </CommandGroup>
 
@@ -121,15 +121,15 @@ function CommandWithDialog(): React.JSX.Element {
           <CommandGroup heading="Settings">
             <CommandItem>
               Profile
-              <UserIcon className="order-first h-4 w-4" />
+              <UserIcon className="order-first" size={16} />
             </CommandItem>
             <CommandItem>
               Billing
-              <CreditCardIcon className="order-first h-4 w-4" />
+              <CreditCardIcon className="order-first" size={16} />
             </CommandItem>
             <CommandItem>
               Settings
-              <SettingsIcon className="order-first h-4 w-4" />
+              <SettingsIcon className="order-first" size={16} />
             </CommandItem>
           </CommandGroup>
         </CommandList>

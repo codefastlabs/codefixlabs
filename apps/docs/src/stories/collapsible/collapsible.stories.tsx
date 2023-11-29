@@ -33,7 +33,7 @@ function CollapsibleWithHooks(): React.JSX.Element {
         <CollapsibleTrigger asChild>
           <Button
             aria-label="Toggle"
-            startIcon={<ChevronsUpDownIcon className="h-4 w-4" />}
+            startIcon={<ChevronsUpDownIcon size={16} />}
             variant="ghost"
           />
         </CollapsibleTrigger>

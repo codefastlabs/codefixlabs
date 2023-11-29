@@ -29,7 +29,7 @@ export const Basic: Story = {
         <Button
           aria-label="Update dimensions"
           shape="pill"
-          startIcon={<SlidersHorizontalIcon className="h-4 w-4" />}
+          startIcon={<SlidersHorizontalIcon size={16} />}
           variant="outline"
         />
       </PopoverTrigger>

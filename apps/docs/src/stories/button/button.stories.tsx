@@ -8,10 +8,10 @@ import {
 } from 'lucide-react';
 
 const icons = {
-  AlarmCheckIcon: <AlarmCheckIcon className="h-4 w-4" />,
-  CogIcon: <CogIcon className="h-4 w-4" />,
-  GalleryThumbnailsIcon: <GalleryThumbnailsIcon className="h-4 w-4" />,
-  GitForkIcon: <GitForkIcon className="h-4 w-4" />,
+  AlarmCheckIcon: <AlarmCheckIcon size={16} />,
+  CogIcon: <CogIcon size={16} />,
+  GalleryThumbnailsIcon: <GalleryThumbnailsIcon size={16} />,
+  GitForkIcon: <GitForkIcon size={16} />,
 };
 
 const meta: Meta<typeof Button> = {
@@ -89,7 +89,7 @@ export const Basic: Story = {
 
 export const Icon: Story = {
   args: {
-    startIcon: <GitForkIcon className="h-4 w-4" />,
+    startIcon: <GitForkIcon size={16} />,
   },
 };
 
@@ -160,14 +160,14 @@ export const LoadingWithIcon: Story = {
   args: {
     ...Basic.args,
     loading: true,
-    startIcon: <GitForkIcon className="h-4 w-4" />,
+    startIcon: <GitForkIcon size={16} />,
   },
 };
 
 export const LoadingWithIconRight: Story = {
   args: {
     ...Basic.args,
-    endIcon: <CogIcon className="h-4 w-4" />,
+    endIcon: <CogIcon size={16} />,
     loading: true,
   },
 };
@@ -175,9 +175,9 @@ export const LoadingWithIconRight: Story = {
 export const LoadingWithIconBoth: Story = {
   args: {
     ...Basic.args,
-    endIcon: <CogIcon className="h-4 w-4" />,
+    endIcon: <CogIcon size={16} />,
     loading: true,
-    startIcon: <GitForkIcon className="h-4 w-4" />,
+    startIcon: <GitForkIcon size={16} />,
   },
 };
 
@@ -191,13 +191,13 @@ export const Disabled: Story = {
 export const IconLeft: Story = {
   args: {
     ...Basic.args,
-    startIcon: <GitForkIcon className="h-4 w-4" />,
+    startIcon: <GitForkIcon size={16} />,
   },
 };
 
 export const IconRight: Story = {
   args: {
     ...Basic.args,
-    endIcon: <CogIcon className="h-4 w-4" />,
+    endIcon: <CogIcon size={16} />,
   },
 };

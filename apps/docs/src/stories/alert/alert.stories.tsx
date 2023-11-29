@@ -15,7 +15,7 @@ type Story = StoryObj<typeof Alert>;
 export const Basic: Story = {
   render: (args) => (
     <Alert {...args}>
-      <TerminalIcon className="h-4 w-4" />
+      <TerminalIcon size={16} />
       <AlertTitle>Heads up!</AlertTitle>
       <AlertDescription>
         You can add components to your app using the cli.

@@ -44,7 +44,7 @@ function DropdownMenuWithHooks(
         <Button
           aria-label="Customise options"
           shape="pill"
-          startIcon={<MenuIcon className="h-4 w-4" />}
+          startIcon={<MenuIcon size={16} />}
           variant="outline"
         />
       </DropdownMenuTrigger>

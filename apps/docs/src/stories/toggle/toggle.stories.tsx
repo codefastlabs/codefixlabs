@@ -36,7 +36,7 @@ export const Basic: Story = {
   },
   render: (args) => (
     <Toggle {...args}>
-      <ItalicIcon className="h-4 w-4" />
+      <ItalicIcon size={16} />
     </Toggle>
   ),
 };

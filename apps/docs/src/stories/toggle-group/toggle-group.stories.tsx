@@ -21,13 +21,13 @@ export const Basic: Story = {
   render: (args) => (
     <ToggleGroup {...args}>
       <ToggleGroupItem aria-label="Left aligned" value="left">
-        <AlignLeftIcon className="h-4 w-4" />
+        <AlignLeftIcon size={16} />
       </ToggleGroupItem>
       <ToggleGroupItem aria-label="Center aligned" value="center">
-        <AlignCenterIcon className="h-4 w-4" />
+        <AlignCenterIcon size={16} />
       </ToggleGroupItem>
       <ToggleGroupItem aria-label="Right aligned" value="right">
-        <AlignRightIcon className="h-4 w-4" />
+        <AlignRightIcon size={16} />
       </ToggleGroupItem>
     </ToggleGroup>
   ),
