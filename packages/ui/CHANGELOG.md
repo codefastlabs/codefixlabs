@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.58
+
+### Patch Changes
+
+- Add wrapper class table
+
 ## 0.1.57
 
 ### Patch Changes

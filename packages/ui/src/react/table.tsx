@@ -8,9 +8,16 @@ import { twMerge } from 'tailwind-merge';
 
 export const Table = forwardRef<
   React.ElementRef<'table'>,
-  React.ComponentPropsWithoutRef<'table'>
->(({ className, ...props }, forwardedRef) => (
-  <div className="w-full overflow-auto">
+  React.ComponentPropsWithoutRef<'table'> & {
+    classNames?: {
+      wrapper?: string;
+    };
+  }
+>(({ className, classNames, ...props }, forwardedRef) => (
+  <div
+    className={twMerge('w-full overflow-auto', classNames?.wrapper)}
+    data-test-id="wrapper"
+  >
     <table
       className={twMerge('w-full caption-bottom text-sm', className)}
       ref={forwardedRef}

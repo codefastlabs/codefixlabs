@@ -474,21 +474,22 @@ export function DataTablePagination<TData>({
  * -------------------------------------------------------------------------- */
 
 interface TableClassNames {
-  root?: string;
+  body?: string;
+  cell?: string;
   container?: string;
-  table?: string;
-  header?: string;
-  headerRow?: string;
+  emptyCell?: string;
+  emptyRow?: string;
   footer?: string;
   footerRow?: string;
+  header?: string;
   headerCell?: string;
-  body?: string;
-  row?: string;
-  cell?: string;
-  emptyRow?: string;
-  emptyCell?: string;
-  toolbar?: string;
+  headerRow?: string;
   pagination?: string;
+  root?: string;
+  row?: string;
+  table?: string;
+  toolbar?: string;
+  wrapper?: string;
 }
 
 export function DataTableContent<TData, TValue>({
@@ -510,7 +511,13 @@ export function DataTableContent<TData, TValue>({
       )}
       data-test-id="container"
     >
-      <Table className={classNames.table} data-test-id="table">
+      <Table
+        className={classNames.table}
+        classNames={{
+          wrapper: classNames.wrapper,
+        }}
+        data-test-id="table"
+      >
         <TableHeader className={classNames.header} data-test-id="header">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow
