@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.59
+
+### Patch Changes
+
+- Add data test id
+
 ## 0.1.58
 
 ### Patch Changes

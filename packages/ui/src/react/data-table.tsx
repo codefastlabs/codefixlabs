@@ -422,6 +422,7 @@ export function DataTableToolbar<TData>({
         'flex flex-wrap items-center justify-between gap-4',
         className,
       )}
+      data-test-id="toolbar"
     >
       <div className="flex grow items-center gap-2">
         <DataTableSearch table={table} />
@@ -442,8 +443,8 @@ export function DataTableToolbar<TData>({
 export function DataTablePagination<TData>({
   table,
   className,
-  ...props
-}: React.ComponentProps<'div'> & {
+}: {
+  className?: string;
   table: TableType<TData>;
 }): React.JSX.Element {
   return (
@@ -452,7 +453,7 @@ export function DataTablePagination<TData>({
         'flex flex-wrap items-center justify-between gap-4',
         className,
       )}
-      {...props}
+      data-test-id="pagination"
     >
       <div className="text-muted-foreground grow text-sm">
         {table.getFilteredSelectedRowModel().rows.length} of{' '}
@@ -796,7 +797,6 @@ export function DataTable<TData>({
     <div className={twMerge('space-y-4', classNames.root)} data-test-id="root">
       <DataTableToolbar
         className={classNames.toolbar}
-        data-test-id="toolbar"
         endToolbar={endToolbar}
         startToolbar={startToolbar}
         table={table}
@@ -807,11 +807,7 @@ export function DataTable<TData>({
         showFooter={showFooter}
         table={table}
       />
-      <DataTablePagination
-        className={classNames.pagination}
-        data-test-id="pagination"
-        table={table}
-      />
+      <DataTablePagination className={classNames.pagination} table={table} />
     </div>
   );
 }
