@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.60
+
+### Patch Changes
+
+- Table row border horizontal
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.23
+  - @codefixlabs/lib@0.1.25
+
 ## 0.1.59
 
 ### Patch Changes

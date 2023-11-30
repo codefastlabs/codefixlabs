@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.25
+
+### Patch Changes
+
+- Table row border horizontal
+
 ## 0.1.24
 
 ### Patch Changes

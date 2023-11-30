@@ -47,7 +47,7 @@
     "trailingComma": "all"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
+    "@changesets/cli": "^2.27.1",
     "@codefixlabs/tsconfig": "workspace:*",
     "eslint": "^8.54.0",
     "lint-staged": "^15.1.0",

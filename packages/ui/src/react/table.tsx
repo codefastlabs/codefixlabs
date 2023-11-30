@@ -54,7 +54,7 @@ export const TableBody = forwardRef<
   React.ComponentPropsWithoutRef<'tbody'>
 >(({ className, ...props }, forwardedRef) => (
   <tbody
-    className={twMerge('divide-y', className)}
+    className={twMerge('[&_tr]:border-y', className)}
     ref={forwardedRef}
     {...props}
   />
