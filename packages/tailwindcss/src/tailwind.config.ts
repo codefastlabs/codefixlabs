@@ -8,6 +8,9 @@ import { em } from '@/lib/utils';
 export const sharedConfig: Config = {
   content: [
     './src/**/*.{ts,tsx,mdx}',
+    './app/**/*.{ts,tsx,mdx}',
+    './ui/**/*.{ts,tsx,mdx}',
+    './components/**/*.{ts,tsx,mdx}',
     './node_modules/@codefixlabs/ui/dist/**/*.mjs',
   ],
   darkMode: ['class'],

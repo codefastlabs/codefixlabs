@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.30
+
+### Patch Changes
+
+- Update content configuration in tailwind.config.ts
+
 ## 0.1.29
 
 ### Patch Changes
