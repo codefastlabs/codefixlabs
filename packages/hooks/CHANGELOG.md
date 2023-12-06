@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.24
+
+### Patch Changes
+
+- Update packages
+
 ## 0.1.23
 
 ### Patch Changes

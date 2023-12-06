@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/tailwindcss",
-  "version": "0.1.30",
+  "version": "0.1.31",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -36,7 +36,7 @@
   "dependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.10",
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "^3.3.6"
   },
   "devDependencies": {
     "@codefixlabs/tsconfig": "workspace:*",

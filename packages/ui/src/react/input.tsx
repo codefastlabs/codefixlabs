@@ -60,9 +60,16 @@ const inputVariants = cva('relative', {
  * Component: PrimitiveInput
  * -------------------------------------------------------------------------- */
 
+type PrimitiveInputElement = React.ElementRef<'input'>;
+type PrimitiveInputProps = Omit<
+  React.ComponentPropsWithoutRef<'input'>,
+  'size'
+> &
+  PrimitiveInputVariants;
+
 export const PrimitiveInput = forwardRef<
-  React.ElementRef<'input'>,
-  Omit<React.ComponentPropsWithoutRef<'input'>, 'size'> & PrimitiveInputVariants
+  PrimitiveInputElement,
+  PrimitiveInputProps
 >(({ className, size, inline, ...props }, forwardedRef) => (
   <input
     className={twMerge(primitiveInputVariants({ inline, size }), className)}
@@ -78,8 +85,8 @@ PrimitiveInput.displayName = 'PrimitiveInput';
  * -------------------------------------------------------------------------- */
 
 export const InputPassword = forwardRef<
-  React.ElementRef<typeof PrimitiveInput>,
-  Omit<React.ComponentPropsWithoutRef<typeof PrimitiveInput>, 'type'>
+  PrimitiveInputElement,
+  Omit<PrimitiveInputProps, 'type'>
 >(({ className, ...props }, forwardedRef) => {
   const [showPassword, setShowPassword] = useState(false);
   const type = showPassword ? 'text' : 'password';
@@ -117,8 +124,8 @@ InputPassword.displayName = 'InputPassword';
  * -------------------------------------------------------------------------- */
 
 export const Input = forwardRef<
-  React.ElementRef<typeof PrimitiveInput>,
-  React.ComponentPropsWithoutRef<typeof PrimitiveInput> & {
+  PrimitiveInputElement,
+  PrimitiveInputProps & {
     startIcon?: React.ReactNode;
     endIcon?: React.ReactNode;
     classNames?: {
