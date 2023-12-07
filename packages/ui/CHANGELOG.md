@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.63
+
+### Patch Changes
+
+- Change skeleton background color in tailwind configuration
+
 ## 0.1.62
 
 ### Patch Changes
