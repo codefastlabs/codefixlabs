@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.32
+
+### Patch Changes
+
+- Update skeleton
+
 ## 0.1.31
 
 ### Patch Changes

@@ -285,6 +285,11 @@ export const sharedConfig: Config = {
           from: { opacity: '1', transform: 'rotateX(0deg)' },
           to: { opacity: '0', transform: 'rotateX(-10deg) scale(0.95)' },
         },
+        shimmer: {
+          '100%': {
+            transform: 'translateX(100%)',
+          },
+        },
         'slide-in-down': {
           from: {
             opacity: '0',

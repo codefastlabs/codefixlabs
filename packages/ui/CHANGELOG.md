@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.62
+
+### Patch Changes
+
+- Update skeleton
+
 ## 0.1.61
 
 ### Patch Changes
