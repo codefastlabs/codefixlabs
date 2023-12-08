@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.27
+
+### Patch Changes
+
+- Update typescript versions and enhance toolbar render functionality
+
 ## 0.1.26
 
 ### Patch Changes

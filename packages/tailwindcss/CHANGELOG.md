@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.33
+
+### Patch Changes
+
+- Update typescript versions and enhance toolbar render functionality
+
 ## 0.1.32
 
 ### Patch Changes

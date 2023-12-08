@@ -153,3 +153,15 @@ const data: Payment[] = Array.from({ length: 100 }, () => ({
 export const Basic: Story = {
   render: () => <DataTable columns={columns} data={data} pageCount={1} />,
 };
+
+export const CustomToolbar: Story = {
+  render: () => (
+    <DataTable
+      columns={columns}
+      data={data}
+      endToolbar={(table) => <div>World {table.getPageCount()}</div>}
+      pageCount={1}
+      startToolbar={<div>Hello</div>}
+    />
+  ),
+};

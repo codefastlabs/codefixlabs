@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.64
+
+### Patch Changes
+
+- Update typescript versions and enhance toolbar render functionality
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.25
+  - @codefixlabs/lib@0.1.27
+
 ## 0.1.63
 
 ### Patch Changes

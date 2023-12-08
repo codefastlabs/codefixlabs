@@ -411,11 +411,18 @@ export function DataTableToolbar<TData>({
   className,
   table,
 }: {
-  startToolbar?: React.ReactNode;
-  endToolbar?: React.ReactNode;
+  startToolbar?:
+    | React.ReactNode
+    | ((table: TableType<TData>) => React.ReactNode);
+  endToolbar?: React.ReactNode | ((table: TableType<TData>) => React.ReactNode);
   className?: string;
   table: TableType<TData>;
 }): React.JSX.Element {
+  const renderStartToolbar =
+    typeof startToolbar === 'function' ? startToolbar(table) : startToolbar;
+  const renderEndToolbar =
+    typeof endToolbar === 'function' ? endToolbar(table) : endToolbar;
+
   return (
     <div
       className={twMerge(
@@ -426,11 +433,11 @@ export function DataTableToolbar<TData>({
     >
       <div className="flex grow items-center gap-2">
         <DataTableSearch table={table} />
-        {startToolbar}
+        {renderStartToolbar}
       </div>
       <div className="flex flex-wrap items-center gap-2">
         <DataTableViewOptions table={table} />
-        {endToolbar}
+        {renderEndToolbar}
       </div>
     </div>
   );
@@ -779,8 +786,10 @@ export function DataTable<TData>({
 }: Omit<TableOptions<TData>, 'getCoreRowModel'> & {
   classNames?: TableClassNames;
   showFooter?: boolean;
-  startToolbar?: React.ReactNode;
-  endToolbar?: React.ReactNode;
+  startToolbar?:
+    | React.ReactNode
+    | ((table: TableType<TData>) => React.ReactNode);
+  endToolbar?: React.ReactNode | ((table: TableType<TData>) => React.ReactNode);
 }): React.JSX.Element {
   const table = useReactTable({
     columns,

@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.25
+
+### Patch Changes
+
+- Update typescript versions and enhance toolbar render functionality
+
 ## 0.1.24
 
 ### Patch Changes
