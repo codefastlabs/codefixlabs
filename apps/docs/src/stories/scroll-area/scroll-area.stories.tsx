@@ -25,7 +25,7 @@ export const Basic: Story = {
   render: (args) => (
     <ScrollArea {...args}>
       <div className="p-4">
-        <div className="mb-4 text-sm font-medium leading-none">Tags</div>
+        <div className="mb-4 text-sm font-medium">Tags</div>
         <div className="space-y-2 divide-y">
           {TAGS.map((tag) => (
             <div className="pt-2 text-sm" key={tag}>

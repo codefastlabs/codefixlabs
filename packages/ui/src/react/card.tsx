@@ -71,10 +71,7 @@ export const CardTitle = forwardRef<
   React.ComponentProps<'div'>
 >(({ className, ...props }, forwardedRef) => (
   <div
-    className={twMerge(
-      'text-lg font-semibold leading-none tracking-tight',
-      className,
-    )}
+    className={twMerge('text-lg font-semibold', className)}
     ref={forwardedRef}
     {...props}
   />

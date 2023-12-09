@@ -61,9 +61,7 @@ export const Basic: Story = {
         <div className="flex items-center space-x-4 rounded-md border p-4">
           <BellIcon size={16} />
           <div className="flex-1 space-y-1">
-            <p className="text-sm font-medium leading-none">
-              Push Notifications
-            </p>
+            <p className="text-sm font-medium">Push Notifications</p>
             <p className="text-muted-foreground text-sm">
               Send notifications to device.
             </p>
@@ -78,9 +76,7 @@ export const Basic: Story = {
             >
               <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
               <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">
-                  {notification.title}
-                </p>
+                <p className="text-sm font-medium">{notification.title}</p>
                 <p className="text-muted-foreground text-sm">
                   {notification.description}
                 </p>

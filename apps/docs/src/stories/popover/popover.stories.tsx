@@ -36,7 +36,7 @@ export const Basic: Story = {
       <PopoverContent className="p-5">
         <div className="grid gap-4">
           <div className="space-y-2">
-            <h4 className="font-medium leading-none">Dimensions</h4>
+            <h4 className="font-medium">Dimensions</h4>
             <p className="text-muted-foreground text-sm">
               Set the dimensions for the layer.
             </p>

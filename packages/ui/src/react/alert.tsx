@@ -59,10 +59,7 @@ export const AlertTitle = forwardRef<
   React.ComponentProps<'h5'>
 >(({ children, className, ...props }, forwardedRef) => (
   <h5
-    className={twMerge(
-      'mb-1 font-medium leading-none tracking-tight',
-      className,
-    )}
+    className={twMerge('mb-1 font-medium', className)}
     ref={forwardedRef}
     {...props}
   >

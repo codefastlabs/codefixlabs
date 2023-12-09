@@ -58,7 +58,7 @@ export const WithText: Story = {
   render: (args) => (
     <div className="items-top flex space-x-2">
       <Checkbox {...args} id="terms1" />
-      <div className="grid gap-1.5 leading-none">
+      <div className="grid gap-1.5">
         <Label htmlFor="terms1">Accept terms and conditions</Label>
         <p className="text-muted-foreground text-sm">
           You agree to our Terms of Service and Privacy Policy.
@@ -121,7 +121,7 @@ function CheckboxSingleReactHookForm(): React.JSX.Element {
                   }}
                 />
               </FormControl>
-              <div className="space-y-1 leading-none">
+              <div className="space-y-1">
                 <FormLabel>
                   Use different settings for my mobile devices
                 </FormLabel>

@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.66
+
+### Patch Changes
+
+- Simplify class merging in Alert and Card components
+
 ## 0.1.65
 
 ### Patch Changes
