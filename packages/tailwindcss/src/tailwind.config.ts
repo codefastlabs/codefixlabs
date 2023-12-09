@@ -109,6 +109,9 @@ export const sharedConfig: Config = {
         sm: 'calc(var(--ui-radius) - 0.375rem)' /* 16px */,
         xl: 'calc(var(--ui-radius) + 0.25rem)' /* 24px */,
       },
+      boxShadow: {
+        box: '0 0 0 1px hsl(var(--ui-border))',
+      },
       colors: {
         accent: {
           DEFAULT: 'hsl(var(--ui-accent))',

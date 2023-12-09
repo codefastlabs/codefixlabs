@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.34
+
+### Patch Changes
+
+- Adjust padding, improve semantics, and enhance shadow styling
+
 ## 0.1.33
 
 ### Patch Changes

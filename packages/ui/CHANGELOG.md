@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.65
+
+### Patch Changes
+
+- Adjust padding, improve semantics, and enhance shadow styling
+
 ## 0.1.64
 
 ### Patch Changes

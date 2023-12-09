@@ -10,9 +10,9 @@ export const Card = forwardRef<
   React.ElementRef<'div'>,
   React.ComponentProps<'div'>
 >(({ className, ...props }, forwardedRef) => (
-  <div
+  <section
     className={twMerge(
-      'bg-card text-card-foreground overflow-hidden rounded-lg border shadow-lg',
+      'bg-card text-card-foreground shadow-border shadow-box rounded',
       className,
     )}
     ref={forwardedRef}
@@ -30,8 +30,11 @@ export const CardHeader = forwardRef<
   React.ElementRef<'div'>,
   React.ComponentProps<'div'>
 >(({ className, ...props }, forwardedRef) => (
-  <div
-    className={twMerge('flex flex-col gap-1.5 p-6', className)}
+  <header
+    className={twMerge(
+      'flex flex-col gap-1.5 rounded-t border-b px-6 py-3',
+      className,
+    )}
     ref={forwardedRef}
     {...props}
   />
@@ -47,8 +50,11 @@ export const CardFooter = forwardRef<
   React.ElementRef<'div'>,
   React.ComponentProps<'div'>
 >(({ className, ...props }, forwardedRef) => (
-  <div
-    className={twMerge('flex items-center p-6', className)}
+  <footer
+    className={twMerge(
+      'flex items-center rounded-b border-t px-6 py-3',
+      className,
+    )}
     ref={forwardedRef}
     {...props}
   />
@@ -101,7 +107,7 @@ export const CardContent = forwardRef<
   React.ElementRef<'div'>,
   React.ComponentProps<'div'>
 >(({ className, ...props }, forwardedRef) => (
-  <div className={twMerge('px-6', className)} ref={forwardedRef} {...props} />
+  <main className={twMerge('p-6', className)} ref={forwardedRef} {...props} />
 ));
 
 CardContent.displayName = 'CardContent';
