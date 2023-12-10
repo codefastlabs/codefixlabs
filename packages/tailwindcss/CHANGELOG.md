@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.35
+
+### Patch Changes
+
+- Expand border radius and box shadow configurations
+
 ## 0.1.34
 
 ### Patch Changes

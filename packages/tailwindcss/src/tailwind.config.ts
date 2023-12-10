@@ -100,17 +100,29 @@ export const sharedConfig: Config = {
         DEFAULT: 'hsl(var(--ui-border))',
       },
       borderRadius: {
+        inherit: 'inherit',
+        sm: 'calc(var(--ui-radius) - 0.375rem)',
+        DEFAULT: 'calc(var(--ui-radius) - 0.25rem)',
+        md: 'calc(var(--ui-radius) - 0.125rem)',
+        lg: 'var(--ui-radius)',
+        xl: 'calc(var(--ui-radius) + 0.25rem)',
         '2xl': 'calc(var(--ui-radius) + 0.5rem)',
-        '3xl': 'calc(var(--ui-radius) + 1rem)' /* 2px */,
-        DEFAULT: 'calc(var(--ui-radius) - 0.25rem)' /* 4px */,
-        inherit: 'inherit' /* 6px */,
-        lg: 'var(--ui-radius)' /* 8px */,
-        md: 'calc(var(--ui-radius) - 0.125rem)' /* 12px */,
-        sm: 'calc(var(--ui-radius) - 0.375rem)' /* 16px */,
-        xl: 'calc(var(--ui-radius) + 0.25rem)' /* 24px */,
+        '3xl': 'calc(var(--ui-radius) + 1rem)',
       },
       boxShadow: {
         box: '0 0 0 1px hsl(var(--ui-border))',
+        'box-xs':
+          '0 0 0 1px hsl(var(--ui-border)), 0 1px 2px 0 hsl(var(--ui-border))',
+        'box-sm':
+          '0 0 0 1px hsl(var(--ui-border)), 0 1px 3px 0 hsl(var(--ui-border)), 0 1px 2px -1px hsl(var(--ui-border))',
+        'box-md':
+          '0 0 0 1px hsl(var(--ui-border)), 0 4px 6px -1px hsl(var(--ui-border)), 0 2px 4px -2px hsl(var(--ui-border))',
+        'box-lg':
+          '0 0 0 1px hsl(var(--ui-border)), 0 10px 15px -3px hsl(var(--ui-border)), 0 4px 6px -4px hsl(var(--ui-border))',
+        'box-xl':
+          '0 0 0 1px hsl(var(--ui-border)), 0 20px 25px -5px hsl(var(--ui-border)), 0 8px 10px -6px hsl(var(--ui-border))',
+        'box-2xl':
+          '0 0 0 1px hsl(var(--ui-border)), 0 25px 50px -12px hsl(var(--ui-border))',
       },
       colors: {
         accent: {
@@ -211,7 +223,7 @@ export const sharedConfig: Config = {
         serif: [`var(--font-serif, ${fontFamily.serif.join(', ')})`],
       },
       height: {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- fix later
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- allow for now
         // @ts-expect-error
         screen: ['100vh', '100dvh'],
       },
@@ -411,12 +423,12 @@ export const sharedConfig: Config = {
         },
       },
       maxHeight: {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- fix later
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- allow for now
         // @ts-expect-error
         screen: ['100vh', '100dvh'],
       },
       minHeight: {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- fix later
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- allow for now
         // @ts-expect-error
         screen: ['100vh', '100dvh'],
       },

@@ -139,3 +139,51 @@ export const WithForm: Story = {
     </Card>
   ),
 };
+
+// With Shadow
+export const WithShadow: Story = {
+  args: {
+    className: 'max-w-md shadow-box-md',
+  },
+  render: (args) => (
+    <Card {...args}>
+      <CardHeader>
+        <CardTitle>Notifications</CardTitle>
+        <CardDescription>You have 3 unread messages.</CardDescription>
+      </CardHeader>
+      <CardContent className="grid gap-6">
+        <div className="flex items-center space-x-4 rounded-md border p-4">
+          <BellIcon size={16} />
+          <div className="flex-1 space-y-1">
+            <p className="text-sm font-medium">Push Notifications</p>
+            <p className="text-muted-foreground text-sm">
+              Send notifications to device.
+            </p>
+          </div>
+          <Switch />
+        </div>
+        <div>
+          {notifications.map((notification) => (
+            <div
+              className="mb-2 grid grid-cols-[25px_1fr] items-start pb-2 last:mb-0 last:pb-0"
+              key={notification.title}
+            >
+              <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
+              <div className="space-y-1">
+                <p className="text-sm font-medium">{notification.title}</p>
+                <p className="text-muted-foreground text-sm">
+                  {notification.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+      <CardFooter>
+        <Button className="w-full" startIcon={<CheckIcon />}>
+          Mark all as read
+        </Button>
+      </CardFooter>
+    </Card>
+  ),
+};
