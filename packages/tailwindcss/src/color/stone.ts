@@ -33,6 +33,7 @@ export const stone = plugin(({ addBase }) => {
       '--ui-primary-foreground': hexToHsl(colors.stone[100]),
 
       '--ui-radius': '0.5rem',
+
       '--ui-ring': hexToHsl(colors.sky[500]),
 
       '--ui-secondary': hexToHsl(colors.stone[100]),
@@ -40,8 +41,8 @@ export const stone = plugin(({ addBase }) => {
 
       '--ui-success': hexToHsl(colors.green[500]),
       '--ui-success-foreground': hexToHsl(colors.stone[100]),
-      '--ui-warning': hexToHsl(colors.yellow[500]),
 
+      '--ui-warning': hexToHsl(colors.yellow[500]),
       '--ui-warning-foreground': hexToHsl(colors.stone[100]),
     },
   });
@@ -75,12 +76,13 @@ export const stone = plugin(({ addBase }) => {
       '--ui-primary-foreground': hexToHsl(colors.stone[900]),
 
       '--ui-ring': hexToHsl(colors.sky[500]),
+
       '--ui-secondary': hexToHsl(colors.stone[900]),
-
       '--ui-secondary-foreground': hexToHsl(colors.stone[100]),
-      '--ui-success': hexToHsl(colors.green[500]),
 
+      '--ui-success': hexToHsl(colors.green[500]),
       '--ui-success-foreground': hexToHsl(colors.stone[900]),
+
       '--ui-warning': hexToHsl(colors.yellow[500]),
       '--ui-warning-foreground': hexToHsl(colors.stone[900]),
     },

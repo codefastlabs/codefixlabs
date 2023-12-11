@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.16
+
+### Patch Changes
+
+- Update package versions and adjust styling
+
 ## 0.1.15
 
 ### Patch Changes

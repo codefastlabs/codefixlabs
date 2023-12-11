@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.26
+
+### Patch Changes
+
+- Update package versions and adjust styling
+
 ## 0.1.25
 
 ### Patch Changes

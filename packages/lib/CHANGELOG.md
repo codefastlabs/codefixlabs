@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.28
+
+### Patch Changes
+
+- Update package versions and adjust styling
+
 ## 0.1.27
 
 ### Patch Changes
