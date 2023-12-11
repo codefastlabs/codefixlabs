@@ -5,7 +5,6 @@
 To create a new app, run the following command:
 
 ```sh
-cd apps
 npx create-next-app --ts --tailwind --eslint --use-pnpm --app --import-alias "@/*" --src-dir "next-movies"
 # codefixlabs
 pnpm add @codefixlabs/hooks @codefixlabs/tsconfig @codefixlabs/ui @codefixlabs/lib
