@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.68
+
+### Patch Changes
+
+- Update maximum width in Skeleton component
+
 ## 0.1.67
 
 ### Patch Changes
