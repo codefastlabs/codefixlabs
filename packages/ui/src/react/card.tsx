@@ -97,14 +97,14 @@ export const CardDescription = forwardRef<
 CardDescription.displayName = 'CardDescription';
 
 /* -----------------------------------------------------------------------------
- * Component: CardContent
+ * Component: CardBody
  * -------------------------------------------------------------------------- */
 
-export const CardContent = forwardRef<
+export const CardBody = forwardRef<
   React.ElementRef<'div'>,
   React.ComponentProps<'div'>
 >(({ className, ...props }, forwardedRef) => (
   <main className={twMerge('p-6', className)} ref={forwardedRef} {...props} />
 ));
 
-CardContent.displayName = 'CardContent';
+CardBody.displayName = 'CardBody';

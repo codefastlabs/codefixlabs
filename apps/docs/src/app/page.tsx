@@ -2,7 +2,7 @@ import {
   Button,
   buttonVariants,
   Card,
-  CardContent,
+  CardBody,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -43,7 +43,7 @@ export default function Page(): React.JSX.Element {
             <CardTitle>Notifications</CardTitle>
             <CardDescription>You have 3 unread messages.</CardDescription>
           </CardHeader>
-          <CardContent className="grid gap-4">
+          <CardBody className="grid gap-4">
             <div className="flex items-center space-x-4 rounded-md border p-4">
               <BellIcon className="h-4 w-4 shrink-0" />
               <div className="flex-1 space-y-1">
@@ -70,7 +70,7 @@ export default function Page(): React.JSX.Element {
                 </div>
               ))}
             </div>
-          </CardContent>
+          </CardBody>
           <CardFooter>
             <Button
               className="w-full"

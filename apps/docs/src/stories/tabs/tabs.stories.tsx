@@ -1,7 +1,7 @@
 import {
   Button,
   Card,
-  CardContent,
+  CardBody,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -56,7 +56,7 @@ export const Basic: Story = {
               done.
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-2">
+          <CardBody className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="name">Name</Label>
               <Input defaultValue="Pedro Duarte" id="name" />
@@ -65,7 +65,7 @@ export const Basic: Story = {
               <Label htmlFor="username">Username</Label>
               <Input defaultValue="@peduarte" id="username" />
             </div>
-          </CardContent>
+          </CardBody>
           <CardFooter>
             <Button>Save changes</Button>
           </CardFooter>
@@ -80,7 +80,7 @@ export const Basic: Story = {
               out.
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-2">
+          <CardBody className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="current">Current password</Label>
               <Input id="current" type="password" />
@@ -89,7 +89,7 @@ export const Basic: Story = {
               <Label htmlFor="new">New password</Label>
               <Input id="new" type="password" />
             </div>
-          </CardContent>
+          </CardBody>
           <CardFooter>
             <Button>Save password</Button>
           </CardFooter>

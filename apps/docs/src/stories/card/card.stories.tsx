@@ -1,7 +1,7 @@
 import {
   Button,
   Card,
-  CardContent,
+  CardBody,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -57,7 +57,7 @@ export const Basic: Story = {
         <CardTitle>Notifications</CardTitle>
         <CardDescription>You have 3 unread messages.</CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-6">
+      <CardBody className="grid gap-6">
         <div className="flex items-center space-x-4 rounded-md border p-4">
           <BellIcon size={16} />
           <div className="flex-1 space-y-1">
@@ -84,7 +84,7 @@ export const Basic: Story = {
             </div>
           ))}
         </div>
-      </CardContent>
+      </CardBody>
       <CardFooter>
         <Button className="w-full" startIcon={<CheckIcon />}>
           Mark all as read
@@ -108,7 +108,7 @@ export const WithForm: Story = {
         <CardTitle>Create project</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardBody>
         <form>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
@@ -131,7 +131,7 @@ export const WithForm: Story = {
             </div>
           </div>
         </form>
-      </CardContent>
+      </CardBody>
       <CardFooter className="flex justify-between">
         <Button variant="ghost">Cancel</Button>
         <Button>Deploy</Button>
@@ -151,7 +151,7 @@ export const WithShadow: Story = {
         <CardTitle>Notifications</CardTitle>
         <CardDescription>You have 3 unread messages.</CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-6">
+      <CardBody className="grid gap-6">
         <div className="flex items-center space-x-4 rounded-md border p-4">
           <BellIcon size={16} />
           <div className="flex-1 space-y-1">
@@ -178,7 +178,7 @@ export const WithShadow: Story = {
             </div>
           ))}
         </div>
-      </CardContent>
+      </CardBody>
       <CardFooter>
         <Button className="w-full" startIcon={<CheckIcon />}>
           Mark all as read

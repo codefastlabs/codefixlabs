@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.69
+
+### Patch Changes
+
+- Rename CardContent to CardBody in UI package
+
 ## 0.1.68
 
 ### Patch Changes
