@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.27
+
+### Patch Changes
+
+- Add TextSkeleton component to UI package
+
 ## 0.1.26
 
 ### Patch Changes

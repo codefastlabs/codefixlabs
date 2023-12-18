@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.29
+
+### Patch Changes
+
+- Add TextSkeleton component to UI package
+
 ## 0.1.28
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/hooks",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@codefixlabs/tsconfig": "workspace:*",
-    "@types/react": "^18.2.43",
+    "@types/react": "^18.2.45",
     "eslint-config-codefixlabs": "workspace:*",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3"
