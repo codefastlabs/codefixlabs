@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.71
+
+### Patch Changes
+
+- Implement debounced input handling for table page navigation
+
 ## 0.1.70
 
 ### Patch Changes

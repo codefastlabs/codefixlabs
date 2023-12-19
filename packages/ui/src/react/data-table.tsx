@@ -177,6 +177,34 @@ export function DataTableGoToPage<TData>({
   table: TableType<TData>;
 }): React.JSX.Element {
   const id = useId();
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  const handleChange = useDebouncedCallback<
+    React.ChangeEventHandler<HTMLInputElement>
+  >(({ target: { value } }) => {
+    if (!value) {
+      return;
+    }
+
+    const pageIndex = Number(value) - 1;
+
+    if (pageIndex >= 0 && pageIndex < table.getPageCount()) {
+      table.setPageIndex(pageIndex);
+    }
+  }, 300);
+
+  const handleBlur = useDebouncedCallback<
+    React.FocusEventHandler<HTMLInputElement>
+  >(({ target: { value } }) => {
+    if (!inputRef.current) {
+      return;
+    }
+    if (!value || Number(value) > table.getPageCount()) {
+      // set value to current page
+      inputRef.current.value = (
+        table.getState().pagination.pageIndex + 1
+      ).toString();
+    }
+  }, 300);
 
   return (
     <div className={twMerge('flex items-center gap-2', className)} {...props}>
@@ -184,18 +212,16 @@ export function DataTableGoToPage<TData>({
         Go to page
       </Label>
       <Input
+        defaultValue={table.getState().pagination.pageIndex + 1}
         id={id}
         inline
         max={table.getPageCount()}
         min={1}
-        onChange={(event) => {
-          table.setPageIndex(
-            event.target.value ? Number(event.target.value) - 1 : 0,
-          );
-        }}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        ref={inputRef}
         size="sm"
         type="number"
-        value={table.getState().pagination.pageIndex + 1}
       />
     </div>
   );
@@ -334,7 +360,7 @@ export function DataTableSearch<TData>({
 }: {
   table: TableType<TData>;
 }): React.JSX.Element {
-  const onChange = useDebouncedCallback<
+  const handleChange = useDebouncedCallback<
     React.ChangeEventHandler<HTMLInputElement>
   >(({ target: { value } }) => {
     table.setGlobalFilter(value);
@@ -344,7 +370,7 @@ export function DataTableSearch<TData>({
     <Input
       className="w-full max-w-sm"
       defaultValue={(table.getState().globalFilter as string) || ''}
-      onChange={onChange}
+      onChange={handleChange}
       placeholder="Search all columns..."
       startIcon={<SearchIcon size={18} />}
       type="search"

@@ -138,7 +138,7 @@ const columns: ColumnDef<Payment>[] = [
   },
 ];
 
-const data: Payment[] = Array.from({ length: 100 }, () => ({
+const data: Payment[] = Array.from({ length: 200 }, () => ({
   amount: faker.number.float({ max: 99999, min: 1 }),
   email: faker.internet.email(),
   id: faker.string.uuid(),
@@ -151,7 +151,7 @@ const data: Payment[] = Array.from({ length: 100 }, () => ({
 }));
 
 export const Basic: Story = {
-  render: () => <DataTable columns={columns} data={data} pageCount={1} />,
+  render: () => <DataTable columns={columns} data={data} />,
 };
 
 export const CustomToolbar: Story = {
@@ -160,7 +160,6 @@ export const CustomToolbar: Story = {
       columns={columns}
       data={data}
       endToolbar={(table) => <div>World {table.getPageCount()}</div>}
-      pageCount={1}
       startToolbar={<div>Hello</div>}
     />
   ),
