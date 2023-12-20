@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.72
+
+### Patch Changes
+
+- Update padding in dialog, drawer and alert-dialog components
+
 ## 0.1.71
 
 ### Patch Changes

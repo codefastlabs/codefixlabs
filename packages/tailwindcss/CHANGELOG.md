@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.37
+
+### Patch Changes
+
+- Update padding in dialog, drawer and alert-dialog components
+
 ## 0.1.36
 
 ### Patch Changes

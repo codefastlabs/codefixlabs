@@ -196,7 +196,10 @@ export function AlertDialogHeader({
 }: React.ComponentProps<'header'>): React.JSX.Element {
   return (
     <header
-      className={twMerge('grid shrink-0 gap-2 border-b px-6 py-3', className)}
+      className={twMerge(
+        'py-3.75 grid shrink-0 gap-2 border-b px-6',
+        className,
+      )}
       {...props}
     />
   );
@@ -226,7 +229,7 @@ export function AlertDialogFooter({
   return (
     <div
       className={twMerge(
-        'flex shrink-0 flex-col-reverse gap-2 border-t px-6 py-3 sm:flex-row sm:justify-between',
+        'py-3.75 flex shrink-0 flex-col-reverse gap-2 border-t px-6 sm:flex-row sm:justify-between',
         className,
       )}
       {...props}
