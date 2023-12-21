@@ -87,7 +87,7 @@ export const InputPhoneNumber = forwardRef<
               <CommandList className="max-h-[clamp(6.25rem,calc(var(--radix-popover-content-available-height)-3.75rem),25rem)]">
                 <CommandEmpty>
                   <div className="flex flex-col items-center justify-center space-y-2">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
+                    <div className="flex size-12 items-center justify-center rounded-full bg-gray-100">
                       <span className="text-2xl">🌎</span>
                     </div>
                     <p className="text-sm text-gray-500">No countries found</p>

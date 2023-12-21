@@ -34,7 +34,7 @@ export const Checkbox = forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <Root
     className={twMerge(
-      'border-muted-foreground h-4.25 w-4.25 peer flex shrink-0 items-center justify-center rounded-[0.25rem] border',
+      'border-muted-foreground size-4.25 peer flex shrink-0 items-center justify-center rounded-[0.25rem] border',
       'focus:ring-ring/40 focus:outline-none focus:ring-2',
       'disabled:cursor-not-allowed disabled:opacity-50',
       'data-state-checked:border-primary data-state-checked:bg-primary data-state-checked:text-primary-foreground',

@@ -222,11 +222,6 @@ export const sharedConfig: Config = {
         sans: [`var(--font-sans, ${fontFamily.sans.join(', ')})`],
         serif: [`var(--font-serif, ${fontFamily.serif.join(', ')})`],
       },
-      height: {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- allow for now
-        // @ts-expect-error
-        screen: ['100vh', '100dvh'],
-      },
       keyframes: {
         'collapsible-down': {
           from: { height: '0' },
@@ -421,16 +416,6 @@ export const sharedConfig: Config = {
             transform: 'translateY(calc(-100% - var(--viewport-padding)))',
           },
         },
-      },
-      maxHeight: {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- allow for now
-        // @ts-expect-error
-        screen: ['100vh', '100dvh'],
-      },
-      minHeight: {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment -- allow for now
-        // @ts-expect-error
-        screen: ['100vh', '100dvh'],
       },
       spacing: {
         0.75: '0.1875rem' /* 3px */,

@@ -95,11 +95,11 @@ export const NavigationMenu = forwardRef<
         {children}
 
         <NavigationMenuIndicator>
-          <div className="rounded-tl-0.5 top-1.75 bg-background relative h-2.5 w-2.5 rotate-45" />
+          <div className="rounded-tl-0.5 top-1.75 bg-background relative size-2.5 rotate-45" />
         </NavigationMenuIndicator>
       </NavigationMenuList>
 
-      <div className="perspective-[2000px] absolute left-0 top-full flex w-full justify-center">
+      <div className="perspective-[125rem] absolute left-0 top-full flex w-full justify-center">
         <NavigationMenuViewport />
       </div>
     </>
@@ -122,11 +122,11 @@ export const NavigationMenuSub = forwardRef<
         {children}
 
         <NavigationMenuIndicator>
-          <div className="top-1.75 bg-border relative h-2.5 w-2.5 rotate-45 rounded-tl-sm shadow-lg" />
+          <div className="top-1.75 bg-border relative size-2.5 rotate-45 rounded-tl-sm shadow-lg" />
         </NavigationMenuIndicator>
       </NavigationMenuList>
 
-      <div className="perspective-[2000px] absolute left-0 top-full flex w-full justify-center">
+      <div className="perspective-[125rem] absolute left-0 top-full flex w-full justify-center">
         <NavigationMenuViewport />
       </div>
     </>

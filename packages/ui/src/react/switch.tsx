@@ -26,7 +26,7 @@ export const Switch = forwardRef<
   >
     <Thumb
       className={cx(
-        'bg-background pointer-events-none block h-5 w-5 rounded-full shadow-lg transition-transform',
+        'bg-background pointer-events-none block size-5 rounded-full shadow-lg transition-transform',
         'data-state-checked:translate-x-5',
         'data-state-unchecked:translate-x-0',
       )}

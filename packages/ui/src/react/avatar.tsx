@@ -23,7 +23,7 @@ export const Avatar = forwardRef<
 >(({ className, classNames, alt, fallback, src, ...props }, forwardedRef) => (
   <Root
     className={twMerge(
-      'relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full',
+      'relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full',
       className,
       classNames?.root,
     )}
@@ -33,14 +33,14 @@ export const Avatar = forwardRef<
     <Image
       alt={alt}
       className={twMerge(
-        'bg-primary aspect-square h-full w-full object-cover object-center',
+        'bg-primary aspect-square size-full object-cover object-center',
         classNames?.image,
       )}
       src={src ?? undefined}
     />
     <Fallback
       className={twMerge(
-        'bg-muted flex h-full w-full items-center justify-center text-sm',
+        'bg-muted flex size-full items-center justify-center text-sm',
         classNames?.fallback,
       )}
     >

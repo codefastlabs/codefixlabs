@@ -111,7 +111,7 @@ export function DatePicker({
             classNameTrigger,
           )}
         >
-          <CalendarDaysIcon className="h-4 w-4" />
+          <CalendarDaysIcon className="size-4" />
           {displaySelected}
         </PopoverTrigger>
       </Trigger>
@@ -457,7 +457,7 @@ export function Calendar({
             '[&:has(.day-range-start:not(.day-range-end))]:after:bg-accent [&:has(.day-range-start:not(.day-range-end))]:after:absolute [&:has(.day-range-start:not(.day-range-end))]:after:inset-y-0 [&:has(.day-range-start:not(.day-range-end))]:after:right-0 [&:has(.day-range-start:not(.day-range-end))]:after:w-1/2',
           ]),
           day: cx([
-            'day relative z-40 flex h-8 w-8 items-center justify-center rounded-md border border-transparent text-center text-sm',
+            'day relative z-40 flex size-8 items-center justify-center rounded-md border border-transparent text-center text-sm',
             '[&:not(.day-today,[disabled],[role="gridcell"])]:hover:border-primary',
           ]),
           day_disabled: 'disabled:text-muted-foreground/25',
@@ -475,7 +475,7 @@ export function Calendar({
           day_today:
             'day-today bg-primary/10 [&:not([disabled])]:hover:border-primary text-primary',
           dropdown: 'peer absolute inset-0 text-sm font-medium opacity-0',
-          dropdown_icon: 'h-2 w-2',
+          dropdown_icon: 'size-2',
           dropdown_month: 'relative inline-flex items-center',
           dropdown_year: 'relative inline-flex items-center',
           head: 'block',

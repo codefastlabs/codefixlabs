@@ -20,10 +20,10 @@ export const Basic: Story = {
 export const ProfileLoading: Story = {
   render: () => (
     <div className="flex items-center space-x-4">
-      <Skeleton className="h-12 w-12 rounded-full" />
+      <Skeleton className="size-12 rounded-full" />
       <div className="space-y-2">
-        <Skeleton className="h-4 w-[250px]" />
-        <Skeleton className="h-4 w-[200px]" />
+        <Skeleton className="h-4 w-[15.625rem]" />
+        <Skeleton className="h-4 w-[12.5rem]" />
       </div>
     </div>
   ),

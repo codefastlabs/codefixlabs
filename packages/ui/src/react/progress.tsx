@@ -21,7 +21,7 @@ export const Progress = forwardRef<
     {...props}
   >
     <Indicator
-      className="ease-[cubic-bezier(0.65, 0, 0.35, 1)] bg-primary h-full w-full transition-transform duration-500"
+      className="ease-[cubic-bezier(0.65, 0, 0.35, 1)] bg-primary size-full transition-transform duration-500"
       style={{ transform: `translateX(-${100 - (props.value || 0)}%)` }}
     />
   </Root>

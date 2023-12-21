@@ -32,7 +32,7 @@ const radioGroupItemVariants = cva(
     variants: {
       variant: {
         default: [
-          'text-primary border-muted-foreground h-4.25 w-4.25 aspect-square rounded-full border',
+          'text-primary border-muted-foreground size-4.25 aspect-square rounded-full border',
           'focus:ring-ring/40 focus:ring-2',
           'data-state-checked:border-primary',
         ],

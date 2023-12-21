@@ -40,7 +40,7 @@ export const Slider = forwardRef<
     </Track>
     <Thumb
       className={cx([
-        'bg-background border-primary block h-5 w-5 rounded-full border-2 transition-colors',
+        'bg-background border-primary block size-5 rounded-full border-2 transition-colors',
         'data-orientation-horizontal:cursor-ew-resize data-orientation-vertical:cursor-ns-resize',
         'focus:ring-ring/40 focus:outline-none focus:ring-2',
       ])}

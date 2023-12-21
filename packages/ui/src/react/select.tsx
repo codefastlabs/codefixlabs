@@ -152,7 +152,7 @@ export const SelectIcon = forwardRef<
   React.ComponentPropsWithoutRef<typeof Icon>
 >(({ className, ...props }, forwardedRef) => (
   <Icon
-    className={twMerge('flex h-4 w-4', className)}
+    className={twMerge('flex size-4', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -183,7 +183,7 @@ export const SelectTrigger = forwardRef<
     >
       <>
         {children}
-        <SelectIcon className="flex h-4 w-4">
+        <SelectIcon className="flex size-4">
           {loading ? (
             <Loader2Icon className="animate-spin" size={16} />
           ) : (

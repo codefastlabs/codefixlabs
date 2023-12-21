@@ -21,7 +21,7 @@ import { Dialog, DialogContent } from '@/react/dialog';
  * -------------------------------------------------------------------------- */
 
 const commandVariants = cva(
-  'bg-popover text-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-md',
+  'bg-popover text-popover-foreground flex size-full flex-col overflow-hidden rounded-md',
   {
     defaultVariants: {
       variant: 'primary',

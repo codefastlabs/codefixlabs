@@ -156,12 +156,12 @@ function ComboboxAssignMember(): React.JSX.Element {
         {currentMember ? (
           <Avatar
             alt={getFirstInitials(currentMember.name)}
-            className="h-9 w-9"
+            className="size-9"
             fallback={currentMember.name}
             src={currentMember.avatar}
           />
         ) : (
-          <div className="flex h-9 w-9 items-center justify-center rounded-full border border-dashed">
+          <div className="flex size-9 items-center justify-center rounded-full border border-dashed">
             <UserPlus2Icon size={24} />
           </div>
         )}
@@ -191,14 +191,14 @@ function ComboboxAssignMember(): React.JSX.Element {
                 >
                   <Avatar
                     alt={getFirstInitials(member.name)}
-                    className="h-9 w-9"
+                    className="size-9"
                     fallback={member.name}
                     src={member.avatar}
                   />
                   {member.name}
                   <CheckIcon
                     className={cx(
-                      'ml-auto h-4 w-4',
+                      'ml-auto size-4',
                       member.id === currentMember?.id
                         ? 'opacity-100'
                         : 'opacity-0',
@@ -253,7 +253,7 @@ function ComboboxAssignMemberWithCustomTrigger(): React.JSX.Element {
                 >
                   <Avatar
                     alt={getFirstInitials(member.name)}
-                    className="h-9 w-9"
+                    className="size-9"
                     fallback={member.name}
                     src={member.avatar}
                   />

@@ -38,7 +38,7 @@ function ContextMenuWithHooks(
 
   return (
     <ContextMenu {...args}>
-      <ContextMenuTrigger className="block w-[300px] select-none rounded border-2 border-dashed py-[45px] text-center text-[15px]">
+      <ContextMenuTrigger className="py-11.25 text-3.75 block w-[18.75rem] select-none rounded border-2 border-dashed text-center">
         Right click here.
       </ContextMenuTrigger>
 

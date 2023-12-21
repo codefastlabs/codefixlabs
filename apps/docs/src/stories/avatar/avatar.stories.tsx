@@ -31,7 +31,7 @@ export const Sizes: Story = {
       <Avatar
         {...args}
         alt="Colm Tuite"
-        className="h-6 w-6"
+        className="size-6"
         fallback="CT"
         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
       />
@@ -39,7 +39,7 @@ export const Sizes: Story = {
       <Avatar
         {...args}
         alt="Colm Tuite"
-        className="h-8 w-8"
+        className="size-8"
         fallback="CT"
         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
       />
@@ -54,7 +54,7 @@ export const Sizes: Story = {
       <Avatar
         {...args}
         alt="Colm Tuite"
-        className="h-16 w-16"
+        className="size-16"
         fallback="CT"
         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
       />
@@ -62,7 +62,7 @@ export const Sizes: Story = {
       <Avatar
         {...args}
         alt="Colm Tuite"
-        className="h-20 w-20"
+        className="size-20"
         fallback="CT"
         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
       />

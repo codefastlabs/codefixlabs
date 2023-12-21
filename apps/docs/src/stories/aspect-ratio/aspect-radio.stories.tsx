@@ -24,7 +24,7 @@ export const Basic: Story = {
       <AspectRatio {...args}>
         <Image
           alt="Landscape photograph by Tobias Tullius"
-          className="h-full w-full object-cover"
+          className="size-full object-cover"
           height={774}
           src="https://images.unsplash.com/flagged/photo-1570700005880-4ecdb8595d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774"
           width={1162}

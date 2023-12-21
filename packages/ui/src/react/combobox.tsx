@@ -89,7 +89,7 @@ function ComboboxGroupItem({
           {option.label}
           <CheckIcon
             className={cx(
-              'ml-auto h-4 w-4',
+              'ml-auto size-4',
               option.value === selected?.value ? 'opacity-100' : 'opacity-0',
             )}
           />

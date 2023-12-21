@@ -74,7 +74,7 @@ export const Basic: Story = {
               className="mb-2 grid grid-cols-[25px_1fr] items-start pb-2 last:mb-0 last:pb-0"
               key={notification.title}
             >
-              <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
+              <span className="flex size-2 translate-y-1 rounded-full bg-sky-500" />
               <div className="space-y-1">
                 <p className="text-sm font-medium">{notification.title}</p>
                 <p className="text-muted-foreground text-sm">
@@ -168,7 +168,7 @@ export const WithShadow: Story = {
               className="mb-2 grid grid-cols-[25px_1fr] items-start pb-2 last:mb-0 last:pb-0"
               key={notification.title}
             >
-              <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
+              <span className="flex size-2 translate-y-1 rounded-full bg-sky-500" />
               <div className="space-y-1">
                 <p className="text-sm font-medium">{notification.title}</p>
                 <p className="text-muted-foreground text-sm">

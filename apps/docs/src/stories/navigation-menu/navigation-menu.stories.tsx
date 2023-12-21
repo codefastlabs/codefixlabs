@@ -21,7 +21,7 @@ const meta: Meta<typeof NavigationMenu> = {
   component: NavigationMenu,
   decorators: [
     (Story): React.JSX.Element => (
-      <div className="min-h-[600px]">
+      <div className="min-h-[37.5rem]">
         <Story />
       </div>
     ),
@@ -68,11 +68,11 @@ export const Basic: Story = {
       <NavigationMenuItem>
         <NavigationMenuTrigger>Learn</NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul className="grid gap-x-2.5 p-5 sm:w-[500px] sm:grid-cols-[0.75fr_1fr]">
+          <ul className="grid gap-x-2.5 p-5 sm:w-[31.25rem] sm:grid-cols-[0.75fr_1fr]">
             <li className="row-span-3 grid">
               <NavigationMenuLink asChild>
                 <Link
-                  className="focus:ring-primary flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-purple-800 to-indigo-800 p-6 no-underline outline-none focus:ring-2"
+                  className="focus:ring-primary flex size-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-purple-800 to-indigo-800 p-6 no-underline outline-none focus:ring-2"
                   href="/"
                 >
                   <svg
@@ -114,7 +114,7 @@ export const Basic: Story = {
       <NavigationMenuItem>
         <NavigationMenuTrigger>Overview</NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul className="grid gap-x-2.5 p-5 sm:w-[600px] sm:grid-flow-col sm:grid-rows-3">
+          <ul className="grid gap-x-2.5 p-5 sm:w-[37.5rem] sm:grid-flow-col sm:grid-rows-3">
             <ListItem
               href="/docs/primitives/overview/introduction"
               title="Introduction"

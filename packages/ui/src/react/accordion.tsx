@@ -76,7 +76,7 @@ export const AccordionTrigger = forwardRef<
         <ChevronDownIcon
           aria-hidden
           className={twMerge(
-            'group-data-state-open:rotate-180 text-accent-foreground h-4 w-4 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)]',
+            'group-data-state-open:rotate-180 text-accent-foreground size-4 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)]',
             classNames?.icon,
           )}
         />

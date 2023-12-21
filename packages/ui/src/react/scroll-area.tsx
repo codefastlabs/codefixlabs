@@ -18,7 +18,7 @@ export const ScrollAreaViewport = forwardRef<
   React.ComponentPropsWithoutRef<typeof Viewport>
 >(({ className, ...props }, forwardedRef) => (
   <Viewport
-    className={twMerge('rounded-inherit h-full w-full', className)}
+    className={twMerge('rounded-inherit size-full', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -59,7 +59,7 @@ export const ScrollAreaThumb = forwardRef<
   <Thumb
     className={twMerge(
       'bg-border relative flex-1 rounded-full',
-      'before:absolute before:left-1/2 before:top-1/2 before:h-full before:min-h-[44px] before:w-full before:min-w-[44px] before:-translate-x-1/2 before:-translate-y-1/2',
+      'before:absolute before:left-1/2 before:top-1/2 before:h-full before:min-h-11 before:w-full before:min-w-11 before:-translate-x-1/2 before:-translate-y-1/2',
       className,
     )}
     ref={forwardedRef}

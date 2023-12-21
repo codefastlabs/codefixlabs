@@ -754,7 +754,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                   >
                     <div
                       className={twMerge(
-                        'w-4.25 h-4.25 flex shrink-0 items-center justify-center rounded border',
+                        'size-4.25 flex shrink-0 items-center justify-center rounded border',
                         isSelected
                           ? 'bg-primary border-primary text-primary-foreground'
                           : '[&_svg]:invisible',
@@ -769,7 +769,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                       ) : null}
                     </span>
                     {facets?.get(option.value) ? (
-                      <span className="ml-auto flex h-4 w-4 items-center justify-center font-mono text-xs">
+                      <span className="ml-auto flex size-4 items-center justify-center font-mono text-xs">
                         {facets.get(option.value)}
                       </span>
                     ) : null}

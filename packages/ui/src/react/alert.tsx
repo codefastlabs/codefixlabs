@@ -12,7 +12,7 @@ const alertVariants = cva(
   [
     'relative w-full rounded-lg border p-4',
     '[&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4',
-    '[&>svg+div]:translate-y-[-3px]',
+    '[&>svg+div]:-translate-y-0.75',
     '[&:has(svg)]:pl-11',
   ],
   {

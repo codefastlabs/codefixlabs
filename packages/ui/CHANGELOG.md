@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.73
+
+### Patch Changes
+
+- Update package versions and refactor UI components
+
 ## 0.1.72
 
 ### Patch Changes
