@@ -829,7 +829,10 @@ export function DataTable<TData>({
   });
 
   return (
-    <div className={twMerge('space-y-4', classNames.root)} data-test-id="root">
+    <div
+      className={twMerge('flex flex-col space-y-4', classNames.root)}
+      data-test-id="root"
+    >
       <DataTableToolbar
         className={classNames.toolbar}
         endToolbar={endToolbar}

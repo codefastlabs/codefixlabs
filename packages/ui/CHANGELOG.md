@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.77
+
+### Patch Changes
+
+- Refine table styling and enhance hover feedback
+
 ## 0.1.76
 
 ### Patch Changes

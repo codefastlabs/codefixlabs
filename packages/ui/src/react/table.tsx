@@ -15,7 +15,7 @@ export const Table = forwardRef<
   }
 >(({ className, classNames, ...props }, forwardedRef) => (
   <div
-    className={twMerge('w-full overflow-auto', classNames?.wrapper)}
+    className={twMerge('size-full overflow-auto', classNames?.wrapper)}
     data-test-id="wrapper"
   >
     <table
@@ -88,7 +88,7 @@ export const TableHead = forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <th
     className={twMerge(
-      'text-muted-foreground relative h-12 whitespace-nowrap px-4 text-left font-medium [&:has([role=checkbox])]:pr-1',
+      'text-muted-foreground relative h-12 whitespace-nowrap px-4 text-left font-medium',
       className,
     )}
     ref={forwardedRef}
@@ -108,10 +108,10 @@ export const TableRow = forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <tr
     className={twMerge(
-      'bg-background hover:bg-accent',
-      'group transition-colors',
+      'bg-background group transition-colors',
       'data-state-selected:bg-muted',
       'empty:hidden',
+      'hover:bg-accent',
       className,
     )}
     ref={forwardedRef}
@@ -132,7 +132,7 @@ export const TableCell = forwardRef<
   <td
     className={twMerge(
       'border-y border-b-transparent',
-      'relative px-4 py-2 text-left [&:has([role=checkbox])]:pr-1',
+      'relative px-4 py-2 text-left',
       className,
     )}
     ref={forwardedRef}

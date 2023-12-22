@@ -159,6 +159,21 @@ export const Basic: Story = {
   render: () => <DataTable columns={columns} data={data} />,
 };
 
+export const StickyHeader: Story = {
+  render: () => (
+    <DataTable
+      classNames={{
+        root: 'h-[21.875rem]',
+        header: 'sticky top-0 z-20',
+        headerRow: 'bg-neutral-100 shadow',
+        row: '*:first:border-t-transparent',
+      }}
+      columns={columns}
+      data={data}
+    />
+  ),
+};
+
 export const WithFooter: Story = {
   render: () => <DataTable columns={columns} data={data} showFooter />,
 };
