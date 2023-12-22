@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.28
+
+### Patch Changes
+
+- Refine styles and structure within table components
+
 ## 0.1.27
 
 ### Patch Changes

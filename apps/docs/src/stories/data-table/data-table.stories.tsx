@@ -71,6 +71,9 @@ const columns: ColumnDef<Payment>[] = [
       />
     ),
     id: 'select',
+    meta: {
+      className: 'sticky left-0 z-10 bg-inherit',
+    },
   },
   {
     accessorKey: 'status',
@@ -133,8 +136,10 @@ const columns: ColumnDef<Payment>[] = [
         </DropdownMenu>
       </div>
     ),
-    enableHiding: false,
     id: 'actions',
+    meta: {
+      className: 'sticky right-0 z-10 bg-inherit',
+    },
   },
 ];
 
@@ -152,6 +157,10 @@ const data: Payment[] = Array.from({ length: 200 }, () => ({
 
 export const Basic: Story = {
   render: () => <DataTable columns={columns} data={data} />,
+};
+
+export const WithFooter: Story = {
+  render: () => <DataTable columns={columns} data={data} showFooter />,
 };
 
 export const CustomToolbar: Story = {

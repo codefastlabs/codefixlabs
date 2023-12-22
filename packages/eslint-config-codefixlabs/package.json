@@ -1,9 +1,12 @@
 {
   "name": "eslint-config-codefixlabs",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "license": "MIT",
   "sideEffects": false,
   "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf node_modules"
+  },
   "eslintConfig": {
     "extends": [
       "./library"

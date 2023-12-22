@@ -121,7 +121,7 @@ function CheckboxSingleReactHookForm(): React.JSX.Element {
                   }}
                 />
               </FormControl>
-              <div className="space-y-1">
+              <div className="-mt-1 space-y-1">
                 <FormLabel>
                   Use different settings for my mobile devices
                 </FormLabel>

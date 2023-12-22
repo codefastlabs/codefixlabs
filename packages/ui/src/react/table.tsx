@@ -19,7 +19,11 @@ export const Table = forwardRef<
     data-test-id="wrapper"
   >
     <table
-      className={twMerge('w-full caption-bottom text-sm', className)}
+      className={twMerge(
+        'border-separate border-spacing-0',
+        'w-full text-sm',
+        className,
+      )}
       ref={forwardedRef}
       {...props}
     />
@@ -37,7 +41,7 @@ export const TableHeader = forwardRef<
   React.ComponentPropsWithoutRef<'thead'>
 >(({ className, ...props }, forwardedRef) => (
   <thead
-    className={twMerge('[&_tr]:border-b', className)}
+    className={twMerge('*:bg-background', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -53,11 +57,7 @@ export const TableBody = forwardRef<
   React.ElementRef<'tbody'>,
   React.ComponentPropsWithoutRef<'tbody'>
 >(({ className, ...props }, forwardedRef) => (
-  <tbody
-    className={twMerge('[&_tr]:border-y', className)}
-    ref={forwardedRef}
-    {...props}
-  />
+  <tbody className={twMerge(className)} ref={forwardedRef} {...props} />
 ));
 
 TableBody.displayName = 'TableBody';
@@ -71,7 +71,10 @@ export const TableFooter = forwardRef<
   React.ComponentPropsWithoutRef<'tfoot'>
 >(({ className, ...props }, forwardedRef) => (
   <tfoot
-    className={twMerge('[&_tr]:border-t', className)}
+    className={twMerge(
+      '[&_th]:border-y [&_th]:border-b-transparent',
+      className,
+    )}
     ref={forwardedRef}
     {...props}
   />
@@ -110,7 +113,6 @@ export const TableRow = forwardRef<
   <tr
     className={twMerge(
       'group transition-colors',
-      'even:bg-accent odd:bg-background',
       'data-state-selected:bg-muted',
       'empty:hidden',
       className,
@@ -132,6 +134,8 @@ export const TableCell = forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <td
     className={twMerge(
+      'odd:bg-background even:bg-background',
+      'border-y border-b-transparent',
       'relative px-4 py-2 text-left [&:has([role=checkbox])]:pr-1',
       className,
     )}
@@ -151,7 +155,10 @@ export const TableCaption = forwardRef<
   React.ComponentPropsWithoutRef<'caption'>
 >(({ className, ...props }, forwardedRef) => (
   <caption
-    className={twMerge('text-muted-foreground mt-4 text-sm', className)}
+    className={twMerge(
+      'text-muted-foreground mt-4 caption-bottom text-sm',
+      className,
+    )}
     ref={forwardedRef}
     {...props}
   />

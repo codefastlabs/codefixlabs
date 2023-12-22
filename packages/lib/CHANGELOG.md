@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.30
+
+### Patch Changes
+
+- Refine styles and structure within table components
+
 ## 0.1.29
 
 ### Patch Changes

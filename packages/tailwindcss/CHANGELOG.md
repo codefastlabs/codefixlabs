@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.39
+
+### Patch Changes
+
+- Refine styles and structure within table components
+
 ## 0.1.38
 
 ### Patch Changes

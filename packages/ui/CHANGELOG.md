@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.75
+
+### Patch Changes
+
+- Refine styles and structure within table components
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.28
+  - @codefixlabs/lib@0.1.30
+
 ## 0.1.74
 
 ### Patch Changes

@@ -117,7 +117,7 @@ export function DataTableColumnHeader<TData, TValue>({
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          className="data-state-open:bg-accent -ml-4"
+          className="data-state-open:bg-accent -ml-3.5 px-3.5"
           endIcon={endIcon()}
           size="sm"
           variant="ghost"

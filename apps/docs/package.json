@@ -6,7 +6,7 @@
     "build": "next build",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic",
-    "clean": "rm -rf .next",
+    "clean": "rm -rf .next .turbo node_modules",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
