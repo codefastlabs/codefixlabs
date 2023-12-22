@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.74
+
+### Patch Changes
+
+- Upgrade 'tailwind-merge' package
+
 ## 0.1.73
 
 ### Patch Changes
