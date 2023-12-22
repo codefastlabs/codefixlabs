@@ -40,11 +40,7 @@ export const TableHeader = forwardRef<
   React.ElementRef<'thead'>,
   React.ComponentPropsWithoutRef<'thead'>
 >(({ className, ...props }, forwardedRef) => (
-  <thead
-    className={twMerge('*:bg-background', className)}
-    ref={forwardedRef}
-    {...props}
-  />
+  <thead className={twMerge(className)} ref={forwardedRef} {...props} />
 ));
 
 TableHeader.displayName = 'TableHeader';
@@ -112,6 +108,7 @@ export const TableRow = forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <tr
     className={twMerge(
+      'bg-background hover:bg-accent',
       'group transition-colors',
       'data-state-selected:bg-muted',
       'empty:hidden',
@@ -134,7 +131,6 @@ export const TableCell = forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <td
     className={twMerge(
-      'odd:bg-background even:bg-background',
       'border-y border-b-transparent',
       'relative px-4 py-2 text-left [&:has([role=checkbox])]:pr-1',
       className,

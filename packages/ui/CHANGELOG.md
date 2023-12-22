@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.76
+
+### Patch Changes
+
+- Refine table component styling in UI package
+
 ## 0.1.75
 
 ### Patch Changes
