@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@vercel/style-guide": "^5.1.0",
-    "eslint-plugin-mdx": "^3.0.0",
+    "eslint-plugin-mdx": "^3.0.1",
     "eslint-plugin-storybook": "^0.6.15"
   },
   "publishConfig": {
