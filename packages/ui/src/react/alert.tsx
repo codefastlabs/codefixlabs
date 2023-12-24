@@ -38,8 +38,8 @@ type AlertVariants = VariantProps<typeof alertVariants>;
  * -------------------------------------------------------------------------- */
 
 export const Alert = forwardRef<
-  React.ElementRef<'div'>,
-  React.ComponentProps<'div'> & AlertVariants
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & AlertVariants
 >(({ className, variant, ...props }, forwardedRef) => (
   <div
     className={twMerge(alertVariants({ variant }), className)}
@@ -55,8 +55,8 @@ Alert.displayName = 'Alert';
  * -------------------------------------------------------------------------- */
 
 export const AlertTitle = forwardRef<
-  React.ElementRef<'h5'>,
-  React.ComponentProps<'h5'>
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement>
 >(({ children, className, ...props }, forwardedRef) => (
   <h5
     className={twMerge('mb-1 font-medium', className)}
@@ -74,8 +74,8 @@ AlertTitle.displayName = 'AlertTitle';
  * -------------------------------------------------------------------------- */
 
 export const AlertDescription = forwardRef<
-  React.ElementRef<'div'>,
-  React.ComponentProps<'div'>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, forwardedRef) => (
   <div
     className={twMerge('text-sm [&_p]:leading-relaxed', className)}

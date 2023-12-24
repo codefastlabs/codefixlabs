@@ -173,7 +173,7 @@ export function DataTableGoToPage<TData>({
   table,
   className,
   ...props
-}: React.ComponentProps<'div'> & {
+}: React.HTMLAttributes<HTMLDivElement> & {
   table: TableType<TData>;
 }): React.JSX.Element {
   const id = useId();
@@ -235,7 +235,7 @@ export function DataTableRowPerPage<TData>({
   table,
   className,
   ...props
-}: React.ComponentProps<'div'> & {
+}: React.HTMLAttributes<HTMLDivElement> & {
   table: TableType<TData>;
 }): React.JSX.Element {
   const id = useId();
@@ -298,7 +298,7 @@ export function DataTablePageButtons<TData>({
   table,
   className,
   ...props
-}: React.ComponentProps<'div'> & {
+}: React.HTMLAttributes<HTMLDivElement> & {
   table: TableType<TData>;
 }): React.JSX.Element {
   return (

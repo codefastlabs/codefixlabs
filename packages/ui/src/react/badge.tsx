@@ -35,7 +35,7 @@ export function Badge({
   className,
   variant,
   ...props
-}: React.ComponentProps<'div'> & BadgeVariants): React.JSX.Element {
+}: React.HTMLAttributes<HTMLDivElement> & BadgeVariants): React.JSX.Element {
   return (
     <div
       className={twMerge(badgeVariants({ variant }), className)}

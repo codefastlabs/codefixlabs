@@ -8,7 +8,7 @@ import { twMerge } from 'tailwind-merge';
 
 export const Textarea = forwardRef<
   HTMLTextAreaElement,
-  React.ComponentPropsWithoutRef<'textarea'>
+  React.TextareaHTMLAttributes<HTMLTextAreaElement>
 >(({ className, ...props }, forwardedRef) => (
   <textarea
     className={twMerge(

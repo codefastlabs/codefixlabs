@@ -283,7 +283,7 @@ MenubarSubContent.displayName = SubContent.displayName;
 export function MenubarShortcut({
   className,
   ...props
-}: React.ComponentProps<'div'>): React.JSX.Element {
+}: React.HTMLAttributes<HTMLDivElement>): React.JSX.Element {
   return (
     <div
       className={twMerge(

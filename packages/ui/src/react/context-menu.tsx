@@ -195,7 +195,7 @@ ContextMenuItemIndicator.displayName = ItemIndicator.displayName;
 export function ContextMenuShortcut({
   className,
   ...props
-}: React.ComponentProps<'div'>): React.JSX.Element {
+}: React.HTMLAttributes<HTMLDivElement>): React.JSX.Element {
   return (
     <div
       className={twMerge(

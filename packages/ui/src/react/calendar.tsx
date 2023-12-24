@@ -151,7 +151,7 @@ function CalendarDateTimeInput({
   ...props
 }: CalendarDateTimeInputVariants &
   Omit<
-    React.ComponentProps<'div'>,
+    React.HTMLAttributes<HTMLDivElement>,
     keyof CalendarDateTimeInputVariants
   >): React.JSX.Element {
   const id = useId();
@@ -325,7 +325,7 @@ function CalendarRangeInput({
   onSelect,
   className,
   ...props
-}: Omit<React.ComponentProps<'div'>, 'disabled' | 'onSelect'> & {
+}: Omit<React.HTMLAttributes<HTMLDivElement>, 'disabled' | 'onSelect'> & {
   disabled?: Matcher | Matcher[];
   onSelect?: SelectRangeEventHandler;
   selected?: DateRange;

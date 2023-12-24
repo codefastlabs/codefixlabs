@@ -7,8 +7,8 @@ import { twMerge } from 'tailwind-merge';
  * -------------------------------------------------------------------------- */
 
 export const Table = forwardRef<
-  React.ElementRef<'table'>,
-  React.ComponentPropsWithoutRef<'table'> & {
+  HTMLTableElement,
+  React.TableHTMLAttributes<HTMLTableElement> & {
     classNames?: {
       wrapper?: string;
     };
@@ -37,8 +37,8 @@ Table.displayName = 'Table';
  * -------------------------------------------------------------------------- */
 
 export const TableHeader = forwardRef<
-  React.ElementRef<'thead'>,
-  React.ComponentPropsWithoutRef<'thead'>
+  HTMLTableSectionElement,
+  React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, forwardedRef) => (
   <thead className={twMerge(className)} ref={forwardedRef} {...props} />
 ));
@@ -50,8 +50,8 @@ TableHeader.displayName = 'TableHeader';
  * -------------------------------------------------------------------------- */
 
 export const TableBody = forwardRef<
-  React.ElementRef<'tbody'>,
-  React.ComponentPropsWithoutRef<'tbody'>
+  HTMLTableSectionElement,
+  React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, forwardedRef) => (
   <tbody className={twMerge(className)} ref={forwardedRef} {...props} />
 ));
@@ -63,8 +63,8 @@ TableBody.displayName = 'TableBody';
  * -------------------------------------------------------------------------- */
 
 export const TableFooter = forwardRef<
-  React.ElementRef<'tfoot'>,
-  React.ComponentPropsWithoutRef<'tfoot'>
+  HTMLTableSectionElement,
+  React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, forwardedRef) => (
   <tfoot
     className={twMerge(
@@ -83,8 +83,8 @@ TableFooter.displayName = 'TableFooter';
  * -------------------------------------------------------------------------- */
 
 export const TableHead = forwardRef<
-  React.ElementRef<'th'>,
-  React.ComponentPropsWithoutRef<'th'>
+  HTMLTableCellElement,
+  React.ThHTMLAttributes<HTMLTableCellElement>
 >(({ className, ...props }, forwardedRef) => (
   <th
     className={twMerge(
@@ -103,8 +103,8 @@ TableHead.displayName = 'TableHead';
  * -------------------------------------------------------------------------- */
 
 export const TableRow = forwardRef<
-  React.ElementRef<'tr'>,
-  React.ComponentPropsWithoutRef<'tr'>
+  HTMLTableRowElement,
+  React.HTMLAttributes<HTMLTableRowElement>
 >(({ className, ...props }, forwardedRef) => (
   <tr
     className={twMerge(
@@ -126,8 +126,8 @@ TableRow.displayName = 'TableRow';
  * -------------------------------------------------------------------------- */
 
 export const TableCell = forwardRef<
-  React.ElementRef<'td'>,
-  React.ComponentPropsWithoutRef<'td'>
+  HTMLTableCellElement,
+  React.TdHTMLAttributes<HTMLTableCellElement>
 >(({ className, ...props }, forwardedRef) => (
   <td
     className={twMerge(
@@ -147,8 +147,8 @@ TableCell.displayName = 'TableCell';
  * -------------------------------------------------------------------------- */
 
 export const TableCaption = forwardRef<
-  React.ElementRef<'caption'>,
-  React.ComponentPropsWithoutRef<'caption'>
+  HTMLElement,
+  React.HTMLAttributes<HTMLElement>
 >(({ className, ...props }, forwardedRef) => (
   <caption
     className={twMerge(

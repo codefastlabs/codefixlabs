@@ -49,7 +49,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/react/tooltip';
  * -------------------------------------------------------------------------- */
 
 export const Editor = forwardRef<
-  React.ElementRef<'div'>,
+  HTMLDivElement,
   {
     className?: string;
     classNames?: {

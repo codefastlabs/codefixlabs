@@ -7,8 +7,8 @@ import { twMerge } from 'tailwind-merge';
  * -------------------------------------------------------------------------- */
 
 export const Card = forwardRef<
-  React.ElementRef<'div'>,
-  React.ComponentProps<'div'>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, forwardedRef) => (
   <section
     className={twMerge(
@@ -27,8 +27,8 @@ Card.displayName = 'Card';
  * -------------------------------------------------------------------------- */
 
 export const CardHeader = forwardRef<
-  React.ElementRef<'div'>,
-  React.ComponentProps<'div'>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, forwardedRef) => (
   <header
     className={twMerge(
@@ -47,8 +47,8 @@ CardHeader.displayName = 'CardHeader';
  * -------------------------------------------------------------------------- */
 
 export const CardFooter = forwardRef<
-  React.ElementRef<'div'>,
-  React.ComponentProps<'div'>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, forwardedRef) => (
   <footer
     className={twMerge(
@@ -67,8 +67,8 @@ CardFooter.displayName = 'CardFooter';
  * -------------------------------------------------------------------------- */
 
 export const CardTitle = forwardRef<
-  React.ElementRef<'div'>,
-  React.ComponentProps<'div'>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, forwardedRef) => (
   <div
     className={twMerge('text-lg font-semibold', className)}
@@ -84,8 +84,8 @@ CardTitle.displayName = 'CardTitle';
  * -------------------------------------------------------------------------- */
 
 export const CardDescription = forwardRef<
-  React.ElementRef<'div'>,
-  React.ComponentProps<'div'>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, forwardedRef) => (
   <div
     className={twMerge('text-muted-foreground text-sm', className)}
@@ -101,8 +101,8 @@ CardDescription.displayName = 'CardDescription';
  * -------------------------------------------------------------------------- */
 
 export const CardBody = forwardRef<
-  React.ElementRef<'div'>,
-  React.ComponentProps<'div'>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, forwardedRef) => (
   <main className={twMerge('p-6', className)} ref={forwardedRef} {...props} />
 ));

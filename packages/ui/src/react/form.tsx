@@ -112,8 +112,8 @@ export function FormField<
  * -------------------------------------------------------------------------- */
 
 export const FormItem = forwardRef<
-  React.ElementRef<'div'>,
-  React.ComponentProps<'div'> & FormItemVariants
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & FormItemVariants
 >(({ className, inline = false, ...props }, forwardedRef) => {
   const id = useId();
 
@@ -150,8 +150,8 @@ FormLabel.displayName = Label.displayName;
  * -------------------------------------------------------------------------- */
 
 export const FormLabelNative = forwardRef<
-  React.ElementRef<'label'>,
-  React.ComponentPropsWithoutRef<'label'>
+  HTMLLabelElement,
+  React.LabelHTMLAttributes<HTMLLabelElement>
 >(({ ...props }, forwardedRef) => {
   const { formItemId } = useFormField();
 
@@ -193,8 +193,8 @@ FormControl.displayName = 'FormControl';
  * -------------------------------------------------------------------------- */
 
 export const FormDescription = forwardRef<
-  React.ElementRef<'p'>,
-  React.ComponentPropsWithoutRef<'p'>
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, forwardedRef) => {
   const { formDescriptionId } = useFormField();
 
@@ -215,8 +215,8 @@ FormDescription.displayName = 'FormDescription';
  * -------------------------------------------------------------------------- */
 
 export const FormMessage = forwardRef<
-  React.ElementRef<'p'>,
-  React.ComponentPropsWithoutRef<'p'>
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
 >(({ children, className, ...props }, forwardedRef) => {
   const { error, formMessageId } = useFormField();
   const body = error ? String(error.message) : children;

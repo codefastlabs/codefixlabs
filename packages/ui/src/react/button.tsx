@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Children, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Loader2Icon } from 'lucide-react';
-import type { ButtonVariants } from '@/classes/button';
+import type { VariantProps } from 'class-variance-authority';
 import { buttonVariants } from '@/classes/button';
 
 /* -----------------------------------------------------------------------------
@@ -10,9 +10,9 @@ import { buttonVariants } from '@/classes/button';
  * -------------------------------------------------------------------------- */
 
 export const Button = forwardRef<
-  React.ElementRef<'button'>,
-  ButtonVariants &
-    React.ComponentPropsWithoutRef<'button'> & {
+  HTMLButtonElement,
+  VariantProps<typeof buttonVariants> &
+    React.ButtonHTMLAttributes<HTMLButtonElement> & {
       endIcon?: React.ReactNode;
       startIcon?: React.ReactNode;
       loading?: boolean;
@@ -86,13 +86,9 @@ export function IconButton({
   children: React.ReactNode;
   loading?: boolean;
 }): React.JSX.Element {
-  return (
-    <>
-      {loading && children ? (
-        <Loader2Icon className="animate-spin" size={16} />
-      ) : (
-        children
-      )}
-    </>
-  );
+  if (loading && children) {
+    return <Loader2Icon className="animate-spin" size={16} />;
+  }
+
+  return <>{children}</>;
 }
