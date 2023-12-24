@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.31
+
+### Patch Changes
+
+- Refactor React component props to use HTMLAttributes
+
 ## 0.1.30
 
 ### Patch Changes

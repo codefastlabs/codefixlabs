@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.78
+
+### Patch Changes
+
+- Refactor React component props to use HTMLAttributes
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.29
+  - @codefixlabs/lib@0.1.31
+
 ## 0.1.77
 
 ### Patch Changes

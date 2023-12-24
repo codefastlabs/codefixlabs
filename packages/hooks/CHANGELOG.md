@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.29
+
+### Patch Changes
+
+- Refactor React component props to use HTMLAttributes
+
 ## 0.1.28
 
 ### Patch Changes

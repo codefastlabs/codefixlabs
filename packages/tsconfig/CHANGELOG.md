@@ -1,5 +1,11 @@
 # @codefixlabs/tsconfig
 
+## 0.1.11
+
+### Patch Changes
+
+- Refactor React component props to use HTMLAttributes
+
 ## 0.1.10
 
 ### Patch Changes

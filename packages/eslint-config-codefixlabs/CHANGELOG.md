@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.18
+
+### Patch Changes
+
+- Refactor React component props to use HTMLAttributes
+
 ## 0.1.17
 
 ### Patch Changes
