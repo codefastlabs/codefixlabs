@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.41
+
+### Patch Changes
+
+- Update button styles, refactor color declarations and update dependencies
+
 ## 0.1.40
 
 ### Patch Changes

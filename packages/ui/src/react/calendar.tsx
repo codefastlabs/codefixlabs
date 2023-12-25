@@ -446,8 +446,9 @@ export function Calendar({
           caption_dropdowns: 'relative inline-flex gap-4',
           caption_label: cx([
             'inline-flex items-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium',
-            'peer-hover:border-input',
-            'peer-focus:ring-ring/40 peer-hover:bg-accent peer-focus:border-input peer-focus:ring-2',
+            'ring-offset-background',
+            'peer-hover:border-input peer-hover:bg-accent',
+            'peer-focus:ring-ring peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-offset-2',
           ]),
           cell: cx([
             'cell relative flex h-8 flex-1 items-center justify-center px-0.5 first:rounded-l-md last:rounded-r-md',
@@ -458,7 +459,7 @@ export function Calendar({
           ]),
           day: cx([
             'day relative z-40 flex size-8 items-center justify-center rounded-md border border-transparent text-center text-sm',
-            '[&:not(.day-today,[disabled],[role="gridcell"])]:hover:border-primary',
+            '[&:not(.day-today,[disabled])]:hover:border-primary',
           ]),
           day_disabled: 'disabled:text-muted-foreground/25',
           day_outside: 'text-muted-foreground/75',
@@ -467,7 +468,8 @@ export function Calendar({
           day_range_start: 'day-range-start',
           day_selected: cx([
             'bg-primary',
-            'focus:ring-primary focus:ring-1 focus:ring-offset-1',
+            'ring-offset-background',
+            'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
             '[&:not(.day-range-middle)]:text-primary-foreground',
             '[&:is(.day-today):not(.day-range-middle)]:border-primary',
             '[&:is(.day-today):not(.day-range-middle)]:bg-primary',

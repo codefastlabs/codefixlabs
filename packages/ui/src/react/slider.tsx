@@ -42,7 +42,8 @@ export const Slider = forwardRef<
       className={cx([
         'bg-background border-primary block size-5 rounded-full border-2 transition-colors',
         'data-orientation-horizontal:cursor-ew-resize data-orientation-vertical:cursor-ns-resize',
-        'focus:ring-ring/40 focus:outline-none focus:ring-2',
+        'ring-offset-background',
+        'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
       ])}
     />
   </Root>

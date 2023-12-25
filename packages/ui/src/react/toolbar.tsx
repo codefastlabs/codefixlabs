@@ -20,7 +20,8 @@ const toolbarToggleItemVariants = cva(
   [
     'inline-flex items-center justify-center rounded text-sm font-medium transition-colors',
     'hover:bg-accent hover:text-accent-foreground',
-    'focus:ring-ring/40 focus:outline-none focus:ring-2',
+    'ring-offset-background',
+    'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
     'data-state-on:bg-primary data-state-on:text-primary-foreground',
     'disabled:pointer-events-none disabled:opacity-50',
   ],
@@ -97,7 +98,8 @@ export const ToolbarButton = forwardRef<
     className={twMerge(
       'bg-primary my-auto flex h-7 shrink-0 grow-0 basis-auto items-center justify-center rounded px-2.5 text-sm text-white outline-none',
       'hover:bg-primary/90',
-      'focus:ring-ring/40 focus:relative focus:ring-2',
+      'ring-offset-background',
+      'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
       className,
     )}
     ref={forwardedRef}
@@ -119,7 +121,8 @@ export const ToolbarLink = forwardRef<
     className={twMerge(
       'px-1.25 text-muted-foreground my-auto flex h-7 shrink-0 grow-0 basis-auto items-center justify-center rounded-md bg-transparent text-sm',
       'hover:text-primary hover:cursor-pointer hover:bg-transparent',
-      'focus:ring-ring/40 focus:relative focus:z-40 focus:outline-none focus:ring-2',
+      'ring-offset-background',
+      'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
       className,
     )}
     ref={forwardedRef}

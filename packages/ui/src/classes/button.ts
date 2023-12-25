@@ -24,34 +24,34 @@ const btnSizes: {
     sizes: [
       // --- 32px
       {
-        className: 'px-2 h-8',
+        className: 'px-2',
         size: 'sm',
         variant: ['primary', 'secondary', 'destructive', 'ghost'],
       },
       {
-        className: 'px-1.75 h-8',
+        className: 'px-1.75',
         size: 'sm',
         variant: ['outline'],
       },
       // --- 40px
       {
-        className: 'px-3 h-10',
+        className: 'px-3',
         size: 'md',
         variant: ['primary', 'secondary', 'destructive', 'ghost'],
       },
       {
-        className: 'px-2.75 h-10',
+        className: 'px-2.75',
         size: 'md',
         variant: ['outline'],
       },
       // --- 48px
       {
-        className: 'px-4 h-12',
+        className: 'px-4',
         size: 'lg',
         variant: ['primary', 'secondary', 'destructive', 'ghost'],
       },
       {
-        className: 'px-3.75 h-12',
+        className: 'px-3.75',
         size: 'lg',
         variant: ['outline'],
       },
@@ -62,34 +62,34 @@ const btnSizes: {
     sizes: [
       // --- 32px
       {
-        className: 'px-4 h-8',
+        className: 'px-4',
         size: 'sm',
         variant: ['primary', 'secondary', 'destructive', 'ghost'],
       },
       {
-        className: 'px-3.75 h-8',
+        className: 'px-3.75',
         size: 'sm',
         variant: ['outline'],
       },
       // --- 40px
       {
-        className: 'px-5 h-10',
+        className: 'px-5',
         size: 'md',
         variant: ['primary', 'secondary', 'destructive', 'ghost'],
       },
       {
-        className: 'px-4.75 h-10',
+        className: 'px-4.75',
         size: 'md',
         variant: ['outline'],
       },
       // --- 48px
       {
-        className: 'px-6 h-12',
+        className: 'px-6',
         size: 'lg',
         variant: ['primary', 'secondary', 'destructive', 'ghost'],
       },
       {
-        className: 'px-5.75 h-12',
+        className: 'px-5.75',
         size: 'lg',
         variant: ['outline'],
       },
@@ -114,9 +114,10 @@ const compoundSizes = btnSizes.flatMap<{
 
 export const buttonVariants = cva(
   [
-    'relative select-none items-center gap-2 overflow-hidden whitespace-nowrap text-sm font-medium transition-colors',
-    'focus:ring-ring/40 focus:outline-none focus:ring-2',
-    'data-disabled:cursor-not-allowed data-disabled:ring-0',
+    'relative items-center gap-2 whitespace-nowrap text-sm font-medium transition-colors',
+    'ring-offset-background',
+    'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+    'disabled:cursor-not-allowed',
   ],
   {
     compoundVariants: [...compoundSizes],
@@ -134,8 +135,8 @@ export const buttonVariants = cva(
         true: 'flex w-full',
       },
       icon: {
-        false: undefined,
-        true: undefined,
+        false: '',
+        true: '',
       },
       justify: {
         between: 'justify-between',
@@ -147,40 +148,36 @@ export const buttonVariants = cva(
         square: 'rounded-sm',
       },
       size: {
-        lg: undefined,
-        md: undefined,
-        sm: undefined,
+        lg: 'h-12',
+        md: 'h-10',
+        sm: 'h-8',
       },
       variant: {
-        destructive: [
-          'bg-destructive text-destructive-foreground',
-          '[&:not([data-disabled])]:hover:bg-destructive/90',
-          '[&:not([data-disabled])]:focus:bg-destructive/90',
-          'data-disabled:bg-destructive/60',
-        ],
-        ghost: [
-          '[&:not([data-disabled])]:hover:bg-accent',
-          'data-disabled:opacity-60',
-        ],
-        link: 'text-primary rounded-none hover:underline',
-        outline: [
-          'border-input border',
-          '[&:not([data-disabled])]:hover:bg-accent [&:not([data-disabled])]:hover:text-accent-foreground',
-          '[&:not([data-disabled])]:focus:bg-accent [&:not([data-disabled])]:focus:text-accent-foreground',
-          'data-disabled:opacity-60',
-        ],
         primary: [
           'bg-primary text-primary-foreground',
-          '[&:not([data-disabled])]:hover:bg-primary/90',
-          '[&:not([data-disabled])]:focus:bg-primary/90',
-          'data-disabled:bg-primary/60',
+          'hover:bg-primary/90',
+          'disabled:bg-primary/50 disabled:text-primary-foreground/0 [&_[data-loading]]:disabled:text-primary-foreground',
+        ],
+        destructive: [
+          'bg-destructive text-destructive-foreground',
+          'hover:bg-destructive/90',
+          'disabled:bg-destructive/50 disabled:text-destructive-foreground/0 [&_[data-loading]]:disabled:text-destructive-foreground',
         ],
         secondary: [
           'bg-secondary text-secondary-foreground',
-          '[&:not([data-disabled])]:hover:bg-secondary/90',
-          '[&:not([data-disabled])]:focus:bg-secondary/90',
-          'data-disabled:bg-secondary/60',
+          'hover:bg-secondary/90',
+          'disabled:bg-secondary/50 disabled:text-secondary-foreground/0 [&_[data-loading]]:disabled:text-secondary-foreground',
         ],
+        outline: [
+          'border-input border',
+          'hover:border-input/90 hover:bg-accent hover:text-accent-foreground',
+          'disabled:border-input/50 disabled:text-accent-foreground/0 [&_[data-loading]]:disabled:text-accent-foreground',
+        ],
+        ghost: [
+          'hover:bg-accent hover:text-accent-foreground',
+          'disabled:text-accent-foreground/0 [&_[data-loading]]:disabled:text-accent-foreground',
+        ],
+        link: ['text-primary rounded-none', 'hover:underline'],
       },
     },
   },

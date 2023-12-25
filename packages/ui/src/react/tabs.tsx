@@ -16,7 +16,7 @@ const tabsListVariants = cva(undefined, {
   variants: {
     variant: {
       default:
-        'bg-muted text-muted-foreground inline-flex h-10 items-center justify-center gap-1 rounded-lg p-1',
+        'bg-muted text-muted-foreground inline-flex items-center justify-center gap-2 rounded-lg p-1.5',
       simple: undefined,
     },
   },
@@ -27,7 +27,8 @@ type TabsListVariants = VariantProps<typeof tabsListVariants>;
 const tabsTriggerVariants = cva(
   [
     'transition-all',
-    'focus:ring-ring/40 focus:outline-none focus:ring-2',
+    'ring-offset-background',
+    'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
     'disabled:pointer-events-none disabled:opacity-50',
   ],
   {
@@ -49,14 +50,17 @@ const tabsTriggerVariants = cva(
 type TabsTriggerVariants = VariantProps<typeof tabsTriggerVariants>;
 
 const tabsContentVariants = cva(
-  ['focus:ring-ring/40 focus:outline-none focus:ring-2'],
+  [
+    'ring-offset-background',
+    'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+  ],
   {
     defaultVariants: {
       variant: 'default',
     },
     variants: {
       variant: {
-        default: 'mt-2 rounded-lg',
+        default: 'mt-2 rounded',
         simple: undefined,
       },
     },

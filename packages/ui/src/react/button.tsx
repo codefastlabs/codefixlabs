@@ -2,22 +2,22 @@ import * as React from 'react';
 import { Children, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Loader2Icon } from 'lucide-react';
-import type { VariantProps } from 'class-variance-authority';
+import type { ButtonVariants } from '@/classes/button';
 import { buttonVariants } from '@/classes/button';
 
 /* -----------------------------------------------------------------------------
  * Component: Button
  * -------------------------------------------------------------------------- */
 
-export const Button = forwardRef<
-  HTMLButtonElement,
-  VariantProps<typeof buttonVariants> &
-    React.ButtonHTMLAttributes<HTMLButtonElement> & {
-      endIcon?: React.ReactNode;
-      startIcon?: React.ReactNode;
-      loading?: boolean;
-    }
->(
+export interface ButtonProps
+  extends ButtonVariants,
+    React.ButtonHTMLAttributes<HTMLButtonElement> {
+  endIcon?: React.ReactNode;
+  startIcon?: React.ReactNode;
+  loading?: boolean;
+}
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
@@ -37,6 +37,8 @@ export const Button = forwardRef<
   ) => {
     return (
       <button
+        type="button"
+        {...props}
         className={twMerge(
           buttonVariants({
             block,
@@ -48,23 +50,22 @@ export const Button = forwardRef<
           }),
           className,
         )}
-        data-disabled={loading || props.disabled ? true : undefined}
         disabled={loading || props.disabled}
         ref={forwardedRef}
-        type="button"
-        {...props}
       >
-        <IconButton loading={loading}>{startIcon}</IconButton>
+        {startIcon}
 
         {children}
 
-        <IconButton loading={loading ? !startIcon : false}>
-          {endIcon}
-        </IconButton>
+        {endIcon}
 
-        {loading && !(startIcon || endIcon) ? (
-          <span className="absolute inset-0 flex items-center justify-center bg-inherit">
-            <Loader2Icon className="animate-spin" size={18} />
+        {loading ? (
+          <span className="rounded-inherit absolute inset-0 flex items-center justify-center">
+            <Loader2Icon
+              className="animate-spin"
+              data-loading={loading}
+              size={18}
+            />
           </span>
         ) : null}
       </button>
@@ -73,22 +74,3 @@ export const Button = forwardRef<
 );
 
 Button.displayName = 'Button';
-
-/* -----------------------------------------------------------------------------
- * Component: IconButton
- * -------------------------------------------------------------------------- */
-
-export function IconButton({
-  children,
-
-  loading,
-}: {
-  children: React.ReactNode;
-  loading?: boolean;
-}): React.JSX.Element {
-  if (loading && children) {
-    return <Loader2Icon className="animate-spin" size={16} />;
-  }
-
-  return <>{children}</>;
-}

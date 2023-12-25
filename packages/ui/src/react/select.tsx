@@ -35,7 +35,8 @@ import { twMerge } from 'tailwind-merge';
 const selectTriggerVariants = cva(
   [
     'border-input select-none items-center justify-between gap-2 rounded-md border bg-transparent text-sm',
-    'focus:ring-ring/40 focus:outline-none focus:ring-2',
+    'ring-offset-background',
+    'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
     'disabled:cursor-not-allowed disabled:opacity-50',
     'placeholder:text-muted-foreground',
   ],

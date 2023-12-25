@@ -1,5 +1,13 @@
 # @codefixlabs/ui
 
+## 0.1.79
+
+### Patch Changes
+
+- Update button styles, refactor color declarations and update dependencies
+  - @codefixlabs/hooks@0.1.29
+  - @codefixlabs/lib@0.1.31
+
 ## 0.1.78
 
 ### Patch Changes
