@@ -37,7 +37,10 @@ export const TableHeader = forwardRef<
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, forwardedRef) => (
   <thead
-    className={twMerge('bg-muted text-muted-foreground', className)}
+    className={twMerge(
+      'bg-muted text-muted-foreground *:bg-inherit',
+      className,
+    )}
     ref={forwardedRef}
     {...props}
   />
