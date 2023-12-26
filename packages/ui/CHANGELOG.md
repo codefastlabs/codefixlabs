@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.80
+
+### Patch Changes
+
+- Refine disabled state styling and simplify loading indicator
+
 ## 0.1.79
 
 ### Patch Changes
