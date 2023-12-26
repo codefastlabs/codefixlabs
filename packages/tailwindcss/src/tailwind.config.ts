@@ -125,31 +125,62 @@ export const sharedConfig: Config = {
           '0 0 0 1px hsl(var(--ui-border)), 0 25px 50px -12px hsl(var(--ui-border))',
       },
       colors: {
-        accent: 'hsl(var(--ui-accent))',
-        'accent-foreground': 'hsl(var(--ui-accent-foreground))',
         background: 'hsl(var(--ui-background))',
-        border: 'hsl(var(--ui-border))',
-        card: 'hsl(var(--ui-card))',
-        'card-foreground': 'hsl(var(--ui-card-foreground))',
-        destructive: 'hsl(var(--ui-destructive))',
-        'destructive-foreground': 'hsl(var(--ui-destructive-foreground))',
         foreground: 'hsl(var(--ui-foreground))',
-        info: 'hsl(var(--ui-info))',
-        'info-foreground': 'hsl(var(--ui-info-foreground))',
+
+        border: 'hsl(var(--ui-border))',
         input: 'hsl(var(--ui-input))',
-        muted: 'hsl(var(--ui-muted))',
-        'muted-foreground': 'hsl(var(--ui-muted-foreground))',
-        popover: 'hsl(var(--ui-popover))',
-        'popover-foreground': 'hsl(var(--ui-popover-foreground))',
-        primary: 'hsl(var(--ui-primary))',
-        'primary-foreground': 'hsl(var(--ui-primary-foreground))',
         ring: 'hsl(var(--ui-ring))',
-        secondary: 'hsl(var(--ui-secondary))',
-        'secondary-foreground': 'hsl(var(--ui-secondary-foreground))',
-        success: 'hsl(var(--ui-success))',
-        'success-foreground': 'hsl(var(--ui-success-foreground))',
-        warning: 'hsl(var(--ui-warning))',
-        'warning-foreground': 'hsl(var(--ui-warning-foreground))',
+
+        primary: {
+          DEFAULT: 'hsl(var(--ui-primary))',
+          foreground: 'hsl(var(--ui-primary-foreground))',
+        },
+
+        secondary: {
+          DEFAULT: 'hsl(var(--ui-secondary))',
+          foreground: 'hsl(var(--ui-secondary-foreground))',
+        },
+
+        accent: {
+          DEFAULT: 'hsl(var(--ui-accent))',
+          foreground: 'hsl(var(--ui-accent-foreground))',
+        },
+
+        muted: {
+          DEFAULT: 'hsl(var(--ui-muted))',
+          foreground: 'hsl(var(--ui-muted-foreground))',
+        },
+
+        popover: {
+          DEFAULT: 'hsl(var(--ui-popover))',
+          foreground: 'hsl(var(--ui-popover-foreground))',
+        },
+
+        success: {
+          DEFAULT: 'hsl(var(--ui-success))',
+          foreground: 'hsl(var(--ui-success-foreground))',
+        },
+
+        info: {
+          DEFAULT: 'hsl(var(--ui-info))',
+          foreground: 'hsl(var(--ui-info-foreground))',
+        },
+
+        warning: {
+          DEFAULT: 'hsl(var(--ui-warning))',
+          foreground: 'hsl(var(--ui-warning-foreground))',
+        },
+
+        destructive: {
+          DEFAULT: 'hsl(var(--ui-destructive))',
+          foreground: 'hsl(var(--ui-destructive-foreground))',
+        },
+
+        card: {
+          DEFAULT: 'hsl(var(--ui-card))',
+          foreground: 'hsl(var(--ui-card-foreground))',
+        },
       },
       container: {
         center: true,

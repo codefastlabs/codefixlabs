@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.43
+
+### Patch Changes
+
+- Refactor color definitions in Tailwind config
+
 ## 0.1.42
 
 ### Patch Changes
