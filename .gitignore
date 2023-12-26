@@ -38,3 +38,6 @@ chromatic.log*
 
 # prisma
 **/prisma/client
+
+# storybook
+build-storybook.log
