@@ -556,7 +556,7 @@ export function DataTableContent<TData, TValue>({
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow
               className={classNames.headerRow}
-              data-test-id="headerRow"
+              data-test-id="header-row"
               key={headerGroup.id}
             >
               {headerGroup.headers.map((header) => (
@@ -566,7 +566,7 @@ export function DataTableContent<TData, TValue>({
                     header.column.columnDef.meta?.className,
                     header.column.columnDef.meta?.classNames?.headerCell,
                   )}
-                  data-test-id="headerCell"
+                  data-test-id="header-cell"
                   key={header.id}
                 >
                   {!header.isPlaceholder &&
@@ -609,12 +609,12 @@ export function DataTableContent<TData, TValue>({
                 'align-middle hover:bg-transparent',
                 classNames.emptyRow,
               )}
-              data-test-id="emptyRow"
+              data-test-id="empty-row"
             >
               <TableCell
                 className={twMerge('h-24 text-center', classNames.emptyCell)}
                 colSpan={columns.length}
-                data-test-id="emptyCell"
+                data-test-id="empty-cell"
               >
                 No results.
               </TableCell>
@@ -626,7 +626,7 @@ export function DataTableContent<TData, TValue>({
             {table.getFooterGroups().map((footerGroup) => (
               <TableRow
                 className={classNames.footerRow}
-                data-test-id="footerRow"
+                data-test-id="footer-row"
                 key={footerGroup.id}
               >
                 {footerGroup.headers.map((header) => (
@@ -636,7 +636,7 @@ export function DataTableContent<TData, TValue>({
                       header.column.columnDef.meta?.className,
                       header.column.columnDef.meta?.classNames?.headerCell,
                     )}
-                    data-test-id="headerCell"
+                    data-test-id="header-cell"
                     key={header.id}
                   >
                     {!header.isPlaceholder &&

@@ -15,18 +15,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MoreHorizontalIcon } from 'lucide-react';
 import type { ColumnDef } from '@tanstack/react-table';
 
-const meta: Meta<typeof DataTable> = {
-  component: DataTable,
-  tags: ['autodocs'],
-  title: 'UI/Data Table',
-};
-
-export default meta;
-
-type Story = StoryObj<typeof DataTable>;
-
 /* -----------------------------------------------------------------------------
- * Story: Basic
+ * Prepare
  * -------------------------------------------------------------------------- */
 
 const formatter = new Intl.NumberFormat('en-US', {
@@ -155,34 +145,72 @@ const data: Payment[] = Array.from({ length: 200 }, () => ({
   ]),
 }));
 
+const meta: Meta<typeof DataTable<Payment>> = {
+  component: DataTable,
+  tags: ['autodocs'],
+  title: 'UI/Data Table',
+  args: {
+    columns,
+    data,
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof DataTable>;
+
+/* -----------------------------------------------------------------------------
+ * Story: Basic
+ * -------------------------------------------------------------------------- */
+
 export const Basic: Story = {
-  render: () => <DataTable columns={columns} data={data} />,
+  render: (args) => (
+    <DataTable
+      {...args}
+      classNames={{
+        header: 'border-b border-slate-200',
+        body: 'divide-y divide-slate-200',
+      }}
+    />
+  ),
 };
 
 export const StickyHeader: Story = {
-  render: () => (
+  render: (args) => (
     <DataTable
       classNames={{
-        root: 'h-[21.875rem]',
-        header: 'sticky top-0 z-20',
-        headerRow: 'bg-neutral-100 shadow',
-        row: '*:first:border-t-transparent',
+        root: 'h-96',
+        header:
+          'sticky top-0 z-20 border-b border-slate-200 shadow shadow-slate-200',
+        body: 'divide-y divide-slate-200',
       }}
-      columns={columns}
-      data={data}
+      {...args}
     />
   ),
 };
 
 export const WithFooter: Story = {
-  render: () => <DataTable columns={columns} data={data} showFooter />,
+  render: (args) => (
+    <DataTable
+      {...args}
+      classNames={{
+        header: 'border-b border-slate-200',
+        body: 'divide-y divide-slate-200',
+        footer: 'border-t border-slate-200',
+      }}
+      showFooter
+    />
+  ),
 };
 
 export const CustomToolbar: Story = {
-  render: () => (
+  render: (args) => (
     <DataTable
-      columns={columns}
-      data={data}
+      {...args}
+      classNames={{
+        header: 'border-b border-slate-200',
+        body: 'divide-y divide-slate-200',
+      }}
       endToolbar={(table) => <div>World {table.getPageCount()}</div>}
       startToolbar={<div>Hello</div>}
     />

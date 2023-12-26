@@ -1,3 +1,6 @@
+// Style
+import '@/styles.css';
+
 // Classes
 export * from '@/classes/button';
 

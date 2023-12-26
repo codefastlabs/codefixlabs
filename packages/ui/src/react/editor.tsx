@@ -101,10 +101,12 @@ export const Editor = forwardRef<
             className,
             classNames?.root,
           )}
+          data-test-id="root"
           ref={forwardedRef}
         >
           <MenuBar
             className={twMerge('bg-background p-1', classNames?.menuBar)}
+            data-test-id="menu-bar"
             editor={editor}
           />
 

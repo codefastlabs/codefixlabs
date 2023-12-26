@@ -200,11 +200,11 @@ module.exports = {
 In `tailwind.config.ts`
 
 ```diff
-+ import { sharedConfig, stone } from '@codefixlabs/tailwindcss';
++ import { sharedConfig, slate } from '@codefixlabs/tailwindcss';
 import type { Config } from 'tailwindcss'
 
 const config: Pick<Config, 'presets' | 'theme' | 'plugins'> = {
-+ plugins: [stone],
++ plugins: [slate],
 + presets: [sharedConfig],
 - content: [
 -   "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",

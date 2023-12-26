@@ -115,6 +115,7 @@ export const DrawerContent = forwardRef<
           },
           classNames?.overlay,
         )}
+        data-test-id="overlay"
       >
         <Content
           className={twMerge(
@@ -122,6 +123,7 @@ export const DrawerContent = forwardRef<
             className,
             classNames?.content,
           )}
+          data-test-id="content"
           ref={forwardedRef}
           {...props}
         >

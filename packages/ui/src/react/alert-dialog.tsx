@@ -95,6 +95,7 @@ export const AlertDialogContent = forwardRef<
             : 'grid place-items-center overflow-auto',
           classNames?.overlay,
         )}
+        data-test-id="overlay"
       >
         <Content
           className={twMerge(
@@ -102,6 +103,7 @@ export const AlertDialogContent = forwardRef<
             className,
             classNames?.content,
           )}
+          data-test-id="content"
           ref={forwardedRef}
           {...props}
         />

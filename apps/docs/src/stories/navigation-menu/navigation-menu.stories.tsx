@@ -47,10 +47,10 @@ const ListItem: ForwardRefExoticComponent<
         <Link
           ref={forwardedRef}
           {...props}
-          className="focus:ring-primary block select-none rounded-md p-3 text-base no-underline outline-none transition-colors hover:bg-neutral-200 focus:ring-2"
+          className="focus:ring-primary block select-none rounded-md p-3 text-base no-underline outline-none transition-colors hover:bg-slate-200 focus:ring-2"
         >
           <div className="text-primary mb-1.25 font-medium">{title}</div>
-          <p className="text-neutral-950/80">{children}</p>
+          <p className="text-slate-950/80">{children}</p>
         </Link>
       </NavigationMenuLink>
     </li>
@@ -89,7 +89,7 @@ export const Basic: Story = {
                   <div className="mb-1.75 mt-4 text-lg font-medium text-white">
                     Radix Primitives
                   </div>
-                  <p className="text-sm text-neutral-300">
+                  <p className="text-sm text-slate-300">
                     Unstyled, accessible components for React.
                   </p>
                 </Link>

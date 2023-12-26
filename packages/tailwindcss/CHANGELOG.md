@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.42
+
+### Patch Changes
+
+- Add data-test-id attributes and update component styles
+
 ## 0.1.41
 
 ### Patch Changes

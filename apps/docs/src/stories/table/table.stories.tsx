@@ -15,6 +15,9 @@ const meta: Meta<typeof Table> = {
   component: Table,
   tags: ['autodocs'],
   title: 'UI/Table',
+  args: {
+    className: 'border-collapse border border-slate-400',
+  },
 };
 
 export default meta;
@@ -74,21 +77,33 @@ export const Basic: Story = {
   render: (args) => (
     <Table {...args}>
       <TableCaption>A list of your recent invoices.</TableCaption>
+
       <TableHeader>
         <TableRow>
-          <TableHead>Invoice</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Method</TableHead>
-          <TableHead className="text-right">Amount</TableHead>
+          <TableHead className="border border-slate-300">Invoice</TableHead>
+          <TableHead className="border border-slate-300">Status</TableHead>
+          <TableHead className="border border-slate-300">Method</TableHead>
+          <TableHead className="border border-slate-300 text-right">
+            Amount
+          </TableHead>
         </TableRow>
       </TableHeader>
+
       <TableBody>
         {invoices.map((invoice) => (
           <TableRow key={invoice.invoice}>
-            <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+            <TableCell className="border border-slate-300 font-medium">
+              {invoice.invoice}
+            </TableCell>
+            <TableCell className="border border-slate-300">
+              {invoice.paymentStatus}
+            </TableCell>
+            <TableCell className="border border-slate-300">
+              {invoice.paymentMethod}
+            </TableCell>
+            <TableCell className="border border-slate-300 text-right">
+              {invoice.totalAmount}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
@@ -100,27 +115,39 @@ export const WithCheckbox: Story = {
   render: (args) => (
     <Table {...args}>
       <TableCaption>A list of your recent invoices.</TableCaption>
+
       <TableHeader>
         <TableRow>
-          <TableHead>
+          <TableHead className="border border-slate-300">
             <Checkbox aria-label="Select all invoices" />
           </TableHead>
-          <TableHead>Invoice</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Method</TableHead>
-          <TableHead className="text-right">Amount</TableHead>
+          <TableHead className="border border-slate-300">Invoice</TableHead>
+          <TableHead className="border border-slate-300">Status</TableHead>
+          <TableHead className="border border-slate-300">Method</TableHead>
+          <TableHead className="border border-slate-300 text-right">
+            Amount
+          </TableHead>
         </TableRow>
       </TableHeader>
+
       <TableBody>
         {invoices.map((invoice) => (
           <TableRow key={invoice.invoice}>
-            <TableCell>
+            <TableCell className="border border-slate-300">
               <Checkbox aria-label={`Select invoice ${invoice.invoice}`} />
             </TableCell>
-            <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+            <TableCell className="border border-slate-300 font-medium">
+              {invoice.invoice}
+            </TableCell>
+            <TableCell className="border border-slate-300">
+              {invoice.paymentStatus}
+            </TableCell>
+            <TableCell className="border border-slate-300">
+              {invoice.paymentMethod}
+            </TableCell>
+            <TableCell className="border border-slate-300 text-right">
+              {invoice.totalAmount}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
@@ -134,26 +161,38 @@ export const WithFooter: Story = {
       <TableCaption>A list of your recent invoices.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead>Invoice</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Method</TableHead>
-          <TableHead className="text-right">Amount</TableHead>
+          <TableHead className="border border-slate-300">Invoice</TableHead>
+          <TableHead className="border border-slate-300">Status</TableHead>
+          <TableHead className="border border-slate-300">Method</TableHead>
+          <TableHead className="border border-slate-300 text-right">
+            Amount
+          </TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {invoices.map((invoice) => (
           <TableRow key={invoice.invoice}>
-            <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+            <TableCell className="border border-slate-300 font-medium">
+              {invoice.invoice}
+            </TableCell>
+            <TableCell className="border border-slate-300">
+              {invoice.paymentStatus}
+            </TableCell>
+            <TableCell className="border border-slate-300">
+              {invoice.paymentMethod}
+            </TableCell>
+            <TableCell className="border border-slate-300 text-right">
+              {invoice.totalAmount}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
       <TableFooter>
         <TableRow>
-          <TableCell colSpan={3} />
-          <TableCell className="text-right font-medium">$2,500.00</TableCell>
+          <TableCell className="border border-slate-300" colSpan={3} />
+          <TableCell className="border border-slate-300 text-right font-medium">
+            $2,500.00
+          </TableCell>
         </TableRow>
       </TableFooter>
     </Table>

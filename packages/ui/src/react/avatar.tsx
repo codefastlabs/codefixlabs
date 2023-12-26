@@ -27,6 +27,7 @@ export const Avatar = forwardRef<
       className,
       classNames?.root,
     )}
+    data-test-id="root"
     ref={forwardedRef}
     {...props}
   >
@@ -36,6 +37,7 @@ export const Avatar = forwardRef<
         'bg-primary aspect-square size-full object-cover object-center',
         classNames?.image,
       )}
+      data-test-id="image"
       src={src ?? undefined}
     />
     <Fallback
@@ -43,6 +45,7 @@ export const Avatar = forwardRef<
         'bg-muted flex size-full items-center justify-center text-sm',
         classNames?.fallback,
       )}
+      data-test-id="fallback"
     >
       {fallback ?? getFirstInitials(alt)}
     </Fallback>

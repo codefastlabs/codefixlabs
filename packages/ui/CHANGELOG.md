@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.81
+
+### Patch Changes
+
+- Add data-test-id attributes and update component styles
+
 ## 0.1.80
 
 ### Patch Changes
