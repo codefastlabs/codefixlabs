@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.82
+
+### Patch Changes
+
+- Update table header styling in UI
+
 ## 0.1.81
 
 ### Patch Changes
