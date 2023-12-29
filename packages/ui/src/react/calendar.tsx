@@ -5,6 +5,7 @@ import {
   CalendarDaysIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  Loader2Icon,
 } from 'lucide-react';
 import * as React from 'react';
 import {
@@ -59,10 +60,14 @@ import {
 
 export function DatePicker({
   classNameTrigger,
+  loading,
+  placeholder,
   slot,
   ...props
 }: React.ComponentProps<typeof Calendar> & {
   classNameTrigger?: string;
+  loading?: boolean;
+  placeholder?: string;
   slot?: {
     FormControl?: typeof FormControl;
   };
@@ -72,12 +77,12 @@ export function DatePicker({
       case 'single':
         return props.selected
           ? props.selected.toLocaleDateString()
-          : 'Select date';
+          : placeholder || 'Select date';
 
       case 'multiple':
         return props.selected
           ? props.selected.map((date) => date.toLocaleDateString()).join(', ')
-          : 'Select dates';
+          : placeholder || 'Select dates';
 
       case 'range':
         if (props.selected?.from && props.selected.to) {
@@ -91,12 +96,12 @@ export function DatePicker({
           return format(props.selected.from, 'M/d hh:mm a');
         }
 
-        return 'Select date range';
+        return placeholder || 'Select date range';
 
       default:
-        return 'Select date';
+        return placeholder || 'Select date';
     }
-  }, [props.mode, props.selected]);
+  }, [placeholder, props.mode, props.selected]);
 
   const Trigger = slot?.FormControl ?? Slot;
 
@@ -110,8 +115,14 @@ export function DatePicker({
             }),
             classNameTrigger,
           )}
+          disabled={loading}
         >
-          <CalendarDaysIcon className="size-4" />
+          {loading ? (
+            <Loader2Icon className="animate-spin" size={16} />
+          ) : (
+            <CalendarDaysIcon size={16} />
+          )}
+
           {displaySelected}
         </PopoverTrigger>
       </Trigger>

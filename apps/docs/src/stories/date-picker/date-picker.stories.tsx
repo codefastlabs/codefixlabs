@@ -227,6 +227,7 @@ function CalendarReactHookForm(
                   date < new Date('1900-01-01')
                 }
                 initialFocus
+                loading={form.formState.isSubmitting}
                 mode="range"
                 onSelect={(range) => {
                   field.onChange(range as FieldPathValue<FormValues, 'range'>);

@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.83
+
+### Patch Changes
+
+- Add loading state and placeholder text to DatePicker
+
 ## 0.1.82
 
 ### Patch Changes
