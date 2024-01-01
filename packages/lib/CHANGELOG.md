@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.32
+
+### Patch Changes
+
+- Remove unused hooks and update package dependencies
+
 ## 0.1.31
 
 ### Patch Changes

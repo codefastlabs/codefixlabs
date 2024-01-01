@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/ui",
-  "version": "0.1.83",
+  "version": "0.1.84",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -81,10 +81,10 @@
     "@tiptap/react": "^2.1.13",
     "@tiptap/starter-kit": "^2.1.13",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
+    "clsx": "^2.1.0",
     "cmdk": "^0.2.0",
     "date-fns": "^3.0.6",
-    "lucide-react": "^0.302.0",
+    "lucide-react": "^0.303.0",
     "pluralize": "^8.0.0",
     "react": "^18.2.0",
     "react-day-picker": "^8.10.0",
@@ -95,9 +95,9 @@
   "devDependencies": {
     "@codefixlabs/tailwindcss": "workspace:*",
     "@codefixlabs/tsconfig": "workspace:*",
-    "@types/node": "^20.10.5",
+    "@types/node": "^20.10.6",
     "@types/pluralize": "^0.0.33",
-    "@types/react": "^18.2.45",
+    "@types/react": "^18.2.46",
     "autoprefixer": "^10.4.16",
     "eslint-config-codefixlabs": "workspace:*",
     "postcss": "^8.4.32",

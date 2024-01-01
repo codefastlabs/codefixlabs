@@ -9,7 +9,7 @@ import remarkRehype from 'remark-rehype';
 import remarkStringify from 'remark-stringify';
 import { unified } from 'unified';
 
-const markdownToHTMLProcessor = unified()
+const convertMarkdownToHtmlProcess = unified()
   .use(remarkParse)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
@@ -17,31 +17,32 @@ const markdownToHTMLProcessor = unified()
   .use(rehypeSanitize)
   .use(rehypeStringify);
 
-const htmlToMarkdownProcessor = unified()
+const convertHtmlToMarkdownProcess = unified()
   .use(rehypeParse)
   .use(rehypeRemark)
   .use(remarkStringify);
 
-export function markdownToHTML(
-  markdown: string | number | null | undefined,
-): string {
-  if (!markdown) {
+type UnifiedProcessor =
+  | typeof convertMarkdownToHtmlProcess
+  | typeof convertHtmlToMarkdownProcess;
+
+const processConversion = (
+  processor: UnifiedProcessor,
+  content: string,
+): string => {
+  if (!content) {
     return '';
   }
 
-  const result = markdownToHTMLProcessor.processSync(markdown.toString());
+  const result = processor.processSync(content.toString());
 
   return result.toString();
+};
+
+export function markdownToHTML(markdown: string): string {
+  return processConversion(convertMarkdownToHtmlProcess, markdown);
 }
 
-export function htmlToMarkdown(
-  html: string | number | null | undefined,
-): string {
-  if (!html) {
-    return '';
-  }
-
-  const result = htmlToMarkdownProcessor.processSync(html.toString());
-
-  return result.toString();
+export function htmlToMarkdown(html: string): string {
+  return processConversion(convertHtmlToMarkdownProcess, html);
 }

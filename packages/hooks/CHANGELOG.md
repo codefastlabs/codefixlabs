@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.30
+
+### Patch Changes
+
+- Remove unused hooks and update package dependencies
+
 ## 0.1.29
 
 ### Patch Changes
