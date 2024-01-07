@@ -46,10 +46,6 @@ const alertDialogContentVariants = cva(
   },
 );
 
-type AlertDialogContentVariants = VariantProps<
-  typeof alertDialogContentVariants
->;
-
 /* -----------------------------------------------------------------------------
  * Provider: AlertDialogContext
  * -------------------------------------------------------------------------- */
@@ -82,7 +78,7 @@ export function AlertDialog({
  * -------------------------------------------------------------------------- */
 
 export interface AlertDialogContentProps
-  extends Omit<AlertDialogContentVariants, 'scrollable'>,
+  extends Omit<VariantProps<typeof alertDialogContentVariants>, 'scrollable'>,
     ContentProps {
   classNames?: {
     content?: string;

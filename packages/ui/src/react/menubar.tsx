@@ -131,10 +131,6 @@ const menubarCheckboxItemVariants = cva(
   },
 );
 
-type MenubarCheckboxItemVariants = VariantProps<
-  typeof menubarCheckboxItemVariants
->;
-
 const menubarRadioItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
@@ -414,7 +410,7 @@ MenubarItemIndicator.displayName = ItemIndicator.displayName;
 
 export interface MenubarCheckboxItemProps
   extends CheckboxItemProps,
-    MenubarCheckboxItemVariants {
+    VariantProps<typeof menubarCheckboxItemVariants> {
   shortcut?: string;
 }
 

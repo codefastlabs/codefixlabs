@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.86
+
+### Patch Changes
+
+- Refactor variant types in UI components
+
 ## 0.1.85
 
 ### Patch Changes

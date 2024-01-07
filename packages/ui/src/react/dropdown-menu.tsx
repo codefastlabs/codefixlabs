@@ -43,7 +43,7 @@ import { cn } from '@/lib/utils';
  * Classes
  * -------------------------------------------------------------------------- */
 
-export const dropdownMenuSubTriggerVariants = cva(
+const dropdownMenuSubTriggerVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
     'data-disabled:opacity-50 data-disabled:pointer-events-none',
@@ -75,11 +75,7 @@ export const dropdownMenuSubTriggerVariants = cva(
   },
 );
 
-type DropdownMenuSubTriggerVariants = VariantProps<
-  typeof dropdownMenuSubTriggerVariants
->;
-
-export const dropdownMenuItemVariants = cva(
+const dropdownMenuItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
     'data-disabled:opacity-50 data-disabled:pointer-events-none',
@@ -113,7 +109,7 @@ export const dropdownMenuItemVariants = cva(
   },
 );
 
-export const dropdownMenuCheckboxItemVariants = cva(
+const dropdownMenuCheckboxItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
     'data-disabled:opacity-50 data-disabled:pointer-events-none',
@@ -138,11 +134,7 @@ export const dropdownMenuCheckboxItemVariants = cva(
   },
 );
 
-type DropdownMenuCheckboxItemVariants = VariantProps<
-  typeof dropdownMenuCheckboxItemVariants
->;
-
-export const dropdownMenuRadioItemVariants = cva(
+const dropdownMenuRadioItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
     'data-disabled:opacity-50 data-disabled:pointer-events-none',
@@ -167,11 +159,7 @@ export const dropdownMenuRadioItemVariants = cva(
   },
 );
 
-type DropdownMenuRadioItemVariants = VariantProps<
-  typeof dropdownMenuRadioItemVariants
->;
-
-export const dropdownMenuLabelVariants = cva(
+const dropdownMenuLabelVariants = cva(
   'text-foreground cursor-default px-2 py-1.5 text-sm font-semibold',
   {
     defaultVariants: {
@@ -265,7 +253,7 @@ DropdownMenuSubContent.displayName = SubContent.displayName;
 
 export interface DropdownMenuSubTriggerProps
   extends SubTriggerProps,
-    DropdownMenuSubTriggerVariants {}
+    VariantProps<typeof dropdownMenuSubTriggerVariants> {}
 
 export const DropdownMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof SubTrigger>,
@@ -366,7 +354,7 @@ DropdownMenuItemIndicator.displayName = ItemIndicator.displayName;
 
 export interface DropdownMenuCheckboxItemProps
   extends CheckboxItemProps,
-    DropdownMenuCheckboxItemVariants {
+    VariantProps<typeof dropdownMenuCheckboxItemVariants> {
   shortcut?: string;
 }
 
@@ -404,7 +392,7 @@ DropdownMenuCheckboxItem.displayName = CheckboxItem.displayName;
 
 export interface DropdownMenuRadioItemProps
   extends RadioItemProps,
-    DropdownMenuRadioItemVariants {
+    VariantProps<typeof dropdownMenuRadioItemVariants> {
   shortcut?: string;
 }
 
