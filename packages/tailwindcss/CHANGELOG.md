@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.44
+
+### Patch Changes
+
+- Add new files and update dependencies
+
 ## 0.1.43
 
 ### Patch Changes

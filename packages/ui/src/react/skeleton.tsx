@@ -1,17 +1,19 @@
-import { twMerge } from 'tailwind-merge';
 import * as React from 'react';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: Skeleton
  * -------------------------------------------------------------------------- */
 
+export type SkeletonProps = React.HTMLAttributes<HTMLDivElement>;
+
 export function Skeleton({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>): React.JSX.Element {
+}: SkeletonProps): React.JSX.Element {
   return (
     <div
-      className={twMerge(
+      className={cn(
         'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent',
         'bg-secondary relative max-w-full overflow-hidden rounded',
         className,
@@ -72,16 +74,18 @@ const heightMapping: Record<FontSize, string> = {
   '9xl': 'h-32',
 };
 
+export interface TextSkeletonProps {
+  className?: string;
+  text?: FontSize;
+}
+
 export function TextSkeleton({
   className,
   text = 'base',
-}: {
-  className?: string;
-  text?: FontSize;
-}): React.JSX.Element {
+}: TextSkeletonProps): React.JSX.Element {
   return (
     <div className={paddingMapping[text]}>
-      <Skeleton className={twMerge(heightMapping[text], className)} />
+      <Skeleton className={cn(heightMapping[text], className)} />
     </div>
   );
 }

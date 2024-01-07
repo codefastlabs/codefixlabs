@@ -1,3 +1,10 @@
+import type {
+  AccordionContentProps,
+  AccordionItemProps,
+  AccordionMultipleProps,
+  AccordionSingleProps,
+  AccordionTriggerProps as TriggerProps,
+} from '@radix-ui/react-accordion';
 import {
   Content,
   Header,
@@ -7,22 +14,19 @@ import {
 } from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from 'lucide-react';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: Accordion
  * -------------------------------------------------------------------------- */
 
-export const Accordion = forwardRef<
+export type AccordionProps = AccordionSingleProps | AccordionMultipleProps;
+
+export const Accordion = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root>
+  AccordionProps
 >(({ className, ...props }, forwardedRef) => (
-  <Root
-    className={twMerge('divide-y', className)}
-    ref={forwardedRef}
-    {...props}
-  />
+  <Root className={cn('divide-y', className)} ref={forwardedRef} {...props} />
 ));
 
 Accordion.displayName = Root.displayName;
@@ -31,12 +35,14 @@ Accordion.displayName = Root.displayName;
  * Component: AccordionItem
  * -------------------------------------------------------------------------- */
 
-export const AccordionItem = forwardRef<
+export type { AccordionItemProps };
+
+export const AccordionItem = React.forwardRef<
   React.ElementRef<typeof Item>,
-  React.ComponentPropsWithoutRef<typeof Item>
+  AccordionItemProps
 >(({ className, ...props }, forwardedRef) => (
   <Item
-    className={twMerge(
+    className={cn(
       'overflow-hidden focus-within:relative focus-within:z-40',
       className,
     )}
@@ -51,19 +57,21 @@ AccordionItem.displayName = Item.displayName;
  * Component: AccordionTrigger
  * -------------------------------------------------------------------------- */
 
-export const AccordionTrigger = forwardRef<
+export interface AccordionTriggerProps extends TriggerProps {
+  classNames?: {
+    header?: string;
+    trigger?: string;
+    icon?: string;
+  };
+}
+
+export const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof Trigger>,
-  React.ComponentPropsWithoutRef<typeof Trigger> & {
-    classNames?: {
-      header?: string;
-      trigger?: string;
-      icon?: string;
-    };
-  }
+  AccordionTriggerProps
 >(({ children, className, classNames, ...props }, forwardedRef) => (
-  <Header className={twMerge('flex', classNames?.header)} data-test-id="header">
+  <Header className={cn('flex', classNames?.header)} data-test-id="header">
     <Trigger
-      className={twMerge(
+      className={cn(
         'group flex flex-1 cursor-pointer items-center justify-between py-4 text-base font-medium outline-none transition',
         className,
         classNames?.trigger,
@@ -76,7 +84,7 @@ export const AccordionTrigger = forwardRef<
         {children}
         <ChevronDownIcon
           aria-hidden
-          className={twMerge(
+          className={cn(
             'group-data-state-open:rotate-180 text-accent-foreground size-4 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)]',
             classNames?.icon,
           )}
@@ -93,12 +101,14 @@ AccordionTrigger.displayName = Trigger.displayName;
  * Component: AccordionContent
  * -------------------------------------------------------------------------- */
 
-export const AccordionContent = forwardRef<
+export type { AccordionContentProps };
+
+export const AccordionContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  React.ComponentPropsWithoutRef<typeof Content>
+  AccordionContentProps
 >(({ className, ...props }, forwardedRef) => (
   <Content
-    className={twMerge(
+    className={cn(
       'text-muted-foreground overflow-hidden text-base',
       'data-state-open:animate-collapsible-down data-state-closed:animate-collapsible-up',
       className,

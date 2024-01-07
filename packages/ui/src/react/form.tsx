@@ -1,17 +1,18 @@
+import type { SlotProps as FormControlProps } from '@radix-ui/react-slot';
 import { Slot } from '@radix-ui/react-slot';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import { createContext, forwardRef, useContext, useId } from 'react';
 import type {
-  ControllerProps,
+  ControllerProps as FormFieldProps,
   FieldError,
   FieldPath,
   FieldValues,
 } from 'react-hook-form';
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
-import { twMerge } from 'tailwind-merge';
+import type { LabelProps as FormLabelProps } from '@/react/label';
 import { Label } from '@/react/label';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -29,8 +30,6 @@ const formItemVariants = cva(undefined, {
   },
 });
 
-type FormItemVariants = VariantProps<typeof formItemVariants>;
-
 /* -----------------------------------------------------------------------------
  * Contexts
  * -------------------------------------------------------------------------- */
@@ -46,11 +45,11 @@ interface FormItemContextValue {
   id: string;
 }
 
-export const FormFieldContext = createContext<FormFieldContextValue>(
+export const FormFieldContext = React.createContext<FormFieldContextValue>(
   {} as FormFieldContextValue,
 );
 
-export const FormItemContext = createContext<{
+export const FormItemContext = React.createContext<{
   id: string;
 }>({} as FormItemContextValue);
 
@@ -65,8 +64,8 @@ export function useFormField(): {
   formDescriptionId: string;
   formMessageId: string;
 } {
-  const fieldContext = useContext(FormFieldContext);
-  const itemContext = useContext(FormItemContext);
+  const fieldContext = React.useContext(FormFieldContext);
+  const itemContext = React.useContext(FormItemContext);
   const { getFieldState, formState } = useFormContext();
   const fieldState = getFieldState(fieldContext.name, formState);
 
@@ -90,16 +89,18 @@ export function useFormField(): {
  * Component: Form
  * -------------------------------------------------------------------------- */
 
-export const Form = FormProvider;
+export { FormProvider as Form };
 
 /* -----------------------------------------------------------------------------
  * Component: FormField
  * -------------------------------------------------------------------------- */
 
+export type { FormFieldProps };
+
 export function FormField<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
->(props: ControllerProps<TFieldValues, TName>): React.JSX.Element {
+>(props: FormFieldProps<TFieldValues, TName>): React.JSX.Element {
   return (
     <FormFieldContext.Provider value={{ name: props.name }}>
       <Controller {...props} />
@@ -111,22 +112,25 @@ export function FormField<
  * Component: FormItem
  * -------------------------------------------------------------------------- */
 
-export const FormItem = forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & FormItemVariants
->(({ className, inline = false, ...props }, forwardedRef) => {
-  const id = useId();
+export interface FormItemProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof formItemVariants> {}
 
-  return (
-    <FormItemContext.Provider value={{ id }}>
-      <div
-        className={twMerge(formItemVariants({ inline }), className)}
-        ref={forwardedRef}
-        {...props}
-      />
-    </FormItemContext.Provider>
-  );
-});
+export const FormItem = React.forwardRef<HTMLDivElement, FormItemProps>(
+  ({ className, inline = false, ...props }, forwardedRef) => {
+    const id = React.useId();
+
+    return (
+      <FormItemContext.Provider value={{ id }}>
+        <div
+          className={cn(formItemVariants({ inline }), className)}
+          ref={forwardedRef}
+          {...props}
+        />
+      </FormItemContext.Provider>
+    );
+  },
+);
 
 FormItem.displayName = 'FormItem';
 
@@ -134,9 +138,11 @@ FormItem.displayName = 'FormItem';
  * Component: FormLabel
  * -------------------------------------------------------------------------- */
 
-export const FormLabel = forwardRef<
+export type { FormLabelProps };
+
+export const FormLabel = React.forwardRef<
   React.ElementRef<typeof Label>,
-  React.ComponentPropsWithoutRef<typeof Label>
+  FormLabelProps
 >(({ ...props }, forwardedRef) => {
   const { formItemId } = useFormField();
 
@@ -149,9 +155,11 @@ FormLabel.displayName = Label.displayName;
  * Component: FormLabelNative
  * -------------------------------------------------------------------------- */
 
-export const FormLabelNative = forwardRef<
+export type FormLabelNativeProps = React.LabelHTMLAttributes<HTMLLabelElement>;
+
+export const FormLabelNative = React.forwardRef<
   HTMLLabelElement,
-  React.LabelHTMLAttributes<HTMLLabelElement>
+  FormLabelNativeProps
 >(({ ...props }, forwardedRef) => {
   const { formItemId } = useFormField();
 
@@ -164,9 +172,11 @@ FormLabelNative.displayName = 'FormLabelNative';
  * Component: FormControl
  * -------------------------------------------------------------------------- */
 
-export const FormControl = forwardRef<
+export type { FormControlProps };
+
+export const FormControl = React.forwardRef<
   React.ElementRef<typeof Slot>,
-  React.ComponentPropsWithoutRef<typeof Slot>
+  FormControlProps
 >((props, forwardedRef) => {
   const { error, formItemId, formDescriptionId, formMessageId } =
     useFormField();
@@ -192,15 +202,17 @@ FormControl.displayName = 'FormControl';
  * Component: FormDescription
  * -------------------------------------------------------------------------- */
 
-export const FormDescription = forwardRef<
+export type FormDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>;
+
+export const FormDescription = React.forwardRef<
   HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
+  FormDescriptionProps
 >(({ className, ...props }, forwardedRef) => {
   const { formDescriptionId } = useFormField();
 
   return (
     <p
-      className={twMerge('text-muted-foreground text-sm', className)}
+      className={cn('text-muted-foreground text-sm', className)}
       id={formDescriptionId}
       ref={forwardedRef}
       {...props}
@@ -214,9 +226,11 @@ FormDescription.displayName = 'FormDescription';
  * Component: FormMessage
  * -------------------------------------------------------------------------- */
 
-export const FormMessage = forwardRef<
+export type FormMessageProps = React.HTMLAttributes<HTMLParagraphElement>;
+
+export const FormMessage = React.forwardRef<
   HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
+  FormMessageProps
 >(({ children, className, ...props }, forwardedRef) => {
   const { error, formMessageId } = useFormField();
   const body = error ? String(error.message) : children;
@@ -225,7 +239,7 @@ export const FormMessage = forwardRef<
     <>
       {body ? (
         <p
-          className={twMerge('text-destructive text-xs', className)}
+          className={cn('text-destructive text-xs', className)}
           id={formMessageId}
           ref={forwardedRef}
           {...props}

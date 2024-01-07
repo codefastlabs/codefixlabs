@@ -1,18 +1,20 @@
+import type { SeparatorProps } from '@radix-ui/react-separator';
 import { Root } from '@radix-ui/react-separator';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: Separator
  * -------------------------------------------------------------------------- */
 
-export const Separator = forwardRef<
+export type { SeparatorProps };
+
+export const Separator = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root>
+  SeparatorProps
 >(({ className, ...props }, forwardedRef) => (
   <Root
-    className={twMerge(
+    className={cn(
       'bg-border relative inline-flex shrink-0 items-center justify-center',
       props.orientation === 'vertical'
         ? 'mx-2 h-full w-px'

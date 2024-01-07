@@ -1,4 +1,3 @@
-import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import type { ClassValue } from 'clsx';
 
@@ -120,15 +119,6 @@ export const buttonVariants = cva(
     'disabled:pointer-events-none disabled:duration-0',
   ],
   {
-    compoundVariants: [...compoundSizes],
-    defaultVariants: {
-      block: false,
-      icon: false,
-      justify: 'center',
-      shape: 'rounded',
-      size: 'md',
-      variant: 'primary',
-    },
     variants: {
       block: {
         false: 'inline-flex',
@@ -190,7 +180,14 @@ export const buttonVariants = cva(
         ],
       },
     },
+    compoundVariants: [...compoundSizes],
+    defaultVariants: {
+      block: false,
+      icon: false,
+      justify: 'center',
+      shape: 'rounded',
+      size: 'md',
+      variant: 'primary',
+    },
   },
 );
-
-export type ButtonVariants = VariantProps<typeof buttonVariants>;

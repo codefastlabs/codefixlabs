@@ -1,30 +1,31 @@
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: Table
  * -------------------------------------------------------------------------- */
 
-export const Table = forwardRef<
-  HTMLTableElement,
-  React.TableHTMLAttributes<HTMLTableElement> & {
-    classNames?: {
-      wrapper?: string;
-    };
-  }
->(({ className, classNames, ...props }, forwardedRef) => (
-  <div
-    className={twMerge('size-full overflow-auto', classNames?.wrapper)}
-    data-test-id="wrapper"
-  >
-    <table
-      className={twMerge('w-full text-sm', className)}
-      ref={forwardedRef}
-      {...props}
-    />
-  </div>
-));
+export interface TableProps
+  extends React.TableHTMLAttributes<HTMLTableElement> {
+  classNames?: {
+    wrapper?: string;
+  };
+}
+
+export const Table = React.forwardRef<HTMLTableElement, TableProps>(
+  ({ className, classNames, ...props }, forwardedRef) => (
+    <div
+      className={cn('size-full overflow-auto', classNames?.wrapper)}
+      data-test-id="wrapper"
+    >
+      <table
+        className={cn('w-full text-sm', className)}
+        ref={forwardedRef}
+        {...props}
+      />
+    </div>
+  ),
+);
 
 Table.displayName = 'Table';
 
@@ -32,15 +33,14 @@ Table.displayName = 'Table';
  * Component: TableHeader
  * -------------------------------------------------------------------------- */
 
-export const TableHeader = forwardRef<
+export type TableHeaderProps = React.HTMLAttributes<HTMLTableSectionElement>;
+
+export const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
-  React.HTMLAttributes<HTMLTableSectionElement>
+  TableHeaderProps
 >(({ className, ...props }, forwardedRef) => (
   <thead
-    className={twMerge(
-      'bg-muted text-muted-foreground *:bg-inherit',
-      className,
-    )}
+    className={cn('bg-muted text-muted-foreground *:bg-inherit', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -52,12 +52,14 @@ TableHeader.displayName = 'TableHeader';
  * Component: TableBody
  * -------------------------------------------------------------------------- */
 
-export const TableBody = forwardRef<
+export type TableBodyProps = React.HTMLAttributes<HTMLTableSectionElement>;
+
+export const TableBody = React.forwardRef<
   HTMLTableSectionElement,
-  React.HTMLAttributes<HTMLTableSectionElement>
+  TableBodyProps
 >(({ className, ...props }, forwardedRef) => (
   <tbody
-    className={twMerge(
+    className={cn(
       '*:bg-background data-state-selected:*:bg-muted/75 hover:*:bg-muted/50 *:transition-colors empty:*:hidden',
       className,
     )}
@@ -72,12 +74,14 @@ TableBody.displayName = 'TableBody';
  * Component: TableFooter
  * -------------------------------------------------------------------------- */
 
-export const TableFooter = forwardRef<
+export type TableFooterProps = React.HTMLAttributes<HTMLTableSectionElement>;
+
+export const TableFooter = React.forwardRef<
   HTMLTableSectionElement,
-  React.HTMLAttributes<HTMLTableSectionElement>
+  TableFooterProps
 >(({ className, ...props }, forwardedRef) => (
   <tfoot
-    className={twMerge('bg-muted text-muted-foreground', className)}
+    className={cn('bg-muted text-muted-foreground', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -89,19 +93,20 @@ TableFooter.displayName = 'TableFooter';
  * Component: TableHead
  * -------------------------------------------------------------------------- */
 
-export const TableHead = forwardRef<
-  HTMLTableCellElement,
-  React.ThHTMLAttributes<HTMLTableCellElement>
->(({ className, ...props }, forwardedRef) => (
-  <th
-    className={twMerge(
-      'relative h-12 whitespace-nowrap px-4 text-left font-medium',
-      className,
-    )}
-    ref={forwardedRef}
-    {...props}
-  />
-));
+export type TableHeadProps = React.ThHTMLAttributes<HTMLTableCellElement>;
+
+export const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
+  ({ className, ...props }, forwardedRef) => (
+    <th
+      className={cn(
+        'relative h-12 whitespace-nowrap px-4 text-left font-medium',
+        className,
+      )}
+      ref={forwardedRef}
+      {...props}
+    />
+  ),
+);
 
 TableHead.displayName = 'TableHead';
 
@@ -109,12 +114,13 @@ TableHead.displayName = 'TableHead';
  * Component: TableRow
  * -------------------------------------------------------------------------- */
 
-export const TableRow = forwardRef<
-  HTMLTableRowElement,
-  React.HTMLAttributes<HTMLTableRowElement>
->(({ className, ...props }, forwardedRef) => (
-  <tr className={twMerge('group', className)} ref={forwardedRef} {...props} />
-));
+export type TableRowProps = React.HTMLAttributes<HTMLTableRowElement>;
+
+export const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(
+  ({ className, ...props }, forwardedRef) => (
+    <tr className={cn('group', className)} ref={forwardedRef} {...props} />
+  ),
+);
 
 TableRow.displayName = 'TableRow';
 
@@ -122,16 +128,17 @@ TableRow.displayName = 'TableRow';
  * Component: TableCell
  * -------------------------------------------------------------------------- */
 
-export const TableCell = forwardRef<
-  HTMLTableCellElement,
-  React.TdHTMLAttributes<HTMLTableCellElement>
->(({ className, ...props }, forwardedRef) => (
-  <td
-    className={twMerge('relative px-4 py-2 text-left', className)}
-    ref={forwardedRef}
-    {...props}
-  />
-));
+export type TableCellProps = React.TdHTMLAttributes<HTMLTableCellElement>;
+
+export const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
+  ({ className, ...props }, forwardedRef) => (
+    <td
+      className={cn('relative px-4 py-2 text-left', className)}
+      ref={forwardedRef}
+      {...props}
+    />
+  ),
+);
 
 TableCell.displayName = 'TableCell';
 
@@ -139,18 +146,19 @@ TableCell.displayName = 'TableCell';
  * Component: TableCaption
  * -------------------------------------------------------------------------- */
 
-export const TableCaption = forwardRef<
-  HTMLElement,
-  React.HTMLAttributes<HTMLElement>
->(({ className, ...props }, forwardedRef) => (
-  <caption
-    className={twMerge(
-      'text-muted-foreground mt-4 caption-bottom text-sm',
-      className,
-    )}
-    ref={forwardedRef}
-    {...props}
-  />
-));
+export type TableCaptionProps = React.HTMLAttributes<HTMLElement>;
+
+export const TableCaption = React.forwardRef<HTMLElement, TableCaptionProps>(
+  ({ className, ...props }, forwardedRef) => (
+    <caption
+      className={cn(
+        'text-muted-foreground mt-4 caption-bottom text-sm',
+        className,
+      )}
+      ref={forwardedRef}
+      {...props}
+    />
+  ),
+);
 
 TableCaption.displayName = 'TableCaption';

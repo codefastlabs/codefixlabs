@@ -1,46 +1,34 @@
-import { cx } from 'class-variance-authority';
 import * as React from 'react';
-import {
-  Toast,
-  ToastDescription,
-  ToastProvider,
-  ToastTitle,
-  ToastViewport,
-} from '@/react/toast';
-import { useToast } from '@/react/use-toast';
+import { toast, Toaster as Sonner } from 'sonner';
+
+/* -----------------------------------------------------------------------------
+ * Function: toast
+ * -------------------------------------------------------------------------- */
+
+export { toast };
 
 /* -----------------------------------------------------------------------------
  * Component: Toaster
  * -------------------------------------------------------------------------- */
 
-export function Toaster({
-  position,
-  ...props
-}: Pick<React.ComponentPropsWithoutRef<typeof ToastViewport>, 'position'> &
-  React.ComponentPropsWithoutRef<typeof ToastProvider>): React.JSX.Element {
-  const { toasts } = useToast();
+export type ToasterProps = React.ComponentProps<typeof Sonner>;
 
+export function Toaster(props: ToasterProps): React.JSX.Element {
   return (
-    <ToastProvider {...props}>
-      {toasts.map(({ id, title, description, action, className, ...rest }) => (
-        <Toast
-          key={id}
-          {...rest}
-          className={cx('flex items-center justify-between gap-4', className)}
-        >
-          <div className="flex flex-col gap-1">
-            {title ? <ToastTitle>{title}</ToastTitle> : null}
-
-            {description ? (
-              <ToastDescription>{description}</ToastDescription>
-            ) : null}
-          </div>
-
-          {action}
-        </Toast>
-      ))}
-
-      <ToastViewport position={position} />
-    </ToastProvider>
+    <Sonner
+      className="toaster group"
+      toastOptions={{
+        classNames: {
+          toast:
+            'group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg',
+          description: 'group-[.toast]:text-muted-foreground',
+          actionButton:
+            'group-[.toast]:bg-primary group-[.toast]:text-primary-foreground',
+          cancelButton:
+            'group-[.toast]:bg-muted group-[.toast]:text-muted-foreground',
+        },
+      }}
+      {...props}
+    />
   );
 }

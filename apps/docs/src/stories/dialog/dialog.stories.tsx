@@ -74,8 +74,9 @@ export const Basic: Story = {
           </div>
         </DialogBody>
         <DialogFooter>
-          <DialogClose asChild className="ml-auto">
-            <Button type="submit">Save changes</Button>
+          <DialogClose>Cancel</DialogClose>
+          <DialogClose type="submit" variant="primary">
+            Save changes
           </DialogClose>
         </DialogFooter>
       </DialogContent>
@@ -118,8 +119,9 @@ export const Scrolling: Story = {
         </DialogBody>
 
         <DialogFooter>
-          <DialogClose asChild className="ml-auto">
-            <Button type="submit">Save changes</Button>
+          <DialogClose>Cancel</DialogClose>
+          <DialogClose type="submit" variant="primary">
+            Save changes
           </DialogClose>
         </DialogFooter>
       </DialogContent>
@@ -271,13 +273,8 @@ function DialogForm(
             </DialogBody>
 
             <DialogFooter>
-              <DialogClose asChild>
-                <Button
-                  disabled={form.formState.isSubmitting}
-                  variant="outline"
-                >
-                  Cancel
-                </Button>
+              <DialogClose disabled={form.formState.isSubmitting}>
+                Cancel
               </DialogClose>
 
               <Button loading={form.formState.isSubmitting} type="submit">

@@ -1,9 +1,9 @@
+import type { ToggleProps as RootProps } from '@radix-ui/react-toggle';
 import { Root } from '@radix-ui/react-toggle';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -40,18 +40,20 @@ const toggleVariants = cva(
   },
 );
 
-type ToggleVariants = VariantProps<typeof toggleVariants>;
-
 /* -----------------------------------------------------------------------------
  * Component: Toggle
  * -------------------------------------------------------------------------- */
 
-export const Toggle = forwardRef<
+export interface ToggleProps
+  extends RootProps,
+    VariantProps<typeof toggleVariants> {}
+
+export const Toggle = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root> & ToggleVariants
+  ToggleProps
 >(({ className, variant, size, ...props }, forwardedRef) => (
   <Root
-    className={twMerge(toggleVariants({ size, variant }), className)}
+    className={cn(toggleVariants({ size, variant }), className)}
     ref={forwardedRef}
     {...props}
   />

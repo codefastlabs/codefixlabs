@@ -12,6 +12,7 @@ import {
 } from '@codefixlabs/ui';
 import { BellIcon, CheckIcon } from 'lucide-react';
 import Link from 'next/link';
+import * as React from 'react';
 
 const notifications = [
   {

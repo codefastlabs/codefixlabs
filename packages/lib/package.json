@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/lib",
-  "version": "0.1.32",
+  "version": "0.1.33",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -27,11 +27,6 @@
     "clean": "rm -rf dist .turbo node_modules",
     "dev": "tsup --watch",
     "lint": "eslint src/"
-  },
-  "eslintConfig": {
-    "extends": [
-      "eslint-config-codefixlabs/react"
-    ]
   },
   "dependencies": {
     "libphonenumber-js": "^1.10.53",

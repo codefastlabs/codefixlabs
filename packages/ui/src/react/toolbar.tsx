@@ -1,3 +1,12 @@
+import type {
+  ToolbarButtonProps,
+  ToolbarLinkProps,
+  ToolbarProps,
+  ToolbarSeparatorProps,
+  ToolbarToggleGroupMultipleProps,
+  ToolbarToggleGroupSingleProps,
+  ToolbarToggleItemProps as ToggleItemProps,
+} from '@radix-ui/react-toolbar';
 import {
   Button,
   Link,
@@ -9,8 +18,7 @@ import {
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -47,21 +55,18 @@ const toolbarToggleItemVariants = cva(
   },
 );
 
-type ToolbarToggleItemVariants = VariantProps<typeof toolbarToggleItemVariants>;
-
 /* -----------------------------------------------------------------------------
  * Component: Toolbar
  * -------------------------------------------------------------------------- */
 
-export const Toolbar = forwardRef<
+export type { ToolbarProps };
+
+export const Toolbar = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root>
+  ToolbarProps
 >(({ className, ...props }, forwardedRef) => (
   <Root
-    className={twMerge(
-      'flex w-full min-w-max rounded-md border p-1',
-      className,
-    )}
+    className={cn('flex w-full min-w-max rounded-md border p-1', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -73,12 +78,14 @@ Toolbar.displayName = Root.displayName;
  * Component: ToolbarSeparator
  * -------------------------------------------------------------------------- */
 
-export const ToolbarSeparator = forwardRef<
+export type { ToolbarSeparatorProps };
+
+export const ToolbarSeparator = React.forwardRef<
   React.ElementRef<typeof Separator>,
-  React.ComponentPropsWithoutRef<typeof Separator>
+  ToolbarSeparatorProps
 >(({ className, ...props }, forwardedRef) => (
   <Separator
-    className={twMerge('bg-border mx-2.5 w-px', className)}
+    className={cn('bg-border mx-2.5 w-px', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -90,12 +97,14 @@ ToolbarSeparator.displayName = Separator.displayName;
  * Component: ToolbarButton
  * -------------------------------------------------------------------------- */
 
-export const ToolbarButton = forwardRef<
+export type { ToolbarButtonProps };
+
+export const ToolbarButton = React.forwardRef<
   React.ElementRef<typeof Button>,
-  React.ComponentPropsWithoutRef<typeof Button>
+  ToolbarButtonProps
 >(({ className, ...props }, forwardedRef) => (
   <Button
-    className={twMerge(
+    className={cn(
       'bg-primary my-auto flex h-7 shrink-0 grow-0 basis-auto items-center justify-center rounded px-2.5 text-sm text-white outline-none',
       'hover:bg-primary/90',
       'ring-offset-background',
@@ -113,12 +122,14 @@ ToolbarButton.displayName = Button.displayName;
  * Component: ToolbarLink
  * -------------------------------------------------------------------------- */
 
-export const ToolbarLink = forwardRef<
+export type { ToolbarLinkProps };
+
+export const ToolbarLink = React.forwardRef<
   React.ElementRef<typeof Link>,
-  React.ComponentPropsWithoutRef<typeof Link>
+  ToolbarLinkProps
 >(({ className, ...props }, forwardedRef) => (
   <Link
-    className={twMerge(
+    className={cn(
       'px-1.25 text-muted-foreground my-auto flex h-7 shrink-0 grow-0 basis-auto items-center justify-center rounded-md bg-transparent text-sm',
       'hover:text-primary hover:cursor-pointer hover:bg-transparent',
       'ring-offset-background',
@@ -136,12 +147,16 @@ ToolbarLink.displayName = Link.displayName;
  * Component: ToolbarToggleGroup
  * -------------------------------------------------------------------------- */
 
-export const ToolbarToggleGroup = forwardRef<
+export type ToolbarToggleGroupProps =
+  | ToolbarToggleGroupSingleProps
+  | ToolbarToggleGroupMultipleProps;
+
+export const ToolbarToggleGroup = React.forwardRef<
   React.ElementRef<typeof ToggleGroup>,
-  React.ComponentPropsWithoutRef<typeof ToggleGroup>
+  ToolbarToggleGroupProps
 >(({ className, ...props }, forwardedRef) => (
   <ToggleGroup
-    className={twMerge(
+    className={cn(
       'flex items-center gap-0.5',
       'data-orientation-vertical:flex-col',
       className,
@@ -157,14 +172,18 @@ ToolbarToggleGroup.displayName = ToggleGroup.displayName;
  * Component: ToolbarToggleItem
  * -------------------------------------------------------------------------- */
 
-export const ToolbarToggleItem = forwardRef<
+export interface ToolbarToggleItemProps
+  extends ToggleItemProps,
+    VariantProps<typeof toolbarToggleItemVariants> {}
+
+export const ToolbarToggleItem = React.forwardRef<
   React.ElementRef<typeof ToggleItem>,
-  React.ComponentPropsWithoutRef<typeof ToggleItem> & ToolbarToggleItemVariants
+  ToolbarToggleItemProps
 >(({ className, variant = 'primary', size = 'sm', ...props }, forwardedRef) => (
   <ToggleItem
     ref={forwardedRef}
     {...props}
-    className={twMerge(toolbarToggleItemVariants({ size, variant }), className)}
+    className={cn(toolbarToggleItemVariants({ size, variant }), className)}
   />
 ));
 

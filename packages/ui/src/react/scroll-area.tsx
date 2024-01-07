@@ -1,3 +1,10 @@
+import type {
+  ScrollAreaCornerProps,
+  ScrollAreaProps,
+  ScrollAreaScrollbarProps,
+  ScrollAreaThumbProps,
+  ScrollAreaViewportProps,
+} from '@radix-ui/react-scroll-area';
 import {
   Corner,
   Root,
@@ -6,19 +13,20 @@ import {
   Viewport,
 } from '@radix-ui/react-scroll-area';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: ScrollAreaViewport
  * -------------------------------------------------------------------------- */
 
-export const ScrollAreaViewport = forwardRef<
+export type { ScrollAreaViewportProps };
+
+export const ScrollAreaViewport = React.forwardRef<
   React.ElementRef<typeof Viewport>,
-  React.ComponentPropsWithoutRef<typeof Viewport>
+  ScrollAreaViewportProps
 >(({ className, ...props }, forwardedRef) => (
   <Viewport
-    className={twMerge('rounded-inherit size-full', className)}
+    className={cn('rounded-inherit size-full', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -30,12 +38,14 @@ ScrollAreaViewport.displayName = Viewport.displayName;
  * Component: ScrollAreaScrollbar
  * -------------------------------------------------------------------------- */
 
-export const ScrollAreaScrollbar = forwardRef<
+export type { ScrollAreaScrollbarProps };
+
+export const ScrollAreaScrollbar = React.forwardRef<
   React.ElementRef<typeof Scrollbar>,
-  React.ComponentPropsWithoutRef<typeof Scrollbar>
+  ScrollAreaScrollbarProps
 >(({ className, ...props }, forwardedRef) => (
   <Scrollbar
-    className={twMerge(
+    className={cn(
       'z-50 flex touch-none select-none p-0.5 transition-colors duration-[160ms] ease-out',
       'data-orientation-horizontal:h-2.5 data-orientation-horizontal:flex-col',
       'data-orientation-vertical:w-2.5',
@@ -52,12 +62,14 @@ ScrollAreaScrollbar.displayName = Scrollbar.displayName;
  * Component: ScrollAreaThumb
  * -------------------------------------------------------------------------- */
 
-export const ScrollAreaThumb = forwardRef<
+export type { ScrollAreaThumbProps };
+
+export const ScrollAreaThumb = React.forwardRef<
   React.ElementRef<typeof Thumb>,
-  React.ComponentPropsWithoutRef<typeof Thumb>
+  ScrollAreaThumbProps
 >(({ className, ...props }, forwardedRef) => (
   <Thumb
-    className={twMerge(
+    className={cn(
       'bg-border relative flex-1 rounded-full',
       'before:absolute before:left-1/2 before:top-1/2 before:h-full before:min-h-11 before:w-full before:min-w-11 before:-translate-x-1/2 before:-translate-y-1/2',
       className,
@@ -73,12 +85,14 @@ ScrollAreaThumb.displayName = Thumb.displayName;
  * Component: ScrollAreaCorner
  * -------------------------------------------------------------------------- */
 
-export const ScrollAreaCorner = forwardRef<
+export type { ScrollAreaCornerProps };
+
+export const ScrollAreaCorner = React.forwardRef<
   React.ElementRef<typeof Corner>,
-  React.ComponentPropsWithoutRef<typeof Corner>
+  ScrollAreaCornerProps
 >(({ className, ...props }, forwardedRef) => (
   <Corner
-    className={twMerge('rounded-tl-md bg-black/20', className)}
+    className={cn('rounded-tl-md bg-black/20', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -90,12 +104,14 @@ ScrollAreaCorner.displayName = Corner.displayName;
  * Component: ScrollArea
  * -------------------------------------------------------------------------- */
 
-export const ScrollArea = forwardRef<
+export type { ScrollAreaProps };
+
+export const ScrollArea = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root>
+  ScrollAreaProps
 >(({ children, className, ...props }, forwardedRef) => (
   <Root
-    className={twMerge('relative overflow-hidden', className)}
+    className={cn('relative overflow-hidden', className)}
     ref={forwardedRef}
     {...props}
   >

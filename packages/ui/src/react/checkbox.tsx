@@ -1,19 +1,24 @@
+import type {
+  CheckboxIndicatorProps,
+  CheckboxProps,
+} from '@radix-ui/react-checkbox';
 import { Indicator, Root } from '@radix-ui/react-checkbox';
 import { CheckIcon, MinusIcon } from 'lucide-react';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: CheckboxIndicator
  * -------------------------------------------------------------------------- */
 
-export const CheckboxIndicator = forwardRef<
+export type { CheckboxIndicatorProps };
+
+export const CheckboxIndicator = React.forwardRef<
   React.ElementRef<typeof Indicator>,
-  React.ComponentPropsWithoutRef<typeof Indicator>
+  CheckboxIndicatorProps
 >(({ className, ...props }, forwardedRef) => (
   <Indicator
-    className={twMerge(
+    className={cn(
       'flex items-center justify-center fill-current text-current',
       className,
     )}
@@ -28,12 +33,14 @@ CheckboxIndicator.displayName = Indicator.displayName;
  * Component: Checkbox
  * -------------------------------------------------------------------------- */
 
-export const Checkbox = forwardRef<
+export type { CheckboxProps };
+
+export const Checkbox = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root>
+  CheckboxProps
 >(({ className, ...props }, forwardedRef) => (
   <Root
-    className={twMerge(
+    className={cn(
       'border-muted-foreground size-4.25 peer flex shrink-0 items-center justify-center rounded-[0.25rem] border',
       'ring-offset-background',
       'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',

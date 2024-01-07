@@ -1,10 +1,10 @@
 import type { VariantProps } from 'class-variance-authority';
-import { cva, cx } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import * as React from 'react';
-import { forwardRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Button } from '@/react/button';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -40,8 +40,6 @@ const primitiveInputVariants = cva(
   },
 );
 
-type PrimitiveInputVariants = VariantProps<typeof primitiveInputVariants>;
-
 const inputVariants = cva('relative', {
   defaultVariants: {
     hasEndIcon: false,
@@ -61,21 +59,20 @@ const inputVariants = cva('relative', {
  * Component: PrimitiveInput
  * -------------------------------------------------------------------------- */
 
-type PrimitiveInputProps = Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  'size'
-> &
-  PrimitiveInputVariants;
+export interface PrimitiveInputProps
+  extends VariantProps<typeof primitiveInputVariants>,
+    Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {}
 
-export const PrimitiveInput = forwardRef<HTMLInputElement, PrimitiveInputProps>(
-  ({ className, size, inline, ...props }, forwardedRef) => (
-    <input
-      className={twMerge(primitiveInputVariants({ inline, size }), className)}
-      ref={forwardedRef}
-      {...props}
-    />
-  ),
-);
+export const PrimitiveInput = React.forwardRef<
+  HTMLInputElement,
+  PrimitiveInputProps
+>(({ className, size, inline, ...props }, forwardedRef) => (
+  <input
+    className={cn(primitiveInputVariants({ inline, size }), className)}
+    ref={forwardedRef}
+    {...props}
+  />
+));
 
 PrimitiveInput.displayName = 'PrimitiveInput';
 
@@ -83,20 +80,22 @@ PrimitiveInput.displayName = 'PrimitiveInput';
  * Component: InputPassword
  * -------------------------------------------------------------------------- */
 
-export const InputPassword = forwardRef<
+export type InputPasswordProps = Omit<PrimitiveInputProps, 'type'>;
+
+export const InputPassword = React.forwardRef<
   HTMLInputElement,
-  Omit<PrimitiveInputProps, 'type'>
+  InputPasswordProps
 >(({ className, ...props }, forwardedRef) => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = React.useState(false);
   const type = showPassword ? 'text' : 'password';
   const toggleShowPassword = (): void => {
     setShowPassword((prev) => !prev);
   };
 
   return (
-    <div className={cx('relative', props.inline && 'inline-block')}>
+    <div className={cn('relative', props.inline && 'inline-block')}>
       <PrimitiveInput
-        className={twMerge('pr-10.5', className)}
+        className={cn('pr-10.5', className)}
         ref={forwardedRef}
         type={type}
         {...props}
@@ -122,62 +121,63 @@ InputPassword.displayName = 'InputPassword';
  * Component: Input
  * -------------------------------------------------------------------------- */
 
-export const Input = forwardRef<
-  HTMLInputElement,
-  PrimitiveInputProps & {
-    startIcon?: React.ReactNode;
-    endIcon?: React.ReactNode;
-    classNames?: {
-      startIcon?: string;
-      endIcon?: string;
-      input?: string;
-    };
-  }
->(({ startIcon, endIcon, classNames, className, ...props }, forwardedRef) => (
-  <div
-    className={twMerge(
-      'relative',
-      props.inline ? 'inline-block' : 'w-full',
-      className,
-    )}
-  >
-    {startIcon ? (
-      <span
-        className={twMerge(
-          'text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2',
-          classNames?.startIcon,
-        )}
-        data-test-id="start-icon"
-      >
-        {startIcon}
-      </span>
-    ) : null}
+export interface InputProps extends PrimitiveInputProps {
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+  classNames?: {
+    startIcon?: string;
+    endIcon?: string;
+    input?: string;
+  };
+}
 
-    <PrimitiveInput
-      className={twMerge(
-        inputVariants({
-          className: twMerge('max-h-full', classNames?.input),
-          hasEndIcon: Boolean(endIcon),
-          hasStartIcon: Boolean(startIcon),
-        }),
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ startIcon, endIcon, classNames, className, ...props }, forwardedRef) => (
+    <div
+      className={cn(
+        'relative',
+        props.inline ? 'inline-block' : 'w-full',
+        className,
       )}
-      data-test-id="input"
-      ref={forwardedRef}
-      {...props}
-    />
+    >
+      {startIcon ? (
+        <span
+          className={cn(
+            'text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2',
+            classNames?.startIcon,
+          )}
+          data-test-id="start-icon"
+        >
+          {startIcon}
+        </span>
+      ) : null}
 
-    {endIcon ? (
-      <span
-        className={twMerge(
-          'text-muted-foreground absolute right-3 top-1/2 -translate-y-1/2',
-          classNames?.endIcon,
+      <PrimitiveInput
+        className={cn(
+          inputVariants({
+            className: twMerge('max-h-full', classNames?.input),
+            hasEndIcon: Boolean(endIcon),
+            hasStartIcon: Boolean(startIcon),
+          }),
         )}
-        data-test-id="end-icon"
-      >
-        {endIcon}
-      </span>
-    ) : null}
-  </div>
-));
+        data-test-id="input"
+        ref={forwardedRef}
+        {...props}
+      />
+
+      {endIcon ? (
+        <span
+          className={cn(
+            'text-muted-foreground absolute right-3 top-1/2 -translate-y-1/2',
+            classNames?.endIcon,
+          )}
+          data-test-id="end-icon"
+        >
+          {endIcon}
+        </span>
+      ) : null}
+    </div>
+  ),
+);
 
 Input.displayName = PrimitiveInput.displayName;

@@ -1,9 +1,8 @@
 import { Slot } from '@radix-ui/react-slot';
-import { cx } from 'class-variance-authority';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 import * as React from 'react';
-import { Fragment, useMemo, useState } from 'react';
 import { Button } from '@/react/button';
+import type { CommandItemProps, CommandProps } from '@/react/command';
 import {
   Command,
   CommandEmpty,
@@ -15,6 +14,7 @@ import {
 } from '@/react/command';
 import type { FormControl } from '@/react/form';
 import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Utils
@@ -64,18 +64,23 @@ function findComboboxOption(
  * Component: ComboboxGroupItem
  * -------------------------------------------------------------------------- */
 
+type ComboboxGroupItemProps = Omit<
+  CommandItemProps,
+  'onSelect' | 'selected'
+> & {
+  heading?: string;
+  options: Option[];
+  selected?: Option;
+  onSelect?: (value: Option) => void;
+};
+
 function ComboboxGroupItem({
   heading,
   options,
   selected,
   onSelect,
   ...props
-}: Omit<React.ComponentProps<typeof CommandItem>, 'onSelect' | 'selected'> & {
-  heading?: string;
-  options: Option[];
-  selected?: Option;
-  onSelect?: (value: Option) => void;
-}): React.JSX.Element {
+}: ComboboxGroupItemProps): React.JSX.Element {
   return (
     <CommandGroup heading={heading}>
       {options.map((option) => (
@@ -88,7 +93,7 @@ function ComboboxGroupItem({
           {option.icon}
           {option.label}
           <CheckIcon
-            className={cx(
+            className={cn(
               'ml-auto size-4',
               option.value === selected?.value ? 'opacity-100' : 'opacity-0',
             )}
@@ -103,22 +108,8 @@ function ComboboxGroupItem({
  * Component: Combobox
  * -------------------------------------------------------------------------- */
 
-export function Combobox({
-  icon,
-  slot,
-  options,
-  empty,
-  block,
-  disabled,
-  placeholder,
-  selected: initialSelected,
-  onSelect,
-  classNameTrigger,
-  ...props
-}: Omit<
-  React.ComponentPropsWithoutRef<typeof Command>,
-  'onSelect' | 'slot' | 'variant'
-> & {
+export interface ComboboxProps
+  extends Omit<CommandProps, 'onSelect' | 'slot' | 'variant'> {
   empty?: string;
   onSelect: (value: Option) => void;
   options: Options;
@@ -131,11 +122,25 @@ export function Combobox({
     FormControl?: typeof FormControl;
   };
   classNameTrigger?: string;
-}): React.JSX.Element {
-  const [open, setOpen] = useState(false);
+}
+
+export function Combobox({
+  icon,
+  slot,
+  options,
+  empty,
+  block,
+  disabled,
+  placeholder,
+  selected: initialSelected,
+  onSelect,
+  classNameTrigger,
+  ...props
+}: ComboboxProps): React.JSX.Element {
+  const [open, setOpen] = React.useState(false);
   const Trigger = slot?.FormControl ?? Slot;
 
-  const selected = useMemo(() => {
+  const selected = React.useMemo(() => {
     if (typeof initialSelected === 'string') {
       return findComboboxOption(options, initialSelected);
     }
@@ -169,7 +174,7 @@ export function Combobox({
             <CommandEmpty>{empty}</CommandEmpty>
             {isOptionGroup(options) ? (
               options.map((option, index) => (
-                <Fragment key={option.label}>
+                <React.Fragment key={option.label}>
                   <ComboboxGroupItem
                     heading={option.label}
                     key={option.label}
@@ -181,7 +186,7 @@ export function Combobox({
                     selected={selected}
                   />
                   {index < options.length - 1 && <CommandSeparator />}
-                </Fragment>
+                </React.Fragment>
               ))
             ) : (
               <ComboboxGroupItem

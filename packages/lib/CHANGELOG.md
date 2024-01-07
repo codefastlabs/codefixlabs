@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.33
+
+### Patch Changes
+
+- Add new files and update dependencies
+
 ## 0.1.32
 
 ### Patch Changes

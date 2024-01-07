@@ -1,20 +1,28 @@
+import type {
+  DialogCloseProps as CloseProps,
+  DialogContentProps as ContentProps,
+  DialogDescriptionProps,
+  DialogProps as RootProps,
+  DialogTitleProps,
+  DialogTriggerProps,
+} from '@radix-ui/react-dialog';
 import {
   Close,
   Content,
   Description,
+  DialogTrigger,
   Overlay,
   Portal,
   Root,
   Title,
-  Trigger,
 } from '@radix-ui/react-dialog';
 import type { VariantProps } from 'class-variance-authority';
-import { cva, cx } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import { XIcon } from 'lucide-react';
 import * as React from 'react';
-import { createContext, forwardRef, useContext } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { buttonVariants } from '@/classes/button';
+import { cn } from '@/lib/utils';
+import type { ButtonProps } from '@/react/button';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -37,13 +45,11 @@ const dialogContentVariants = cva(
   },
 );
 
-type DialogContentVariants = VariantProps<typeof dialogContentVariants>;
-
 /* -----------------------------------------------------------------------------
  * Provider: DialogContext
  * -------------------------------------------------------------------------- */
 
-export const DialogContext = createContext<{
+export const DialogContext = React.createContext<{
   scrollable?: boolean;
   variant?: 'default' | 'simple';
 }>({});
@@ -52,14 +58,16 @@ export const DialogContext = createContext<{
  * Component: Dialog
  * -------------------------------------------------------------------------- */
 
+export interface DialogProps extends RootProps {
+  scrollable?: boolean;
+  variant?: 'default' | 'simple';
+}
+
 export function Dialog({
   scrollable = false,
   variant = 'default',
   ...props
-}: React.ComponentProps<typeof Root> & {
-  scrollable?: boolean;
-  variant?: 'default' | 'simple';
-}): React.JSX.Element {
+}: DialogProps): React.JSX.Element {
   return (
     <DialogContext.Provider value={{ scrollable, variant }}>
       <Root {...props} />
@@ -71,28 +79,61 @@ export function Dialog({
  * Component: DialogClose
  * -------------------------------------------------------------------------- */
 
-export const DialogClose = Close;
+export interface DialogCloseProps extends CloseProps {
+  variant?: ButtonProps['variant'];
+  size?: ButtonProps['size'];
+  shape?: ButtonProps['shape'];
+  block?: ButtonProps['block'];
+}
+export const DialogClose = React.forwardRef<
+  React.ElementRef<typeof Close>,
+  DialogCloseProps
+>(
+  (
+    { className, variant = 'outline', size, shape, block, ...props },
+    forwardedRef,
+  ) => (
+    <Close
+      className={cn(
+        buttonVariants({
+          variant,
+          size,
+          shape,
+          block,
+        }),
+        className,
+      )}
+      ref={forwardedRef}
+      {...props}
+    />
+  ),
+);
+
+DialogClose.displayName = Close.displayName;
 
 /* -----------------------------------------------------------------------------
  * Component: DialogContent
  * -------------------------------------------------------------------------- */
 
-export const DialogContent = forwardRef<
+export interface DialogContentProps
+  extends Omit<VariantProps<typeof dialogContentVariants>, 'scrollable'>,
+    ContentProps {
+  classNames?: {
+    content?: string;
+    overlay?: string;
+  };
+}
+
+export const DialogContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  Omit<DialogContentVariants, 'scrollable'> &
-    React.ComponentPropsWithoutRef<typeof Content> & {
-      classNames?: {
-        content?: string;
-        overlay?: string;
-      };
-    }
+  DialogContentProps
 >(({ children, className, classNames, ...props }, forwardedRef) => {
-  const { variant, scrollable } = useContext(DialogContext);
+  const { variant, scrollable } = React.useContext(DialogContext);
 
   return (
     <Portal>
       <Overlay
-        className={cx(
+        className={cn(
           [
             'bg-background/80 fixed inset-0 z-40 p-4 sm:p-10',
             'data-state-open:animate-overlay-show data-state-closed:animate-overlay-hide',
@@ -105,7 +146,7 @@ export const DialogContent = forwardRef<
         data-test-id="overlay"
       >
         <Content
-          className={twMerge(
+          className={cn(
             dialogContentVariants({ scrollable }),
             className,
             classNames?.content,
@@ -117,9 +158,9 @@ export const DialogContent = forwardRef<
           <>
             {children}
             {variant === 'default' && (
-              <DialogClose
+              <Close
                 aria-label="Close"
-                className={twMerge(
+                className={cn(
                   buttonVariants({
                     icon: true,
                     shape: 'pill',
@@ -130,7 +171,7 @@ export const DialogContent = forwardRef<
                 )}
               >
                 <XIcon size={16} />
-              </DialogClose>
+              </Close>
             )}
           </>
         </Content>
@@ -145,22 +186,22 @@ DialogContent.displayName = Content.displayName;
  * Component: DialogTrigger
  * -------------------------------------------------------------------------- */
 
-export const DialogTrigger = Trigger;
+export { DialogTrigger };
+export type { DialogTriggerProps };
 
 /* -----------------------------------------------------------------------------
  * Component: DialogHeader
  * -------------------------------------------------------------------------- */
 
+export type DialogHeaderProps = React.HTMLAttributes<HTMLElement>;
+
 export function DialogHeader({
   className,
   ...props
-}: React.ComponentProps<'header'>): React.JSX.Element {
+}: DialogHeaderProps): React.JSX.Element {
   return (
     <header
-      className={twMerge(
-        'py-3.75 grid shrink-0 gap-2 border-b px-6',
-        className,
-      )}
+      className={cn('py-3.75 grid shrink-0 gap-2 border-b px-6', className)}
       {...props}
     />
   );
@@ -170,26 +211,28 @@ export function DialogHeader({
  * Component: DialogBody
  * -------------------------------------------------------------------------- */
 
+export type DialogBodyProps = React.HTMLAttributes<HTMLElement>;
+
 export function DialogBody({
   className,
   ...props
-}: React.ComponentProps<'main'>): React.JSX.Element {
-  return (
-    <main className={twMerge('grow overflow-y-auto', className)} {...props} />
-  );
+}: DialogBodyProps): React.JSX.Element {
+  return <main className={cn('grow overflow-y-auto', className)} {...props} />;
 }
 
 /* -----------------------------------------------------------------------------
  * Component: DialogFooter
  * -------------------------------------------------------------------------- */
 
+export type DialogFooterProps = React.HTMLAttributes<HTMLElement>;
+
 export function DialogFooter({
   className,
   ...props
-}: React.ComponentProps<'footer'>): React.JSX.Element {
+}: DialogFooterProps): React.JSX.Element {
   return (
     <footer
-      className={twMerge(
+      className={cn(
         'py-3.75 flex shrink-0 flex-col-reverse gap-2 border-t px-6 sm:flex-row sm:justify-between',
         className,
       )}
@@ -202,12 +245,14 @@ export function DialogFooter({
  * Component: DialogTitle
  * -------------------------------------------------------------------------- */
 
-export const DialogTitle = forwardRef<
+export type { DialogTitleProps };
+
+export const DialogTitle = React.forwardRef<
   React.ElementRef<typeof Title>,
-  React.ComponentPropsWithoutRef<typeof Title>
+  DialogTitleProps
 >(({ className, ...props }, forwardedRef) => (
   <Title
-    className={twMerge('text-lg font-semibold', className)}
+    className={cn('text-lg font-semibold', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -219,12 +264,14 @@ DialogTitle.displayName = Title.displayName;
  * Component: DialogDescription
  * -------------------------------------------------------------------------- */
 
-export const DialogDescription = forwardRef<
+export type { DialogDescriptionProps };
+
+export const DialogDescription = React.forwardRef<
   React.ElementRef<typeof Description>,
-  React.ComponentPropsWithoutRef<typeof Description>
+  DialogDescriptionProps
 >(({ className, ...props }, forwardedRef) => (
   <Description
-    className={twMerge('text-muted-foreground text-sm', className)}
+    className={cn('text-muted-foreground text-sm', className)}
     ref={forwardedRef}
     {...props}
   />

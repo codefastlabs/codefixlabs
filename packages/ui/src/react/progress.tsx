@@ -1,18 +1,20 @@
+import type { ProgressProps } from '@radix-ui/react-progress';
 import { Indicator, Root } from '@radix-ui/react-progress';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: Progress
  * -------------------------------------------------------------------------- */
 
-export const Progress = forwardRef<
+export type { ProgressProps };
+
+export const Progress = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root>
+  ProgressProps
 >(({ className, style, ...props }, forwardedRef) => (
   <Root
-    className={twMerge(
+    className={cn(
       'bg-secondary relative h-4 overflow-hidden rounded-full',
       className,
     )}

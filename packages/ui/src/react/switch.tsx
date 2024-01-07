@@ -1,19 +1,20 @@
+import type { SwitchProps } from '@radix-ui/react-switch';
 import { Root, Thumb } from '@radix-ui/react-switch';
-import { cx } from 'class-variance-authority';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: Switch
  * -------------------------------------------------------------------------- */
 
-export const Switch = forwardRef<
+export type { SwitchProps };
+
+export const Switch = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root>
+  SwitchProps
 >(({ className, ...props }, forwardedRef) => (
   <Root
-    className={twMerge(
+    className={cn(
       'peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors',
       'ring-offset-background',
       'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
@@ -26,7 +27,7 @@ export const Switch = forwardRef<
     {...props}
   >
     <Thumb
-      className={cx(
+      className={cn(
         'bg-background pointer-events-none block size-5 rounded-full shadow-lg transition-transform',
         'data-state-checked:translate-x-5',
         'data-state-unchecked:translate-x-0',

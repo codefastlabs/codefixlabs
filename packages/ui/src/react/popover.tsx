@@ -1,23 +1,30 @@
+import type {
+  PopoverAnchorProps,
+  PopoverArrowProps,
+  PopoverCloseProps,
+  PopoverContentProps,
+  PopoverProps as RootProps,
+  PopoverTriggerProps,
+} from '@radix-ui/react-popover';
 import {
-  Anchor,
   Arrow,
-  Close,
   Content,
+  PopoverAnchor,
+  PopoverClose,
+  PopoverTrigger,
   Portal,
   Root,
-  Trigger,
 } from '@radix-ui/react-popover';
 import { XIcon } from 'lucide-react';
 import * as React from 'react';
-import { createContext, forwardRef, useContext } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { Button } from '@/react/button';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Provider: PopoverContext
  * -------------------------------------------------------------------------- */
 
-export const PopoverContext = createContext<{
+export const PopoverContext = React.createContext<{
   variant?: 'default' | 'simple';
 }>({});
 
@@ -25,12 +32,14 @@ export const PopoverContext = createContext<{
  * Component: Popover
  * -------------------------------------------------------------------------- */
 
+export interface PopoverProps extends RootProps {
+  variant?: 'default' | 'simple';
+}
+
 export function Popover({
   variant = 'default',
   ...props
-}: React.ComponentProps<typeof Root> & {
-  variant?: 'default' | 'simple';
-}): React.JSX.Element {
+}: PopoverProps): React.JSX.Element {
   return (
     <PopoverContext.Provider value={{ variant }}>
       <Root {...props} />
@@ -42,30 +51,35 @@ export function Popover({
  * Component: PopoverAnchor
  * -------------------------------------------------------------------------- */
 
-export const PopoverAnchor = Anchor;
+export { PopoverAnchor };
+export type { PopoverAnchorProps };
 
 /* -----------------------------------------------------------------------------
  * Component: PopoverTrigger
  * -------------------------------------------------------------------------- */
 
-export const PopoverTrigger = Trigger;
+export { PopoverTrigger };
+export type { PopoverTriggerProps };
 
 /* -----------------------------------------------------------------------------
  * Component: PopoverClose
  * -------------------------------------------------------------------------- */
 
-export const PopoverClose = Close;
+export { PopoverClose };
+export type { PopoverCloseProps };
 
 /* -----------------------------------------------------------------------------
  * Component: PopoverArrow
  * -------------------------------------------------------------------------- */
 
-export const PopoverArrow = forwardRef<
+export type { PopoverArrowProps };
+
+export const PopoverArrow = React.forwardRef<
   React.ElementRef<typeof Arrow>,
-  React.ComponentPropsWithoutRef<typeof Arrow>
+  PopoverArrowProps
 >(({ className, ...props }, forwardedRef) => (
   <Arrow
-    className={twMerge('fill-popover', className)}
+    className={cn('fill-popover', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -77,16 +91,18 @@ PopoverArrow.displayName = Arrow.displayName;
  * Component: PopoverContent
  * -------------------------------------------------------------------------- */
 
-export const PopoverContent = forwardRef<
+export type { PopoverContentProps };
+
+export const PopoverContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  React.ComponentPropsWithoutRef<typeof Content>
+  PopoverContentProps
 >(({ children, className, ...props }, forwardedRef) => {
-  const { variant } = useContext(PopoverContext);
+  const { variant } = React.useContext(PopoverContext);
 
   return (
     <Portal>
       <Content
-        className={twMerge(
+        className={cn(
           [
             'bg-popover text-popover-foreground relative z-40 w-auto rounded-md border shadow-lg will-change-[opacity,transform]',
             'min-w-[var(--radix-popover-trigger-width)]',

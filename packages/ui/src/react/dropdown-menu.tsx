@@ -1,27 +1,43 @@
+import type {
+  DropdownMenuArrowProps,
+  DropdownMenuCheckboxItemProps as CheckboxItemProps,
+  DropdownMenuContentProps,
+  DropdownMenuGroupProps,
+  DropdownMenuItemIndicatorProps,
+  DropdownMenuItemProps as ItemProps,
+  DropdownMenuLabelProps as LabelProps,
+  DropdownMenuProps,
+  DropdownMenuRadioGroupProps,
+  DropdownMenuRadioItemProps as RadioItemProps,
+  DropdownMenuSeparatorProps,
+  DropdownMenuSubContentProps,
+  DropdownMenuSubProps,
+  DropdownMenuSubTriggerProps as SubTriggerProps,
+  DropdownMenuTriggerProps,
+} from '@radix-ui/react-dropdown-menu';
 import {
   Arrow,
   CheckboxItem,
   Content,
-  Group,
+  DropdownMenu,
+  DropdownMenuGroup,
+  DropdownMenuRadioGroup,
+  DropdownMenuSub,
+  DropdownMenuTrigger,
   Item,
   ItemIndicator,
   Label,
   Portal,
-  RadioGroup,
   RadioItem,
-  Root,
   Separator,
-  Sub,
   SubContent,
   SubTrigger,
-  Trigger,
 } from '@radix-ui/react-dropdown-menu';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import { CheckIcon, ChevronRightIcon, DotIcon } from 'lucide-react';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -97,8 +113,6 @@ export const dropdownMenuItemVariants = cva(
   },
 );
 
-type DropdownMenuItemVariants = VariantProps<typeof dropdownMenuItemVariants>;
-
 export const dropdownMenuCheckboxItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
@@ -171,19 +185,19 @@ export const dropdownMenuLabelVariants = cva(
   },
 );
 
-type DropdownMenuLabelVariants = VariantProps<typeof dropdownMenuLabelVariants>;
-
 /* -----------------------------------------------------------------------------
  * Component: DropdownMenuContent
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuContent = forwardRef<
+export type { DropdownMenuContentProps };
+
+export const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  React.ComponentPropsWithoutRef<typeof Content>
+  DropdownMenuContentProps
 >(({ className, ...props }, forwardedRef) => (
   <Portal>
     <Content
-      className={twMerge(
+      className={cn(
         'bg-popover text-popover-foreground relative z-40 min-w-[8rem] rounded-md border p-1 shadow-lg will-change-[opacity,transform]',
         [
           'data-state-open:data-side-top:animate-slide-in-from-top',
@@ -212,13 +226,15 @@ DropdownMenuContent.displayName = Content.displayName;
  * Component: DropdownMenuSubContent
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuSubContent = forwardRef<
+export type { DropdownMenuSubContentProps };
+
+export const DropdownMenuSubContent = React.forwardRef<
   React.ElementRef<typeof SubContent>,
-  React.ComponentPropsWithoutRef<typeof SubContent>
+  DropdownMenuSubContentProps
 >(({ className, ...props }, forwardedRef) => (
   <Portal>
     <SubContent
-      className={twMerge(
+      className={cn(
         'bg-popover text-popover-foreground relative z-40 min-w-[8rem] rounded-md border p-1 shadow-lg will-change-[opacity,transform]',
         [
           'data-state-open:data-side-top:animate-slide-in-from-top',
@@ -247,13 +263,16 @@ DropdownMenuSubContent.displayName = SubContent.displayName;
  * Component: DropdownMenuSubTrigger
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuSubTrigger = forwardRef<
+export interface DropdownMenuSubTriggerProps
+  extends SubTriggerProps,
+    DropdownMenuSubTriggerVariants {}
+
+export const DropdownMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof SubTrigger>,
-  React.ComponentPropsWithoutRef<typeof SubTrigger> &
-    DropdownMenuSubTriggerVariants
+  DropdownMenuSubTriggerProps
 >(({ children, className, inset, variant, ...props }, forwardedRef) => (
   <SubTrigger
-    className={twMerge(
+    className={cn(
       dropdownMenuSubTriggerVariants({
         inset,
         variant,
@@ -278,18 +297,22 @@ DropdownMenuSubTrigger.displayName = SubTrigger.displayName;
  * Component: DropdownMenuItem
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuItem = forwardRef<
+export interface DropdownMenuItemProps
+  extends ItemProps,
+    VariantProps<typeof dropdownMenuItemVariants> {
+  shortcut?: string;
+}
+
+export const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof Item>,
-  React.ComponentPropsWithoutRef<typeof Item> & {
-    shortcut?: string;
-  } & DropdownMenuItemVariants
+  DropdownMenuItemProps
 >(
   (
     { children, className, inset, variant, shortcut, ...props },
     forwardedRef,
   ) => (
     <Item
-      className={twMerge(
+      className={cn(
         dropdownMenuItemVariants({
           inset,
           variant,
@@ -319,12 +342,14 @@ DropdownMenuItem.displayName = Item.displayName;
  * Component: DropdownMenuItemIndicator
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuItemIndicator = forwardRef<
+export type { DropdownMenuItemIndicatorProps };
+
+export const DropdownMenuItemIndicator = React.forwardRef<
   React.ElementRef<typeof ItemIndicator>,
-  React.ComponentPropsWithoutRef<typeof ItemIndicator>
+  DropdownMenuItemIndicatorProps
 >(({ className, ...props }, forwardedRef) => (
   <ItemIndicator
-    className={twMerge(
+    className={cn(
       'absolute left-0 inline-flex w-8 items-center justify-center',
       className,
     )}
@@ -339,14 +364,18 @@ DropdownMenuItemIndicator.displayName = ItemIndicator.displayName;
  * Component: DropdownMenuCheckboxItem
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuCheckboxItem = forwardRef<
+export interface DropdownMenuCheckboxItemProps
+  extends CheckboxItemProps,
+    DropdownMenuCheckboxItemVariants {
+  shortcut?: string;
+}
+
+export const DropdownMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof CheckboxItem>,
-  React.ComponentPropsWithoutRef<typeof CheckboxItem> & {
-    shortcut?: string;
-  } & DropdownMenuCheckboxItemVariants
+  DropdownMenuCheckboxItemProps
 >(({ children, className, variant, shortcut, ...props }, forwardedRef) => (
   <CheckboxItem
-    className={twMerge(
+    className={cn(
       dropdownMenuCheckboxItemVariants({
         variant,
       }),
@@ -373,14 +402,18 @@ DropdownMenuCheckboxItem.displayName = CheckboxItem.displayName;
  * Component: DropdownMenuRadioItem
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuRadioItem = forwardRef<
+export interface DropdownMenuRadioItemProps
+  extends RadioItemProps,
+    DropdownMenuRadioItemVariants {
+  shortcut?: string;
+}
+
+export const DropdownMenuRadioItem = React.forwardRef<
   React.ElementRef<typeof RadioItem>,
-  React.ComponentPropsWithoutRef<typeof RadioItem> & {
-    shortcut?: string;
-  } & DropdownMenuRadioItemVariants
+  DropdownMenuRadioItemProps
 >(({ children, className, variant, shortcut, ...props }, forwardedRef) => (
   <RadioItem
-    className={twMerge(dropdownMenuRadioItemVariants({ variant }), className)}
+    className={cn(dropdownMenuRadioItemVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   >
@@ -402,13 +435,15 @@ DropdownMenuRadioItem.displayName = RadioItem.displayName;
  * Component: DropdownMenuShortcut
  * -------------------------------------------------------------------------- */
 
+export type DropdownMenuShortcutProps = React.HTMLAttributes<HTMLDivElement>;
+
 export function DropdownMenuShortcut({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>): React.JSX.Element {
+}: DropdownMenuShortcutProps): React.JSX.Element {
   return (
     <div
-      className={twMerge(
+      className={cn(
         'text-muted-foreground ml-auto flex pl-4 text-xs',
         className,
       )}
@@ -421,12 +456,14 @@ export function DropdownMenuShortcut({
  * Component: DropdownMenuArrow
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuArrow = forwardRef<
+export type { DropdownMenuArrowProps };
+
+export const DropdownMenuArrow = React.forwardRef<
   React.ElementRef<typeof Arrow>,
-  React.ComponentPropsWithoutRef<typeof Arrow>
+  DropdownMenuArrowProps
 >(({ className, ...props }, forwardedRef) => (
   <Arrow
-    className={twMerge('fill-popover', className)}
+    className={cn('fill-popover', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -438,18 +475,23 @@ DropdownMenuArrow.displayName = Arrow.displayName;
  * Component: DropdownMenuGroup
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuGroup = Group;
+export { DropdownMenuGroup };
+export type { DropdownMenuGroupProps };
 
 /* -----------------------------------------------------------------------------
  * Component: DropdownMenuLabel
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuLabel = forwardRef<
+export interface DropdownMenuLabelProps
+  extends LabelProps,
+    VariantProps<typeof dropdownMenuLabelVariants> {}
+
+export const DropdownMenuLabel = React.forwardRef<
   React.ElementRef<typeof Label>,
-  React.ComponentPropsWithoutRef<typeof Label> & DropdownMenuLabelVariants
+  DropdownMenuLabelProps
 >(({ className, inset = false, ...props }, forwardedRef) => (
   <Label
-    className={twMerge(dropdownMenuLabelVariants({ inset }), className)}
+    className={cn(dropdownMenuLabelVariants({ inset }), className)}
     ref={forwardedRef}
     {...props}
   />
@@ -461,24 +503,28 @@ DropdownMenuLabel.displayName = Label.displayName;
  * Component: DropdownMenuRadioGroup
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuRadioGroup = RadioGroup;
+export { DropdownMenuRadioGroup };
+export type { DropdownMenuRadioGroupProps };
 
 /* -----------------------------------------------------------------------------
  * Component: DropdownMenu
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenu = Root;
+export { DropdownMenu };
+export type { DropdownMenuProps };
 
 /* -----------------------------------------------------------------------------
  * Component: DropdownMenuSeparator
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuSeparator = forwardRef<
+export type { DropdownMenuSeparatorProps };
+
+export const DropdownMenuSeparator = React.forwardRef<
   React.ElementRef<typeof Separator>,
-  React.ComponentPropsWithoutRef<typeof Separator>
+  DropdownMenuSeparatorProps
 >(({ className, ...props }, forwardedRef) => (
   <Separator
-    className={twMerge('bg-border -mx-1 my-1.5 h-px', className)}
+    className={cn('bg-border -mx-1 my-1.5 h-px', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -490,10 +536,12 @@ DropdownMenuSeparator.displayName = Separator.displayName;
  * Component: DropdownMenuSub
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuSub = Sub;
+export { DropdownMenuSub };
+export type { DropdownMenuSubProps };
 
 /* -----------------------------------------------------------------------------
  * Component: DropdownMenuTrigger
  * -------------------------------------------------------------------------- */
 
-export const DropdownMenuTrigger = Trigger;
+export { DropdownMenuTrigger };
+export type { DropdownMenuTriggerProps };

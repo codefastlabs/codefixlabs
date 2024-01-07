@@ -1,11 +1,11 @@
+import type { LabelProps as RootProps } from '@radix-ui/react-label';
 import { Root } from '@radix-ui/react-label';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import { InfoIcon } from 'lucide-react';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/react/tooltip';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -32,25 +32,26 @@ const labelVariants = cva(
   },
 );
 
-type LabelVariants = VariantProps<typeof labelVariants>;
-
 /* -----------------------------------------------------------------------------
  * Component: Label
  * -------------------------------------------------------------------------- */
 
-export const Label = forwardRef<
+export interface LabelProps
+  extends RootProps,
+    VariantProps<typeof labelVariants> {
+  tooltip?: string;
+}
+
+export const Label = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root> &
-    LabelVariants & {
-      tooltip?: string;
-    }
+  LabelProps
 >(
   (
     { children, tooltip, className, required, invalid, ...props },
     forwardedRef,
   ) => (
     <Root
-      className={twMerge(labelVariants({ invalid, required }), className)}
+      className={cn(labelVariants({ invalid, required }), className)}
       ref={forwardedRef}
       {...props}
     >

@@ -1,9 +1,14 @@
+import type {
+  TabsContentProps as ContentProps,
+  TabsListProps as ListProps,
+  TabsProps as RootProps,
+  TabsTriggerProps as TriggerProps,
+} from '@radix-ui/react-tabs';
 import { Content, List, Root, Trigger } from '@radix-ui/react-tabs';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import { createContext, forwardRef, useContext } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -21,8 +26,6 @@ const tabsListVariants = cva(undefined, {
     },
   },
 });
-
-type TabsListVariants = VariantProps<typeof tabsListVariants>;
 
 const tabsTriggerVariants = cva(
   [
@@ -47,8 +50,6 @@ const tabsTriggerVariants = cva(
   },
 );
 
-type TabsTriggerVariants = VariantProps<typeof tabsTriggerVariants>;
-
 const tabsContentVariants = cva(
   [
     'ring-offset-background',
@@ -67,13 +68,11 @@ const tabsContentVariants = cva(
   },
 );
 
-type TabsContentVariants = VariantProps<typeof tabsContentVariants>;
-
 /* -----------------------------------------------------------------------------
  * Provider: TabsContext
  * -------------------------------------------------------------------------- */
 
-export const TabsContext = createContext<{
+export const TabsContext = React.createContext<{
   variant?: 'default' | 'simple';
 }>({});
 
@@ -81,12 +80,14 @@ export const TabsContext = createContext<{
  * Component: Tabs
  * -------------------------------------------------------------------------- */
 
+export interface TabsProps extends RootProps {
+  variant?: 'default' | 'simple';
+}
+
 export function Tabs({
   variant = 'default',
   ...props
-}: React.ComponentProps<typeof Root> & {
-  variant?: 'default' | 'simple';
-}): React.JSX.Element {
+}: TabsProps): React.JSX.Element {
   return (
     <TabsContext.Provider value={{ variant }}>
       <Root {...props} />
@@ -98,16 +99,19 @@ export function Tabs({
  * Component: TabsList
  * -------------------------------------------------------------------------- */
 
-export const TabsList = forwardRef<
+export interface TabsListProps
+  extends Omit<VariantProps<typeof tabsListVariants>, 'variant'>,
+    ListProps {}
+
+export const TabsList = React.forwardRef<
   React.ElementRef<typeof List>,
-  Omit<TabsListVariants, 'variant'> &
-    React.ComponentPropsWithoutRef<typeof List>
+  TabsListProps
 >(({ className, ...props }, forwardedRef) => {
-  const { variant } = useContext(TabsContext);
+  const { variant } = React.useContext(TabsContext);
 
   return (
     <List
-      className={twMerge(tabsListVariants({ variant }), className)}
+      className={cn(tabsListVariants({ variant }), className)}
       ref={forwardedRef}
       {...props}
     />
@@ -120,16 +124,19 @@ TabsList.displayName = List.displayName;
  * Component: TabsTrigger
  * -------------------------------------------------------------------------- */
 
-export const TabsTrigger = forwardRef<
+export interface TabsTriggerProps
+  extends Omit<VariantProps<typeof tabsTriggerVariants>, 'variant'>,
+    TriggerProps {}
+
+export const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof Trigger>,
-  Omit<TabsTriggerVariants, 'variant'> &
-    React.ComponentPropsWithoutRef<typeof Trigger>
+  TabsTriggerProps
 >(({ className, ...props }, forwardedRef) => {
-  const { variant } = useContext(TabsContext);
+  const { variant } = React.useContext(TabsContext);
 
   return (
     <Trigger
-      className={twMerge(tabsTriggerVariants({ variant }), className)}
+      className={cn(tabsTriggerVariants({ variant }), className)}
       ref={forwardedRef}
       {...props}
     />
@@ -142,16 +149,18 @@ TabsTrigger.displayName = Trigger.displayName;
  * Component: TabsContent
  * -------------------------------------------------------------------------- */
 
-export const TabsContent = forwardRef<
+export interface TabsContentProps
+  extends Omit<VariantProps<typeof tabsContentVariants>, 'variant'>,
+    ContentProps {}
+export const TabsContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  Omit<TabsContentVariants, 'variant'> &
-    React.ComponentPropsWithoutRef<typeof Content>
+  TabsContentProps
 >(({ className, ...props }, forwardedRef) => {
-  const { variant } = useContext(TabsContext);
+  const { variant } = React.useContext(TabsContext);
 
   return (
     <Content
-      className={twMerge(tabsContentVariants({ variant }), className)}
+      className={cn(tabsContentVariants({ variant }), className)}
       ref={forwardedRef}
       {...props}
     />

@@ -1,19 +1,20 @@
+import type { SliderProps } from '@radix-ui/react-slider';
 import { Range, Root, Thumb, Track } from '@radix-ui/react-slider';
-import { cx } from 'class-variance-authority';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: Slider
  * -------------------------------------------------------------------------- */
 
-export const Slider = forwardRef<
+export type { SliderProps };
+
+export const Slider = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root>
+  SliderProps
 >(({ className, ...props }, forwardedRef) => (
   <Root
-    className={twMerge(
+    className={cn(
       'relative flex touch-none select-none items-center',
       'data-orientation-horizontal:h-5 data-orientation-horizontal:w-full',
       'data-orientation-vertical:h-full data-orientation-vertical:w-5 data-orientation-vertical:flex-col',
@@ -24,14 +25,14 @@ export const Slider = forwardRef<
     {...props}
   >
     <Track
-      className={cx([
+      className={cn([
         'bg-secondary relative grow rounded-full',
         'data-orientation-horizontal:h-0.75',
         'data-orientation-vertical:w-0.75',
       ])}
     >
       <Range
-        className={cx([
+        className={cn([
           'bg-primary absolute rounded-full',
           'data-disabled:bg-opacity-50',
           'data-orientation-horizontal:h-full data-orientation-vertical:w-full',
@@ -39,7 +40,7 @@ export const Slider = forwardRef<
       />
     </Track>
     <Thumb
-      className={cx([
+      className={cn([
         'bg-background border-primary block size-5 rounded-full border-2 transition-colors',
         'data-orientation-horizontal:cursor-ew-resize data-orientation-vertical:cursor-ns-resize',
         'ring-offset-background',

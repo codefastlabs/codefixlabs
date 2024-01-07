@@ -1,19 +1,36 @@
+import type {
+  SelectArrowProps,
+  SelectContentProps as ContentProps,
+  SelectGroupProps,
+  SelectIconProps,
+  SelectItemIndicatorProps,
+  SelectItemProps as ItemProps,
+  SelectItemTextProps,
+  SelectLabelProps,
+  SelectProps,
+  SelectScrollDownButtonProps,
+  SelectScrollUpButtonProps,
+  SelectSeparatorProps,
+  SelectTriggerProps as TriggerProps,
+  SelectValueProps,
+  SelectViewportProps,
+} from '@radix-ui/react-select';
 import {
   Arrow,
   Content,
-  Group,
   Icon,
   Item,
   ItemIndicator,
-  ItemText,
   Label,
   Portal,
-  Root,
   ScrollDownButton,
   ScrollUpButton,
+  Select,
+  SelectGroup,
+  SelectItemText,
+  SelectValue,
   Separator,
   Trigger,
-  Value,
   Viewport,
 } from '@radix-ui/react-select';
 import type { VariantProps } from 'class-variance-authority';
@@ -25,8 +42,7 @@ import {
   Loader2Icon,
 } from 'lucide-react';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -59,8 +75,6 @@ const selectTriggerVariants = cva(
   },
 );
 
-type SelectTriggerVariants = VariantProps<typeof selectTriggerVariants>;
-
 const selectContentVariants = cva(
   [
     'bg-popover text-popover-foreground relative z-40 w-[var(--radix-select-trigger-width)] min-w-max overflow-hidden rounded-md border shadow-lg',
@@ -91,8 +105,6 @@ const selectContentVariants = cva(
   },
 );
 
-type SelectContentVariants = VariantProps<typeof selectContentVariants>;
-
 const selectItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
@@ -118,42 +130,46 @@ const selectItemVariants = cva(
   },
 );
 
-type SelectItemVariants = VariantProps<typeof selectItemVariants>;
-
 /* -----------------------------------------------------------------------------
  * Component: Select
  * -------------------------------------------------------------------------- */
 
-export const Select = Root;
+export { Select };
+export type { SelectProps };
 
 /* -----------------------------------------------------------------------------
  * Component: SelectValue
  * -------------------------------------------------------------------------- */
 
-export const SelectValue = Value;
+export { SelectValue };
+export type { SelectValueProps };
 
 /* -----------------------------------------------------------------------------
  * Component: SelectGroup
  * -------------------------------------------------------------------------- */
 
-export const SelectGroup = Group;
+export { SelectGroup };
+export type { SelectGroupProps };
 
 /* -----------------------------------------------------------------------------
  * Component: SelectItemText
  * -------------------------------------------------------------------------- */
 
-export const SelectItemText = ItemText;
+export { SelectItemText };
+export type { SelectItemTextProps };
 
 /* -----------------------------------------------------------------------------
  * Component: SelectIcon
  * -------------------------------------------------------------------------- */
 
-export const SelectIcon = forwardRef<
+export type { SelectIconProps };
+
+export const SelectIcon = React.forwardRef<
   React.ElementRef<typeof Icon>,
-  React.ComponentPropsWithoutRef<typeof Icon>
+  SelectIconProps
 >(({ className, ...props }, forwardedRef) => (
   <Icon
-    className={twMerge('flex size-4', className)}
+    className={cn('flex size-4', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -165,19 +181,22 @@ SelectIcon.displayName = Icon.displayName;
  * Component: SelectTrigger
  * -------------------------------------------------------------------------- */
 
-export const SelectTrigger = forwardRef<
+export interface SelectTriggerProps
+  extends TriggerProps,
+    VariantProps<typeof selectTriggerVariants> {
+  loading?: boolean;
+}
+
+export const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof Trigger>,
-  React.ComponentPropsWithoutRef<typeof Trigger> &
-    SelectTriggerVariants & {
-      loading?: boolean;
-    }
+  SelectTriggerProps
 >(
   (
     { children, className, size, block, disabled, loading, ...props },
     forwardedRef,
   ) => (
     <Trigger
-      className={twMerge(selectTriggerVariants({ block, size }), className)}
+      className={cn(selectTriggerVariants({ block, size }), className)}
       disabled={loading ? true : disabled}
       ref={forwardedRef}
       {...props}
@@ -202,12 +221,14 @@ SelectTrigger.displayName = Trigger.displayName;
  * Component: SelectScrollUpButton
  * -------------------------------------------------------------------------- */
 
-export const SelectScrollUpButton = forwardRef<
+export type { SelectScrollUpButtonProps };
+
+export const SelectScrollUpButton = React.forwardRef<
   React.ElementRef<typeof ScrollUpButton>,
-  React.ComponentPropsWithoutRef<typeof ScrollUpButton>
+  SelectScrollUpButtonProps
 >(({ className, ...props }, forwardedRef) => (
   <ScrollUpButton
-    className={twMerge(
+    className={cn(
       'flex cursor-pointer items-center justify-center py-1.5',
       className,
     )}
@@ -222,12 +243,14 @@ SelectScrollUpButton.displayName = ScrollUpButton.displayName;
  * Component: SelectScrollDownButton
  * -------------------------------------------------------------------------- */
 
-export const SelectScrollDownButton = forwardRef<
+export type { SelectScrollDownButtonProps };
+
+export const SelectScrollDownButton = React.forwardRef<
   React.ElementRef<typeof ScrollDownButton>,
-  React.ComponentPropsWithoutRef<typeof ScrollDownButton>
+  SelectScrollDownButtonProps
 >(({ className, ...props }, forwardedRef) => (
   <ScrollDownButton
-    className={twMerge(
+    className={cn(
       'flex cursor-pointer items-center justify-center py-1.5',
       className,
     )}
@@ -242,25 +265,30 @@ SelectScrollDownButton.displayName = ScrollDownButton.displayName;
  * Component: SelectViewport
  * -------------------------------------------------------------------------- */
 
+export type { SelectViewportProps };
+
 export function SelectViewport({
   className,
   ...props
-}: React.ComponentProps<typeof Viewport>): React.JSX.Element {
-  return <Viewport className={twMerge('p-1', className)} {...props} />;
+}: SelectViewportProps): React.JSX.Element {
+  return <Viewport className={cn('p-1', className)} {...props} />;
 }
 
 /* -----------------------------------------------------------------------------
  * Component: SelectContent
  * -------------------------------------------------------------------------- */
 
-export const SelectContent = forwardRef<
+export interface SelectContentProps
+  extends ContentProps,
+    Omit<VariantProps<typeof selectContentVariants>, 'position'> {}
+
+export const SelectContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  React.ComponentPropsWithoutRef<typeof Content> &
-    Omit<SelectContentVariants, 'position'>
+  SelectContentProps
 >(({ children, className, ...props }, forwardedRef) => (
   <Portal>
     <Content
-      className={twMerge(
+      className={cn(
         selectContentVariants({
           position: props.position ?? 'item-aligned',
         }),
@@ -291,12 +319,14 @@ SelectContent.displayName = Content.displayName;
  * Component: SelectItemIndicator
  * -------------------------------------------------------------------------- */
 
-export const SelectItemIndicator = forwardRef<
+export type { SelectItemIndicatorProps };
+
+export const SelectItemIndicator = React.forwardRef<
   React.ElementRef<typeof ItemIndicator>,
-  React.ComponentPropsWithoutRef<typeof ItemIndicator>
+  SelectItemIndicatorProps
 >(({ className, ...props }, forwardedRef) => (
   <ItemIndicator
-    className={twMerge(
+    className={cn(
       'absolute left-0 inline-flex w-8 items-center justify-center',
       className,
     )}
@@ -311,12 +341,16 @@ SelectItemIndicator.displayName = ItemIndicator.displayName;
  * Component: SelectItem
  * -------------------------------------------------------------------------- */
 
-export const SelectItem = forwardRef<
+export interface SelectItemProps
+  extends ItemProps,
+    VariantProps<typeof selectItemVariants> {}
+
+export const SelectItem = React.forwardRef<
   React.ElementRef<typeof Item>,
-  React.ComponentPropsWithoutRef<typeof Item> & SelectItemVariants
+  SelectItemProps
 >(({ children, className, variant, ...props }, forwardedRef) => (
   <Item
-    className={twMerge(selectItemVariants({ variant }), className)}
+    className={cn(selectItemVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   >
@@ -335,12 +369,14 @@ SelectItem.displayName = Item.displayName;
  * Component: SelectSeparator
  * -------------------------------------------------------------------------- */
 
-export const SelectSeparator = forwardRef<
+export type { SelectSeparatorProps };
+
+export const SelectSeparator = React.forwardRef<
   React.ElementRef<typeof Separator>,
-  React.ComponentPropsWithoutRef<typeof Separator>
+  SelectSeparatorProps
 >(({ className, ...props }, forwardedRef) => (
   <Separator
-    className={twMerge('bg-border -mx-1 my-1.5 h-px', className)}
+    className={cn('bg-border -mx-1 my-1.5 h-px', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -352,12 +388,14 @@ SelectSeparator.displayName = Separator.displayName;
  * Component: SelectArrow
  * -------------------------------------------------------------------------- */
 
-export const SelectArrow = forwardRef<
+export type { SelectArrowProps };
+
+export const SelectArrow = React.forwardRef<
   React.ElementRef<typeof Arrow>,
-  React.ComponentPropsWithoutRef<typeof Arrow>
+  SelectArrowProps
 >(({ className, ...props }, forwardedRef) => (
   <Arrow
-    className={twMerge('fill-popover', className)}
+    className={cn('fill-popover', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -369,12 +407,14 @@ SelectArrow.displayName = Arrow.displayName;
  * Component: SelectLabel
  * -------------------------------------------------------------------------- */
 
-export const SelectLabel = forwardRef<
+export type { SelectLabelProps };
+
+export const SelectLabel = React.forwardRef<
   React.ElementRef<typeof Label>,
-  React.ComponentPropsWithoutRef<typeof Label>
+  SelectLabelProps
 >(({ className, ...props }, forwardedRef) => (
   <Label
-    className={twMerge('px-8 py-1.5 text-sm font-semibold', className)}
+    className={cn('px-8 py-1.5 text-sm font-semibold', className)}
     ref={forwardedRef}
     {...props}
   />

@@ -1,7 +1,7 @@
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
-import { twMerge } from 'tailwind-merge';
 import * as React from 'react';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -25,21 +25,20 @@ const badgeVariants = cva(
   },
 );
 
-type BadgeVariants = VariantProps<typeof badgeVariants>;
-
 /* -----------------------------------------------------------------------------
  * Component: Badge
  * -------------------------------------------------------------------------- */
+
+export interface BadgeProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeVariants> {}
 
 export function Badge({
   className,
   variant,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & BadgeVariants): React.JSX.Element {
+}: BadgeProps): React.JSX.Element {
   return (
-    <div
-      className={twMerge(badgeVariants({ variant }), className)}
-      {...props}
-    />
+    <div className={cn(badgeVariants({ variant }), className)} {...props} />
   );
 }

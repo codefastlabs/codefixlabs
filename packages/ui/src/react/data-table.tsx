@@ -13,7 +13,6 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import { cx } from 'class-variance-authority';
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -30,8 +29,6 @@ import {
 } from 'lucide-react';
 import pluralize from 'pluralize';
 import * as React from 'react';
-import { useId } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { useDebouncedCallback } from 'use-debounce';
 import { Badge } from '@/react/badge';
 import { Button } from '@/react/button';
@@ -74,6 +71,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/react/table';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Declarations
@@ -94,13 +92,15 @@ declare module '@tanstack/table-core' {
  * Component: DataTableColumnHeader
  * -------------------------------------------------------------------------- */
 
+export interface DataTableColumnHeaderProps<TData, TValue> {
+  column: Column<TData, TValue>;
+  title: string;
+}
+
 export function DataTableColumnHeader<TData, TValue>({
   column,
   title,
-}: {
-  column: Column<TData, TValue>;
-  title: string;
-}): React.JSX.Element {
+}: DataTableColumnHeaderProps<TData, TValue>): React.JSX.Element {
   const endIcon = (): React.JSX.Element => {
     const isSorted = column.getIsSorted();
 
@@ -169,14 +169,17 @@ export function DataTableColumnHeader<TData, TValue>({
  * Component: DataTableGoToPage
  * -------------------------------------------------------------------------- */
 
+export interface DataTableGoToPageProps<TData>
+  extends React.HTMLAttributes<HTMLDivElement> {
+  table: TableType<TData>;
+}
+
 export function DataTableGoToPage<TData>({
   table,
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & {
-  table: TableType<TData>;
-}): React.JSX.Element {
-  const id = useId();
+}: DataTableGoToPageProps<TData>): React.JSX.Element {
+  const id = React.useId();
   const inputRef = React.useRef<HTMLInputElement>(null);
   const handleChange = useDebouncedCallback<
     React.ChangeEventHandler<HTMLInputElement>
@@ -207,7 +210,7 @@ export function DataTableGoToPage<TData>({
   }, 300);
 
   return (
-    <div className={twMerge('flex items-center gap-2', className)} {...props}>
+    <div className={cn('flex items-center gap-2', className)} {...props}>
       <Label className="text-sm font-normal" htmlFor={id}>
         Go to page
       </Label>
@@ -231,17 +234,20 @@ export function DataTableGoToPage<TData>({
  * Component: DataTableRowPerPage
  * -------------------------------------------------------------------------- */
 
+export interface DataTableRowPerPageProps<TData>
+  extends React.HTMLAttributes<HTMLDivElement> {
+  table: TableType<TData>;
+}
+
 export function DataTableRowPerPage<TData>({
   table,
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & {
-  table: TableType<TData>;
-}): React.JSX.Element {
-  const id = useId();
+}: DataTableRowPerPageProps<TData>): React.JSX.Element {
+  const id = React.useId();
 
   return (
-    <div className={twMerge('flex items-center gap-2', className)} {...props}>
+    <div className={cn('flex items-center gap-2', className)} {...props}>
       <Label className="text-sm font-normal" htmlFor={id}>
         Rows per page
       </Label>
@@ -271,17 +277,20 @@ export function DataTableRowPerPage<TData>({
  * Component: DataTablePageCount
  * -------------------------------------------------------------------------- */
 
+export interface DataTablePageCountProps<TData>
+  extends React.HTMLAttributes<HTMLParagraphElement> {
+  table: TableType<TData>;
+}
+
 export function DataTablePageCount<TData>({
   table,
   className,
   ...props
-}: React.ComponentProps<'p'> & {
-  table: TableType<TData>;
-}): React.JSX.Element {
+}: DataTablePageCountProps<TData>): React.JSX.Element {
   return (
     <>
       {table.getPageCount() > 1 ? (
-        <p className={twMerge('text-sm font-normal', className)} {...props}>
+        <p className={cn('text-sm font-normal', className)} {...props}>
           Page {table.getState().pagination.pageIndex + 1} of{' '}
           {table.getPageCount()}
         </p>
@@ -294,15 +303,18 @@ export function DataTablePageCount<TData>({
  * Component: DataTablePageButtons
  * -------------------------------------------------------------------------- */
 
+export interface DataTablePageButtonsProps<TData>
+  extends React.HTMLAttributes<HTMLDivElement> {
+  table: TableType<TData>;
+}
+
 export function DataTablePageButtons<TData>({
   table,
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & {
-  table: TableType<TData>;
-}): React.JSX.Element {
+}: DataTablePageButtonsProps<TData>): React.JSX.Element {
   return (
-    <div className={twMerge('flex items-center gap-2', className)} {...props}>
+    <div className={cn('flex items-center gap-2', className)} {...props}>
       <Button
         aria-label="First page"
         disabled={!table.getCanPreviousPage()}
@@ -355,11 +367,13 @@ export function DataTablePageButtons<TData>({
  * Component: DataTableSearch
  * -------------------------------------------------------------------------- */
 
+export interface DataTableSearchProps<TData> {
+  table: TableType<TData>;
+}
+
 export function DataTableSearch<TData>({
   table,
-}: {
-  table: TableType<TData>;
-}): React.JSX.Element {
+}: DataTableSearchProps<TData>): React.JSX.Element {
   const handleChange = useDebouncedCallback<
     React.ChangeEventHandler<HTMLInputElement>
   >(({ target: { value } }) => {
@@ -382,11 +396,13 @@ export function DataTableSearch<TData>({
  * Component: DataTableViewOptions
  * -------------------------------------------------------------------------- */
 
+export interface DataTableViewOptionsProps<TData> {
+  table: TableType<TData>;
+}
+
 export function DataTableViewOptions<TData>({
   table,
-}: {
-  table: TableType<TData>;
-}): React.JSX.Element {
+}: DataTableViewOptionsProps<TData>): React.JSX.Element {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -431,19 +447,21 @@ export function DataTableViewOptions<TData>({
  * Component: DataTableToolbar
  * -------------------------------------------------------------------------- */
 
-export function DataTableToolbar<TData>({
-  startToolbar,
-  endToolbar,
-  className,
-  table,
-}: {
+export interface DataTableToolbarProps<TData> {
   startToolbar?:
     | React.ReactNode
     | ((table: TableType<TData>) => React.ReactNode);
   endToolbar?: React.ReactNode | ((table: TableType<TData>) => React.ReactNode);
   className?: string;
   table: TableType<TData>;
-}): React.JSX.Element {
+}
+
+export function DataTableToolbar<TData>({
+  startToolbar,
+  endToolbar,
+  className,
+  table,
+}: DataTableToolbarProps<TData>): React.JSX.Element {
   const renderStartToolbar =
     typeof startToolbar === 'function' ? startToolbar(table) : startToolbar;
   const renderEndToolbar =
@@ -451,7 +469,7 @@ export function DataTableToolbar<TData>({
 
   return (
     <div
-      className={twMerge(
+      className={cn(
         'flex flex-wrap items-center justify-between gap-4',
         className,
       )}
@@ -473,16 +491,18 @@ export function DataTableToolbar<TData>({
  * Component: DataTablePagination
  * -------------------------------------------------------------------------- */
 
+export interface DataTablePaginationProps<TData> {
+  className?: string;
+  table: TableType<TData>;
+}
+
 export function DataTablePagination<TData>({
   table,
   className,
-}: {
-  className?: string;
-  table: TableType<TData>;
-}): React.JSX.Element {
+}: DataTablePaginationProps<TData>): React.JSX.Element {
   return (
     <div
-      className={twMerge(
+      className={cn(
         'flex flex-wrap items-center justify-between gap-4',
         className,
       )}
@@ -526,23 +546,22 @@ interface TableClassNames {
   wrapper?: string;
 }
 
+export interface DataTableContentProps<TData, TValue> {
+  table: TableType<TData>;
+  columns: ColumnDef<TData, TValue>[];
+  showFooter?: boolean;
+  classNames?: TableClassNames;
+}
+
 export function DataTableContent<TData, TValue>({
   table,
   columns = [],
   showFooter = false,
   classNames = {},
-}: {
-  table: TableType<TData>;
-  columns: ColumnDef<TData, TValue>[];
-  showFooter?: boolean;
-  classNames?: TableClassNames;
-}): React.JSX.Element {
+}: DataTableContentProps<TData, TValue>): React.JSX.Element {
   return (
     <div
-      className={twMerge(
-        'overflow-auto rounded-md border',
-        classNames.container,
-      )}
+      className={cn('overflow-auto rounded-md border', classNames.container)}
       data-test-id="container"
     >
       <Table
@@ -561,7 +580,7 @@ export function DataTableContent<TData, TValue>({
             >
               {headerGroup.headers.map((header) => (
                 <TableHead
-                  className={twMerge(
+                  className={cn(
                     classNames.headerCell,
                     header.column.columnDef.meta?.className,
                     header.column.columnDef.meta?.classNames?.headerCell,
@@ -590,7 +609,7 @@ export function DataTableContent<TData, TValue>({
               >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell
-                    className={twMerge(
+                    className={cn(
                       classNames.cell,
                       cell.column.columnDef.meta?.className,
                       cell.column.columnDef.meta?.classNames?.cell,
@@ -605,14 +624,14 @@ export function DataTableContent<TData, TValue>({
             ))
           ) : (
             <TableRow
-              className={twMerge(
+              className={cn(
                 'align-middle hover:bg-transparent',
                 classNames.emptyRow,
               )}
               data-test-id="empty-row"
             >
               <TableCell
-                className={twMerge('h-24 text-center', classNames.emptyCell)}
+                className={cn('h-24 text-center', classNames.emptyCell)}
                 colSpan={columns.length}
                 data-test-id="empty-cell"
               >
@@ -631,7 +650,7 @@ export function DataTableContent<TData, TValue>({
               >
                 {footerGroup.headers.map((header) => (
                   <TableHead
-                    className={twMerge(
+                    className={cn(
                       classNames.headerCell,
                       header.column.columnDef.meta?.className,
                       header.column.columnDef.meta?.classNames?.headerCell,
@@ -666,15 +685,17 @@ export interface FacetOption {
   prefix?: string;
 }
 
+export interface DataTableFacetedFilterProps<TData, TValue> {
+  column?: Column<TData, TValue>;
+  title?: string;
+  options: FacetOption[];
+}
+
 export function DataTableFacetedFilter<TData, TValue>({
   column,
   title,
   options,
-}: {
-  column?: Column<TData, TValue>;
-  title?: string;
-  options: FacetOption[];
-}): React.JSX.Element {
+}: DataTableFacetedFilterProps<TData, TValue>): React.JSX.Element {
   const selectedValues = new Set(column?.getFilterValue() as string[]);
   const facets = column?.getFacetedUniqueValues();
 
@@ -726,7 +747,7 @@ export function DataTableFacetedFilter<TData, TValue>({
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
             <CommandGroup
-              className={cx(
+              className={cn(
                 'overflow-y-auto',
                 selectedValues.size > 0
                   ? 'max-h-[clamp(3.75rem,calc(var(--radix-popover-content-available-height)-6.25rem),22.5rem)]'
@@ -753,7 +774,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                     value={`${option.label} ${option.value}`}
                   >
                     <div
-                      className={twMerge(
+                      className={cn(
                         'size-4.25 flex shrink-0 items-center justify-center rounded border',
                         isSelected
                           ? 'bg-primary border-primary text-primary-foreground'
@@ -801,6 +822,16 @@ export function DataTableFacetedFilter<TData, TValue>({
  * Component: DataTable
  * -------------------------------------------------------------------------- */
 
+export interface DataTableProps<TData>
+  extends Omit<TableOptions<TData>, 'getCoreRowModel'> {
+  classNames?: TableClassNames;
+  endToolbar?: React.ReactNode | ((table: TableType<TData>) => React.ReactNode);
+  showFooter?: boolean;
+  startToolbar?:
+    | React.ReactNode
+    | ((table: TableType<TData>) => React.ReactNode);
+}
+
 export function DataTable<TData>({
   data = [],
   columns = [],
@@ -809,14 +840,7 @@ export function DataTable<TData>({
   startToolbar,
   endToolbar,
   ...props
-}: Omit<TableOptions<TData>, 'getCoreRowModel'> & {
-  classNames?: TableClassNames;
-  showFooter?: boolean;
-  startToolbar?:
-    | React.ReactNode
-    | ((table: TableType<TData>) => React.ReactNode);
-  endToolbar?: React.ReactNode | ((table: TableType<TData>) => React.ReactNode);
-}): React.JSX.Element {
+}: DataTableProps<TData>): React.JSX.Element {
   const table = useReactTable({
     columns,
     data,
@@ -830,7 +854,7 @@ export function DataTable<TData>({
 
   return (
     <div
-      className={twMerge('flex flex-col space-y-4', classNames.root)}
+      className={cn('flex flex-col space-y-4', classNames.root)}
       data-test-id="root"
     >
       <DataTableToolbar

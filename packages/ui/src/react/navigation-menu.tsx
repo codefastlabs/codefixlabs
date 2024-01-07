@@ -1,9 +1,20 @@
+import type {
+  NavigationMenuContentProps,
+  NavigationMenuIndicatorProps,
+  NavigationMenuItemProps,
+  NavigationMenuLinkProps,
+  NavigationMenuListProps,
+  NavigationMenuProps,
+  NavigationMenuSubProps,
+  NavigationMenuTriggerProps,
+  NavigationMenuViewportProps,
+} from '@radix-ui/react-navigation-menu';
 import {
   Content,
   Indicator,
-  Item,
-  Link,
   List,
+  NavigationMenuItem,
+  NavigationMenuLink,
   Root,
   Sub,
   Trigger,
@@ -11,19 +22,19 @@ import {
 } from '@radix-ui/react-navigation-menu';
 import { ChevronDownIcon } from 'lucide-react';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: NavigationMenuList
  * -------------------------------------------------------------------------- */
 
-export const NavigationMenuList = forwardRef<
+export type { NavigationMenuListProps };
+export const NavigationMenuList = React.forwardRef<
   React.ElementRef<typeof List>,
-  React.ComponentPropsWithoutRef<typeof List>
+  NavigationMenuListProps
 >(({ className, ...props }, forwardedRef) => (
   <List
-    className={twMerge(
+    className={cn(
       'group flex flex-1 list-none items-center justify-center gap-1',
       className,
     )}
@@ -38,14 +49,14 @@ NavigationMenuList.displayName = List.displayName;
  * Component: NavigationMenuIndicator
  * -------------------------------------------------------------------------- */
 
-export const NavigationMenuIndicator = forwardRef<
+export const NavigationMenuIndicator = React.forwardRef<
   React.ElementRef<typeof Indicator>,
-  React.ComponentPropsWithoutRef<typeof Indicator>
+  NavigationMenuIndicatorProps
 >(({ className, ...props }, forwardedRef) => (
   <Indicator
     ref={forwardedRef}
     {...props}
-    className={twMerge(
+    className={cn(
       'top-full z-40 flex h-2.5 items-end justify-center overflow-hidden transition-[width,transform_250ms_ease]',
       'data-state-visible:animate-fade-in data-state-hidden:animate-fade-out',
       className,
@@ -59,14 +70,16 @@ NavigationMenuIndicator.displayName = Indicator.displayName;
  * Component: NavigationMenuViewport
  * -------------------------------------------------------------------------- */
 
-export const NavigationMenuViewport = forwardRef<
+export type { NavigationMenuViewportProps };
+
+export const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof Viewport>,
-  React.ComponentPropsWithoutRef<typeof Viewport>
+  NavigationMenuViewportProps
 >(({ className, ...props }, forwardedRef) => (
   <Viewport
     ref={forwardedRef}
     {...props}
-    className={twMerge(
+    className={cn(
       'origin-top-center bg-popover text-popover-foreground relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md drop-shadow transition-[width,height] duration-300',
       'sm:w-[var(--radix-navigation-menu-viewport-width)]',
       'data-state-open:animate-scale-in data-state-closed:animate-scale-out',
@@ -81,15 +94,13 @@ NavigationMenuViewport.displayName = Viewport.displayName;
  * Component: NavigationMenu
  * -------------------------------------------------------------------------- */
 
-export const NavigationMenu = forwardRef<
+export type { NavigationMenuProps };
+
+export const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root>
+  NavigationMenuProps
 >(({ children, className, ...props }, forwardedRef) => (
-  <Root
-    className={twMerge('relative', className)}
-    ref={forwardedRef}
-    {...props}
-  >
+  <Root className={cn('relative', className)} ref={forwardedRef} {...props}>
     <>
       <NavigationMenuList>
         {children}
@@ -112,11 +123,13 @@ NavigationMenu.displayName = Root.displayName;
  * Component: NavigationMenuSub
  * -------------------------------------------------------------------------- */
 
-export const NavigationMenuSub = forwardRef<
+export type { NavigationMenuSubProps };
+
+export const NavigationMenuSub = React.forwardRef<
   React.ElementRef<typeof Sub>,
-  React.ComponentPropsWithoutRef<typeof Sub>
+  NavigationMenuSubProps
 >(({ children, className, ...props }, forwardedRef) => (
-  <Sub className={twMerge('relative', className)} ref={forwardedRef} {...props}>
+  <Sub className={cn('relative', className)} ref={forwardedRef} {...props}>
     <>
       <NavigationMenuList>
         {children}
@@ -139,12 +152,14 @@ NavigationMenuSub.displayName = Sub.displayName;
  * Component: NavigationMenuTrigger
  * -------------------------------------------------------------------------- */
 
-export const NavigationMenuTrigger = forwardRef<
+export type { NavigationMenuTriggerProps };
+
+export const NavigationMenuTrigger = React.forwardRef<
   React.ElementRef<typeof Trigger>,
-  React.ComponentPropsWithoutRef<typeof Trigger>
+  NavigationMenuTriggerProps
 >(({ children, className, ...props }, forwardedRef) => (
   <Trigger
-    className={twMerge(
+    className={cn(
       [
         'bg-background group inline-flex h-10 w-max items-center justify-center gap-1 rounded-md px-4 py-2 text-sm font-medium transition-colors',
         'hover:bg-accent hover:text-accent-foreground',
@@ -174,14 +189,16 @@ NavigationMenuTrigger.displayName = Trigger.displayName;
  * Component: NavigationMenuContent
  * -------------------------------------------------------------------------- */
 
-export const NavigationMenuContent = forwardRef<
+export type { NavigationMenuContentProps };
+
+export const NavigationMenuContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  React.ComponentPropsWithoutRef<typeof Content>
+  NavigationMenuContentProps
 >(({ className, ...props }, forwardedRef) => (
   <Content
     ref={forwardedRef}
     {...props}
-    className={twMerge(
+    className={cn(
       'absolute left-0 top-0 w-full',
       'sm:w-auto',
       'data-motion-from-start:animate-enter-from-left data-motion-to-start:animate-exit-to-left',
@@ -197,10 +214,12 @@ NavigationMenuContent.displayName = Content.displayName;
  * Component: NavigationMenuItem
  * -------------------------------------------------------------------------- */
 
-export const NavigationMenuItem = Item;
+export { NavigationMenuItem };
+export type { NavigationMenuItemProps };
 
 /* -----------------------------------------------------------------------------
  * Component: NavigationMenuLink
  * -------------------------------------------------------------------------- */
 
-export const NavigationMenuLink = Link;
+export { NavigationMenuLink };
+export type { NavigationMenuLinkProps };

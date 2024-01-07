@@ -1,28 +1,30 @@
 import { getFirstInitials } from '@codefixlabs/lib';
+import type { AvatarProps as RootProps } from '@radix-ui/react-avatar';
 import { Fallback, Image, Root } from '@radix-ui/react-avatar';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: Avatar
  * -------------------------------------------------------------------------- */
 
-export const Avatar = forwardRef<
-  React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root> & {
-    alt: string;
+export interface AvatarProps extends RootProps {
+  alt: string;
+  fallback?: string;
+  src: string | undefined | null;
+  classNames?: {
+    root?: string;
+    image?: string;
     fallback?: string;
-    src: string | undefined | null;
-    classNames?: {
-      root?: string;
-      image?: string;
-      fallback?: string;
-    };
-  }
+  };
+}
+
+export const Avatar = React.forwardRef<
+  React.ElementRef<typeof Root>,
+  AvatarProps
 >(({ className, classNames, alt, fallback, src, ...props }, forwardedRef) => (
   <Root
-    className={twMerge(
+    className={cn(
       'relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full',
       className,
       classNames?.root,
@@ -33,7 +35,7 @@ export const Avatar = forwardRef<
   >
     <Image
       alt={alt}
-      className={twMerge(
+      className={cn(
         'bg-primary aspect-square size-full object-cover object-center',
         classNames?.image,
       )}
@@ -41,7 +43,7 @@ export const Avatar = forwardRef<
       src={src ?? undefined}
     />
     <Fallback
-      className={twMerge(
+      className={cn(
         'bg-muted flex size-full items-center justify-center text-sm',
         classNames?.fallback,
       )}

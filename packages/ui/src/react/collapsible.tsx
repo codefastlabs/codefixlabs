@@ -1,30 +1,42 @@
-import { Content, Root, Trigger } from '@radix-ui/react-collapsible';
+import type {
+  CollapsibleContentProps,
+  CollapsibleProps,
+  CollapsibleTriggerProps,
+} from '@radix-ui/react-collapsible';
+import {
+  Collapsible,
+  CollapsibleTrigger,
+  Content,
+} from '@radix-ui/react-collapsible';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: Collapsible
  * -------------------------------------------------------------------------- */
 
-export const Collapsible = Root;
+export { Collapsible };
+export type { CollapsibleProps };
 
 /* -----------------------------------------------------------------------------
  * Component: CollapsibleTrigger
  * -------------------------------------------------------------------------- */
 
-export const CollapsibleTrigger = Trigger;
+export { CollapsibleTrigger };
+export type { CollapsibleTriggerProps };
 
 /* -----------------------------------------------------------------------------
  * Component: CollapsibleContent
  * -------------------------------------------------------------------------- */
 
-export const CollapsibleContent = forwardRef<
+export type { CollapsibleContentProps };
+
+export const CollapsibleContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  React.ComponentPropsWithoutRef<typeof Content>
+  CollapsibleContentProps
 >(({ className, ...props }, forwardedRef) => (
   <Content
-    className={twMerge(
+    className={cn(
       'overflow-hidden',
       'data-state-open:animate-collapsible-down data-state-closed:animate-collapsible-up',
       className,

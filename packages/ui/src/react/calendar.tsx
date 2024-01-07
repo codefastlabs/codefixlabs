@@ -8,16 +8,9 @@ import {
   Loader2Icon,
 } from 'lucide-react';
 import * as React from 'react';
-import {
-  useCallback,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
 import type {
   DateRange,
+  DayPickerProps,
   DayProps,
   Matcher,
   SelectRangeEventHandler,
@@ -53,10 +46,20 @@ import {
   matcherToArray,
   timeRegex,
 } from '@/lib/calendar';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: DatePicker
  * -------------------------------------------------------------------------- */
+
+export type DatePickerProps = CalendarProps & {
+  classNameTrigger?: string;
+  loading?: boolean;
+  placeholder?: string;
+  slot?: {
+    FormControl?: typeof FormControl;
+  };
+};
 
 export function DatePicker({
   classNameTrigger,
@@ -64,15 +67,8 @@ export function DatePicker({
   placeholder,
   slot,
   ...props
-}: React.ComponentProps<typeof Calendar> & {
-  classNameTrigger?: string;
-  loading?: boolean;
-  placeholder?: string;
-  slot?: {
-    FormControl?: typeof FormControl;
-  };
-}): React.JSX.Element {
-  const displaySelected = useMemo(() => {
+}: DatePickerProps): React.JSX.Element {
+  const displaySelected = React.useMemo(() => {
     switch (props.mode) {
       case 'single':
         return props.selected
@@ -109,7 +105,7 @@ export function DatePicker({
     <Popover variant="simple">
       <Trigger>
         <PopoverTrigger
-          className={twMerge(
+          className={cn(
             buttonVariants({
               variant: 'outline',
             }),
@@ -151,6 +147,12 @@ interface CalendarDateTimeInputVariants {
   onChange?: (day: Date, event: React.MouseEvent) => void;
 }
 
+type CalendarDateTimeInputProps = CalendarDateTimeInputVariants &
+  Omit<
+    React.HTMLAttributes<HTMLDivElement>,
+    keyof CalendarDateTimeInputVariants
+  >;
+
 function CalendarDateTimeInput({
   date,
   label,
@@ -160,24 +162,22 @@ function CalendarDateTimeInput({
   className,
   disabled,
   ...props
-}: CalendarDateTimeInputVariants &
-  Omit<
-    React.HTMLAttributes<HTMLDivElement>,
-    keyof CalendarDateTimeInputVariants
-  >): React.JSX.Element {
-  const id = useId();
-  const [dateValue, setDateValue] = useState<string>(date.toLocaleDateString());
-  const [timeValue, setTimeValue] = useState<string>(
+}: CalendarDateTimeInputProps): React.JSX.Element {
+  const id = React.useId();
+  const [dateValue, setDateValue] = React.useState<string>(
+    date.toLocaleDateString(),
+  );
+  const [timeValue, setTimeValue] = React.useState<string>(
     date.toLocaleTimeString(undefined, { timeStyle: 'short' }),
   );
-  const newDateRef = useRef<Date | undefined>(undefined);
+  const newDateRef = React.useRef<Date | undefined>(undefined);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setDateValue(date.toLocaleDateString());
     setTimeValue(date.toLocaleTimeString(undefined, { timeStyle: 'short' }));
   }, [date]);
 
-  const handleKeyDown = useCallback<
+  const handleKeyDown = React.useCallback<
     React.KeyboardEventHandler<HTMLInputElement>
   >(
     (event) => {
@@ -193,10 +193,10 @@ function CalendarDateTimeInput({
     [onChange],
   );
 
-  const handleDateChange = useCallback<
+  const handleDateChange = React.useCallback<
     React.ChangeEventHandler<HTMLInputElement>
   >(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+    (event) => {
       const value = event.target.value;
       setDateValue(getFormattedDate(value, date));
 
@@ -221,10 +221,10 @@ function CalendarDateTimeInput({
     [date, disabled, maxDate, minDate],
   );
 
-  const handleTimeChange = useCallback<
+  const handleTimeChange = React.useCallback<
     React.ChangeEventHandler<HTMLInputElement>
   >(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+    (event) => {
       const value = event.target.value;
       setTimeValue(getFormattedTime(value, date));
 
@@ -249,8 +249,10 @@ function CalendarDateTimeInput({
     [date, disabled, maxDate, minDate],
   );
 
-  const handleDateBlur = useCallback<React.FocusEventHandler<HTMLInputElement>>(
-    (event: React.FocusEvent<HTMLInputElement>) => {
+  const handleDateBlur = React.useCallback<
+    React.FocusEventHandler<HTMLInputElement>
+  >(
+    (event) => {
       if (dateRegex.test(event.target.value) && newDateRef.current) {
         onChange?.(newDateRef.current, event as unknown as React.MouseEvent);
       }
@@ -261,8 +263,10 @@ function CalendarDateTimeInput({
     [date, onChange],
   );
 
-  const handleTimeBlur = useCallback<React.FocusEventHandler<HTMLInputElement>>(
-    (event: React.FocusEvent<HTMLInputElement>) => {
+  const handleTimeBlur = React.useCallback<
+    React.FocusEventHandler<HTMLInputElement>
+  >(
+    (event) => {
       if (timeRegex.test(event.target.value) && newDateRef.current) {
         onChange?.(newDateRef.current, event as unknown as React.MouseEvent);
       }
@@ -274,10 +278,7 @@ function CalendarDateTimeInput({
   );
 
   return (
-    <div
-      className={twMerge('max-w-[15.75rem] space-y-1', className)}
-      {...props}
-    >
+    <div className={cn('max-w-[15.75rem] space-y-1', className)} {...props}>
       <Label className="text-muted-foreground block text-xs" htmlFor={id}>
         {label.root}
       </Label>
@@ -330,25 +331,27 @@ function CalendarDateTimeInput({
  * Component: CalendarRangeInput
  * -------------------------------------------------------------------------- */
 
+type CalendarRangeInputProps = Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'disabled' | 'onSelect'
+> & {
+  disabled?: Matcher | Matcher[];
+  onSelect?: SelectRangeEventHandler;
+  selected?: DateRange;
+};
+
 function CalendarRangeInput({
   selected,
   disabled,
   onSelect,
   className,
   ...props
-}: Omit<React.HTMLAttributes<HTMLDivElement>, 'disabled' | 'onSelect'> & {
-  disabled?: Matcher | Matcher[];
-  onSelect?: SelectRangeEventHandler;
-  selected?: DateRange;
-}): React.JSX.Element {
+}: CalendarRangeInputProps): React.JSX.Element {
   const from = createDate(selected?.from, 0, 0, 0, 0);
   const to = createDate(selected?.to, 23, 59, 59, 999);
 
   return (
-    <div
-      className={twMerge('flex flex-col gap-x-4 gap-y-2', className)}
-      {...props}
-    >
+    <div className={cn('flex flex-col gap-x-4 gap-y-2', className)} {...props}>
       <CalendarDateTimeInput
         date={from}
         disabled={matcherToArray(disabled)}
@@ -377,11 +380,13 @@ function CalendarRangeInput({
  * -------------------------------------------------------------------------- */
 
 function CalendarDay(props: DayProps): React.JSX.Element {
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
   const dayRender = useDayRender(props.date, props.displayMonth, buttonRef);
   const range = useSelectRange();
 
-  const handleClick = useCallback<React.MouseEventHandler<HTMLButtonElement>>(
+  const handleClick = React.useCallback<
+    React.MouseEventHandler<HTMLButtonElement>
+  >(
     (event) => {
       if (!isSelectedDayDateRange(dayRender.selectedDays)) {
         dayRender.buttonProps.onClick?.(event);
@@ -429,19 +434,21 @@ function ChevronRight(rest: StyledComponent): React.JSX.Element {
   return <ChevronRightIcon {...rest} size={16} />;
 }
 
+export type CalendarProps = DayPickerProps & {
+  // Show the date range input when the mode is `range`.
+  showDateRangeInput?: boolean;
+};
+
 export function Calendar({
   showDateRangeInput,
   classNames,
   ...props
-}: React.ComponentProps<typeof DayPicker> & {
-  // Show the date range input when the mode is `range`.
-  showDateRangeInput?: boolean;
-}): React.JSX.Element {
+}: CalendarProps): React.JSX.Element {
   return (
     <>
       {props.mode === 'range' && showDateRangeInput ? (
         <CalendarRangeInput
-          className={cx(
+          className={cn(
             'mb-4',
             props.numberOfMonths && props.numberOfMonths > 1 && 'sm:flex-row',
           )}

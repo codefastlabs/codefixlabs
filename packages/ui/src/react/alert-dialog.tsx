@@ -1,5 +1,15 @@
+import type {
+  AlertDialogActionProps as ActionProps,
+  AlertDialogCancelProps as CancelProps,
+  AlertDialogContentProps as ContentProps,
+  AlertDialogDescriptionProps,
+  AlertDialogProps as RootProps,
+  AlertDialogTitleProps,
+  AlertDialogTriggerProps,
+} from '@radix-ui/react-alert-dialog';
 import {
   Action,
+  AlertDialogTrigger,
   Cancel,
   Content,
   Description,
@@ -7,14 +17,13 @@ import {
   Portal,
   Root,
   Title,
-  Trigger,
 } from '@radix-ui/react-alert-dialog';
 import type { VariantProps } from 'class-variance-authority';
-import { cva, cx } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import { createContext, forwardRef, useContext } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { buttonVariants } from '@/classes/button';
+import { cn } from '@/lib/utils';
+import type { ButtonProps } from '@/react/button';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -45,7 +54,7 @@ type AlertDialogContentVariants = VariantProps<
  * Provider: AlertDialogContext
  * -------------------------------------------------------------------------- */
 
-export const AlertDialogContext = createContext<{
+export const AlertDialogContext = React.createContext<{
   scrollable?: boolean;
 }>({});
 
@@ -53,12 +62,14 @@ export const AlertDialogContext = createContext<{
  * Component: AlertDialog
  * -------------------------------------------------------------------------- */
 
+export interface AlertDialogProps extends RootProps {
+  scrollable?: boolean;
+}
+
 export function AlertDialog({
   scrollable = false,
   ...props
-}: React.ComponentProps<typeof Root> & {
-  scrollable?: boolean;
-}): React.JSX.Element {
+}: AlertDialogProps): React.JSX.Element {
   return (
     <AlertDialogContext.Provider value={{ scrollable }}>
       <Root {...props} />
@@ -70,22 +81,24 @@ export function AlertDialog({
  * Component: AlertDialogContent
  * -------------------------------------------------------------------------- */
 
-export const AlertDialogContent = forwardRef<
+export interface AlertDialogContentProps
+  extends Omit<AlertDialogContentVariants, 'scrollable'>,
+    ContentProps {
+  classNames?: {
+    content?: string;
+    overlay?: string;
+  };
+}
+export const AlertDialogContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  Omit<AlertDialogContentVariants, 'scrollable'> &
-    React.ComponentPropsWithoutRef<typeof Content> & {
-      classNames?: {
-        content?: string;
-        overlay?: string;
-      };
-    }
+  AlertDialogContentProps
 >(({ className, classNames, ...props }, forwardedRef) => {
-  const { scrollable } = useContext(AlertDialogContext);
+  const { scrollable } = React.useContext(AlertDialogContext);
 
   return (
     <Portal>
       <Overlay
-        className={cx(
+        className={cn(
           [
             'bg-background/80 fixed inset-0 z-40 p-4 sm:p-10',
             'data-state-open:animate-overlay-show data-state-closed:animate-overlay-hide',
@@ -98,7 +111,7 @@ export const AlertDialogContent = forwardRef<
         data-test-id="overlay"
       >
         <Content
-          className={twMerge(
+          className={cn(
             alertDialogContentVariants({ scrollable }),
             className,
             classNames?.content,
@@ -118,16 +131,28 @@ AlertDialogContent.displayName = Content.displayName;
  * Component: AlertDialogAction
  * -------------------------------------------------------------------------- */
 
-export const AlertDialogAction = forwardRef<
+export interface AlertDialogActionProps extends ActionProps {
+  variant?: ButtonProps['variant'];
+  size?: ButtonProps['size'];
+  shape?: ButtonProps['shape'];
+  block?: ButtonProps['block'];
+}
+
+export const AlertDialogAction = React.forwardRef<
   React.ElementRef<typeof Action>,
-  React.ComponentPropsWithoutRef<typeof Action>
->(({ className, ...props }, forwardedRef) => (
-  <Action
-    className={twMerge(buttonVariants({ variant: 'destructive' }), className)}
-    ref={forwardedRef}
-    {...props}
-  />
-));
+  AlertDialogActionProps
+>(
+  (
+    { className, variant = 'destructive', size, shape, block, ...props },
+    forwardedRef,
+  ) => (
+    <Action
+      className={cn(buttonVariants({ variant, size, shape, block }), className)}
+      ref={forwardedRef}
+      {...props}
+    />
+  ),
+);
 
 AlertDialogAction.displayName = Action.displayName;
 
@@ -135,16 +160,28 @@ AlertDialogAction.displayName = Action.displayName;
  * Component: AlertDialogCancel
  * -------------------------------------------------------------------------- */
 
-export const AlertDialogCancel = forwardRef<
+export interface AlertDialogCancelProps extends CancelProps {
+  variant?: ButtonProps['variant'];
+  size?: ButtonProps['size'];
+  shape?: ButtonProps['shape'];
+  block?: ButtonProps['block'];
+}
+
+export const AlertDialogCancel = React.forwardRef<
   React.ElementRef<typeof Cancel>,
-  React.ComponentPropsWithoutRef<typeof Cancel>
->(({ className, ...props }, forwardedRef) => (
-  <Cancel
-    ref={forwardedRef}
-    {...props}
-    className={twMerge(buttonVariants({ variant: 'outline' }), className)}
-  />
-));
+  AlertDialogCancelProps
+>(
+  (
+    { className, variant = 'outline', size, shape, block, ...props },
+    forwardedRef,
+  ) => (
+    <Cancel
+      className={cn(buttonVariants({ variant, size, shape, block }), className)}
+      ref={forwardedRef}
+      {...props}
+    />
+  ),
+);
 
 AlertDialogCancel.displayName = Cancel.displayName;
 
@@ -152,14 +189,16 @@ AlertDialogCancel.displayName = Cancel.displayName;
  * Component: AlertDialogDescription
  * -------------------------------------------------------------------------- */
 
-export const AlertDialogDescription = forwardRef<
+export type { AlertDialogDescriptionProps };
+
+export const AlertDialogDescription = React.forwardRef<
   React.ElementRef<typeof Description>,
-  React.ComponentPropsWithoutRef<typeof Description>
+  AlertDialogDescriptionProps
 >(({ className, ...props }, forwardedRef) => (
   <Description
     ref={forwardedRef}
     {...props}
-    className={twMerge('text-muted-foreground text-sm', className)}
+    className={cn('text-muted-foreground text-sm', className)}
   />
 ));
 
@@ -169,12 +208,14 @@ AlertDialogDescription.displayName = Description.displayName;
  * Component: AlertDialogTitle
  * -------------------------------------------------------------------------- */
 
-export const AlertDialogTitle = forwardRef<
+export type { AlertDialogTitleProps };
+
+export const AlertDialogTitle = React.forwardRef<
   React.ElementRef<typeof Title>,
-  React.ComponentPropsWithoutRef<typeof Title>
+  AlertDialogTitleProps
 >(({ className, ...props }, forwardedRef) => (
   <Title
-    className={twMerge('text-lg font-semibold', className)}
+    className={cn('text-lg font-semibold', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -186,22 +227,22 @@ AlertDialogTitle.displayName = Title.displayName;
  * Component: AlertDialogTrigger
  * -------------------------------------------------------------------------- */
 
-export const AlertDialogTrigger = Trigger;
+export { AlertDialogTrigger };
+export type { AlertDialogTriggerProps };
 
 /* -----------------------------------------------------------------------------
  * Component: AlertDialogHeader
  * -------------------------------------------------------------------------- */
 
+export type AlertDialogHeaderProps = React.HTMLAttributes<HTMLElement>;
+
 export function AlertDialogHeader({
   className,
   ...props
-}: React.ComponentProps<'header'>): React.JSX.Element {
+}: AlertDialogHeaderProps): React.JSX.Element {
   return (
     <header
-      className={twMerge(
-        'py-3.75 grid shrink-0 gap-2 border-b px-6',
-        className,
-      )}
+      className={cn('py-3.75 grid shrink-0 gap-2 border-b px-6', className)}
       {...props}
     />
   );
@@ -211,13 +252,13 @@ export function AlertDialogHeader({
  * Component: AlertDialogBody
  * -------------------------------------------------------------------------- */
 
+export type AlertDialogBodyProps = React.HTMLAttributes<HTMLElement>;
+
 export function AlertDialogBody({
   className,
   ...props
-}: React.ComponentProps<'main'>): React.JSX.Element {
-  return (
-    <main className={twMerge('grow overflow-y-auto', className)} {...props} />
-  );
+}: AlertDialogBodyProps): React.JSX.Element {
+  return <main className={cn('grow overflow-y-auto', className)} {...props} />;
 }
 
 /* -----------------------------------------------------------------------------
@@ -230,7 +271,7 @@ export function AlertDialogFooter({
 }: React.HTMLAttributes<HTMLDivElement>): React.JSX.Element {
   return (
     <div
-      className={twMerge(
+      className={cn(
         'py-3.75 flex shrink-0 flex-col-reverse gap-2 border-t px-6 sm:flex-row sm:justify-between',
         className,
       )}

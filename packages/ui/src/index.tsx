@@ -2,7 +2,7 @@
 import '@/styles.css';
 
 // Classes
-export * from '@/classes/button';
+export * from '@/classes';
 
 // React components
 export * from '@/react/accordion';
@@ -45,10 +45,7 @@ export * from '@/react/switch';
 export * from '@/react/table';
 export * from '@/react/tabs';
 export * from '@/react/textarea';
-export * from '@/react/toast';
-export * from '@/react/toaster';
 export * from '@/react/toggle';
 export * from '@/react/toggle-group';
 export * from '@/react/toolbar';
 export * from '@/react/tooltip';
-export * from '@/react/use-toast';

@@ -1,9 +1,10 @@
+import type { ToggleGroupItemProps as ItemProps } from '@radix-ui/react-toggle-group';
 import { Item, Root } from '@radix-ui/react-toggle-group';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import type { ToggleGroupProps } from '@radix-ui/react-toolbar';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -41,18 +42,18 @@ const toggleGroupItemVariants = cva(
   },
 );
 
-type ToggleGroupItemVariants = VariantProps<typeof toggleGroupItemVariants>;
-
 /* -----------------------------------------------------------------------------
  * Component: ToggleGroup
  * -------------------------------------------------------------------------- */
 
-export const ToggleGroup = forwardRef<
+export type { ToggleGroupProps };
+
+export const ToggleGroup = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root>
+  ToggleGroupProps
 >(({ className, ...props }, forwardedRef) => (
   <Root
-    className={twMerge(
+    className={cn(
       'bg-muted text-muted-foreground inline-flex space-x-px rounded-md',
       className,
     )}
@@ -67,12 +68,16 @@ ToggleGroup.displayName = Root.displayName;
  * Component: ToggleGroupItem
  * -------------------------------------------------------------------------- */
 
-export const ToggleGroupItem = forwardRef<
+export interface ToggleGroupItemProps
+  extends ItemProps,
+    VariantProps<typeof toggleGroupItemVariants> {}
+
+export const ToggleGroupItem = React.forwardRef<
   React.ElementRef<typeof Item>,
-  React.ComponentPropsWithoutRef<typeof Item> & ToggleGroupItemVariants
+  ToggleGroupItemProps
 >(({ className, variant = 'primary', size = 'md', ...props }, forwardedRef) => (
   <Item
-    className={twMerge(toggleGroupItemVariants({ size, variant }), className)}
+    className={cn(toggleGroupItemVariants({ size, variant }), className)}
     ref={forwardedRef}
     {...props}
   />

@@ -12,9 +12,9 @@ import {
 } from 'cmdk';
 import { SearchIcon } from 'lucide-react';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import type { DialogProps as CommandDialogProps } from '@/react/dialog';
 import { Dialog, DialogContent } from '@/react/dialog';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -35,18 +35,20 @@ const commandVariants = cva(
   },
 );
 
-type CommandVariants = VariantProps<typeof commandVariants>;
-
 /* -----------------------------------------------------------------------------
  * Component: Command
  * -------------------------------------------------------------------------- */
 
-export const Command = forwardRef<
+export interface CommandProps
+  extends React.ComponentPropsWithoutRef<typeof Root>,
+    VariantProps<typeof commandVariants> {}
+
+export const Command = React.forwardRef<
   React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root> & CommandVariants
+  CommandProps
 >(({ className, variant = 'primary', ...props }, forwardedRef) => (
   <Root
-    className={twMerge(commandVariants({ variant }), className)}
+    className={cn(commandVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   />
@@ -58,14 +60,16 @@ Command.displayName = Root.displayName;
  * Component: CommandInput
  * -------------------------------------------------------------------------- */
 
-export const CommandInput = forwardRef<
+export type CommandInputProps = React.ComponentPropsWithoutRef<typeof Input>;
+
+export const CommandInput = React.forwardRef<
   React.ElementRef<typeof Input>,
-  React.ComponentPropsWithoutRef<typeof Input>
+  CommandInputProps
 >(({ className, ...props }, forwardedRef) => (
   <div className="flex items-center gap-2 border-b px-3">
     <SearchIcon className="shrink-0 opacity-50" size={20} />
     <Input
-      className={twMerge(
+      className={cn(
         'h-11 w-full min-w-0 rounded-md bg-transparent py-3 text-sm outline-none',
         'placeholder:text-muted-foreground',
         'disabled:cursor-not-allowed disabled:opacity-50',
@@ -83,12 +87,14 @@ CommandInput.displayName = Input.displayName;
  * Component: CommandList
  * -------------------------------------------------------------------------- */
 
-export const CommandList = forwardRef<
+export type CommandListProps = React.ComponentPropsWithoutRef<typeof List>;
+
+export const CommandList = React.forwardRef<
   React.ElementRef<typeof List>,
-  React.ComponentPropsWithoutRef<typeof List>
+  CommandListProps
 >(({ className, ...props }, forwardedRef) => (
   <List
-    className={twMerge('overflow-y-auto overflow-x-hidden', className)}
+    className={cn('overflow-y-auto overflow-x-hidden', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -100,9 +106,13 @@ CommandList.displayName = List.displayName;
  * Component: CommandLoading
  * -------------------------------------------------------------------------- */
 
-export const CommandLoading = forwardRef<
+export type CommandLoadingProps = React.ComponentPropsWithoutRef<
+  typeof Loading
+>;
+
+export const CommandLoading = React.forwardRef<
   React.ElementRef<typeof Loading>,
-  React.ComponentPropsWithoutRef<typeof Loading>
+  CommandLoadingProps
 >(({ ...props }, forwardedRef) => <Loading ref={forwardedRef} {...props} />);
 
 CommandLoading.displayName = Loading.displayName;
@@ -111,12 +121,14 @@ CommandLoading.displayName = Loading.displayName;
  * Component: CommandEmpty
  * -------------------------------------------------------------------------- */
 
-export const CommandEmpty = forwardRef<
+export type CommandEmptyProps = React.ComponentPropsWithoutRef<typeof Empty>;
+
+export const CommandEmpty = React.forwardRef<
   React.ElementRef<typeof Empty>,
-  React.ComponentPropsWithoutRef<typeof Empty>
+  CommandEmptyProps
 >(({ className, ...props }, forwardedRef) => (
   <Empty
-    className={twMerge('py-6 text-center text-sm', className)}
+    className={cn('py-6 text-center text-sm', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -128,12 +140,14 @@ CommandEmpty.displayName = Empty.displayName;
  * Component: CommandGroup
  * -------------------------------------------------------------------------- */
 
-export const CommandGroup = forwardRef<
+export type CommandGroupProps = React.ComponentPropsWithoutRef<typeof Group>;
+
+export const CommandGroup = React.forwardRef<
   React.ElementRef<typeof Group>,
-  React.ComponentPropsWithoutRef<typeof Group>
+  CommandGroupProps
 >(({ className, ...props }, forwardedRef) => (
   <Group
-    className={twMerge(
+    className={cn(
       'overflow-hidden p-1',
       '[&_[cmdk-group-items]]:space-y-0.5',
       '[&_[cmdk-group-heading]]:text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-sm [&_[cmdk-group-heading]]:font-semibold',
@@ -150,12 +164,16 @@ CommandGroup.displayName = Group.displayName;
  * Component: CommandSeparator
  * -------------------------------------------------------------------------- */
 
-export const CommandSeparator = forwardRef<
+export type CommandSeparatorProps = React.ComponentPropsWithoutRef<
+  typeof Separator
+>;
+
+export const CommandSeparator = React.forwardRef<
   React.ElementRef<typeof Separator>,
-  React.ComponentPropsWithoutRef<typeof Separator>
+  CommandSeparatorProps
 >(({ className, ...props }, forwardedRef) => (
   <Separator
-    className={twMerge('bg-border h-px', className)}
+    className={cn('bg-border h-px', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -167,12 +185,14 @@ CommandSeparator.displayName = Separator.displayName;
  * Component: CommandItem
  * -------------------------------------------------------------------------- */
 
-export const CommandItem = forwardRef<
+export type CommandItemProps = React.ComponentPropsWithoutRef<typeof Item>;
+
+export const CommandItem = React.forwardRef<
   React.ElementRef<typeof Item>,
-  React.ComponentPropsWithoutRef<typeof Item>
+  CommandItemProps
 >(({ className, ...props }, forwardedRef) => (
   <Item
-    className={twMerge(
+    className={cn(
       'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
       'hover:text-accent-foreground hover:bg-accent',
       'aria-selected:text-accent-foreground aria-selected:bg-accent',
@@ -190,10 +210,12 @@ CommandItem.displayName = Item.displayName;
  * Component: CommandDialog
  * -------------------------------------------------------------------------- */
 
+export type { CommandDialogProps };
+
 export function CommandDialog({
   children,
   ...props
-}: React.ComponentPropsWithoutRef<typeof Dialog>): React.JSX.Element {
+}: CommandDialogProps): React.JSX.Element {
   return (
     <Dialog scrollable variant="simple" {...props}>
       <DialogContent className="w-full max-w-md">

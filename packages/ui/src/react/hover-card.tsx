@@ -1,37 +1,46 @@
+import type {
+  HoverCardArrowProps,
+  HoverCardContentProps,
+  HoverCardProps,
+  HoverCardTriggerProps,
+} from '@radix-ui/react-hover-card';
 import {
   Arrow,
   Content,
+  HoverCard,
+  HoverCardTrigger,
   Portal,
-  Root,
-  Trigger,
 } from '@radix-ui/react-hover-card';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: HoverCard
  * -------------------------------------------------------------------------- */
 
-export const HoverCard = Root;
+export { HoverCard };
+export type { HoverCardProps };
 
 /* -----------------------------------------------------------------------------
  * Component: HoverCardTrigger
  * -------------------------------------------------------------------------- */
 
-export const HoverCardTrigger = Trigger;
+export { HoverCardTrigger };
+export type { HoverCardTriggerProps };
 
 /* -----------------------------------------------------------------------------
  * Component: HoverCardContent
  * -------------------------------------------------------------------------- */
 
-export const HoverCardContent = forwardRef<
+export type { HoverCardContentProps };
+
+export const HoverCardContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  React.ComponentPropsWithoutRef<typeof Content>
+  HoverCardContentProps
 >(({ className, ...props }, forwardedRef) => (
   <Portal>
     <Content
-      className={twMerge(
+      className={cn(
         [
           'bg-popover text-popover-foreground relative z-40 rounded-md border p-4 shadow-lg will-change-[opacity,transform]',
           [
@@ -62,12 +71,14 @@ HoverCardContent.displayName = Content.displayName;
  * Component: HoverCardArrow
  * -------------------------------------------------------------------------- */
 
-export const HoverCardArrow = forwardRef<
+export type { HoverCardArrowProps };
+
+export const HoverCardArrow = React.forwardRef<
   React.ElementRef<typeof Arrow>,
-  React.ComponentPropsWithoutRef<typeof Arrow>
+  HoverCardArrowProps
 >(({ className, ...props }, forwardedRef) => (
   <Arrow
-    className={twMerge('fill-popover', className)}
+    className={cn('fill-popover', className)}
     ref={forwardedRef}
     {...props}
   />

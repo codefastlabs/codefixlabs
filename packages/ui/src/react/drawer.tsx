@@ -1,3 +1,11 @@
+import type {
+  DialogCloseProps,
+  DialogContentProps,
+  DialogDescriptionProps as DrawerDescriptionProps,
+  DialogProps,
+  DialogTitleProps as DrawerTitleProps,
+  DialogTriggerProps as DrawerTriggerProps,
+} from '@radix-ui/react-dialog';
 import {
   Close,
   Content,
@@ -6,15 +14,15 @@ import {
   Portal,
   Root,
   Title,
-  Trigger,
+  Trigger as DrawerTrigger,
 } from '@radix-ui/react-dialog';
 import type { VariantProps } from 'class-variance-authority';
-import { cva, cx } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import { XIcon } from 'lucide-react';
 import * as React from 'react';
-import { createContext, forwardRef, useContext } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { buttonVariants } from '@/classes/button';
+import { cn } from '@/lib/utils';
+import type { ButtonProps } from '@/react/button';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -46,13 +54,11 @@ const drawerContentVariants = cva(
   },
 );
 
-type DrawerContentVariants = VariantProps<typeof drawerContentVariants>;
-
 /* -----------------------------------------------------------------------------
  * Provider: DrawerContext
  * -------------------------------------------------------------------------- */
 
-export const DrawerContext = createContext<{
+export const DrawerContext = React.createContext<{
   scrollable?: boolean;
   variant?: 'default' | 'simple';
   position?: 'left' | 'right';
@@ -62,16 +68,18 @@ export const DrawerContext = createContext<{
  * Component: Drawer
  * -------------------------------------------------------------------------- */
 
+export interface DrawerProps extends DialogProps {
+  scrollable?: boolean;
+  variant?: 'default' | 'simple';
+  position?: 'left' | 'right';
+}
+
 export function Drawer({
   scrollable = false,
   variant = 'default',
   position = 'right',
   ...props
-}: React.ComponentProps<typeof Root> & {
-  scrollable?: boolean;
-  variant?: 'default' | 'simple';
-  position?: 'left' | 'right';
-}): React.JSX.Element {
+}: DrawerProps): React.JSX.Element {
   return (
     <DrawerContext.Provider value={{ position, scrollable, variant }}>
       <Root {...props} />
@@ -80,31 +88,67 @@ export function Drawer({
 }
 
 /* -----------------------------------------------------------------------------
- * Component: DialogClose
+ * Component: DrawerClose
  * -------------------------------------------------------------------------- */
 
-export const DrawerClose = Close;
+export interface DrawerCloseProps extends DialogCloseProps {
+  variant?: ButtonProps['variant'];
+  size?: ButtonProps['size'];
+  shape?: ButtonProps['shape'];
+  block?: ButtonProps['block'];
+}
+export const DrawerClose = React.forwardRef<
+  React.ElementRef<typeof Close>,
+  DrawerCloseProps
+>(
+  (
+    { className, variant = 'outline', size, shape, block, ...props },
+    forwardedRef,
+  ) => (
+    <Close
+      className={cn(
+        buttonVariants({
+          variant,
+          size,
+          shape,
+          block,
+        }),
+        className,
+      )}
+      ref={forwardedRef}
+      {...props}
+    />
+  ),
+);
+
+DrawerClose.displayName = Close.displayName;
 
 /* -----------------------------------------------------------------------------
  * Component: DrawerContent
  * -------------------------------------------------------------------------- */
 
-export const DrawerContent = forwardRef<
+export interface DrawerContentProps
+  extends Omit<
+      VariantProps<typeof drawerContentVariants>,
+      'position' | 'scrollable'
+    >,
+    DialogContentProps {
+  classNames?: {
+    content?: string;
+    overlay?: string;
+  };
+}
+
+export const DrawerContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  Omit<DrawerContentVariants, 'position' | 'scrollable'> &
-    React.ComponentPropsWithoutRef<typeof Content> & {
-      classNames?: {
-        content?: string;
-        overlay?: string;
-      };
-    }
+  DrawerContentProps
 >(({ children, className, classNames, ...props }, forwardedRef) => {
-  const { variant, scrollable, position } = useContext(DrawerContext);
+  const { variant, scrollable, position } = React.useContext(DrawerContext);
 
   return (
     <Portal>
       <Overlay
-        className={cx(
+        className={cn(
           [
             'bg-background/80 fixed inset-0 z-40 flex',
             'data-state-open:animate-overlay-show data-state-closed:animate-overlay-hide',
@@ -118,7 +162,7 @@ export const DrawerContent = forwardRef<
         data-test-id="overlay"
       >
         <Content
-          className={twMerge(
+          className={cn(
             drawerContentVariants({ position, scrollable }),
             className,
             classNames?.content,
@@ -130,9 +174,9 @@ export const DrawerContent = forwardRef<
           <>
             {children}
             {variant === 'default' && (
-              <DrawerClose
+              <Close
                 aria-label="Close"
-                className={twMerge(
+                className={cn(
                   buttonVariants({
                     icon: true,
                     shape: 'pill',
@@ -143,7 +187,7 @@ export const DrawerContent = forwardRef<
                 )}
               >
                 <XIcon size={16} />
-              </DrawerClose>
+              </Close>
             )}
           </>
         </Content>
@@ -158,22 +202,22 @@ DrawerContent.displayName = 'DrawerContent';
  * Component: DrawerTrigger
  * -------------------------------------------------------------------------- */
 
-export const DrawerTrigger = Trigger;
+export { DrawerTrigger };
+export type { DrawerTriggerProps };
 
 /* -----------------------------------------------------------------------------
  * Component: DrawerHeader
  * -------------------------------------------------------------------------- */
 
+export type DrawerHeaderProps = React.HTMLAttributes<HTMLElement>;
+
 export function DrawerHeader({
   className,
   ...props
-}: React.ComponentProps<'header'>): React.JSX.Element {
+}: DrawerHeaderProps): React.JSX.Element {
   return (
     <header
-      className={twMerge(
-        'py-3.75 grid shrink-0 gap-2 border-b px-6',
-        className,
-      )}
+      className={cn('py-3.75 grid shrink-0 gap-2 border-b px-6', className)}
       {...props}
     />
   );
@@ -183,26 +227,28 @@ export function DrawerHeader({
  * Component: DrawerBody
  * -------------------------------------------------------------------------- */
 
+export type DrawerBodyProps = React.HTMLAttributes<HTMLElement>;
+
 export function DrawerBody({
   className,
   ...props
-}: React.ComponentProps<'main'>): React.JSX.Element {
-  return (
-    <main className={twMerge('grow overflow-y-auto', className)} {...props} />
-  );
+}: DrawerBodyProps): React.JSX.Element {
+  return <main className={cn('grow overflow-y-auto', className)} {...props} />;
 }
 
 /* -----------------------------------------------------------------------------
  * Component: DrawerFooter
  * -------------------------------------------------------------------------- */
 
+export type DrawerFooterProps = React.HTMLAttributes<HTMLElement>;
+
 export function DrawerFooter({
   className,
   ...props
-}: React.ComponentProps<'footer'>): React.JSX.Element {
+}: DrawerFooterProps): React.JSX.Element {
   return (
     <footer
-      className={twMerge(
+      className={cn(
         'py-3.75 flex shrink-0 flex-col-reverse gap-2 border-t px-6 sm:flex-row sm:justify-between',
         className,
       )}
@@ -215,12 +261,14 @@ export function DrawerFooter({
  * Component: DrawerTitle
  * -------------------------------------------------------------------------- */
 
-export const DrawerTitle = forwardRef<
+export type { DrawerTitleProps };
+
+export const DrawerTitle = React.forwardRef<
   React.ElementRef<typeof Title>,
-  React.ComponentPropsWithoutRef<typeof Title>
+  DrawerTitleProps
 >(({ className, ...props }, forwardedRef) => (
   <Title
-    className={twMerge('text-lg font-semibold', className)}
+    className={cn('text-lg font-semibold', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -232,12 +280,14 @@ DrawerTitle.displayName = Title.displayName;
  * Component: DrawerDescription
  * -------------------------------------------------------------------------- */
 
-export const DrawerDescription = forwardRef<
+export type { DrawerDescriptionProps };
+
+export const DrawerDescription = React.forwardRef<
   React.ElementRef<typeof Description>,
-  React.ComponentPropsWithoutRef<typeof Description>
+  DrawerDescriptionProps
 >(({ className, ...props }, forwardedRef) => (
   <Description
-    className={twMerge('text-muted-foreground text-sm', className)}
+    className={cn('text-muted-foreground text-sm', className)}
     ref={forwardedRef}
     {...props}
   />

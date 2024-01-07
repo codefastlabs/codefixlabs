@@ -27,7 +27,7 @@ async function addDirectivesToChunkFiles(distPath = DIST_PATH): Promise<void> {
           continue;
         }
 
-        const updatedContent = `'use client';\n${data}`;
+        const updatedContent = `'use client';\n\n${data}`;
 
         // eslint-disable-next-line no-await-in-loop -- We need to wait for each file to be written
         await fs.writeFile(filePath, updatedContent, 'utf8');

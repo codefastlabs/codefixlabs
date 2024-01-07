@@ -1,9 +1,7 @@
 import { useCountries } from '@codefixlabs/hooks';
-import { cx } from 'class-variance-authority';
 import * as React from 'react';
-import { forwardRef, useMemo, useState } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
+import type { PrimitiveInputProps } from '@/react/input';
 import { PrimitiveInput } from '@/react/input';
 import {
   Command,
@@ -14,37 +12,41 @@ import {
   CommandList,
 } from '@/react/command';
 import { buttonVariants } from '@/classes/button';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: InputPhoneNumber
  * -------------------------------------------------------------------------- */
 
-export const InputPhoneNumber = forwardRef<
+export interface InputPhoneNumberProps
+  extends Omit<
+    PrimitiveInputProps,
+    'type' | 'value' | 'defaultValue' | 'onChange' | 'onBlur'
+  > {
+  value?: {
+    phoneCode: string;
+    phoneNumber?: string | null;
+  };
+  defaultValue?: {
+    phoneCode: string;
+    phoneNumber?: string | null;
+  };
+  onChange?: (value: { phoneCode: string; phoneNumber: string }) => void;
+  onBlur?: (value: { phoneCode: string; phoneNumber: string }) => void;
+}
+
+export const InputPhoneNumber = React.forwardRef<
   React.ElementRef<typeof PrimitiveInput>,
-  Omit<
-    React.ComponentPropsWithoutRef<typeof PrimitiveInput>,
-    'type' | 'value' | 'defaultValue' | 'onChange'
-  > & {
-    value?: {
-      phoneCode: string;
-      phoneNumber?: string | null;
-    };
-    defaultValue?: {
-      phoneCode: string;
-      phoneNumber?: string | null;
-    };
-    onChange?: (value: { phoneCode: string; phoneNumber: string }) => void;
-    onBlur?: (value: { phoneCode: string; phoneNumber: string }) => void;
-  }
+  InputPhoneNumberProps
 >(
   (
     { className, value, defaultValue, onBlur, onChange, ...props },
     forwardedRef,
   ) => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = React.useState(false);
     const { countries } = useCountries();
 
-    const currentCountry = useMemo(
+    const currentCountry = React.useMemo(
       () =>
         countries.find(
           (country) =>
@@ -55,14 +57,14 @@ export const InputPhoneNumber = forwardRef<
 
     return (
       <div
-        className={cx(
+        className={cn(
           'relative items-center gap-2',
           props.inline ? 'inline-flex' : 'flex',
         )}
       >
         <Popover onOpenChange={setOpen} open={open} variant="simple">
           <PopoverTrigger
-            className={twMerge(
+            className={cn(
               buttonVariants({
                 size: props.size,
                 variant: 'outline',
@@ -120,7 +122,7 @@ export const InputPhoneNumber = forwardRef<
                           </span>
                         </div>
                         <span
-                          className={cx(
+                          className={cn(
                             selected ? 'font-bold' : 'text-muted-foreground',
                           )}
                         >
@@ -136,7 +138,7 @@ export const InputPhoneNumber = forwardRef<
         </Popover>
 
         <PrimitiveInput
-          className={twMerge(className)}
+          className={cn(className)}
           defaultValue={defaultValue?.phoneNumber ?? undefined}
           inputMode="tel"
           ref={forwardedRef}

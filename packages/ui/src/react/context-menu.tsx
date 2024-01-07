@@ -1,27 +1,43 @@
+import type {
+  ContextMenuArrowProps,
+  ContextMenuCheckboxItemProps as CheckboxItemProps,
+  ContextMenuContentProps,
+  ContextMenuGroupProps,
+  ContextMenuItemIndicatorProps,
+  ContextMenuItemProps as ItemProps,
+  ContextMenuLabelProps as LabelProps,
+  ContextMenuProps,
+  ContextMenuRadioGroupProps,
+  ContextMenuRadioItemProps as RadioItemProps,
+  ContextMenuSeparatorProps,
+  ContextMenuSubContentProps,
+  ContextMenuSubProps,
+  ContextMenuSubTriggerProps as SubTriggerProps,
+  ContextMenuTriggerProps,
+} from '@radix-ui/react-context-menu';
 import {
   Arrow,
   CheckboxItem,
   Content,
-  Group,
+  ContextMenu,
+  ContextMenuGroup,
+  ContextMenuRadioGroup,
+  ContextMenuSub,
+  ContextMenuTrigger,
   Item,
   ItemIndicator,
   Label,
   Portal,
-  RadioGroup,
   RadioItem,
-  Root,
   Separator,
-  Sub,
   SubContent,
   SubTrigger,
-  Trigger,
 } from '@radix-ui/react-context-menu';
 import { CheckIcon, ChevronRightIcon, DotIcon } from 'lucide-react';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -91,8 +107,6 @@ const contextMenuItemVariants = cva(
     },
   },
 );
-
-type ContextMenuItemVariants = VariantProps<typeof contextMenuItemVariants>;
 
 const contextMenuCheckboxItemVariants = cva(
   [
@@ -166,18 +180,18 @@ const contextMenuLabelVariants = cva(
   },
 );
 
-type ContextMenuLabelVariants = VariantProps<typeof contextMenuLabelVariants>;
-
 /* -----------------------------------------------------------------------------
  * Component: ContextMenuItemIndicator
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuItemIndicator = forwardRef<
+export type { ContextMenuItemIndicatorProps };
+
+export const ContextMenuItemIndicator = React.forwardRef<
   React.ElementRef<typeof ItemIndicator>,
-  React.ComponentPropsWithoutRef<typeof ItemIndicator>
+  ContextMenuItemIndicatorProps
 >(({ className, ...props }, forwardedRef) => (
   <ItemIndicator
-    className={twMerge(
+    className={cn(
       'absolute left-0 inline-flex w-8 items-center justify-center',
       className,
     )}
@@ -192,13 +206,15 @@ ContextMenuItemIndicator.displayName = ItemIndicator.displayName;
  * Component: ContextMenuShortcut
  * -------------------------------------------------------------------------- */
 
+export type ContextMenuShortcutProps = React.HTMLAttributes<HTMLDivElement>;
+
 export function ContextMenuShortcut({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>): React.JSX.Element {
+}: ContextMenuShortcutProps): React.JSX.Element {
   return (
     <div
-      className={twMerge(
+      className={cn(
         'text-muted-foreground ml-auto flex pl-4 text-xs',
         className,
       )}
@@ -211,13 +227,15 @@ export function ContextMenuShortcut({
  * Component: ContextMenuContent
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuContent = forwardRef<
+export type { ContextMenuContentProps };
+
+export const ContextMenuContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  React.ComponentPropsWithoutRef<typeof Content>
+  ContextMenuContentProps
 >(({ className, ...props }, forwardedRef) => (
   <Portal>
     <Content
-      className={twMerge(
+      className={cn(
         'bg-popover text-popover-foreground relative z-40 min-w-[8rem] rounded-md border p-1 shadow-lg',
         className,
       )}
@@ -233,13 +251,15 @@ ContextMenuContent.displayName = Content.displayName;
  * Component: ContextMenuSubContent
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuSubContent = forwardRef<
+export type { ContextMenuSubContentProps };
+
+export const ContextMenuSubContent = React.forwardRef<
   React.ElementRef<typeof SubContent>,
-  React.ComponentPropsWithoutRef<typeof SubContent>
+  ContextMenuSubContentProps
 >(({ className, ...props }, forwardedRef) => (
   <Portal>
     <SubContent
-      className={twMerge(
+      className={cn(
         'bg-popover text-popover-foreground relative z-40 min-w-[8rem] rounded-md border p-1 shadow-lg will-change-[opacity,transform]',
         [
           'data-state-open:data-side-top:animate-slide-in-from-bottom',
@@ -268,13 +288,16 @@ ContextMenuSubContent.displayName = SubContent.displayName;
  * Component: ContextMenuSubTrigger
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuSubTrigger = forwardRef<
+export interface ContextMenuSubTriggerProps
+  extends SubTriggerProps,
+    ContextMenuSubTriggerVariants {}
+
+export const ContextMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof SubTrigger>,
-  React.ComponentPropsWithoutRef<typeof SubTrigger> &
-    ContextMenuSubTriggerVariants
+  ContextMenuSubTriggerProps
 >(({ children, className, inset, variant, ...props }, forwardedRef) => (
   <SubTrigger
-    className={twMerge(
+    className={cn(
       contextMenuSubTriggerVariants({
         inset,
         variant,
@@ -299,18 +322,22 @@ ContextMenuSubTrigger.displayName = SubTrigger.displayName;
  * Component: ContextMenuItem
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuItem = forwardRef<
+export interface ContextMenuItemProps
+  extends ItemProps,
+    VariantProps<typeof contextMenuItemVariants> {
+  shortcut?: string;
+}
+
+export const ContextMenuItem = React.forwardRef<
   React.ElementRef<typeof Item>,
-  React.ComponentPropsWithoutRef<typeof Item> & {
-    shortcut?: string;
-  } & ContextMenuItemVariants
+  ContextMenuItemProps
 >(
   (
     { children, className, inset, variant, shortcut, ...props },
     forwardedRef,
   ) => (
     <Item
-      className={twMerge(
+      className={cn(
         contextMenuItemVariants({
           inset,
           variant,
@@ -340,14 +367,18 @@ ContextMenuItem.displayName = Item.displayName;
  * Component: ContextMenuCheckboxItem
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuCheckboxItem = forwardRef<
+export interface ContextMenuCheckboxItemProps
+  extends CheckboxItemProps,
+    ContextMenuCheckboxItemVariants {
+  shortcut?: string;
+}
+
+export const ContextMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof CheckboxItem>,
-  React.ComponentPropsWithoutRef<typeof CheckboxItem> & {
-    shortcut?: string;
-  } & ContextMenuCheckboxItemVariants
+  ContextMenuCheckboxItemProps
 >(({ children, className, variant, shortcut, ...props }, forwardedRef) => (
   <CheckboxItem
-    className={twMerge(
+    className={cn(
       contextMenuCheckboxItemVariants({
         variant,
       }),
@@ -372,14 +403,18 @@ ContextMenuCheckboxItem.displayName = CheckboxItem.displayName;
  * Component: ContextMenuRadioItem
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuRadioItem = forwardRef<
+export interface ContextMenuRadioItemProps
+  extends RadioItemProps,
+    ContextMenuRadioItemVariants {
+  shortcut?: string;
+}
+
+export const ContextMenuRadioItem = React.forwardRef<
   React.ElementRef<typeof RadioItem>,
-  React.ComponentPropsWithoutRef<typeof RadioItem> & {
-    shortcut?: string;
-  } & ContextMenuRadioItemVariants
+  ContextMenuRadioItemProps
 >(({ children, className, variant, shortcut, ...props }, forwardedRef) => (
   <RadioItem
-    className={twMerge(contextMenuRadioItemVariants({ variant }), className)}
+    className={cn(contextMenuRadioItemVariants({ variant }), className)}
     ref={forwardedRef}
     {...props}
   >
@@ -399,12 +434,14 @@ ContextMenuRadioItem.displayName = RadioItem.displayName;
  * Component: ContextMenuArrow
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuArrow = forwardRef<
+export type { ContextMenuArrowProps };
+
+export const ContextMenuArrow = React.forwardRef<
   React.ElementRef<typeof Arrow>,
-  React.ComponentPropsWithoutRef<typeof Arrow>
+  ContextMenuArrowProps
 >(({ className, ...props }, forwardedRef) => (
   <Arrow
-    className={twMerge('fill-popover', className)}
+    className={cn('fill-popover', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -416,18 +453,23 @@ ContextMenuArrow.displayName = Arrow.displayName;
  * Component: ContextMenuGroup
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuGroup = Group;
+export { ContextMenuGroup };
+export type { ContextMenuGroupProps };
 
 /* -----------------------------------------------------------------------------
  * Component: ContextMenuLabel
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuLabel = forwardRef<
+export interface ContextMenuLabelProps
+  extends LabelProps,
+    VariantProps<typeof contextMenuLabelVariants> {}
+
+export const ContextMenuLabel = React.forwardRef<
   React.ElementRef<typeof Label>,
-  React.ComponentPropsWithoutRef<typeof Label> & ContextMenuLabelVariants
+  ContextMenuLabelProps
 >(({ className, inset = false, ...props }, forwardedRef) => (
   <Label
-    className={twMerge(contextMenuLabelVariants({ inset }), className)}
+    className={cn(contextMenuLabelVariants({ inset }), className)}
     ref={forwardedRef}
     {...props}
   />
@@ -439,24 +481,28 @@ ContextMenuLabel.displayName = Label.displayName;
  * Component: ContextMenuRadioGroup
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuRadioGroup = RadioGroup;
+export { ContextMenuRadioGroup };
+export type { ContextMenuRadioGroupProps };
 
 /* -----------------------------------------------------------------------------
  * Component: ContextMenu
  * -------------------------------------------------------------------------- */
 
-export const ContextMenu = Root;
+export { ContextMenu };
+export type { ContextMenuProps };
 
 /* -----------------------------------------------------------------------------
  * Component: ContextMenuSeparator
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuSeparator = forwardRef<
+export type { ContextMenuSeparatorProps };
+
+export const ContextMenuSeparator = React.forwardRef<
   React.ElementRef<typeof Separator>,
-  React.ComponentPropsWithoutRef<typeof Separator>
+  ContextMenuSeparatorProps
 >(({ className, ...props }, forwardedRef) => (
   <Separator
-    className={twMerge('bg-border -mx-1 my-1.5 h-px', className)}
+    className={cn('bg-border -mx-1 my-1.5 h-px', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -468,10 +514,12 @@ ContextMenuSeparator.displayName = Separator.displayName;
  * Component: ContextMenuSub
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuSub = Sub;
+export { ContextMenuSub };
+export type { ContextMenuSubProps };
 
 /* -----------------------------------------------------------------------------
  * Component: ContextMenuTrigger
  * -------------------------------------------------------------------------- */
 
-export const ContextMenuTrigger = Trigger;
+export { ContextMenuTrigger };
+export type { ContextMenuTriggerProps };

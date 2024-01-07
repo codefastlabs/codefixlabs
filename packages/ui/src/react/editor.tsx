@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { forwardRef, Fragment, useCallback } from 'react';
 import { twMerge } from 'tailwind-merge';
 import type { Editor as TiptapEditor, EditorOptions } from '@tiptap/react';
 import { EditorContent, useEditor } from '@tiptap/react';
@@ -43,84 +42,87 @@ import {
 } from 'lucide-react';
 import { Separator } from '@/react/separator';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/react/tooltip';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: Editor
  * -------------------------------------------------------------------------- */
 
-export const Editor = forwardRef<
-  HTMLDivElement,
-  {
-    className?: string;
-    classNames?: {
-      root?: string;
-      editor?: string;
-      menuBar?: string;
-    };
-  } & Omit<EditorOptions, 'editorProps' | 'extensions'>
->(({ classNames, className, ...props }, forwardedRef) => {
-  const editor = useEditor({
-    ...props,
-    editorProps: {
-      attributes: {
-        class: twMerge(
-          'prose prose-sm dark:prose-invert sm:prose-base max-w-full p-4 focus:outline-none',
-          classNames?.editor,
-        ),
-      },
-    },
-    extensions: [
-      StarterKit,
-      Table.configure({
-        resizable: true,
-      }),
-      TableRow,
-      TableHeader,
-      TableCell,
-      Image,
-      Youtube.configure({
-        HTMLAttributes: {
-          class: 'w-full h-auto aspect-video',
+export interface EditorProps
+  extends Omit<EditorOptions, 'editorProps' | 'extensions'> {
+  className?: string;
+  classNames?: {
+    root?: string;
+    editor?: string;
+    menuBar?: string;
+  };
+}
+
+export const Editor = React.forwardRef<HTMLDivElement, EditorProps>(
+  ({ classNames, className, ...props }, forwardedRef) => {
+    const editor = useEditor({
+      ...props,
+      editorProps: {
+        attributes: {
+          class: twMerge(
+            'prose prose-sm dark:prose-invert sm:prose-base max-w-full p-4 focus:outline-none',
+            classNames?.editor,
+          ),
         },
-      }),
-      Highlight,
-      TaskItem,
-      TaskList,
-      TextAlign.configure({
-        types: ['heading', 'paragraph'],
-      }),
-    ],
-  });
+      },
+      extensions: [
+        StarterKit,
+        Table.configure({
+          resizable: true,
+        }),
+        TableRow,
+        TableHeader,
+        TableCell,
+        Image,
+        Youtube.configure({
+          HTMLAttributes: {
+            class: 'w-full h-auto aspect-video',
+          },
+        }),
+        Highlight,
+        TaskItem,
+        TaskList,
+        TextAlign.configure({
+          types: ['heading', 'paragraph'],
+        }),
+      ],
+    });
 
-  return (
-    <>
-      {editor ? (
-        <div
-          className={twMerge(
-            'divide-y rounded-md border',
-            className,
-            classNames?.root,
-          )}
-          data-test-id="root"
-          ref={forwardedRef}
-        >
-          <MenuBar
-            className={twMerge('bg-background p-1', classNames?.menuBar)}
-            data-test-id="menu-bar"
-            editor={editor}
-          />
-
-          <EditorContent
-            className={twMerge(
-              'overflow-hidden focus-within:rounded focus-within:ring',
+    return (
+      <>
+        {editor ? (
+          <div
+            className={cn(
+              'divide-y rounded-md border',
+              className,
+              classNames?.root,
             )}
-            editor={editor}
-          />
-        </div>
-      ) : null}
-    </>
-  );
-});
+            data-test-id="root"
+            ref={forwardedRef}
+          >
+            <MenuBar
+              className={cn('bg-background p-1', classNames?.menuBar)}
+              data-test-id="menu-bar"
+              editor={editor}
+            />
+
+            <EditorContent
+              className={cn(
+                'overflow-hidden focus-within:rounded focus-within:ring',
+              )}
+              editor={editor}
+            />
+          </div>
+        ) : null}
+      </>
+    );
+  },
+);
 
 Editor.displayName = 'Editor';
 
@@ -141,14 +143,16 @@ type Item =
       type: 'divider';
     };
 
+export interface MenuBarProps {
+  className?: string;
+  editor: TiptapEditor;
+}
+
 export function MenuBar({
   className,
   editor,
-}: {
-  className?: string;
-  editor: TiptapEditor;
-}): React.JSX.Element {
-  const addImage = useCallback(() => {
+}: MenuBarProps): React.JSX.Element {
+  const addImage = React.useCallback(() => {
     // eslint-disable-next-line no-alert -- work in progress
     const url = window.prompt('URL');
 
@@ -159,7 +163,7 @@ export function MenuBar({
     return false;
   }, [editor]);
 
-  const addYoutubeVideo = useCallback(() => {
+  const addYoutubeVideo = React.useCallback(() => {
     // eslint-disable-next-line no-alert -- work in progress
     const url = window.prompt('URL');
 
@@ -406,20 +410,17 @@ export function MenuBar({
 
   return (
     <div
-      className={twMerge(
-        'flex flex-wrap items-center gap-x-1 gap-y-1',
-        className,
-      )}
+      className={cn('flex flex-wrap items-center gap-x-1 gap-y-1', className)}
     >
       {items.map((item, index) => (
         // eslint-disable-next-line react/no-array-index-key -- it's fine
-        <Fragment key={index}>
+        <React.Fragment key={index}>
           {item.type === 'divider' ? (
             <Separator className="h-4" orientation="vertical" />
           ) : (
             <MenuItem {...item} />
           )}
-        </Fragment>
+        </React.Fragment>
       ))}
     </div>
   );
@@ -429,6 +430,15 @@ export function MenuBar({
  * Component: MenuItem
  * -------------------------------------------------------------------------- */
 
+export interface MenuItemProps {
+  action: () => boolean;
+  className?: string;
+  icon: React.ReactNode;
+  isActive?: () => boolean;
+  shortcut?: string;
+  title: string;
+}
+
 export function MenuItem({
   action,
   className,
@@ -436,18 +446,11 @@ export function MenuItem({
   isActive,
   shortcut,
   title,
-}: {
-  action: () => boolean;
-  className?: string;
-  icon: React.ReactNode;
-  isActive?: () => boolean;
-  shortcut?: string;
-  title: string;
-}): React.JSX.Element {
+}: MenuItemProps): React.JSX.Element {
   return (
     <Tooltip>
       <TooltipTrigger
-        className={twMerge(
+        className={cn(
           'text-accent-foreground bg-accent rounded p-1.5 transition',
           isActive?.()
             ? 'bg-primary text-primary-foreground'

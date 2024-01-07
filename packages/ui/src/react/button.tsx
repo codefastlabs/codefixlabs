@@ -1,23 +1,22 @@
 import * as React from 'react';
-import { Children, forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { Loader2Icon } from 'lucide-react';
-import type { ButtonVariants } from '@/classes/button';
+import type { VariantProps } from 'class-variance-authority';
 import { buttonVariants } from '@/classes/button';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: Button
  * -------------------------------------------------------------------------- */
 
 export interface ButtonProps
-  extends ButtonVariants,
-    React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   endIcon?: React.ReactNode;
   startIcon?: React.ReactNode;
   loading?: boolean;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
@@ -37,12 +36,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     return (
       <button
-        type="button"
-        {...props}
-        className={twMerge(
+        className={cn(
           buttonVariants({
             block,
-            icon: icon || !Children.count(children),
+            icon: icon || !React.Children.count(children),
             justify,
             shape,
             size,
@@ -52,6 +49,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         disabled={loading || props.disabled}
         ref={forwardedRef}
+        type="button"
+        {...props}
       >
         {startIcon}
 

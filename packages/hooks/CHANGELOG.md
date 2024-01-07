@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.31
+
+### Patch Changes
+
+- Add new files and update dependencies
+
 ## 0.1.30
 
 ### Patch Changes

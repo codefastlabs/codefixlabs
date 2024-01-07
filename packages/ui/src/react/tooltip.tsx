@@ -1,22 +1,27 @@
+import type {
+  TooltipArrowProps,
+  TooltipContentProps,
+  TooltipProps,
+  TooltipTriggerProps,
+} from '@radix-ui/react-tooltip';
 import {
   Arrow,
   Content,
   Portal,
   Provider,
   Root,
-  Trigger,
+  TooltipTrigger,
 } from '@radix-ui/react-tooltip';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Component: Tooltip
  * -------------------------------------------------------------------------- */
 
-export function Tooltip(
-  props: React.ComponentPropsWithoutRef<typeof Root>,
-): React.JSX.Element {
+export type { TooltipProps };
+
+export function Tooltip(props: TooltipProps): React.JSX.Element {
   return (
     <Provider>
       <Root delayDuration={250} {...props} />
@@ -28,12 +33,14 @@ export function Tooltip(
  * Component: TooltipArrow
  * -------------------------------------------------------------------------- */
 
-export const TooltipArrow = forwardRef<
+export type { TooltipArrowProps };
+
+export const TooltipArrow = React.forwardRef<
   React.ElementRef<typeof Arrow>,
-  React.ComponentPropsWithoutRef<typeof Arrow>
+  TooltipArrowProps
 >(({ className, ...props }, forwardedRef) => (
   <Arrow
-    className={twMerge('fill-popover', className)}
+    className={cn('fill-popover', className)}
     ref={forwardedRef}
     {...props}
   />
@@ -45,19 +52,20 @@ TooltipArrow.displayName = Arrow.displayName;
  * Component: TooltipTrigger
  * -------------------------------------------------------------------------- */
 
-export const TooltipTrigger = Trigger;
+export { TooltipTrigger };
+export type { TooltipTriggerProps };
 
 /* -----------------------------------------------------------------------------
  * Component: TooltipContent
  * -------------------------------------------------------------------------- */
 
-export const TooltipContent = forwardRef<
+export const TooltipContent = React.forwardRef<
   React.ElementRef<typeof Content>,
-  React.ComponentPropsWithoutRef<typeof Content>
+  TooltipContentProps
 >(({ children, className, ...props }, forwardedRef) => (
   <Portal>
     <Content
-      className={twMerge(
+      className={cn(
         [
           'bg-popover text-popover-foreground relative z-40 w-auto select-none rounded-md px-3 py-1.5 text-sm drop-shadow will-change-[transform,opacity]',
           [

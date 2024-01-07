@@ -1,8 +1,7 @@
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -31,22 +30,23 @@ const alertVariants = cva(
   },
 );
 
-type AlertVariants = VariantProps<typeof alertVariants>;
-
 /* -----------------------------------------------------------------------------
  * Component: Alert
  * -------------------------------------------------------------------------- */
 
-export const Alert = forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & AlertVariants
->(({ className, variant, ...props }, forwardedRef) => (
-  <div
-    className={twMerge(alertVariants({ variant }), className)}
-    ref={forwardedRef}
-    {...props}
-  />
-));
+export interface AlertProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof alertVariants> {}
+
+export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
+  ({ className, variant, ...props }, forwardedRef) => (
+    <div
+      className={cn(alertVariants({ variant }), className)}
+      ref={forwardedRef}
+      {...props}
+    />
+  ),
+);
 
 Alert.displayName = 'Alert';
 
@@ -54,18 +54,19 @@ Alert.displayName = 'Alert';
  * Component: AlertTitle
  * -------------------------------------------------------------------------- */
 
-export const AlertTitle = forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ children, className, ...props }, forwardedRef) => (
-  <h5
-    className={twMerge('mb-1 font-medium', className)}
-    ref={forwardedRef}
-    {...props}
-  >
-    {children}
-  </h5>
-));
+export type AlertTitleProps = React.HTMLAttributes<HTMLHeadingElement>;
+
+export const AlertTitle = React.forwardRef<HTMLHeadingElement, AlertTitleProps>(
+  ({ children, className, ...props }, forwardedRef) => (
+    <h5
+      className={cn('mb-1 font-medium', className)}
+      ref={forwardedRef}
+      {...props}
+    >
+      {children}
+    </h5>
+  ),
+);
 
 AlertTitle.displayName = 'AlertTitle';
 
@@ -73,12 +74,14 @@ AlertTitle.displayName = 'AlertTitle';
  * Component: AlertDescription
  * -------------------------------------------------------------------------- */
 
-export const AlertDescription = forwardRef<
+export type AlertDescriptionProps = React.HTMLAttributes<HTMLDivElement>;
+
+export const AlertDescription = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
+  AlertDescriptionProps
 >(({ className, ...props }, forwardedRef) => (
   <div
-    className={twMerge('text-sm [&_p]:leading-relaxed', className)}
+    className={cn('text-sm [&_p]:leading-relaxed', className)}
     ref={forwardedRef}
     {...props}
   />
