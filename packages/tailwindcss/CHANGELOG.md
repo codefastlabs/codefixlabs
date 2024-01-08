@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.46
+
+### Patch Changes
+
+- Revert
+
 ## 0.1.45
 
 ### Patch Changes

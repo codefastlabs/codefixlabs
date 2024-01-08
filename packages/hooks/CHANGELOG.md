@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.33
+
+### Patch Changes
+
+- Revert
+
 ## 0.1.32
 
 ### Patch Changes

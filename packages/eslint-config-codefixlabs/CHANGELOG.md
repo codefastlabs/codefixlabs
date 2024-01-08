@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.22
+
+### Patch Changes
+
+- Revert
+
 ## 0.1.21
 
 ### Patch Changes

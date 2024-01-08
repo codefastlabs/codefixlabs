@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.36
+
+### Patch Changes
+
+- Revert
+
 ## 0.1.35
 
 ### Patch Changes
