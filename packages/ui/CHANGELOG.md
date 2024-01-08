@@ -1,14 +1,5 @@
 # @codefixlabs/ui
 
-## 0.1.88
-
-### Patch Changes
-
-- Remove unused ESLint configurations and clean up build scripts
-- Updated dependencies
-  - @codefixlabs/hooks@0.1.32
-  - @codefixlabs/lib@0.1.35
-
 ## 0.1.87
 
 ### Patch Changes

@@ -4,12 +4,12 @@ const project = resolve(process.cwd(), 'tsconfig.json');
 
 module.exports = {
   extends: [
-    require.resolve('@vercel/style-guide/eslint/node'),
-    require.resolve('@vercel/style-guide/eslint/typescript'),
-    require.resolve('@vercel/style-guide/eslint/browser'),
-    require.resolve('@vercel/style-guide/eslint/react'),
-    require.resolve('@vercel/style-guide/eslint/next'),
-  ],
+    '@vercel/style-guide/eslint/node',
+    '@vercel/style-guide/eslint/typescript',
+    '@vercel/style-guide/eslint/browser',
+    '@vercel/style-guide/eslint/react',
+    '@vercel/style-guide/eslint/next',
+  ].map(require.resolve),
   globals: {
     JSX: true,
     React: true,
@@ -18,7 +18,6 @@ module.exports = {
   parserOptions: {
     project,
   },
-  plugins: ['only-warn'],
   rules: {
     curly: ['error', 'all'],
     'import/no-default-export': 'off',

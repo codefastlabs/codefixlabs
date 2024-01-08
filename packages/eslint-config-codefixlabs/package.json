@@ -1,23 +1,15 @@
 {
   "name": "eslint-config-codefixlabs",
-  "version": "0.1.21",
+  "version": "0.1.20",
   "license": "MIT",
   "sideEffects": false,
   "main": "index.js",
-  "files": [
-    "library.js",
-    "next.js",
-    "react.js",
-    "storybook.js"
-  ],
   "scripts": {
     "clean": "rm -rf node_modules"
   },
   "dependencies": {
     "@vercel/style-guide": "^5.1.0",
-    "eslint-config-turbo": "^1.11.3",
     "eslint-plugin-mdx": "^3.1.1",
-    "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-storybook": "^0.6.15"
   },
   "publishConfig": {
