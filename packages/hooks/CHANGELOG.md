@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.32
+
+### Patch Changes
+
+- Remove unused ESLint configurations and clean up build scripts
+
 ## 0.1.31
 
 ### Patch Changes

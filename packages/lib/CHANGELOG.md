@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.35
+
+### Patch Changes
+
+- Remove unused ESLint configurations and clean up build scripts
+
 ## 0.1.34
 
 ### Patch Changes

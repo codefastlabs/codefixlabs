@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.45
+
+### Patch Changes
+
+- Remove unused ESLint configurations and clean up build scripts
+
 ## 0.1.44
 
 ### Patch Changes

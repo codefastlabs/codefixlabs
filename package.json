@@ -1,15 +1,11 @@
 {
   "name": "codefix",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
     "build": "turbo run build",
     "build:packages": "turbo run build --force --filter='./packages/*'",
     "changeset": "changeset",
-    "clean": "turbo run clean && rm -rf .turbo node_modules",
+    "clean": "turbo run clean && rm -rf .turbo && rm -rf node_modules",
     "dev": "turbo run dev",
     "dev:packages": "turbo run dev --filter='./packages/*'",
     "force:build": "turbo run clean && turbo run build --force",

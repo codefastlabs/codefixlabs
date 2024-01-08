@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/tailwindcss",
-  "version": "0.1.44",
+  "version": "0.1.45",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -24,7 +24,7 @@
   "scripts": {
     "build": "tsup",
     "check-types": "tsc --noEmit",
-    "clean": "rm -rf dist .turbo node_modules",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "dev": "tsup --watch",
     "lint": "eslint src/"
   },
