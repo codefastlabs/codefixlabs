@@ -17,8 +17,8 @@ import {
 } from '@radix-ui/react-popover';
 import { XIcon } from 'lucide-react';
 import * as React from 'react';
-import { Button } from '@/react/button';
 import { cn } from '@/server/cn';
+import { buttonVariants } from '@/server/button-variants';
 
 /* -----------------------------------------------------------------------------
  * Provider: PopoverContext
@@ -131,14 +131,17 @@ export const PopoverContent = React.forwardRef<
           {variant === 'default' && (
             <PopoverClose
               aria-label="Close"
-              asChild
-              className="absolute right-2.5 top-2.5"
+              className={cn(
+                buttonVariants({
+                  icon: true,
+                  shape: 'pill',
+                  size: 'sm',
+                  variant: 'ghost',
+                }),
+                'absolute right-2.5 top-2.5',
+              )}
             >
-              <Button
-                shape="pill"
-                startIcon={<XIcon size={16} />}
-                variant="ghost"
-              />
+              <XIcon size={16} />
             </PopoverClose>
           )}
         </>

@@ -2,7 +2,7 @@
 import '@/styles.css';
 
 // Both Server and Client
-export * from '@/server/button';
+export * from '@/server/button-variants';
 export * from '@/server/cn';
 export * from '@/server/toast';
 

@@ -11,7 +11,7 @@ import {
   CommandItem,
   CommandList,
 } from '@/react/command';
-import { buttonVariants } from '@/server/button';
+import { buttonVariants } from '@/server/button-variants';
 import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------

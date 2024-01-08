@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Loader2Icon } from 'lucide-react';
 import type { VariantProps } from 'class-variance-authority';
-import { buttonVariants } from '@/server/button';
+import { buttonVariants } from '@/server/button-variants';
 import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------

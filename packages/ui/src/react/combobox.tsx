@@ -1,7 +1,6 @@
 import { Slot } from '@radix-ui/react-slot';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 import * as React from 'react';
-import { Button } from '@/react/button';
 import type { CommandItemProps, CommandProps } from '@/react/command';
 import {
   Command,
@@ -15,6 +14,7 @@ import {
 import type { FormControl } from '@/react/form';
 import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
 import { cn } from '@/server/cn';
+import { buttonVariants } from '@/server/button-variants';
 
 /* -----------------------------------------------------------------------------
  * Utils
@@ -151,20 +151,20 @@ export function Combobox({
   return (
     <Popover onOpenChange={setOpen} open={open} variant="simple">
       <Trigger>
-        <PopoverTrigger asChild>
-          <Button
-            block={block}
-            className={classNameTrigger}
-            disabled={disabled}
-            endIcon={<ChevronsUpDownIcon size={14} />}
-            justify="between"
-            startIcon={icon}
-            variant="outline"
-          >
-            {selected?.value
-              ? selected.label
-              : placeholder ?? 'Select an option'}
-          </Button>
+        <PopoverTrigger
+          className={cn(
+            buttonVariants({
+              block,
+              variant: 'outline',
+              justify: 'between',
+            }),
+            classNameTrigger,
+          )}
+          disabled={disabled}
+        >
+          {icon}
+          {selected?.value ? selected.label : placeholder ?? 'Select an option'}
+          <ChevronsUpDownIcon size={14} />
         </PopoverTrigger>
       </Trigger>
       <PopoverContent align="start">

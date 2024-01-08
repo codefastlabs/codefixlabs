@@ -28,7 +28,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
 import { Label } from '@/react/label';
 import { Input } from '@/react/input';
 import type { FormControl } from '@/react/form';
-import { buttonVariants } from '@/server/button';
+import { buttonVariants } from '@/server/button-variants';
 import {
   createDate,
   dateRegex,

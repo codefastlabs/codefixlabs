@@ -2,6 +2,7 @@ import type {
   Column,
   ColumnDef,
   RowData,
+  SortDirection,
   Table as TableType,
   TableOptions,
 } from '@tanstack/react-table';
@@ -72,6 +73,7 @@ import {
   TableRow,
 } from '@/react/table';
 import { cn } from '@/server/cn';
+import { buttonVariants } from '@/server/button-variants';
 
 /* -----------------------------------------------------------------------------
  * Declarations
@@ -92,6 +94,20 @@ declare module '@tanstack/table-core' {
  * Component: DataTableColumnHeader
  * -------------------------------------------------------------------------- */
 
+function Icon({
+  isSorted,
+}: {
+  isSorted: false | SortDirection;
+}): React.JSX.Element {
+  if (isSorted === 'desc') {
+    return <ArrowDownIcon size={16} />;
+  } else if (isSorted === 'asc') {
+    return <ArrowUpIcon size={16} />;
+  }
+
+  return <ChevronsUpDownIcon size={16} />;
+}
+
 export interface DataTableColumnHeaderProps<TData, TValue> {
   column: Column<TData, TValue>;
   title: string;
@@ -101,29 +117,19 @@ export function DataTableColumnHeader<TData, TValue>({
   column,
   title,
 }: DataTableColumnHeaderProps<TData, TValue>): React.JSX.Element {
-  const endIcon = (): React.JSX.Element => {
-    const isSorted = column.getIsSorted();
-
-    if (isSorted === 'desc') {
-      return <ArrowDownIcon size={16} />;
-    } else if (isSorted === 'asc') {
-      return <ArrowUpIcon size={16} />;
-    }
-
-    return <ChevronsUpDownIcon size={16} />;
-  };
-
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          className="data-state-open:bg-accent -ml-3.5 px-3.5"
-          endIcon={endIcon()}
-          size="sm"
-          variant="ghost"
-        >
-          {title}
-        </Button>
+      <DropdownMenuTrigger
+        className={cn(
+          buttonVariants({
+            size: 'sm',
+            variant: 'ghost',
+          }),
+          'data-state-open:bg-accent -ml-3.5 px-3.5',
+        )}
+      >
+        {title}
+        <Icon isSorted={column.getIsSorted()} />
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="start">

@@ -7,7 +7,6 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:packages": "turbo run build --force --filter='./packages/*'",
     "changeset": "changeset",
     "clean": "turbo run clean && rm -rf .turbo node_modules",
     "dev": "turbo run dev",
@@ -21,7 +20,7 @@
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "release": "turbo run build --filter=docs^... && changeset publish",
-    "start": "turbo run start",
+    "start": "turbo run start --force",
     "storybook": "turbo run storybook",
     "version-packages": "changeset version"
   },

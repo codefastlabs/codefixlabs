@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.90
+
+### Patch Changes
+
+- Update button imports to use button-variants
+
 ## 0.1.89
 
 ### Patch Changes
