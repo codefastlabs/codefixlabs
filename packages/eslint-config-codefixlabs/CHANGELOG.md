@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.21
+
+### Patch Changes
+
+- Revert "Remove unused ESLint configurations and clean up build scripts"
+
 ## 0.1.20
 
 ### Patch Changes
