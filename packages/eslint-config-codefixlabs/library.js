@@ -4,9 +4,9 @@ const project = resolve(process.cwd(), 'tsconfig.json');
 
 module.exports = {
   extends: [
-    '@vercel/style-guide/eslint/node',
-    '@vercel/style-guide/eslint/typescript',
-  ].map(require.resolve),
+    require.resolve('@vercel/style-guide/eslint/node'),
+    require.resolve('@vercel/style-guide/eslint/typescript'),
+  ],
   globals: {
     JSX: true,
     React: true,
