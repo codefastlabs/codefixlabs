@@ -14,7 +14,7 @@ import {
 } from '@/react/command';
 import type { FormControl } from '@/react/form';
 import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Utils

@@ -1,4 +1,4 @@
-import type { SearchParams } from '@/types';
+import type { SearchParams } from '@/types/types';
 
 function parseQueryValue(
   value: string[] | string | undefined,

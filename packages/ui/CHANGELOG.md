@@ -1,5 +1,13 @@
 # @codefixlabs/ui
 
+## 0.1.87
+
+### Patch Changes
+
+- Add new files and delete unused files
+- Updated dependencies
+  - @codefixlabs/lib@0.1.34
+
 ## 0.1.86
 
 ### Patch Changes

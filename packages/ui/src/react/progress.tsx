@@ -1,7 +1,7 @@
 import type { ProgressProps } from '@radix-ui/react-progress';
 import { Indicator, Root } from '@radix-ui/react-progress';
 import * as React from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Component: Progress

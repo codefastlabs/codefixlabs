@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.34
+
+### Patch Changes
+
+- Add new files and delete unused files
+
 ## 0.1.33
 
 ### Patch Changes

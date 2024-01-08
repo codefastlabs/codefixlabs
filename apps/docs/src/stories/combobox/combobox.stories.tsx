@@ -23,7 +23,6 @@ import {
 import { faker } from '@faker-js/faker';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Meta, StoryObj } from '@storybook/react';
-import { cx } from 'class-variance-authority';
 import { CheckIcon, UserPlus2Icon } from 'lucide-react';
 import type { ComponentProps } from 'react';
 import { useState } from 'react';
@@ -31,6 +30,7 @@ import type { ControllerRenderProps, SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { getFirstInitials, wait } from '@codefixlabs/lib';
+import { cn } from '@/lib/utils';
 
 const meta: Meta<typeof Combobox> = {
   component: Combobox,
@@ -197,7 +197,7 @@ function ComboboxAssignMember(): React.JSX.Element {
                   />
                   {member.name}
                   <CheckIcon
-                    className={cx(
+                    className={cn(
                       'ml-auto size-4',
                       member.id === currentMember?.id
                         ? 'opacity-100'

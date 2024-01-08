@@ -4,7 +4,7 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
 import type { ToggleGroupProps } from '@radix-ui/react-toolbar';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Classes

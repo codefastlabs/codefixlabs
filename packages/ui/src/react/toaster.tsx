@@ -1,11 +1,5 @@
 import * as React from 'react';
-import { toast, Toaster as Sonner } from 'sonner';
-
-/* -----------------------------------------------------------------------------
- * Function: toast
- * -------------------------------------------------------------------------- */
-
-export { toast };
+import { Toaster as Sonner } from 'sonner';
 
 /* -----------------------------------------------------------------------------
  * Component: Toaster

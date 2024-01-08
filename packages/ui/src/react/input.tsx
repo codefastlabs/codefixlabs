@@ -4,7 +4,7 @@ import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import * as React from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Button } from '@/react/button';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Classes

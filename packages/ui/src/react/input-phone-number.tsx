@@ -11,8 +11,8 @@ import {
   CommandItem,
   CommandList,
 } from '@/react/command';
-import { buttonVariants } from '@/classes/button';
-import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/server/button';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Component: InputPhoneNumber

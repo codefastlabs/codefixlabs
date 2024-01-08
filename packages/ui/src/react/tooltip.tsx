@@ -13,7 +13,7 @@ import {
   TooltipTrigger,
 } from '@radix-ui/react-tooltip';
 import * as React from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Component: Tooltip

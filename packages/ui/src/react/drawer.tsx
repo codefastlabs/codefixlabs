@@ -20,8 +20,8 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import { XIcon } from 'lucide-react';
 import * as React from 'react';
-import { buttonVariants } from '@/classes/button';
-import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/server/button';
+import { cn } from '@/server/cn';
 import type { ButtonProps } from '@/react/button';
 
 /* -----------------------------------------------------------------------------

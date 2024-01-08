@@ -71,7 +71,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/react/table';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Declarations

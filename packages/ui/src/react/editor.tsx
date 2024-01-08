@@ -42,7 +42,7 @@ import {
 } from 'lucide-react';
 import { Separator } from '@/react/separator';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/react/tooltip';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Component: Editor

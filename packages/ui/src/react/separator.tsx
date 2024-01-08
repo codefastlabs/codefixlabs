@@ -1,7 +1,7 @@
 import type { SeparatorProps } from '@radix-ui/react-separator';
 import { Root } from '@radix-ui/react-separator';
 import * as React from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Component: Separator

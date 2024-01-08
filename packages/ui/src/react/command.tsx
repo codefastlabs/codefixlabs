@@ -14,7 +14,7 @@ import { SearchIcon } from 'lucide-react';
 import * as React from 'react';
 import type { DialogProps as CommandDialogProps } from '@/react/dialog';
 import { Dialog, DialogContent } from '@/react/dialog';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Classes

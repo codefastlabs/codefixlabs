@@ -1,10 +1,12 @@
 // Style
 import '@/styles.css';
 
-// Classes
-export * from '@/classes';
+// Both Server and Client
+export * from '@/server/button';
+export * from '@/server/cn';
+export * from '@/server/toast';
 
-// React components
+// Only Client
 export * from '@/react/accordion';
 export * from '@/react/alert';
 export * from '@/react/alert-dialog';
@@ -45,6 +47,7 @@ export * from '@/react/switch';
 export * from '@/react/table';
 export * from '@/react/tabs';
 export * from '@/react/textarea';
+export * from '@/react/toaster';
 export * from '@/react/toggle';
 export * from '@/react/toggle-group';
 export * from '@/react/toolbar';

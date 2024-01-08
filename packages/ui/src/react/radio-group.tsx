@@ -7,7 +7,7 @@ import { Indicator, Item, Root } from '@radix-ui/react-radio-group';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Classes

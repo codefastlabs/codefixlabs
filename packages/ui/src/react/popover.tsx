@@ -18,7 +18,7 @@ import {
 import { XIcon } from 'lucide-react';
 import * as React from 'react';
 import { Button } from '@/react/button';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Provider: PopoverContext

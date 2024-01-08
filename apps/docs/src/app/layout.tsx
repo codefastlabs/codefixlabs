@@ -2,6 +2,7 @@ import '@/app/globals.css';
 import type { Metadata } from 'next';
 import { Nunito } from 'next/font/google';
 import React from 'react';
+import { Toaster } from '@codefixlabs/ui';
 
 const nunito = Nunito({
   subsets: ['vietnamese'],
@@ -21,7 +22,10 @@ export default function RootLayout({
 }): React.JSX.Element {
   return (
     <html className={`${nunito.variable} dark`} lang="en">
-      <body className="bg-background text-foreground">{children}</body>
+      <body className="bg-background text-foreground">
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

@@ -2,7 +2,7 @@ import { getFirstInitials } from '@codefixlabs/lib';
 import type { AvatarProps as RootProps } from '@radix-ui/react-avatar';
 import { Fallback, Image, Root } from '@radix-ui/react-avatar';
 import * as React from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Component: Avatar

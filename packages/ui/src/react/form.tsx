@@ -12,7 +12,7 @@ import type {
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
 import type { LabelProps as FormLabelProps } from '@/react/label';
 import { Label } from '@/react/label';
-import { cn } from '@/lib/utils';
+import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
  * Classes

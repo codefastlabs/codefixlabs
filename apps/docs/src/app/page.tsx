@@ -13,6 +13,7 @@ import {
 import { BellIcon, CheckIcon } from 'lucide-react';
 import Link from 'next/link';
 import * as React from 'react';
+import Toast from '@/ui/toast';
 
 const notifications = [
   {
@@ -76,6 +77,7 @@ export default function Page(): React.JSX.Element {
             <Button
               className="w-full"
               startIcon={<CheckIcon className="size-4" />}
+              variant="outline"
             >
               Mark all as read
             </Button>
@@ -91,6 +93,8 @@ export default function Page(): React.JSX.Element {
           Link styled as a button
         </Link>
       </div>
+
+      <Toast />
 
       <div className="">
         <InputPhoneNumber
