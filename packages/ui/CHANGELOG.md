@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.93
+
+### Patch Changes
+
+- Reorder import and require paths in package.json
+
 ## 0.1.92
 
 ### Patch Changes
