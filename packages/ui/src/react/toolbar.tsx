@@ -55,6 +55,10 @@ const toolbarToggleItemVariants = cva(
   },
 );
 
+type ToolbarToggleItemVariantsProps = VariantProps<
+  typeof toolbarToggleItemVariants
+>;
+
 /* -----------------------------------------------------------------------------
  * Component: Toolbar
  * -------------------------------------------------------------------------- */
@@ -174,7 +178,7 @@ ToolbarToggleGroup.displayName = ToggleGroup.displayName;
 
 export interface ToolbarToggleItemProps
   extends ToggleItemProps,
-    VariantProps<typeof toolbarToggleItemVariants> {}
+    ToolbarToggleItemVariantsProps {}
 
 export const ToolbarToggleItem = React.forwardRef<
   React.ElementRef<typeof ToggleItem>,

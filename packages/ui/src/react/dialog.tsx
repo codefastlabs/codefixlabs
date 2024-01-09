@@ -20,9 +20,9 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import { XIcon } from 'lucide-react';
 import * as React from 'react';
+import type { ButtonVariantsProps } from '@/server/button-variants';
 import { buttonVariants } from '@/server/button-variants';
 import { cn } from '@/server/cn';
-import type { ButtonProps } from '@/react/button';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -44,6 +44,8 @@ const dialogContentVariants = cva(
     },
   },
 );
+
+type DialogContentVariantsProps = VariantProps<typeof dialogContentVariants>;
 
 /* -----------------------------------------------------------------------------
  * Provider: DialogContext
@@ -79,30 +81,17 @@ export function Dialog({
  * Component: DialogClose
  * -------------------------------------------------------------------------- */
 
-export interface DialogCloseProps extends CloseProps {
-  variant?: ButtonProps['variant'];
-  size?: ButtonProps['size'];
-  shape?: ButtonProps['shape'];
-  block?: ButtonProps['block'];
-}
+export interface DialogCloseProps extends CloseProps, ButtonVariantsProps {}
 export const DialogClose = React.forwardRef<
   React.ElementRef<typeof Close>,
   DialogCloseProps
 >(
   (
-    { className, variant = 'outline', size, shape, block, ...props },
+    { className, variant = 'outline', size, icon, block, ...props },
     forwardedRef,
   ) => (
     <Close
-      className={cn(
-        buttonVariants({
-          variant,
-          size,
-          shape,
-          block,
-        }),
-        className,
-      )}
+      className={cn(buttonVariants({ block, icon, size, variant }), className)}
       ref={forwardedRef}
       {...props}
     />
@@ -116,7 +105,7 @@ DialogClose.displayName = Close.displayName;
  * -------------------------------------------------------------------------- */
 
 export interface DialogContentProps
-  extends Omit<VariantProps<typeof dialogContentVariants>, 'scrollable'>,
+  extends Omit<DialogContentVariantsProps, 'scrollable'>,
     ContentProps {
   classNames?: {
     content?: string;
@@ -161,13 +150,8 @@ export const DialogContent = React.forwardRef<
               <Close
                 aria-label="Close"
                 className={cn(
-                  buttonVariants({
-                    icon: true,
-                    shape: 'pill',
-                    size: 'sm',
-                    variant: 'ghost',
-                  }),
-                  'absolute right-4 top-3.5',
+                  buttonVariants({ icon: true, size: 'sm', variant: 'ghost' }),
+                  'absolute right-4 top-3.5 rounded-full',
                 )}
               >
                 <XIcon size={16} />

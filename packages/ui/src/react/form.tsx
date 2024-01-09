@@ -30,6 +30,8 @@ const formItemVariants = cva(undefined, {
   },
 });
 
+type FormItemVariantsProps = VariantProps<typeof formItemVariants>;
+
 /* -----------------------------------------------------------------------------
  * Contexts
  * -------------------------------------------------------------------------- */
@@ -114,7 +116,7 @@ export function FormField<
 
 export interface FormItemProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof formItemVariants> {}
+    FormItemVariantsProps {}
 
 export const FormItem = React.forwardRef<HTMLDivElement, FormItemProps>(
   ({ className, inline = false, ...props }, forwardedRef) => {

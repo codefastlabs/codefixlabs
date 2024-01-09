@@ -15,6 +15,8 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/lib/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/packages/tailwindcss/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/packages/ui/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/.changeset" />
+      <excludeFolder url="file://$MODULE_DIR$/.github" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

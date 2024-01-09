@@ -132,13 +132,8 @@ export const PopoverContent = React.forwardRef<
             <PopoverClose
               aria-label="Close"
               className={cn(
-                buttonVariants({
-                  icon: true,
-                  shape: 'pill',
-                  size: 'sm',
-                  variant: 'ghost',
-                }),
-                'absolute right-2.5 top-2.5',
+                buttonVariants({ icon: true, size: 'sm', variant: 'ghost' }),
+                'absolute right-2.5 top-2.5 rounded-full',
               )}
             >
               <XIcon size={16} />

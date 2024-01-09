@@ -40,13 +40,13 @@ const toggleVariants = cva(
   },
 );
 
+type ToggleVariantsProps = VariantProps<typeof toggleVariants>;
+
 /* -----------------------------------------------------------------------------
  * Component: Toggle
  * -------------------------------------------------------------------------- */
 
-export interface ToggleProps
-  extends RootProps,
-    VariantProps<typeof toggleVariants> {}
+export interface ToggleProps extends RootProps, ToggleVariantsProps {}
 
 export const Toggle = React.forwardRef<
   React.ElementRef<typeof Root>,

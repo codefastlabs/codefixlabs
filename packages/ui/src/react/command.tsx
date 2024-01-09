@@ -35,13 +35,15 @@ const commandVariants = cva(
   },
 );
 
+type CommandVariantsProps = VariantProps<typeof commandVariants>;
+
 /* -----------------------------------------------------------------------------
  * Component: Command
  * -------------------------------------------------------------------------- */
 
 export interface CommandProps
   extends React.ComponentPropsWithoutRef<typeof Root>,
-    VariantProps<typeof commandVariants> {}
+    CommandVariantsProps {}
 
 export const Command = React.forwardRef<
   React.ElementRef<typeof Root>,

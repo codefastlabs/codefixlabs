@@ -42,6 +42,10 @@ const toggleGroupItemVariants = cva(
   },
 );
 
+type ToggleGroupItemVariantsProps = VariantProps<
+  typeof toggleGroupItemVariants
+>;
+
 /* -----------------------------------------------------------------------------
  * Component: ToggleGroup
  * -------------------------------------------------------------------------- */
@@ -70,7 +74,7 @@ ToggleGroup.displayName = Root.displayName;
 
 export interface ToggleGroupItemProps
   extends ItemProps,
-    VariantProps<typeof toggleGroupItemVariants> {}
+    ToggleGroupItemVariantsProps {}
 
 export const ToggleGroupItem = React.forwardRef<
   React.ElementRef<typeof Item>,

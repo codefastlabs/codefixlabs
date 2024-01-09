@@ -1,124 +1,105 @@
+import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
-import type { ClassValue } from 'clsx';
 
-type ButtonSize = 'lg' | 'md' | 'sm';
-
-type ButtonVariant =
-  | 'destructive'
-  | 'ghost'
-  | 'outline'
-  | 'primary'
-  | 'secondary';
-
-const btnSizes: {
-  icon: boolean;
-  sizes: {
-    className: ClassValue;
-    size: ButtonSize;
-    variant: ButtonVariant[];
-  }[];
-}[] = [
+export const buttonVariants = cva(
+  [
+    'relative items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors',
+    'ring-offset-background',
+    'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+    'disabled:pointer-events-none disabled:duration-0',
+  ],
   {
-    icon: true,
-    sizes: [
+    compoundVariants: [
+      // region Icon
       // --- 32px
       {
         className: 'px-2',
+        icon: true,
         size: 'sm',
-        variant: ['primary', 'secondary', 'destructive', 'ghost'],
+        variant: ['default', 'secondary', 'destructive', 'ghost'],
       },
       {
         className: 'px-1.75',
+        icon: true,
         size: 'sm',
         variant: ['outline'],
       },
       // --- 40px
       {
         className: 'px-3',
+        icon: true,
         size: 'md',
-        variant: ['primary', 'secondary', 'destructive', 'ghost'],
+        variant: ['default', 'secondary', 'destructive', 'ghost'],
       },
       {
         className: 'px-2.75',
+        icon: true,
         size: 'md',
         variant: ['outline'],
       },
       // --- 48px
       {
         className: 'px-4',
+        icon: true,
         size: 'lg',
-        variant: ['primary', 'secondary', 'destructive', 'ghost'],
+        variant: ['default', 'secondary', 'destructive', 'ghost'],
       },
       {
         className: 'px-3.75',
+        icon: true,
         size: 'lg',
         variant: ['outline'],
       },
-    ],
-  },
-  {
-    icon: false,
-    sizes: [
+      // endregion
+
+      // region Without Icon
       // --- 32px
       {
         className: 'px-4',
         size: 'sm',
-        variant: ['primary', 'secondary', 'destructive', 'ghost'],
+        icon: false,
+        variant: ['default', 'secondary', 'destructive', 'ghost'],
       },
       {
         className: 'px-3.75',
         size: 'sm',
+        icon: false,
         variant: ['outline'],
       },
       // --- 40px
       {
         className: 'px-5',
         size: 'md',
-        variant: ['primary', 'secondary', 'destructive', 'ghost'],
+        icon: false,
+        variant: ['default', 'secondary', 'destructive', 'ghost'],
       },
       {
         className: 'px-4.75',
         size: 'md',
+        icon: false,
         variant: ['outline'],
       },
       // --- 48px
       {
         className: 'px-6',
         size: 'lg',
-        variant: ['primary', 'secondary', 'destructive', 'ghost'],
+        icon: false,
+        variant: ['default', 'secondary', 'destructive', 'ghost'],
       },
       {
         className: 'px-5.75',
         size: 'lg',
+        icon: false,
         variant: ['outline'],
       },
+      // endregion
     ],
-  },
-];
-
-// Flatten the array and group variants if the size is the same
-const compoundSizes = btnSizes.flatMap<{
-  className: ClassValue;
-  icon: boolean;
-  size: ButtonSize;
-  variant: ButtonVariant[];
-}>(({ icon, sizes }) =>
-  sizes.map(({ variant, size, className }) => ({
-    className,
-    icon,
-    size,
-    variant,
-  })),
-);
-
-export const buttonVariants = cva(
-  [
-    'relative items-center gap-2 whitespace-nowrap text-sm font-medium transition-colors',
-    'ring-offset-background',
-    'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-    'disabled:pointer-events-none disabled:duration-0',
-  ],
-  {
+    defaultVariants: {
+      block: false,
+      icon: false,
+      size: 'md',
+      variant: 'default',
+    },
     variants: {
       block: {
         false: 'inline-flex',
@@ -128,22 +109,13 @@ export const buttonVariants = cva(
         false: '',
         true: '',
       },
-      justify: {
-        between: 'justify-between',
-        center: 'justify-center',
-      },
-      shape: {
-        pill: 'rounded-full',
-        rounded: 'rounded-md',
-        square: 'rounded-sm',
-      },
       size: {
         lg: 'h-12',
         md: 'h-10',
         sm: 'h-8',
       },
       variant: {
-        primary: [
+        default: [
           'bg-primary text-primary-foreground',
           'hover:bg-primary/90',
           'disabled:bg-primary/50 disabled:text-primary-foreground/50',
@@ -180,14 +152,7 @@ export const buttonVariants = cva(
         ],
       },
     },
-    compoundVariants: [...compoundSizes],
-    defaultVariants: {
-      block: false,
-      icon: false,
-      justify: 'center',
-      shape: 'rounded',
-      size: 'md',
-      variant: 'primary',
-    },
   },
 );
+
+export type ButtonVariantsProps = VariantProps<typeof buttonVariants>;

@@ -30,13 +30,15 @@ const alertVariants = cva(
   },
 );
 
+type AlertVariantsProps = VariantProps<typeof alertVariants>;
+
 /* -----------------------------------------------------------------------------
  * Component: Alert
  * -------------------------------------------------------------------------- */
 
 export interface AlertProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof alertVariants> {}
+    AlertVariantsProps {}
 
 export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
   ({ className, variant, ...props }, forwardedRef) => (

@@ -27,6 +27,8 @@ const tabsListVariants = cva(undefined, {
   },
 });
 
+type TabsListVariantsProps = VariantProps<typeof tabsListVariants>;
+
 const tabsTriggerVariants = cva(
   [
     'transition-all',
@@ -50,6 +52,8 @@ const tabsTriggerVariants = cva(
   },
 );
 
+type TabsTriggerVariantsProps = VariantProps<typeof tabsTriggerVariants>;
+
 const tabsContentVariants = cva(
   [
     'ring-offset-background',
@@ -67,6 +71,8 @@ const tabsContentVariants = cva(
     },
   },
 );
+
+type TabsContentVariantsProps = VariantProps<typeof tabsContentVariants>;
 
 /* -----------------------------------------------------------------------------
  * Provider: TabsContext
@@ -100,7 +106,7 @@ export function Tabs({
  * -------------------------------------------------------------------------- */
 
 export interface TabsListProps
-  extends Omit<VariantProps<typeof tabsListVariants>, 'variant'>,
+  extends Omit<TabsListVariantsProps, 'variant'>,
     ListProps {}
 
 export const TabsList = React.forwardRef<
@@ -125,7 +131,7 @@ TabsList.displayName = List.displayName;
  * -------------------------------------------------------------------------- */
 
 export interface TabsTriggerProps
-  extends Omit<VariantProps<typeof tabsTriggerVariants>, 'variant'>,
+  extends Omit<TabsTriggerVariantsProps, 'variant'>,
     TriggerProps {}
 
 export const TabsTrigger = React.forwardRef<
@@ -150,7 +156,7 @@ TabsTrigger.displayName = Trigger.displayName;
  * -------------------------------------------------------------------------- */
 
 export interface TabsContentProps
-  extends Omit<VariantProps<typeof tabsContentVariants>, 'variant'>,
+  extends Omit<TabsContentVariantsProps, 'variant'>,
     ContentProps {}
 export const TabsContent = React.forwardRef<
   React.ElementRef<typeof Content>,

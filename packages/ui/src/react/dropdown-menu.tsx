@@ -75,6 +75,10 @@ const dropdownMenuSubTriggerVariants = cva(
   },
 );
 
+type DropdownMenuSubTriggerVariantsProps = VariantProps<
+  typeof dropdownMenuSubTriggerVariants
+>;
+
 const dropdownMenuItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
@@ -109,6 +113,10 @@ const dropdownMenuItemVariants = cva(
   },
 );
 
+type DropdownMenuItemVariantsProps = VariantProps<
+  typeof dropdownMenuItemVariants
+>;
+
 const dropdownMenuCheckboxItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
@@ -133,6 +141,10 @@ const dropdownMenuCheckboxItemVariants = cva(
     },
   },
 );
+
+type DropdownMenuCheckboxItemVariantsProps = VariantProps<
+  typeof dropdownMenuCheckboxItemVariants
+>;
 
 const dropdownMenuRadioItemVariants = cva(
   [
@@ -159,6 +171,10 @@ const dropdownMenuRadioItemVariants = cva(
   },
 );
 
+type DropdownMenuRadioItemVariantsProps = VariantProps<
+  typeof dropdownMenuRadioItemVariants
+>;
+
 const dropdownMenuLabelVariants = cva(
   'text-foreground cursor-default px-2 py-1.5 text-sm font-semibold',
   {
@@ -172,6 +188,10 @@ const dropdownMenuLabelVariants = cva(
     },
   },
 );
+
+type DropdownMenuLabelVariantsProps = VariantProps<
+  typeof dropdownMenuLabelVariants
+>;
 
 /* -----------------------------------------------------------------------------
  * Component: DropdownMenuContent
@@ -253,7 +273,7 @@ DropdownMenuSubContent.displayName = SubContent.displayName;
 
 export interface DropdownMenuSubTriggerProps
   extends SubTriggerProps,
-    VariantProps<typeof dropdownMenuSubTriggerVariants> {}
+    DropdownMenuSubTriggerVariantsProps {}
 
 export const DropdownMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof SubTrigger>,
@@ -287,7 +307,7 @@ DropdownMenuSubTrigger.displayName = SubTrigger.displayName;
 
 export interface DropdownMenuItemProps
   extends ItemProps,
-    VariantProps<typeof dropdownMenuItemVariants> {
+    DropdownMenuItemVariantsProps {
   shortcut?: string;
 }
 
@@ -354,7 +374,7 @@ DropdownMenuItemIndicator.displayName = ItemIndicator.displayName;
 
 export interface DropdownMenuCheckboxItemProps
   extends CheckboxItemProps,
-    VariantProps<typeof dropdownMenuCheckboxItemVariants> {
+    DropdownMenuCheckboxItemVariantsProps {
   shortcut?: string;
 }
 
@@ -392,7 +412,7 @@ DropdownMenuCheckboxItem.displayName = CheckboxItem.displayName;
 
 export interface DropdownMenuRadioItemProps
   extends RadioItemProps,
-    VariantProps<typeof dropdownMenuRadioItemVariants> {
+    DropdownMenuRadioItemVariantsProps {
   shortcut?: string;
 }
 
@@ -472,7 +492,7 @@ export type { DropdownMenuGroupProps };
 
 export interface DropdownMenuLabelProps
   extends LabelProps,
-    VariantProps<typeof dropdownMenuLabelVariants> {}
+    DropdownMenuLabelVariantsProps {}
 
 export const DropdownMenuLabel = React.forwardRef<
   React.ElementRef<typeof Label>,

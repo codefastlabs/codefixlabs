@@ -65,10 +65,7 @@ export const InputPhoneNumber = React.forwardRef<
         <Popover onOpenChange={setOpen} open={open} variant="simple">
           <PopoverTrigger
             className={cn(
-              buttonVariants({
-                size: props.size,
-                variant: 'outline',
-              }),
+              buttonVariants({ size: props.size, variant: 'outline' }),
               'shrink-0 px-3 font-normal',
               props.size === 'sm' ? 'text-xs' : 'text-sm',
             )}

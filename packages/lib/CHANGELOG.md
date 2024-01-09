@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.37
+
+### Patch Changes
+
+- Refactor UI components
+
 ## 0.1.36
 
 ### Patch Changes

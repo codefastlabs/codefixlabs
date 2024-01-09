@@ -153,11 +153,8 @@ export function Combobox({
       <Trigger>
         <PopoverTrigger
           className={cn(
-            buttonVariants({
-              block,
-              variant: 'outline',
-              justify: 'between',
-            }),
+            buttonVariants({ block, variant: 'outline' }),
+            'justify-between',
             classNameTrigger,
           )}
           disabled={disabled}

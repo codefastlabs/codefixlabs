@@ -25,6 +25,8 @@ const radioGroupVariants = cva(undefined, {
   },
 });
 
+type RadioGroupVariantsProps = VariantProps<typeof radioGroupVariants>;
+
 const radioGroupItemVariants = cva(
   ['focus:outline-none', 'disabled:cursor-not-allowed disabled:opacity-50'],
   {
@@ -45,21 +47,21 @@ const radioGroupItemVariants = cva(
   },
 );
 
+type RadioGroupItemVariantsProps = VariantProps<typeof radioGroupItemVariants>;
+
 /* -----------------------------------------------------------------------------
  * Provider: RadioGroupContext
  * -------------------------------------------------------------------------- */
 
 export const RadioGroupContext = React.createContext<
-  Pick<VariantProps<typeof radioGroupVariants>, 'variant'>
+  Pick<RadioGroupVariantsProps, 'variant'>
 >({});
 
 /* -----------------------------------------------------------------------------
  * Component: RadioGroup
  * -------------------------------------------------------------------------- */
 
-export interface RadioGroupProps
-  extends RootProps,
-    VariantProps<typeof radioGroupVariants> {}
+export interface RadioGroupProps extends RootProps, RadioGroupVariantsProps {}
 
 export const RadioGroup = React.forwardRef<
   React.ElementRef<typeof Root>,
@@ -103,7 +105,7 @@ RadioGroupIndicator.displayName = Indicator.displayName;
  * -------------------------------------------------------------------------- */
 
 interface RadioGroupItemProps
-  extends Omit<VariantProps<typeof radioGroupItemVariants>, 'variant'>,
+  extends Omit<RadioGroupItemVariantsProps, 'variant'>,
     ItemProps {}
 
 export const RadioGroupItem = React.forwardRef<

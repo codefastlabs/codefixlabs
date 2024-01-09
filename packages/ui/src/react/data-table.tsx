@@ -121,10 +121,7 @@ export function DataTableColumnHeader<TData, TValue>({
     <DropdownMenu>
       <DropdownMenuTrigger
         className={cn(
-          buttonVariants({
-            size: 'sm',
-            variant: 'ghost',
-          }),
+          buttonVariants({ size: 'sm', variant: 'ghost' }),
           'data-state-open:bg-accent -ml-3.5 px-3.5',
         )}
       >

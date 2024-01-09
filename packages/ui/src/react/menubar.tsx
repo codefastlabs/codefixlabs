@@ -77,6 +77,10 @@ const menubarSubTriggerVariants = cva(
   },
 );
 
+type MenubarSubTriggerVariantsProps = VariantProps<
+  typeof menubarSubTriggerVariants
+>;
+
 const menubarItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
@@ -106,6 +110,8 @@ const menubarItemVariants = cva(
   },
 );
 
+type MenubarItemVariantsProps = VariantProps<typeof menubarItemVariants>;
+
 const menubarCheckboxItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
@@ -130,6 +136,10 @@ const menubarCheckboxItemVariants = cva(
     },
   },
 );
+
+type MenubarCheckboxItemVariantsProps = VariantProps<
+  typeof menubarCheckboxItemVariants
+>;
 
 const menubarRadioItemVariants = cva(
   [
@@ -156,6 +166,10 @@ const menubarRadioItemVariants = cva(
   },
 );
 
+type MenubarRadioItemVariantsProps = VariantProps<
+  typeof menubarRadioItemVariants
+>;
+
 const menubarLabelVariants = cva(
   'text-foreground cursor-default px-2 py-1.5 text-sm font-semibold',
   {
@@ -169,6 +183,8 @@ const menubarLabelVariants = cva(
     },
   },
 );
+
+type MenubarLabelVariantsProps = VariantProps<typeof menubarLabelVariants>;
 
 /* -----------------------------------------------------------------------------
  * Component: Menubar
@@ -317,7 +333,7 @@ export function MenubarShortcut({
 
 export interface MenubarSubTriggerProps
   extends SubTriggerProps,
-    VariantProps<typeof menubarSubTriggerVariants> {}
+    MenubarSubTriggerVariantsProps {}
 
 export const MenubarSubTrigger = React.forwardRef<
   React.ElementRef<typeof SubTrigger>,
@@ -349,9 +365,7 @@ MenubarSubTrigger.displayName = SubTrigger.displayName;
  * Component: MenubarItem
  * -------------------------------------------------------------------------- */
 
-export interface MenubarItemProps
-  extends ItemProps,
-    VariantProps<typeof menubarItemVariants> {
+export interface MenubarItemProps extends ItemProps, MenubarItemVariantsProps {
   shortcut?: string;
 }
 
@@ -410,7 +424,7 @@ MenubarItemIndicator.displayName = ItemIndicator.displayName;
 
 export interface MenubarCheckboxItemProps
   extends CheckboxItemProps,
-    VariantProps<typeof menubarCheckboxItemVariants> {
+    MenubarCheckboxItemVariantsProps {
   shortcut?: string;
 }
 
@@ -441,7 +455,7 @@ MenubarCheckboxItem.displayName = CheckboxItem.displayName;
 
 export interface MenubarRadioItemProps
   extends RadioItemProps,
-    VariantProps<typeof menubarRadioItemVariants> {
+    MenubarRadioItemVariantsProps {
   shortcut?: string;
 }
 
@@ -479,7 +493,7 @@ export type { MenubarGroupProps };
 
 export interface MenubarLabelProps
   extends LabelProps,
-    VariantProps<typeof menubarLabelVariants> {}
+    MenubarLabelVariantsProps {}
 
 export const MenubarLabel = React.forwardRef<
   React.ElementRef<typeof Label>,

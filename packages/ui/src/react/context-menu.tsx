@@ -75,6 +75,10 @@ const contextMenuSubTriggerVariants = cva(
   },
 );
 
+type ContextMenuSubTriggerVariantsProps = VariantProps<
+  typeof contextMenuSubTriggerVariants
+>;
+
 const contextMenuItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
@@ -104,6 +108,10 @@ const contextMenuItemVariants = cva(
   },
 );
 
+type ContextMenuItemVariantsProps = VariantProps<
+  typeof contextMenuItemVariants
+>;
+
 const contextMenuCheckboxItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
@@ -128,6 +136,10 @@ const contextMenuCheckboxItemVariants = cva(
     },
   },
 );
+
+type ContextMenuCheckboxItemVariantsProps = VariantProps<
+  typeof contextMenuCheckboxItemVariants
+>;
 
 const contextMenuRadioItemVariants = cva(
   [
@@ -154,6 +166,10 @@ const contextMenuRadioItemVariants = cva(
   },
 );
 
+type ContextMenuRadioItemVariantsProps = VariantProps<
+  typeof contextMenuRadioItemVariants
+>;
+
 const contextMenuLabelVariants = cva(
   'text-foreground cursor-default px-2 py-1.5 text-sm font-semibold',
   {
@@ -167,6 +183,10 @@ const contextMenuLabelVariants = cva(
     },
   },
 );
+
+type ContextMenuLabelVariantsProps = VariantProps<
+  typeof contextMenuLabelVariants
+>;
 
 /* -----------------------------------------------------------------------------
  * Component: ContextMenuItemIndicator
@@ -278,7 +298,7 @@ ContextMenuSubContent.displayName = SubContent.displayName;
 
 export interface ContextMenuSubTriggerProps
   extends SubTriggerProps,
-    VariantProps<typeof contextMenuSubTriggerVariants> {}
+    ContextMenuSubTriggerVariantsProps {}
 
 export const ContextMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof SubTrigger>,
@@ -312,7 +332,7 @@ ContextMenuSubTrigger.displayName = SubTrigger.displayName;
 
 export interface ContextMenuItemProps
   extends ItemProps,
-    VariantProps<typeof contextMenuItemVariants> {
+    ContextMenuItemVariantsProps {
   shortcut?: string;
 }
 
@@ -357,7 +377,7 @@ ContextMenuItem.displayName = Item.displayName;
 
 export interface ContextMenuCheckboxItemProps
   extends CheckboxItemProps,
-    VariantProps<typeof contextMenuCheckboxItemVariants> {
+    ContextMenuCheckboxItemVariantsProps {
   shortcut?: string;
 }
 
@@ -393,7 +413,7 @@ ContextMenuCheckboxItem.displayName = CheckboxItem.displayName;
 
 export interface ContextMenuRadioItemProps
   extends RadioItemProps,
-    VariantProps<typeof contextMenuRadioItemVariants> {
+    ContextMenuRadioItemVariantsProps {
   shortcut?: string;
 }
 
@@ -450,7 +470,7 @@ export type { ContextMenuGroupProps };
 
 export interface ContextMenuLabelProps
   extends LabelProps,
-    VariantProps<typeof contextMenuLabelVariants> {}
+    ContextMenuLabelVariantsProps {}
 
 export const ContextMenuLabel = React.forwardRef<
   React.ElementRef<typeof Label>,

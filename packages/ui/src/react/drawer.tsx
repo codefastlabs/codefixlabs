@@ -20,9 +20,9 @@ import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import { XIcon } from 'lucide-react';
 import * as React from 'react';
+import type { ButtonVariantsProps } from '@/server/button-variants';
 import { buttonVariants } from '@/server/button-variants';
 import { cn } from '@/server/cn';
-import type { ButtonProps } from '@/react/button';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -53,6 +53,8 @@ const drawerContentVariants = cva(
     },
   },
 );
+
+type DrawerContentVariantsProps = VariantProps<typeof drawerContentVariants>;
 
 /* -----------------------------------------------------------------------------
  * Provider: DrawerContext
@@ -91,30 +93,19 @@ export function Drawer({
  * Component: DrawerClose
  * -------------------------------------------------------------------------- */
 
-export interface DrawerCloseProps extends DialogCloseProps {
-  variant?: ButtonProps['variant'];
-  size?: ButtonProps['size'];
-  shape?: ButtonProps['shape'];
-  block?: ButtonProps['block'];
-}
+export interface DrawerCloseProps
+  extends DialogCloseProps,
+    ButtonVariantsProps {}
 export const DrawerClose = React.forwardRef<
   React.ElementRef<typeof Close>,
   DrawerCloseProps
 >(
   (
-    { className, variant = 'outline', size, shape, block, ...props },
+    { className, variant = 'outline', size, block, icon, ...props },
     forwardedRef,
   ) => (
     <Close
-      className={cn(
-        buttonVariants({
-          variant,
-          size,
-          shape,
-          block,
-        }),
-        className,
-      )}
+      className={cn(buttonVariants({ block, icon, size, variant }), className)}
       ref={forwardedRef}
       {...props}
     />
@@ -128,10 +119,7 @@ DrawerClose.displayName = Close.displayName;
  * -------------------------------------------------------------------------- */
 
 export interface DrawerContentProps
-  extends Omit<
-      VariantProps<typeof drawerContentVariants>,
-      'position' | 'scrollable'
-    >,
+  extends Omit<DrawerContentVariantsProps, 'position' | 'scrollable'>,
     DialogContentProps {
   classNames?: {
     content?: string;
@@ -177,13 +165,8 @@ export const DrawerContent = React.forwardRef<
               <Close
                 aria-label="Close"
                 className={cn(
-                  buttonVariants({
-                    icon: true,
-                    shape: 'pill',
-                    size: 'sm',
-                    variant: 'ghost',
-                  }),
-                  'absolute right-4 top-3.5',
+                  buttonVariants({ icon: true, size: 'sm', variant: 'ghost' }),
+                  'absolute right-4 top-3.5 rounded-full',
                 )}
               >
                 <XIcon size={16} />

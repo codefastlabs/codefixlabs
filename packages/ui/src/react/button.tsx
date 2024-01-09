@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Loader2Icon } from 'lucide-react';
-import type { VariantProps } from 'class-variance-authority';
+import type { ButtonVariantsProps } from '@/server/button-variants';
 import { buttonVariants } from '@/server/button-variants';
 import { cn } from '@/server/cn';
 
@@ -10,7 +10,7 @@ import { cn } from '@/server/cn';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+    ButtonVariantsProps {
   endIcon?: React.ReactNode;
   startIcon?: React.ReactNode;
   loading?: boolean;
@@ -24,8 +24,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       variant,
       size,
       block,
-      shape,
-      justify,
       loading,
       startIcon,
       endIcon,
@@ -40,8 +38,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           buttonVariants({
             block,
             icon: icon || !React.Children.count(children),
-            justify,
-            shape,
             size,
             variant,
           }),

@@ -1,17 +1,17 @@
 {
   "name": "@codefixlabs/ui",
-  "version": "0.1.90",
+  "version": "0.1.91",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
+        "default": "./dist/index.mjs",
+        "types": "./dist/index.d.mts"
       },
       "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
       }
     }
   },
@@ -24,7 +24,7 @@
   "scripts": {
     "build": "tsup",
     "check-types": "tsc --noEmit",
-    "clean": "rm -rf dist .turbo node_modules",
+    "clean": "rm -rf dist && rm -rf .turbo && rm -rf node_modules",
     "dev": "tsup --watch",
     "lint": "eslint src/"
   },

@@ -40,6 +40,8 @@ const primitiveInputVariants = cva(
   },
 );
 
+type PrimitiveInputVariantsProps = VariantProps<typeof primitiveInputVariants>;
+
 const inputVariants = cva('relative', {
   defaultVariants: {
     hasEndIcon: false,
@@ -60,7 +62,7 @@ const inputVariants = cva('relative', {
  * -------------------------------------------------------------------------- */
 
 export interface PrimitiveInputProps
-  extends VariantProps<typeof primitiveInputVariants>,
+  extends PrimitiveInputVariantsProps,
     Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {}
 
 export const PrimitiveInput = React.forwardRef<
@@ -101,10 +103,9 @@ export const InputPassword = React.forwardRef<
         {...props}
       />
       <Button
-        className="right-1.25 absolute top-1/2 -translate-y-1/2"
+        className="right-1.25 absolute top-1/2 -translate-y-1/2 rounded-full"
         disabled={props.disabled}
         onClick={toggleShowPassword}
-        shape="pill"
         size="sm"
         startIcon={
           type === 'password' ? <EyeIcon size={16} /> : <EyeOffIcon size={16} />

@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.34
+
+### Patch Changes
+
+- Refactor UI components
+
 ## 0.1.33
 
 ### Patch Changes

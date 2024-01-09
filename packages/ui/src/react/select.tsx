@@ -75,6 +75,8 @@ const selectTriggerVariants = cva(
   },
 );
 
+type SelectTriggerVariantsProps = VariantProps<typeof selectTriggerVariants>;
+
 const selectContentVariants = cva(
   [
     'bg-popover text-popover-foreground relative z-40 w-[var(--radix-select-trigger-width)] min-w-max overflow-hidden rounded-md border shadow-lg',
@@ -105,6 +107,8 @@ const selectContentVariants = cva(
   },
 );
 
+type SelectContentVariantsProps = VariantProps<typeof selectContentVariants>;
+
 const selectItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
@@ -129,6 +133,8 @@ const selectItemVariants = cva(
     },
   },
 );
+
+type SelectItemVariantsProps = VariantProps<typeof selectItemVariants>;
 
 /* -----------------------------------------------------------------------------
  * Component: Select
@@ -183,7 +189,7 @@ SelectIcon.displayName = Icon.displayName;
 
 export interface SelectTriggerProps
   extends TriggerProps,
-    VariantProps<typeof selectTriggerVariants> {
+    SelectTriggerVariantsProps {
   loading?: boolean;
 }
 
@@ -280,7 +286,7 @@ export function SelectViewport({
 
 export interface SelectContentProps
   extends ContentProps,
-    Omit<VariantProps<typeof selectContentVariants>, 'position'> {}
+    Omit<SelectContentVariantsProps, 'position'> {}
 
 export const SelectContent = React.forwardRef<
   React.ElementRef<typeof Content>,
@@ -341,9 +347,7 @@ SelectItemIndicator.displayName = ItemIndicator.displayName;
  * Component: SelectItem
  * -------------------------------------------------------------------------- */
 
-export interface SelectItemProps
-  extends ItemProps,
-    VariantProps<typeof selectItemVariants> {}
+export interface SelectItemProps extends ItemProps, SelectItemVariantsProps {}
 
 export const SelectItem = React.forwardRef<
   React.ElementRef<typeof Item>,

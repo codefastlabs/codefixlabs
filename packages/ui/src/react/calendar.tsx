@@ -106,9 +106,7 @@ export function DatePicker({
       <Trigger>
         <PopoverTrigger
           className={cn(
-            buttonVariants({
-              variant: 'outline',
-            }),
+            buttonVariants({ variant: 'outline' }),
             classNameTrigger,
           )}
           disabled={loading}
@@ -506,11 +504,7 @@ export function Calendar({
           months: 'flex flex-col gap-4 sm:flex-row',
           nav: '',
           nav_button: twMerge(
-            buttonVariants({
-              icon: true,
-              size: 'sm',
-              variant: 'outline',
-            }),
+            buttonVariants({ icon: true, size: 'sm', variant: 'outline' }),
             'absolute inset-y-0',
           ),
           nav_button_next: 'right-0',

@@ -21,9 +21,9 @@ import {
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
+import type { ButtonVariantsProps } from '@/server/button-variants';
 import { buttonVariants } from '@/server/button-variants';
 import { cn } from '@/server/cn';
-import type { ButtonProps } from '@/react/button';
 
 /* -----------------------------------------------------------------------------
  * Classes
@@ -45,6 +45,10 @@ const alertDialogContentVariants = cva(
     },
   },
 );
+
+type AlertDialogContentVariantsProps = VariantProps<
+  typeof alertDialogContentVariants
+>;
 
 /* -----------------------------------------------------------------------------
  * Provider: AlertDialogContext
@@ -78,7 +82,7 @@ export function AlertDialog({
  * -------------------------------------------------------------------------- */
 
 export interface AlertDialogContentProps
-  extends Omit<VariantProps<typeof alertDialogContentVariants>, 'scrollable'>,
+  extends Omit<AlertDialogContentVariantsProps, 'scrollable'>,
     ContentProps {
   classNames?: {
     content?: string;
@@ -127,23 +131,20 @@ AlertDialogContent.displayName = Content.displayName;
  * Component: AlertDialogAction
  * -------------------------------------------------------------------------- */
 
-export interface AlertDialogActionProps extends ActionProps {
-  variant?: ButtonProps['variant'];
-  size?: ButtonProps['size'];
-  shape?: ButtonProps['shape'];
-  block?: ButtonProps['block'];
-}
+export interface AlertDialogActionProps
+  extends ActionProps,
+    ButtonVariantsProps {}
 
 export const AlertDialogAction = React.forwardRef<
   React.ElementRef<typeof Action>,
   AlertDialogActionProps
 >(
   (
-    { className, variant = 'destructive', size, shape, block, ...props },
+    { className, variant = 'destructive', size, block, icon, ...props },
     forwardedRef,
   ) => (
     <Action
-      className={cn(buttonVariants({ variant, size, shape, block }), className)}
+      className={cn(buttonVariants({ variant, size, block, icon }), className)}
       ref={forwardedRef}
       {...props}
     />
@@ -156,23 +157,20 @@ AlertDialogAction.displayName = Action.displayName;
  * Component: AlertDialogCancel
  * -------------------------------------------------------------------------- */
 
-export interface AlertDialogCancelProps extends CancelProps {
-  variant?: ButtonProps['variant'];
-  size?: ButtonProps['size'];
-  shape?: ButtonProps['shape'];
-  block?: ButtonProps['block'];
-}
+export interface AlertDialogCancelProps
+  extends CancelProps,
+    ButtonVariantsProps {}
 
 export const AlertDialogCancel = React.forwardRef<
   React.ElementRef<typeof Cancel>,
   AlertDialogCancelProps
 >(
   (
-    { className, variant = 'outline', size, shape, block, ...props },
+    { className, variant = 'outline', size, block, icon, ...props },
     forwardedRef,
   ) => (
     <Cancel
-      className={cn(buttonVariants({ variant, size, shape, block }), className)}
+      className={cn(buttonVariants({ variant, size, icon, block }), className)}
       ref={forwardedRef}
       {...props}
     />

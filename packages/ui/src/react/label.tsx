@@ -32,13 +32,13 @@ const labelVariants = cva(
   },
 );
 
+type LabelVariantsProps = VariantProps<typeof labelVariants>;
+
 /* -----------------------------------------------------------------------------
  * Component: Label
  * -------------------------------------------------------------------------- */
 
-export interface LabelProps
-  extends RootProps,
-    VariantProps<typeof labelVariants> {
+export interface LabelProps extends RootProps, LabelVariantsProps {
   tooltip?: string;
 }
 
