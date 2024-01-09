@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.92
+
+### Patch Changes
+
+- Update dependencies in package.json
+
 ## 0.1.91
 
 ### Patch Changes
