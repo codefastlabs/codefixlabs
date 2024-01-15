@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.94
+
+### Patch Changes
+
+- Add ESLint, Next.js, and PostCSS configurations
+
 ## 0.1.93
 
 ### Patch Changes
