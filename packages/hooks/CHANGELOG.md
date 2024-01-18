@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.35
+
+### Patch Changes
+
+- Update button-variants styles to include justify-center
+
 ## 0.1.34
 
 ### Patch Changes

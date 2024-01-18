@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.38
+
+### Patch Changes
+
+- Update button-variants styles to include justify-center
+
 ## 0.1.37
 
 ### Patch Changes

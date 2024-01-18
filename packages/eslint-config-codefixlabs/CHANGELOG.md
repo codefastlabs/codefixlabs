@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.24
+
+### Patch Changes
+
+- Update button-variants styles to include justify-center
+
 ## 0.1.23
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.95
+
+### Patch Changes
+
+- Update button-variants styles to include justify-center
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.35
+  - @codefixlabs/lib@0.1.38
+
 ## 0.1.94
 
 ### Patch Changes

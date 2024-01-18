@@ -36,14 +36,6 @@
       "prettier-plugin-tailwindcss"
     ],
     "singleQuote": true,
-    "tailwindAttributes": [
-      "classNames"
-    ],
-    "tailwindFunctions": [
-      "cva",
-      "cx",
-      "twMerge"
-    ],
     "trailingComma": "all"
   },
   "devDependencies": {
@@ -51,7 +43,7 @@
     "@codefixlabs/tsconfig": "workspace:*",
     "eslint": "^8.56.0",
     "lint-staged": "^15.2.0",
-    "prettier": "^3.1.1",
+    "prettier": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "simple-git-hooks": "^2.9.0",
     "turbo": "^1.11.3",
