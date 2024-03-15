@@ -1,11 +1,12 @@
-import type {
-  RadioGroupIndicatorProps,
-  RadioGroupItemProps as ItemProps,
-  RadioGroupProps as RootProps,
+import {
+  type RadioGroupIndicatorProps,
+  type RadioGroupItemProps as ItemProps,
+  type RadioGroupProps as RootProps,
+  Indicator,
+  Item,
+  Root,
 } from '@radix-ui/react-radio-group';
-import { Indicator, Item, Root } from '@radix-ui/react-radio-group';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type VariantProps, cva } from 'class-variance-authority';
 import * as React from 'react';
 import { cn } from '@/server/cn';
 
@@ -66,7 +67,7 @@ export interface RadioGroupProps extends RootProps, RadioGroupVariantsProps {}
 export const RadioGroup = React.forwardRef<
   React.ElementRef<typeof Root>,
   RadioGroupProps
->(({ className, variant = 'default', ...props }, forwardedRef) => (
+>(({ className, variant, ...props }, forwardedRef) => (
   <RadioGroupContext.Provider value={{ variant }}>
     <Root
       className={cn(radioGroupVariants({ variant }), className)}

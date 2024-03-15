@@ -1,21 +1,19 @@
-import type {
-  SelectArrowProps,
-  SelectContentProps as ContentProps,
-  SelectGroupProps,
-  SelectIconProps,
-  SelectItemIndicatorProps,
-  SelectItemProps as ItemProps,
-  SelectItemTextProps,
-  SelectLabelProps,
-  SelectProps,
-  SelectScrollDownButtonProps,
-  SelectScrollUpButtonProps,
-  SelectSeparatorProps,
-  SelectTriggerProps as TriggerProps,
-  SelectValueProps,
-  SelectViewportProps,
-} from '@radix-ui/react-select';
 import {
+  type SelectArrowProps,
+  type SelectContentProps as ContentProps,
+  type SelectGroupProps,
+  type SelectIconProps,
+  type SelectItemIndicatorProps,
+  type SelectItemProps as ItemProps,
+  type SelectItemTextProps,
+  type SelectLabelProps,
+  type SelectProps,
+  type SelectScrollDownButtonProps,
+  type SelectScrollUpButtonProps,
+  type SelectSeparatorProps,
+  type SelectTriggerProps as TriggerProps,
+  type SelectValueProps,
+  type SelectViewportProps,
   Arrow,
   Content,
   Icon,
@@ -33,8 +31,7 @@ import {
   Trigger,
   Viewport,
 } from '@radix-ui/react-select';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type VariantProps, cva } from 'class-variance-authority';
 import {
   CheckIcon,
   ChevronDownIcon,

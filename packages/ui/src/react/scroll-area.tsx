@@ -1,11 +1,9 @@
-import type {
-  ScrollAreaCornerProps,
-  ScrollAreaProps,
-  ScrollAreaScrollbarProps,
-  ScrollAreaThumbProps,
-  ScrollAreaViewportProps,
-} from '@radix-ui/react-scroll-area';
 import {
+  type ScrollAreaCornerProps,
+  type ScrollAreaProps,
+  type ScrollAreaScrollbarProps,
+  type ScrollAreaThumbProps,
+  type ScrollAreaViewportProps,
   Corner,
   Root,
   Scrollbar,

@@ -8,15 +8,13 @@ import {
   Loader2Icon,
 } from 'lucide-react';
 import * as React from 'react';
-import type {
-  DateRange,
-  DayPickerProps,
-  DayProps,
-  Matcher,
-  SelectRangeEventHandler,
-  StyledComponent,
-} from 'react-day-picker';
 import {
+  type DateRange,
+  type DayPickerProps,
+  type DayProps,
+  type Matcher,
+  type SelectRangeEventHandler,
+  type StyledComponent,
   Button,
   DayPicker,
   isMatch,
@@ -27,7 +25,7 @@ import { twMerge } from 'tailwind-merge';
 import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
 import { Label } from '@/react/label';
 import { Input } from '@/react/input';
-import type { FormControl } from '@/react/form';
+import { type FormControl } from '@/react/form';
 import { buttonVariants } from '@/server/button-variants';
 import {
   createDate,

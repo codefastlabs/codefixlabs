@@ -1,12 +1,10 @@
-import type {
-  PopoverAnchorProps,
-  PopoverArrowProps,
-  PopoverCloseProps,
-  PopoverContentProps,
-  PopoverProps as RootProps,
-  PopoverTriggerProps,
-} from '@radix-ui/react-popover';
 import {
+  type PopoverAnchorProps,
+  type PopoverArrowProps,
+  type PopoverCloseProps,
+  type PopoverContentProps,
+  type PopoverProps as RootProps,
+  type PopoverTriggerProps,
   Arrow,
   Content,
   PopoverAnchor,

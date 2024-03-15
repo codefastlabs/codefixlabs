@@ -1,7 +1,5 @@
-import type { LabelProps as RootProps } from '@radix-ui/react-label';
-import { Root } from '@radix-ui/react-label';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type LabelProps as RootProps, Root } from '@radix-ui/react-label';
+import { type VariantProps, cva } from 'class-variance-authority';
 import { InfoIcon } from 'lucide-react';
 import * as React from 'react';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/react/tooltip';

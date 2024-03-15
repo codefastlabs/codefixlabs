@@ -1,10 +1,8 @@
-import type {
-  TooltipArrowProps,
-  TooltipContentProps,
-  TooltipProps,
-  TooltipTriggerProps,
-} from '@radix-ui/react-tooltip';
 import {
+  type TooltipArrowProps,
+  type TooltipContentProps,
+  type TooltipProps,
+  type TooltipTriggerProps,
   Arrow,
   Content,
   Portal,

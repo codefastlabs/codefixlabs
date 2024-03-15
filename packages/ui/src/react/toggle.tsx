@@ -1,7 +1,5 @@
-import type { ToggleProps as RootProps } from '@radix-ui/react-toggle';
-import { Root } from '@radix-ui/react-toggle';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type ToggleProps as RootProps, Root } from '@radix-ui/react-toggle';
+import { type VariantProps, cva } from 'class-variance-authority';
 import * as React from 'react';
 import { cn } from '@/server/cn';
 
@@ -21,7 +19,7 @@ const toggleVariants = cva(
   {
     defaultVariants: {
       size: 'md',
-      variant: 'primary',
+      variant: 'default',
     },
     variants: {
       size: {
@@ -34,7 +32,7 @@ const toggleVariants = cva(
           'border-input border bg-transparent',
           'hover:bg-accent hover:text-accent-foreground',
         ],
-        primary: 'bg-transparent',
+        default: 'bg-transparent',
       },
     },
   },

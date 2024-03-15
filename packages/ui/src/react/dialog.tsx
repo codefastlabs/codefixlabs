@@ -1,12 +1,10 @@
-import type {
-  DialogCloseProps as CloseProps,
-  DialogContentProps as ContentProps,
-  DialogDescriptionProps,
-  DialogProps as RootProps,
-  DialogTitleProps,
-  DialogTriggerProps,
-} from '@radix-ui/react-dialog';
 import {
+  type DialogCloseProps as CloseProps,
+  type DialogContentProps as ContentProps,
+  type DialogDescriptionProps,
+  type DialogProps as RootProps,
+  type DialogTitleProps,
+  type DialogTriggerProps,
   Close,
   Content,
   Description,
@@ -16,12 +14,13 @@ import {
   Root,
   Title,
 } from '@radix-ui/react-dialog';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type VariantProps, cva } from 'class-variance-authority';
 import { XIcon } from 'lucide-react';
 import * as React from 'react';
-import type { ButtonVariantsProps } from '@/server/button-variants';
-import { buttonVariants } from '@/server/button-variants';
+import {
+  type ButtonVariantsProps,
+  buttonVariants,
+} from '@/server/button-variants';
 import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
@@ -85,18 +84,13 @@ export interface DialogCloseProps extends CloseProps, ButtonVariantsProps {}
 export const DialogClose = React.forwardRef<
   React.ElementRef<typeof Close>,
   DialogCloseProps
->(
-  (
-    { className, variant = 'outline', size, icon, block, ...props },
-    forwardedRef,
-  ) => (
-    <Close
-      className={cn(buttonVariants({ block, icon, size, variant }), className)}
-      ref={forwardedRef}
-      {...props}
-    />
-  ),
-);
+>(({ className, variant, size, icon, block, ...props }, forwardedRef) => (
+  <Close
+    className={cn(buttonVariants({ block, icon, size, variant }), className)}
+    ref={forwardedRef}
+    {...props}
+  />
+));
 
 DialogClose.displayName = Close.displayName;
 
@@ -217,7 +211,7 @@ export function DialogFooter({
   return (
     <footer
       className={cn(
-        'py-3.75 flex shrink-0 flex-col-reverse gap-2 border-t px-6 sm:flex-row sm:justify-between',
+        'py-3.75 flex shrink-0 flex-col-reverse gap-2 border-t px-6 sm:flex-row sm:justify-end',
         className,
       )}
       {...props}

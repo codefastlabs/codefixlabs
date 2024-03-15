@@ -1,13 +1,11 @@
-import type {
-  AlertDialogActionProps as ActionProps,
-  AlertDialogCancelProps as CancelProps,
-  AlertDialogContentProps as ContentProps,
-  AlertDialogDescriptionProps,
-  AlertDialogProps as RootProps,
-  AlertDialogTitleProps,
-  AlertDialogTriggerProps,
-} from '@radix-ui/react-alert-dialog';
 import {
+  type AlertDialogActionProps as ActionProps,
+  type AlertDialogCancelProps as CancelProps,
+  type AlertDialogContentProps as ContentProps,
+  type AlertDialogDescriptionProps,
+  type AlertDialogProps as RootProps,
+  type AlertDialogTitleProps,
+  type AlertDialogTriggerProps,
   Action,
   AlertDialogTrigger,
   Cancel,
@@ -18,11 +16,12 @@ import {
   Root,
   Title,
 } from '@radix-ui/react-alert-dialog';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type VariantProps, cva } from 'class-variance-authority';
 import * as React from 'react';
-import type { ButtonVariantsProps } from '@/server/button-variants';
-import { buttonVariants } from '@/server/button-variants';
+import {
+  type ButtonVariantsProps,
+  buttonVariants,
+} from '@/server/button-variants';
 import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
@@ -266,7 +265,7 @@ export function AlertDialogFooter({
   return (
     <div
       className={cn(
-        'py-3.75 flex shrink-0 flex-col-reverse gap-2 border-t px-6 sm:flex-row sm:justify-between',
+        'py-3.75 flex shrink-0 flex-col-reverse gap-2 border-t px-6 sm:flex-row sm:justify-end',
         className,
       )}
       {...props}

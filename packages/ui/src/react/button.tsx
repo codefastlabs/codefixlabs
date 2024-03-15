@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Loader2Icon } from 'lucide-react';
-import type { ButtonVariantsProps } from '@/server/button-variants';
-import { buttonVariants } from '@/server/button-variants';
+import {
+  buttonVariants,
+  type ButtonVariantsProps,
+} from '@/server/button-variants';
 import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
@@ -37,13 +39,13 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           buttonVariants({
             block,
-            icon: icon || !React.Children.count(children),
+            icon: icon ?? !React.Children.count(children),
             size,
             variant,
           }),
           className,
         )}
-        disabled={loading || props.disabled}
+        disabled={loading ?? props.disabled}
         ref={forwardedRef}
         type="button"
         {...props}

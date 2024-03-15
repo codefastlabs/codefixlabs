@@ -1,8 +1,9 @@
 import { Slot } from '@radix-ui/react-slot';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 import * as React from 'react';
-import type { CommandItemProps, CommandProps } from '@/react/command';
 import {
+  type CommandItemProps,
+  type CommandProps,
   Command,
   CommandEmpty,
   CommandGroup,
@@ -11,7 +12,7 @@ import {
   CommandList,
   CommandSeparator,
 } from '@/react/command';
-import type { FormControl } from '@/react/form';
+import { type FormControl } from '@/react/form';
 import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
 import { cn } from '@/server/cn';
 import { buttonVariants } from '@/server/button-variants';

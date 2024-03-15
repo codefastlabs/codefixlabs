@@ -1,5 +1,10 @@
-import type { SliderProps } from '@radix-ui/react-slider';
-import { Range, Root, Thumb, Track } from '@radix-ui/react-slider';
+import {
+  type SliderProps,
+  Range,
+  Root,
+  Thumb,
+  Track,
+} from '@radix-ui/react-slider';
 import * as React from 'react';
 import { cn } from '@/server/cn';
 

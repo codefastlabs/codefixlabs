@@ -1,12 +1,14 @@
-import type {
-  TabsContentProps as ContentProps,
-  TabsListProps as ListProps,
-  TabsProps as RootProps,
-  TabsTriggerProps as TriggerProps,
+import {
+  type TabsContentProps as ContentProps,
+  type TabsListProps as ListProps,
+  type TabsProps as RootProps,
+  type TabsTriggerProps as TriggerProps,
+  Content,
+  List,
+  Root,
+  Trigger,
 } from '@radix-ui/react-tabs';
-import { Content, List, Root, Trigger } from '@radix-ui/react-tabs';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type VariantProps, cva } from 'class-variance-authority';
 import * as React from 'react';
 import { cn } from '@/server/cn';
 

@@ -1,5 +1,4 @@
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type VariantProps, cva } from 'class-variance-authority';
 import {
   CommandEmpty as Empty,
   CommandGroup as Group,
@@ -12,8 +11,11 @@ import {
 } from 'cmdk';
 import { SearchIcon } from 'lucide-react';
 import * as React from 'react';
-import type { DialogProps as CommandDialogProps } from '@/react/dialog';
-import { Dialog, DialogContent } from '@/react/dialog';
+import {
+  type DialogProps as CommandDialogProps,
+  Dialog,
+  DialogContent,
+} from '@/react/dialog';
 import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
@@ -24,12 +26,12 @@ const commandVariants = cva(
   'bg-popover text-popover-foreground flex size-full flex-col overflow-hidden rounded-md',
   {
     defaultVariants: {
-      variant: 'primary',
+      variant: 'default',
     },
     variants: {
       variant: {
         dialog: undefined,
-        primary: 'border shadow-lg',
+        default: 'border shadow-lg',
       },
     },
   },
@@ -48,7 +50,7 @@ export interface CommandProps
 export const Command = React.forwardRef<
   React.ElementRef<typeof Root>,
   CommandProps
->(({ className, variant = 'primary', ...props }, forwardedRef) => (
+>(({ className, variant, ...props }, forwardedRef) => (
   <Root
     className={cn(commandVariants({ variant }), className)}
     ref={forwardedRef}

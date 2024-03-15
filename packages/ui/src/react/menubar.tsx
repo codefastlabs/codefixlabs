@@ -1,22 +1,20 @@
-import type {
-  MenubarArrowProps,
-  MenubarCheckboxItemProps as CheckboxItemProps,
-  MenubarContentProps,
-  MenubarGroupProps,
-  MenubarItemIndicatorProps,
-  MenubarItemProps as ItemProps,
-  MenubarLabelProps as LabelProps,
-  MenubarMenuProps,
-  MenubarProps,
-  MenubarRadioGroupProps,
-  MenubarRadioItemProps as RadioItemProps,
-  MenubarSeparatorProps,
-  MenubarSubContentProps,
-  MenubarSubProps,
-  MenubarSubTriggerProps as SubTriggerProps,
-  MenubarTriggerProps,
-} from '@radix-ui/react-menubar';
 import {
+  type MenubarArrowProps,
+  type MenubarCheckboxItemProps as CheckboxItemProps,
+  type MenubarContentProps,
+  type MenubarGroupProps,
+  type MenubarItemIndicatorProps,
+  type MenubarItemProps as ItemProps,
+  type MenubarLabelProps as LabelProps,
+  type MenubarMenuProps,
+  type MenubarProps,
+  type MenubarRadioGroupProps,
+  type MenubarRadioItemProps as RadioItemProps,
+  type MenubarSeparatorProps,
+  type MenubarSubContentProps,
+  type MenubarSubProps,
+  type MenubarSubTriggerProps as SubTriggerProps,
+  type MenubarTriggerProps,
   Arrow,
   CheckboxItem,
   Content,
@@ -37,8 +35,7 @@ import {
 } from '@radix-ui/react-menubar';
 import { CheckIcon, ChevronRightIcon, DotIcon } from 'lucide-react';
 import * as React from 'react';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------

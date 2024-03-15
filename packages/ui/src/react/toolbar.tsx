@@ -1,13 +1,11 @@
-import type {
-  ToolbarButtonProps,
-  ToolbarLinkProps,
-  ToolbarProps,
-  ToolbarSeparatorProps,
-  ToolbarToggleGroupMultipleProps,
-  ToolbarToggleGroupSingleProps,
-  ToolbarToggleItemProps as ToggleItemProps,
-} from '@radix-ui/react-toolbar';
 import {
+  type ToolbarButtonProps,
+  type ToolbarLinkProps,
+  type ToolbarProps,
+  type ToolbarSeparatorProps,
+  type ToolbarToggleGroupMultipleProps,
+  type ToolbarToggleGroupSingleProps,
+  type ToolbarToggleItemProps as ToggleItemProps,
   Button,
   Link,
   Root,
@@ -15,8 +13,7 @@ import {
   ToggleGroup,
   ToggleItem,
 } from '@radix-ui/react-toolbar';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type VariantProps, cva } from 'class-variance-authority';
 import * as React from 'react';
 import { cn } from '@/server/cn';
 
@@ -36,7 +33,7 @@ const toolbarToggleItemVariants = cva(
   {
     defaultVariants: {
       size: 'sm',
-      variant: 'primary',
+      variant: 'default',
     },
     variants: {
       size: {
@@ -49,7 +46,7 @@ const toolbarToggleItemVariants = cva(
           'border-input border bg-transparent',
           'hover:bg-accent hover:text-accent-foreground',
         ],
-        primary: 'bg-transparent',
+        default: 'bg-transparent',
       },
     },
   },
@@ -183,7 +180,7 @@ export interface ToolbarToggleItemProps
 export const ToolbarToggleItem = React.forwardRef<
   React.ElementRef<typeof ToggleItem>,
   ToolbarToggleItemProps
->(({ className, variant = 'primary', size = 'sm', ...props }, forwardedRef) => (
+>(({ className, variant, size, ...props }, forwardedRef) => (
   <ToggleItem
     ref={forwardedRef}
     {...props}

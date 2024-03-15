@@ -1,11 +1,9 @@
-import type {
-  AccordionContentProps,
-  AccordionItemProps,
-  AccordionMultipleProps,
-  AccordionSingleProps,
-  AccordionTriggerProps as TriggerProps,
-} from '@radix-ui/react-accordion';
 import {
+  type AccordionContentProps,
+  type AccordionItemProps,
+  type AccordionMultipleProps,
+  type AccordionSingleProps,
+  type AccordionTriggerProps as TriggerProps,
   Content,
   Header,
   Item,

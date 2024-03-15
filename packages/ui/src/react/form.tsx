@@ -1,17 +1,16 @@
-import type { SlotProps as FormControlProps } from '@radix-ui/react-slot';
-import { Slot } from '@radix-ui/react-slot';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type SlotProps as FormControlProps, Slot } from '@radix-ui/react-slot';
+import { type VariantProps, cva } from 'class-variance-authority';
 import * as React from 'react';
-import type {
-  ControllerProps as FormFieldProps,
-  FieldError,
-  FieldPath,
-  FieldValues,
+import {
+  type ControllerProps as FormFieldProps,
+  type FieldError,
+  type FieldPath,
+  type FieldValues,
+  Controller,
+  FormProvider,
+  useFormContext,
 } from 'react-hook-form';
-import { Controller, FormProvider, useFormContext } from 'react-hook-form';
-import type { LabelProps as FormLabelProps } from '@/react/label';
-import { Label } from '@/react/label';
+import { type LabelProps as FormLabelProps, Label } from '@/react/label';
 import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
@@ -186,9 +185,7 @@ export const FormControl = React.forwardRef<
   return (
     <Slot
       aria-describedby={
-        !error
-          ? `${formDescriptionId}`
-          : `${formDescriptionId} ${formMessageId}`
+        !error ? formDescriptionId : `${formDescriptionId} ${formMessageId}`
       }
       data-invalid={Boolean(error)}
       id={formItemId}

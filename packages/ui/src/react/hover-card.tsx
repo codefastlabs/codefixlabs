@@ -1,10 +1,8 @@
-import type {
-  HoverCardArrowProps,
-  HoverCardContentProps,
-  HoverCardProps,
-  HoverCardTriggerProps,
-} from '@radix-ui/react-hover-card';
 import {
+  type HoverCardArrowProps,
+  type HoverCardContentProps,
+  type HoverCardProps,
+  type HoverCardTriggerProps,
   Arrow,
   Content,
   HoverCard,

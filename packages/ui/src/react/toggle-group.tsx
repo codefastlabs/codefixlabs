@@ -1,9 +1,11 @@
-import type { ToggleGroupItemProps as ItemProps } from '@radix-ui/react-toggle-group';
-import { Item, Root } from '@radix-ui/react-toggle-group';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import {
+  type ToggleGroupItemProps as ItemProps,
+  Item,
+  Root,
+} from '@radix-ui/react-toggle-group';
+import { type VariantProps, cva } from 'class-variance-authority';
 import * as React from 'react';
-import type { ToggleGroupProps } from '@radix-ui/react-toolbar';
+import { type ToggleGroupProps } from '@radix-ui/react-toolbar';
 import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
@@ -23,7 +25,7 @@ const toggleGroupItemVariants = cva(
   {
     defaultVariants: {
       size: 'md',
-      variant: 'primary',
+      variant: 'default',
     },
     variants: {
       size: {
@@ -36,7 +38,7 @@ const toggleGroupItemVariants = cva(
           'border-input border bg-transparent',
           'hover:bg-primary hover:text-primary-foreground',
         ],
-        primary: 'bg-transparent',
+        default: 'bg-transparent',
       },
     },
   },
@@ -79,7 +81,7 @@ export interface ToggleGroupItemProps
 export const ToggleGroupItem = React.forwardRef<
   React.ElementRef<typeof Item>,
   ToggleGroupItemProps
->(({ className, variant = 'primary', size = 'md', ...props }, forwardedRef) => (
+>(({ className, variant, size, ...props }, forwardedRef) => (
   <Item
     className={cn(toggleGroupItemVariants({ size, variant }), className)}
     ref={forwardedRef}

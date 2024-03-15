@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { twMerge } from 'tailwind-merge';
-import type { Editor as TiptapEditor, EditorOptions } from '@tiptap/react';
-import { EditorContent, useEditor } from '@tiptap/react';
+import {
+  type Editor as TiptapEditor,
+  type EditorOptions,
+  EditorContent,
+  useEditor,
+} from '@tiptap/react';
 import { StarterKit } from '@tiptap/starter-kit';
 import { TableRow } from '@tiptap/extension-table-row';
 import { Table } from '@tiptap/extension-table';

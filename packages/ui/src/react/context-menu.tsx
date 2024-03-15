@@ -1,21 +1,19 @@
-import type {
-  ContextMenuArrowProps,
-  ContextMenuCheckboxItemProps as CheckboxItemProps,
-  ContextMenuContentProps,
-  ContextMenuGroupProps,
-  ContextMenuItemIndicatorProps,
-  ContextMenuItemProps as ItemProps,
-  ContextMenuLabelProps as LabelProps,
-  ContextMenuProps,
-  ContextMenuRadioGroupProps,
-  ContextMenuRadioItemProps as RadioItemProps,
-  ContextMenuSeparatorProps,
-  ContextMenuSubContentProps,
-  ContextMenuSubProps,
-  ContextMenuSubTriggerProps as SubTriggerProps,
-  ContextMenuTriggerProps,
-} from '@radix-ui/react-context-menu';
 import {
+  type ContextMenuArrowProps,
+  type ContextMenuCheckboxItemProps as CheckboxItemProps,
+  type ContextMenuContentProps,
+  type ContextMenuGroupProps,
+  type ContextMenuItemIndicatorProps,
+  type ContextMenuItemProps as ItemProps,
+  type ContextMenuLabelProps as LabelProps,
+  type ContextMenuProps,
+  type ContextMenuRadioGroupProps,
+  type ContextMenuRadioItemProps as RadioItemProps,
+  type ContextMenuSeparatorProps,
+  type ContextMenuSubContentProps,
+  type ContextMenuSubProps,
+  type ContextMenuSubTriggerProps as SubTriggerProps,
+  type ContextMenuTriggerProps,
   Arrow,
   CheckboxItem,
   Content,
@@ -35,8 +33,7 @@ import {
 } from '@radix-ui/react-context-menu';
 import { CheckIcon, ChevronRightIcon, DotIcon } from 'lucide-react';
 import * as React from 'react';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------

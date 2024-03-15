@@ -1,12 +1,10 @@
-import type {
-  Column,
-  ColumnDef,
-  RowData,
-  SortDirection,
-  Table as TableType,
-  TableOptions,
-} from '@tanstack/react-table';
 import {
+  type Column,
+  type ColumnDef,
+  type RowData,
+  type SortDirection,
+  type Table as TableType,
+  type TableOptions,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,

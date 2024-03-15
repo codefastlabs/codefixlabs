@@ -1,8 +1,7 @@
 import { useCountries } from '@codefixlabs/hooks';
 import * as React from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/react/popover';
-import type { PrimitiveInputProps } from '@/react/input';
-import { PrimitiveInput } from '@/react/input';
+import { type PrimitiveInputProps, PrimitiveInput } from '@/react/input';
 import {
   Command,
   CommandEmpty,

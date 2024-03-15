@@ -1,21 +1,19 @@
-import type {
-  DropdownMenuArrowProps,
-  DropdownMenuCheckboxItemProps as CheckboxItemProps,
-  DropdownMenuContentProps,
-  DropdownMenuGroupProps,
-  DropdownMenuItemIndicatorProps,
-  DropdownMenuItemProps as ItemProps,
-  DropdownMenuLabelProps as LabelProps,
-  DropdownMenuProps,
-  DropdownMenuRadioGroupProps,
-  DropdownMenuRadioItemProps as RadioItemProps,
-  DropdownMenuSeparatorProps,
-  DropdownMenuSubContentProps,
-  DropdownMenuSubProps,
-  DropdownMenuSubTriggerProps as SubTriggerProps,
-  DropdownMenuTriggerProps,
-} from '@radix-ui/react-dropdown-menu';
 import {
+  type DropdownMenuArrowProps,
+  type DropdownMenuCheckboxItemProps as CheckboxItemProps,
+  type DropdownMenuContentProps,
+  type DropdownMenuGroupProps,
+  type DropdownMenuItemIndicatorProps,
+  type DropdownMenuItemProps as ItemProps,
+  type DropdownMenuLabelProps as LabelProps,
+  type DropdownMenuProps,
+  type DropdownMenuRadioGroupProps,
+  type DropdownMenuRadioItemProps as RadioItemProps,
+  type DropdownMenuSeparatorProps,
+  type DropdownMenuSubContentProps,
+  type DropdownMenuSubProps,
+  type DropdownMenuSubTriggerProps as SubTriggerProps,
+  type DropdownMenuTriggerProps,
   Arrow,
   CheckboxItem,
   Content,
@@ -33,8 +31,7 @@ import {
   SubContent,
   SubTrigger,
 } from '@radix-ui/react-dropdown-menu';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import { type VariantProps, cva } from 'class-variance-authority';
 import { CheckIcon, ChevronRightIcon, DotIcon } from 'lucide-react';
 import * as React from 'react';
 import { cn } from '@/server/cn';
@@ -87,14 +84,14 @@ const dropdownMenuItemVariants = cva(
   {
     defaultVariants: {
       inset: false,
-      variant: 'default',
+      variant: 'ghost',
     },
     variants: {
       inset: {
         true: 'pl-8',
       },
       variant: {
-        default: [
+        ghost: [
           'focus:bg-accent focus:text-accent-foreground',
           'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
         ],
@@ -102,11 +99,6 @@ const dropdownMenuItemVariants = cva(
           'text-destructive',
           'focus:bg-destructive-foreground focus:text-destructive',
           'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-        ],
-        primary: [
-          'text-primary',
-          'focus:bg-primary-foreground focus:text-primary',
-          'data-highlighted:bg-primary-foreground data-highlighted:text-primary',
         ],
       },
     },

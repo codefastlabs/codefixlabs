@@ -1,9 +1,7 @@
-import type {
-  CollapsibleContentProps,
-  CollapsibleProps,
-  CollapsibleTriggerProps,
-} from '@radix-ui/react-collapsible';
 import {
+  type CollapsibleContentProps,
+  type CollapsibleProps,
+  type CollapsibleTriggerProps,
   Collapsible,
   CollapsibleTrigger,
   Content,
