@@ -11,7 +11,7 @@ export const getFirstInitials = (
   fallback?: string,
 ): string => {
   if (!text) {
-    return fallback || '';
+    return fallback ?? '';
   }
 
   return convertSpecialTextToLatin(removeEmoji(text))
