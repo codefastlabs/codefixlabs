@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.97
+
+### Patch Changes
+
+- Add breadcrumb component to UI package
+
 ## 0.1.96
 
 ### Patch Changes
