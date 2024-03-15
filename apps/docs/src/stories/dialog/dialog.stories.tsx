@@ -74,10 +74,8 @@ export const Basic: Story = {
           </div>
         </DialogBody>
         <DialogFooter>
-          <DialogClose>Cancel</DialogClose>
-          <DialogClose type="submit" variant="primary">
-            Save changes
-          </DialogClose>
+          <DialogClose variant="outline">Cancel</DialogClose>
+          <DialogClose type="submit">Save changes</DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
@@ -119,10 +117,8 @@ export const Scrolling: Story = {
         </DialogBody>
 
         <DialogFooter>
-          <DialogClose>Cancel</DialogClose>
-          <DialogClose type="submit" variant="primary">
-            Save changes
-          </DialogClose>
+          <DialogClose variant="outline">Cancel</DialogClose>
+          <DialogClose type="submit">Save changes</DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>

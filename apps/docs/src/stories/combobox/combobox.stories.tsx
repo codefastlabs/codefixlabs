@@ -140,7 +140,7 @@ interface Member {
 }
 
 const members = Array.from({ length: 20 }, () => ({
-  avatar: faker.internet.avatar(),
+  avatar: faker.image.avatar(),
   email: faker.internet.email(),
   id: faker.string.uuid(),
   name: faker.person.fullName(),

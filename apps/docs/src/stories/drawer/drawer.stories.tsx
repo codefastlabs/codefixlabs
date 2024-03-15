@@ -46,8 +46,8 @@ export const Basic: Story = {
           </p>
         </DrawerBody>
         <DrawerFooter>
-          <DrawerClose>Secondary</DrawerClose>
-          <DrawerClose variant="primary">Primary</DrawerClose>
+          <DrawerClose variant="outline">Secondary</DrawerClose>
+          <DrawerClose>Primary</DrawerClose>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
@@ -88,8 +88,8 @@ export const Scrolling: Story = {
           ))}
         </DrawerBody>
         <DrawerFooter>
-          <DrawerClose>Secondary</DrawerClose>
-          <DrawerClose variant="primary">Primary</DrawerClose>
+          <DrawerClose variant="outline">Secondary</DrawerClose>
+          <DrawerClose>Primary</DrawerClose>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

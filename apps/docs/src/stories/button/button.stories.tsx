@@ -61,7 +61,7 @@ const meta: Meta<typeof Button> = {
     },
     variant: {
       control: 'inline-radio',
-      options: ['primary', 'secondary', 'outline', 'destructive', 'ghost'],
+      options: ['default', 'secondary', 'outline', 'destructive', 'ghost'],
     },
   },
   args: {
@@ -70,7 +70,7 @@ const meta: Meta<typeof Button> = {
     loading: false,
     shape: 'rounded',
     size: 'md',
-    variant: 'primary',
+    variant: 'default',
   },
   component: Button,
   tags: ['autodocs'],
