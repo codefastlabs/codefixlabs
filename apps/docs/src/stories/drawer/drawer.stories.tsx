@@ -62,6 +62,9 @@ export const Simple: Story = {
 };
 
 export const ScrollingHorizontal: Story = {
+  args: {
+    side: 'right',
+  },
   render: (args) => (
     <Drawer {...args}>
       <DrawerTrigger asChild>
@@ -101,6 +104,9 @@ export const ScrollingHorizontal: Story = {
 };
 
 export const ScrollingVertical: Story = {
+  args: {
+    side: 'top',
+  },
   render: (args) => (
     <Drawer {...args}>
       <DrawerTrigger asChild>
