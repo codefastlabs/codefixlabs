@@ -38,16 +38,16 @@ export const sharedConfig: Config = {
         'collapsible-down':
           'collapsible-down 300ms cubic-bezier(0.87, 0, 0.13, 1)',
         'collapsible-up': 'collapsible-up 300ms cubic-bezier(0.87, 0, 0.13, 1)',
-        'content-hide': 'content-hide 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-        'content-show': 'content-show 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-        'drawer-hide-to-left':
-          'drawer-hide-to-left 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-        'drawer-hide-to-right':
-          'drawer-hide-to-right 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-        'drawer-show-from-left':
-          'drawer-show-from-left 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-        'drawer-show-from-right':
-          'drawer-show-from-right 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+        'content-hide': 'content-hide 300ms ease-in-out',
+        'content-show': 'content-show 300ms ease-in-out',
+        'drawer-hide-to-left': 'drawer-hide-to-left 300ms ease-in-out',
+        'drawer-hide-to-right': 'drawer-hide-to-right 300ms ease-in-out',
+        'drawer-show-from-left': 'drawer-show-from-left 300ms ease-in-out',
+        'drawer-show-from-right': 'drawer-show-from-right 300ms ease-in-out',
+        'drawer-hide-to-top': 'drawer-hide-to-top 300ms ease-in-out',
+        'drawer-hide-to-bottom': 'drawer-hide-to-bottom 300ms ease-in-out',
+        'drawer-show-from-top': 'drawer-show-from-top 300ms ease-in-out',
+        'drawer-show-from-bottom': 'drawer-show-from-bottom 300ms ease-in-out',
         'enter-from-left': 'enter-from-left 300ms ease',
         'enter-from-right': 'enter-from-right 300ms ease',
         'exit-to-left': 'exit-to-left 300ms ease',
@@ -236,76 +236,212 @@ export const sharedConfig: Config = {
       },
       keyframes: {
         'collapsible-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-collapsible-content-height)' },
+          from: {
+            height: '0',
+          },
+          to: {
+            height: 'var(--radix-collapsible-content-height)',
+          },
         },
         'collapsible-up': {
-          from: { height: 'var(--radix-collapsible-content-height)' },
-          to: { height: '0' },
+          from: {
+            height: 'var(--radix-collapsible-content-height)',
+          },
+          to: {
+            height: '0',
+          },
         },
         'content-hide': {
-          from: { opacity: '1', transform: 'translateY(0)' },
-          to: { opacity: '0', transform: 'translateY(-40px)' },
+          from: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateY(-40px)',
+          },
         },
         'content-show': {
-          from: { opacity: '0', transform: 'translateY(-40px)' },
-          to: { opacity: '1', transform: 'translateY(0)' },
+          from: {
+            opacity: '0',
+            transform: 'translateY(-40px)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
         },
         'drawer-hide-to-left': {
-          from: { opacity: '1', transform: 'translateX(0)' },
-          to: { opacity: '0', transform: 'translateX(-100%)' },
+          from: {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateX(-100%)',
+          },
         },
         'drawer-hide-to-right': {
-          from: { opacity: '1', transform: 'translateX(0)' },
-          to: { opacity: '0', transform: 'translateX(100%)' },
+          from: {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateX(100%)',
+          },
         },
         'drawer-show-from-left': {
-          from: { opacity: '0', transform: 'translateX(-100%)' },
-          to: { opacity: '1', transform: 'translateX(0)' },
+          from: {
+            opacity: '0',
+            transform: 'translateX(-100%)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
         },
         'drawer-show-from-right': {
-          from: { opacity: '0', transform: 'translateX(100%)' },
-          to: { opacity: '1', transform: 'translateX(0)' },
+          from: {
+            opacity: '0',
+            transform: 'translateX(100%)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+        },
+        'drawer-hide-to-top': {
+          from: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateY(-100%)',
+          },
+        },
+        'drawer-hide-to-bottom': {
+          from: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateY(100%)',
+          },
+        },
+        'drawer-show-from-top': {
+          from: {
+            opacity: '0',
+            transform: 'translateY(-100%)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+        'drawer-show-from-bottom': {
+          from: {
+            opacity: '0',
+            transform: 'translateY(100%)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
         },
         'enter-from-left': {
-          from: { opacity: '0', transform: 'translateX(-200px)' },
-          to: { opacity: '1', transform: 'translateX(0)' },
+          from: {
+            opacity: '0',
+            transform: 'translateX(-200px)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
         },
         'enter-from-right': {
-          from: { opacity: '0', transform: 'translateX(200px)' },
-          to: { opacity: '1', transform: 'translateX(0)' },
+          from: {
+            opacity: '0',
+            transform: 'translateX(200px)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
         },
         'exit-to-left': {
-          from: { opacity: '1', transform: 'translateX(0)' },
-          to: { opacity: '0', transform: 'translateX(-200px)' },
+          from: {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateX(-200px)',
+          },
         },
         'exit-to-right': {
-          from: { opacity: '1', transform: 'translateX(0)' },
-          to: { opacity: '0', transform: 'translateX(200px)' },
+          from: {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateX(200px)',
+          },
         },
         'fade-in': {
-          from: { opacity: '0' },
-          to: { opacity: '1' },
+          from: {
+            opacity: '0',
+          },
+          to: {
+            opacity: '1',
+          },
         },
         'fade-out': {
-          from: { opacity: '1' },
-          to: { opacity: '0' },
+          from: {
+            opacity: '1',
+          },
+          to: {
+            opacity: '0',
+          },
         },
         'overlay-hide': {
-          from: { opacity: '1' },
-          to: { opacity: '0' },
+          from: {
+            opacity: '1',
+          },
+          to: {
+            opacity: '0',
+          },
         },
         'overlay-show': {
-          from: { opacity: '0' },
-          to: { opacity: '1' },
+          from: {
+            opacity: '0',
+          },
+          to: {
+            opacity: '1',
+          },
         },
         'scale-in': {
-          from: { opacity: '0', transform: 'rotateX(-10deg) scale(0.9)' },
-          to: { opacity: '1', transform: 'rotateX(0deg)' },
+          from: {
+            opacity: '0',
+            transform: 'rotateX(-10deg) scale(0.9)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'rotateX(0deg)',
+          },
         },
         'scale-out': {
-          from: { opacity: '1', transform: 'rotateX(0deg)' },
-          to: { opacity: '0', transform: 'rotateX(-10deg) scale(0.95)' },
+          from: {
+            opacity: '1',
+            transform: 'rotateX(0deg)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'rotateX(-10deg) scale(0.95)',
+          },
         },
         shimmer: {
           '100%': {
@@ -317,112 +453,184 @@ export const sharedConfig: Config = {
             opacity: '0',
             transform: 'translateY(calc(100% + var(--viewport-padding)))',
           },
-          to: { transform: 'translateY(0)' },
+          to: {
+            transform: 'translateY(0)',
+          },
         },
         'slide-in-from-bottom': {
-          from: { opacity: '0', transform: 'translateY(-0.5rem)' },
-          to: { opacity: '1', transform: 'translateY(0)' },
+          from: {
+            opacity: '0',
+            transform: 'translateY(-0.5rem)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
         },
         'slide-in-from-left': {
-          from: { opacity: '0', transform: 'translateX(0.5rem)' },
-          to: { opacity: '1', transform: 'translateX(0)' },
+          from: {
+            opacity: '0',
+            transform: 'translateX(0.5rem)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
         },
         'slide-in-from-right': {
-          from: { opacity: '0', transform: 'translateX(-0.5rem)' },
-          to: { opacity: '1', transform: 'translateY(0)' },
+          from: {
+            opacity: '0',
+            transform: 'translateX(-0.5rem)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
         },
         'slide-in-from-top': {
-          from: { opacity: '0', transform: 'translateY(0.5rem)' },
-          to: { opacity: '1', transform: 'translateY(0)' },
+          from: {
+            opacity: '0',
+            transform: 'translateY(0.5rem)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
         },
         'slide-in-left': {
           from: {
             opacity: '0',
             transform: 'translateX(calc(-100% - var(--viewport-padding)))',
           },
-          to: { transform: 'translateX(0)' },
+          to: {
+            transform: 'translateX(0)',
+          },
         },
         'slide-in-right': {
           from: {
             opacity: '0',
             transform: 'translateX(calc(100% + var(--viewport-padding)))',
           },
-          to: { transform: 'translateX(0)' },
+          to: {
+            transform: 'translateX(0)',
+          },
         },
         'slide-in-up': {
           from: {
             opacity: '0',
             transform: 'translateY(calc(-100% - var(--viewport-padding)))',
           },
-          to: { transform: 'translateY(0)' },
+          to: {
+            transform: 'translateY(0)',
+          },
         },
         'slide-out-down': {
-          from: { transform: 'translateY(0)' },
+          from: {
+            transform: 'translateY(0)',
+          },
           to: {
             opacity: '0',
             transform: 'translateY(calc(100% + var(--viewport-padding)))',
           },
         },
         'slide-out-left': {
-          from: { transform: 'translateX(0)' },
+          from: {
+            transform: 'translateX(0)',
+          },
           to: {
             opacity: '0',
             transform: 'translateX(calc(-100% - var(--viewport-padding)))',
           },
         },
         'slide-out-right': {
-          from: { transform: 'translateX(0)' },
+          from: {
+            transform: 'translateX(0)',
+          },
           to: {
             opacity: '0',
             transform: 'translateX(calc(100% + var(--viewport-padding)))',
           },
         },
         'slide-out-to-bottom': {
-          from: { opacity: '1', transform: 'translateY(0)' },
-          to: { opacity: '0', transform: 'translateY(-0.5rem)' },
+          from: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateY(-0.5rem)',
+          },
         },
         'slide-out-to-left': {
-          from: { opacity: '1', transform: 'translateX(0)' },
-          to: { opacity: '0', transform: 'translateX(0.5rem)' },
+          from: {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateX(0.5rem)',
+          },
         },
         'slide-out-to-right': {
-          from: { opacity: '1', transform: 'translateX(0)' },
-          to: { opacity: '0', transform: 'translateX(-0.5rem)' },
+          from: {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateX(-0.5rem)',
+          },
         },
         'slide-out-to-top': {
-          from: { opacity: '1', transform: 'translateY(0)' },
-          to: { opacity: '0', transform: 'translateY(0.5rem)' },
+          from: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+          to: {
+            opacity: '0',
+            transform: 'translateY(0.5rem)',
+          },
         },
         'slide-out-up': {
-          from: { transform: 'translateY(0)' },
+          from: {
+            transform: 'translateY(0)',
+          },
           to: {
             opacity: '0',
             transform: 'translateY(calc(-100% - var(--viewport-padding)))',
           },
         },
         'swipe-out-down': {
-          from: { transform: 'translateY(var(--radix-toast-swipe-end-y))' },
+          from: {
+            transform: 'translateY(var(--radix-toast-swipe-end-y))',
+          },
           to: {
             opacity: '0',
             transform: 'translateY(calc(100% + var(--viewport-padding)))',
           },
         },
         'swipe-out-left': {
-          from: { transform: 'translateX(var(--radix-toast-swipe-end-x))' },
+          from: {
+            transform: 'translateX(var(--radix-toast-swipe-end-x))',
+          },
           to: {
             opacity: '0',
             transform: 'translateX(calc(-100% - var(--viewport-padding)))',
           },
         },
         'swipe-out-right': {
-          from: { transform: 'translateX(var(--radix-toast-swipe-end-x))' },
+          from: {
+            transform: 'translateX(var(--radix-toast-swipe-end-x))',
+          },
           to: {
             opacity: '0',
             transform: 'translateX(calc(100% + var(--viewport-padding)))',
           },
         },
         'swipe-out-up': {
-          from: { transform: 'translateY(var(--radix-toast-swipe-end-y))' },
+          from: {
+            transform: 'translateY(var(--radix-toast-swipe-end-y))',
+          },
           to: {
             opacity: '0',
             transform: 'translateY(calc(-100% - var(--viewport-padding)))',

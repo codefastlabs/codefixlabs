@@ -28,22 +28,20 @@ import { cn } from '@/server/cn';
  * -------------------------------------------------------------------------- */
 
 const drawerContentVariants = cva(
-  'bg-background relative border shadow-lg focus:outline-none',
+  'bg-background relative shadow-lg focus:outline-none',
   {
     defaultVariants: {
-      position: 'right',
+      side: 'right',
       scrollable: false,
     },
     variants: {
-      position: {
-        left: [
-          'border-y-0 border-l-0',
-          'data-state-open:animate-drawer-show-from-left data-state-closed:animate-drawer-hide-to-left',
-        ],
-        right: [
-          'border-y-0 border-r-0',
-          'data-state-open:animate-drawer-show-from-right data-state-closed:animate-drawer-hide-to-right',
-        ],
+      side: {
+        left: 'border-r data-state-open:animate-drawer-show-from-left data-state-closed:animate-drawer-hide-to-left',
+        right:
+          'border-l data-state-open:animate-drawer-show-from-right data-state-closed:animate-drawer-hide-to-right',
+        top: 'border-b data-state-open:animate-drawer-show-from-top data-state-closed:animate-drawer-hide-to-top',
+        bottom:
+          'border-t data-state-open:animate-drawer-show-from-bottom data-state-closed:animate-drawer-hide-to-bottom',
       },
       scrollable: {
         false: 'overflow-y-auto',
@@ -62,7 +60,7 @@ type DrawerContentVariantsProps = VariantProps<typeof drawerContentVariants>;
 export const DrawerContext = React.createContext<{
   scrollable?: boolean;
   variant?: 'default' | 'simple';
-  position?: 'left' | 'right';
+  side?: 'left' | 'right' | 'top' | 'bottom';
 }>({});
 
 /* -----------------------------------------------------------------------------
@@ -72,17 +70,17 @@ export const DrawerContext = React.createContext<{
 export interface DrawerProps extends DialogProps {
   scrollable?: boolean;
   variant?: 'default' | 'simple';
-  position?: 'left' | 'right';
+  side?: 'left' | 'right' | 'top' | 'bottom';
 }
 
 export function Drawer({
   scrollable = false,
   variant = 'default',
-  position = 'right',
+  side = 'right',
   ...props
 }: DrawerProps): React.JSX.Element {
   return (
-    <DrawerContext.Provider value={{ position, scrollable, variant }}>
+    <DrawerContext.Provider value={{ side, scrollable, variant }}>
       <Root {...props} />
     </DrawerContext.Provider>
   );
@@ -113,7 +111,7 @@ DrawerClose.displayName = Close.displayName;
  * -------------------------------------------------------------------------- */
 
 export interface DrawerContentProps
-  extends Omit<DrawerContentVariantsProps, 'position' | 'scrollable'>,
+  extends Omit<DrawerContentVariantsProps, 'side' | 'scrollable'>,
     DialogContentProps {
   classNames?: {
     content?: string;
@@ -125,7 +123,7 @@ export const DrawerContent = React.forwardRef<
   React.ElementRef<typeof Content>,
   DrawerContentProps
 >(({ children, className, classNames, ...props }, forwardedRef) => {
-  const { variant, scrollable, position } = React.useContext(DrawerContext);
+  const { variant, scrollable, side } = React.useContext(DrawerContext);
 
   return (
     <Portal>
@@ -136,8 +134,10 @@ export const DrawerContent = React.forwardRef<
             'data-state-open:animate-overlay-show data-state-closed:animate-overlay-hide',
           ],
           {
-            'justify-end': position === 'right',
-            'justify-start': position === 'left',
+            'justify-end': side === 'right',
+            'justify-start': side === 'left',
+            'items-end': side === 'bottom',
+            'items-start': side === 'top',
           },
           classNames?.overlay,
         )}
@@ -145,7 +145,7 @@ export const DrawerContent = React.forwardRef<
       >
         <Content
           className={cn(
-            drawerContentVariants({ position, scrollable }),
+            drawerContentVariants({ side, scrollable }),
             className,
             classNames?.content,
           )}
@@ -226,7 +226,7 @@ export function DrawerFooter({
   return (
     <footer
       className={cn(
-        'py-3.75 flex shrink-0 flex-col-reverse gap-2 border-t px-6 sm:flex-row',
+        'py-3.75 flex shrink-0 flex-col-reverse gap-2 border-t px-6 sm:flex-row sm:justify-end',
         className,
       )}
       {...props}

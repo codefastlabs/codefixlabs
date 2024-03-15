@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.49
+
+### Patch Changes
+
+- Update drawer stories and components
+
 ## 0.1.48
 
 ### Patch Changes
