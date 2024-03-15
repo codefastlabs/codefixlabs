@@ -31,14 +31,14 @@
   "dependencies": {
     "country-state-city": "^3.2.1",
     "react": "^18.2.0",
-    "zustand": "^4.4.7"
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@codefixlabs/tsconfig": "workspace:*",
-    "@types/react": "^18.2.48",
+    "@types/react": "^18.2.66",
     "eslint-config-codefixlabs": "workspace:*",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.3"
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2"
   },
   "publishConfig": {
     "access": "public"

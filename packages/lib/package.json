@@ -29,7 +29,7 @@
     "lint": "eslint src/"
   },
   "dependencies": {
-    "libphonenumber-js": "^1.10.53",
+    "libphonenumber-js": "^1.10.58",
     "react": "^18.2.0",
     "rehype-format": "^5.0.0",
     "rehype-parse": "^9.0.0",
@@ -44,10 +44,10 @@
   },
   "devDependencies": {
     "@codefixlabs/tsconfig": "workspace:*",
-    "@types/react": "^18.2.48",
+    "@types/react": "^18.2.66",
     "eslint-config-codefixlabs": "workspace:*",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.3"
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2"
   },
   "publishConfig": {
     "access": "public"
