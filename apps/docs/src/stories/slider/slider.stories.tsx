@@ -19,7 +19,7 @@ export default meta;
 
 type Story = StoryObj<typeof Slider>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     defaultValue: [Math.random() * 100],
     max: 100,

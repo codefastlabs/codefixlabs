@@ -15,7 +15,7 @@ export default meta;
 
 type Story = StoryObj<typeof AspectRatio>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     ratio: 774 / 1162,
   },

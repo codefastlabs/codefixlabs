@@ -157,6 +157,6 @@ function MenubarWithHooks(
   );
 }
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => <MenubarWithHooks {...args} />,
 };

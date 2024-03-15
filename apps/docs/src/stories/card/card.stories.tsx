@@ -47,7 +47,7 @@ const notifications = [
   },
 ];
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     className: 'max-w-md',
   },

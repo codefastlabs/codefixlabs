@@ -37,7 +37,7 @@ export default meta;
 
 type Story = StoryObj<typeof Select>;
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => (
     <Select {...args}>
       <SelectTrigger aria-label="Food">

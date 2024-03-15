@@ -50,7 +50,7 @@ function CheckboxWithHooks(
   );
 }
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => <CheckboxWithHooks {...args} />,
 };
 
@@ -72,7 +72,7 @@ export const Disabled: Story = {
   args: {
     disabled: true,
   },
-  render: Basic.render,
+  render: Default.render,
 };
 
 /* -----------------------------------------------------------------------------

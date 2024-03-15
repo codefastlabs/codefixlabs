@@ -36,7 +36,7 @@ export default meta;
 
 type Story = StoryObj<typeof InputPhoneNumber>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     placeholder: 'Enter your phone number',
   },

@@ -29,7 +29,7 @@ export default meta;
 
 type Story = StoryObj<typeof Input>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     placeholder: 'Email',
     type: 'email',

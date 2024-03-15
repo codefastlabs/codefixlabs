@@ -67,7 +67,7 @@ function RadioGroupBasic(
   );
 }
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     'aria-label': 'View density',
     defaultValue: 'default',

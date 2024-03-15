@@ -30,7 +30,7 @@ export default meta;
 
 type Story = StoryObj<typeof Toggle>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     'aria-label': 'Toggle italic',
   },

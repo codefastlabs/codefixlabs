@@ -37,7 +37,7 @@ export default meta;
 
 type Story = StoryObj<typeof Switch>;
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => (
     <form>
       <div className="flex items-center gap-2">

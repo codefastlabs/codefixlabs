@@ -37,7 +37,7 @@ export default meta;
 
 type Story = StoryObj<typeof Dialog>;
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => (
     <Dialog {...args}>
       <DialogTrigger asChild>
@@ -86,7 +86,7 @@ export const Simple: Story = {
   args: {
     variant: 'simple',
   },
-  render: Basic.render,
+  render: Default.render,
 };
 
 export const Scrolling: Story = {

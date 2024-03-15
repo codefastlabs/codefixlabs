@@ -20,7 +20,7 @@ export default meta;
 
 type Story = StoryObj<typeof Tooltip>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     delayDuration: 100,
   },

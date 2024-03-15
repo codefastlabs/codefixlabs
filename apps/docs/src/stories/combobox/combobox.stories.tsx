@@ -54,7 +54,7 @@ function ComboboxWithHooks(
   return <Combobox {...args} onSelect={setValue} selected={value} />;
 }
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     options: [
       { label: 'Next.js', value: 'next.js' },

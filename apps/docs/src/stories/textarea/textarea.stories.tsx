@@ -27,7 +27,7 @@ export default meta;
 
 type Story = StoryObj<typeof Textarea>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     placeholder: 'Type your message here.',
   },

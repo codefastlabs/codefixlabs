@@ -59,6 +59,6 @@ function CollapsibleWithHooks(): React.JSX.Element {
   );
 }
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => <CollapsibleWithHooks {...args} />,
 };

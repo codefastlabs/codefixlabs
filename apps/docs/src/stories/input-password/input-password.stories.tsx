@@ -36,7 +36,7 @@ export default meta;
 
 type Story = StoryObj<typeof InputPassword>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     placeholder: 'Enter your password',
   },

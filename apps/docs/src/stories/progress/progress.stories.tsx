@@ -11,7 +11,7 @@ export default meta;
 
 type Story = StoryObj<typeof Progress>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     value: 100 - Math.random() * 100,
   },

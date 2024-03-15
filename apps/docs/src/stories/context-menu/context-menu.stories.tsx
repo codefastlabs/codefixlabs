@@ -100,6 +100,6 @@ function ContextMenuWithHooks(
   );
 }
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => <ContextMenuWithHooks {...args} />,
 };

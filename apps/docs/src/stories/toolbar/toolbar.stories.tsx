@@ -26,7 +26,7 @@ export default meta;
 
 type Story = StoryObj<typeof Toolbar>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     'aria-label': 'Formatting options',
   },

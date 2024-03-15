@@ -73,7 +73,7 @@ const invoices = [
   },
 ];
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => (
     <Table {...args}>
       <TableCaption>A list of your recent invoices.</TableCaption>

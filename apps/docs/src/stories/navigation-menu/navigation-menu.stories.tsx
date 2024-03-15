@@ -59,7 +59,7 @@ const ListItem: ForwardRefExoticComponent<
 
 ListItem.displayName = 'ListItem';
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     className: 'flex justify-center',
   },

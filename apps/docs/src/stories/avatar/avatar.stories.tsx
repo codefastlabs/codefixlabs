@@ -14,7 +14,7 @@ export default meta;
 
 type Story = StoryObj<typeof Avatar>;
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => (
     <Avatar
       {...args}

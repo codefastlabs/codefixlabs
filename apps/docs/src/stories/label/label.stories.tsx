@@ -26,7 +26,7 @@ function LabelWithHooks(args: ComponentProps<typeof Label>): React.JSX.Element {
   );
 }
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => <LabelWithHooks {...args} />,
 };
 
@@ -34,12 +34,12 @@ export const Required: Story = {
   args: {
     required: true,
   },
-  render: Basic.render,
+  render: Default.render,
 };
 
 export const Tooltip: Story = {
   args: {
     tooltip: 'This is a tooltip',
   },
-  render: Basic.render,
+  render: Default.render,
 };

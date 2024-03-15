@@ -22,7 +22,7 @@ export default meta;
 
 type Story = StoryObj<typeof Drawer>;
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => (
     <Drawer {...args}>
       <DrawerTrigger asChild>
@@ -58,7 +58,7 @@ export const Simple: Story = {
   args: {
     variant: 'simple',
   },
-  render: Basic.render,
+  render: Default.render,
 };
 
 export const Scrolling: Story = {

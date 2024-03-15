@@ -22,7 +22,7 @@ export default meta;
 
 type Story = StoryObj<typeof Popover>;
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => (
     <Popover {...args}>
       <PopoverTrigger asChild>

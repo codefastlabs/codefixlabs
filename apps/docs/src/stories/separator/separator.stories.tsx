@@ -11,7 +11,7 @@ export default meta;
 
 type Story = StoryObj<typeof Separator>;
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => (
     <div className="mx-4 w-full max-w-[18.75rem]">
       <div className="text-sm font-medium">Radix Primitives</div>

@@ -12,7 +12,7 @@ export default meta;
 
 type Story = StoryObj<typeof Alert>;
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => (
     <Alert {...args}>
       <TerminalIcon size={16} />
@@ -28,5 +28,5 @@ export const Destructive: Story = {
   args: {
     variant: 'destructive',
   },
-  render: Basic.render,
+  render: Default.render,
 };

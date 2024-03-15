@@ -163,7 +163,7 @@ type Story = StoryObj<typeof DataTable>;
  * Story: Basic
  * -------------------------------------------------------------------------- */
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => (
     <DataTable
       {...args}

@@ -34,7 +34,7 @@ type Story = StoryObj<typeof Command>;
  * Story: Basic
  * -------------------------------------------------------------------------- */
 
-export const Basic: Story = {
+export const Default: Story = {
   render: (args) => (
     <Command {...args}>
       <CommandInput placeholder="Type a command or search..." />

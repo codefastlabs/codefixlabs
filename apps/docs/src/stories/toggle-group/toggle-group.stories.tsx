@@ -12,7 +12,7 @@ export default meta;
 
 type Story = StoryObj<typeof ToggleGroup>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     'aria-label': 'Text alignment',
     defaultValue: 'center',

@@ -22,7 +22,7 @@ export default meta;
 
 type Story = StoryObj<typeof HoverCard>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     closeDelay: 100,
     openDelay: 100,

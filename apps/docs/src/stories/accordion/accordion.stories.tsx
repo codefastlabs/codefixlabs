@@ -25,7 +25,7 @@ export default meta;
 
 type Story = StoryObj<typeof Accordion>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     collapsible: true,
     defaultValue: 'item-1',
