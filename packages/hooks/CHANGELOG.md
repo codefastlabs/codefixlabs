@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.36
+
+### Patch Changes
+
+- Update imports in UI components
+
 ## 0.1.35
 
 ### Patch Changes

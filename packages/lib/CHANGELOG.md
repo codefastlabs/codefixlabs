@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.39
+
+### Patch Changes
+
+- Update imports in UI components
+
 ## 0.1.38
 
 ### Patch Changes

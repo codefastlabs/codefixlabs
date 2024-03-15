@@ -1,5 +1,11 @@
 # eslint-config-codefixlabs
 
+## 0.1.25
+
+### Patch Changes
+
+- Update imports in UI components
+
 ## 0.1.24
 
 ### Patch Changes

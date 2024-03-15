@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.48
+
+### Patch Changes
+
+- Update imports in UI components
+
 ## 0.1.47
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-codefixlabs",
-  "version": "0.1.24",
+  "version": "0.1.25",
   "license": "MIT",
   "sideEffects": false,
   "main": "index.js",
