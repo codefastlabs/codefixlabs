@@ -141,7 +141,6 @@ export const DrawerContent = React.forwardRef<
           },
           classNames?.overlay,
         )}
-        data-test-id="overlay"
       >
         <Content
           className={cn(
@@ -149,7 +148,6 @@ export const DrawerContent = React.forwardRef<
             className,
             classNames?.content,
           )}
-          data-test-id="content"
           ref={forwardedRef}
           {...props}
         >

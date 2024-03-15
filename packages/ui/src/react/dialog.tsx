@@ -126,7 +126,6 @@ export const DialogContent = React.forwardRef<
             : 'grid place-items-center overflow-auto',
           classNames?.overlay,
         )}
-        data-test-id="overlay"
       >
         <Content
           className={cn(
@@ -134,7 +133,6 @@ export const DialogContent = React.forwardRef<
             className,
             classNames?.content,
           )}
-          data-test-id="content"
           ref={forwardedRef}
           {...props}
         >

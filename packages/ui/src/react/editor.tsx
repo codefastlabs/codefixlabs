@@ -106,12 +106,10 @@ export const Editor = React.forwardRef<HTMLDivElement, EditorProps>(
               className,
               classNames?.root,
             )}
-            data-test-id="root"
             ref={forwardedRef}
           >
             <MenuBar
               className={cn('bg-background p-1', classNames?.menuBar)}
-              data-test-id="menu-bar"
               editor={editor}
             />
 

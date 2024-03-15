@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.99
+
+### Patch Changes
+
+- Remove data-test-id attributes from UI components
+
 ## 0.1.98
 
 ### Patch Changes

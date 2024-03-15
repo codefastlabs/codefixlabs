@@ -474,7 +474,6 @@ export function DataTableToolbar<TData>({
         'flex flex-wrap items-center justify-between gap-4',
         className,
       )}
-      data-test-id="toolbar"
     >
       <div className="flex grow items-center gap-2">
         <DataTableSearch table={table} />
@@ -507,7 +506,6 @@ export function DataTablePagination<TData>({
         'flex flex-wrap items-center justify-between gap-4',
         className,
       )}
-      data-test-id="pagination"
     >
       <div className="text-muted-foreground grow text-sm">
         {table.getFilteredSelectedRowModel().rows.length} of{' '}
@@ -563,22 +561,16 @@ export function DataTableContent<TData, TValue>({
   return (
     <div
       className={cn('overflow-auto rounded-md border', classNames.container)}
-      data-test-id="container"
     >
       <Table
         className={classNames.table}
         classNames={{
           wrapper: classNames.wrapper,
         }}
-        data-test-id="table"
       >
-        <TableHeader className={classNames.header} data-test-id="header">
+        <TableHeader className={classNames.header}>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow
-              className={classNames.headerRow}
-              data-test-id="header-row"
-              key={headerGroup.id}
-            >
+            <TableRow className={classNames.headerRow} key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
                 <TableHead
                   className={cn(
@@ -586,7 +578,6 @@ export function DataTableContent<TData, TValue>({
                     header.column.columnDef.meta?.className,
                     header.column.columnDef.meta?.classNames?.headerCell,
                   )}
-                  data-test-id="header-cell"
                   key={header.id}
                 >
                   {!header.isPlaceholder &&
@@ -599,13 +590,12 @@ export function DataTableContent<TData, TValue>({
             </TableRow>
           ))}
         </TableHeader>
-        <TableBody className={classNames.body} data-test-id="body">
+        <TableBody className={classNames.body}>
           {table.getRowModel().rows.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
                 className={classNames.row}
                 data-state={row.getIsSelected() && 'selected'}
-                data-test-id="row"
                 key={row.id}
               >
                 {row.getVisibleCells().map((cell) => (
@@ -615,7 +605,6 @@ export function DataTableContent<TData, TValue>({
                       cell.column.columnDef.meta?.className,
                       cell.column.columnDef.meta?.classNames?.cell,
                     )}
-                    data-test-id="cell"
                     key={cell.id}
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -629,12 +618,10 @@ export function DataTableContent<TData, TValue>({
                 'align-middle hover:bg-transparent',
                 classNames.emptyRow,
               )}
-              data-test-id="empty-row"
             >
               <TableCell
                 className={cn('h-24 text-center', classNames.emptyCell)}
                 colSpan={columns.length}
-                data-test-id="empty-cell"
               >
                 No results.
               </TableCell>
@@ -642,13 +629,9 @@ export function DataTableContent<TData, TValue>({
           )}
         </TableBody>
         {showFooter ? (
-          <TableFooter className={classNames.footer} data-test-id="footer">
+          <TableFooter className={classNames.footer}>
             {table.getFooterGroups().map((footerGroup) => (
-              <TableRow
-                className={classNames.footerRow}
-                data-test-id="footer-row"
-                key={footerGroup.id}
-              >
+              <TableRow className={classNames.footerRow} key={footerGroup.id}>
                 {footerGroup.headers.map((header) => (
                   <TableHead
                     className={cn(
@@ -656,7 +639,6 @@ export function DataTableContent<TData, TValue>({
                       header.column.columnDef.meta?.className,
                       header.column.columnDef.meta?.classNames?.headerCell,
                     )}
-                    data-test-id="header-cell"
                     key={header.id}
                   >
                     {!header.isPlaceholder &&
@@ -854,10 +836,7 @@ export function DataTable<TData>({
   });
 
   return (
-    <div
-      className={cn('flex flex-col space-y-4', classNames.root)}
-      data-test-id="root"
-    >
+    <div className={cn('flex flex-col space-y-4', classNames.root)}>
       <DataTableToolbar
         className={classNames.toolbar}
         endToolbar={endToolbar}

@@ -99,7 +99,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             'text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2',
             classNames?.startIcon,
           )}
-          data-test-id="start-icon"
         >
           {startIcon}
         </span>
@@ -113,7 +112,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             hasStartIcon: Boolean(startIcon),
           }),
         )}
-        data-test-id="input"
         ref={forwardedRef}
         {...props}
       />
@@ -124,7 +122,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             'text-muted-foreground absolute right-3 top-1/2 -translate-y-1/2',
             classNames?.endIcon,
           )}
-          data-test-id="end-icon"
         >
           {endIcon}
         </span>

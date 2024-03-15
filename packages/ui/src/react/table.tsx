@@ -14,10 +14,7 @@ export interface TableProps
 
 export const Table = React.forwardRef<HTMLTableElement, TableProps>(
   ({ className, classNames, ...props }, forwardedRef) => (
-    <div
-      className={cn('size-full overflow-auto', classNames?.wrapper)}
-      data-test-id="wrapper"
-    >
+    <div className={cn('size-full overflow-auto', classNames?.wrapper)}>
       <table
         className={cn('w-full text-sm', className)}
         ref={forwardedRef}

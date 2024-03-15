@@ -67,14 +67,13 @@ export const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof Trigger>,
   AccordionTriggerProps
 >(({ children, className, classNames, ...props }, forwardedRef) => (
-  <Header className={cn('flex', classNames?.header)} data-test-id="header">
+  <Header className={cn('flex', classNames?.header)}>
     <Trigger
       className={cn(
         'group flex flex-1 cursor-pointer items-center justify-between py-4 text-base font-medium outline-none transition',
         className,
         classNames?.trigger,
       )}
-      data-test-id="trigger"
       ref={forwardedRef}
       {...props}
     >
@@ -86,7 +85,6 @@ export const AccordionTrigger = React.forwardRef<
             'group-data-state-open:rotate-180 text-accent-foreground size-4 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)]',
             classNames?.icon,
           )}
-          data-test-id="icon"
         />
       </>
     </Trigger>
