@@ -31,7 +31,7 @@ export default meta;
 type Story = StoryObj<typeof Command>;
 
 /* -----------------------------------------------------------------------------
- * Story: Basic
+ * Story: Default
  * -------------------------------------------------------------------------- */
 
 export const Default: Story = {

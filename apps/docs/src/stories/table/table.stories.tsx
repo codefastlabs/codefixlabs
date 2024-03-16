@@ -25,7 +25,7 @@ export default meta;
 type Story = StoryObj<typeof Table>;
 
 /* -----------------------------------------------------------------------------
- * Story: Basic
+ * Story: Default
  * -------------------------------------------------------------------------- */
 
 const invoices = [

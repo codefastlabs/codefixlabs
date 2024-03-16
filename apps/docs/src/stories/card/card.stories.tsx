@@ -29,7 +29,7 @@ export default meta;
 type Story = StoryObj<typeof Card>;
 
 /* -----------------------------------------------------------------------------
- * Story: Basic
+ * Story: Default
  * -------------------------------------------------------------------------- */
 
 const notifications = [

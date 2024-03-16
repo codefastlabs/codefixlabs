@@ -43,7 +43,7 @@ export default meta;
 type Story = StoryObj<typeof Combobox>;
 
 /* -----------------------------------------------------------------------------
- * Story: Basic
+ * Story: Default
  * -------------------------------------------------------------------------- */
 
 function ComboboxWithHooks(

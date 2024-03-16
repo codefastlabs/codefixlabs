@@ -95,28 +95,28 @@ export const Icon: Story = {
 
 export const Secondary: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     variant: 'secondary',
   },
 };
 
 export const Outline: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     variant: 'outline',
   },
 };
 
 export const Destructive: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     variant: 'destructive',
   },
 };
 
 export const Ghost: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     variant: 'ghost',
   },
 };
@@ -137,28 +137,28 @@ export const Sizes: Story = {
 
 export const Block: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     block: true,
   },
 };
 
 export const RoundedFull: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     shape: 'pill',
   },
 };
 
 export const Loading: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     loading: true,
   },
 };
 
 export const LoadingWithIcon: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     loading: true,
     startIcon: <GitForkIcon size={16} />,
   },
@@ -166,7 +166,7 @@ export const LoadingWithIcon: Story = {
 
 export const LoadingWithIconRight: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     endIcon: <CogIcon size={16} />,
     loading: true,
   },
@@ -174,7 +174,7 @@ export const LoadingWithIconRight: Story = {
 
 export const LoadingWithIconBoth: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     endIcon: <CogIcon size={16} />,
     loading: true,
     startIcon: <GitForkIcon size={16} />,
@@ -183,21 +183,21 @@ export const LoadingWithIconBoth: Story = {
 
 export const Disabled: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     disabled: true,
   },
 };
 
 export const IconLeft: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     startIcon: <GitForkIcon size={16} />,
   },
 };
 
 export const IconRight: Story = {
   args: {
-    ...Basic.args,
+    ...Default.args,
     endIcon: <CogIcon size={16} />,
   },
 };

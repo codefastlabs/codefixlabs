@@ -37,7 +37,7 @@ export default meta;
 type Story = StoryObj<typeof RadioGroup>;
 
 /* -----------------------------------------------------------------------------
- * Story: Basic
+ * Story: Default
  * -------------------------------------------------------------------------- */
 
 function RadioGroupBasic(

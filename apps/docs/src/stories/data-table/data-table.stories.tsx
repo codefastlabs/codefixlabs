@@ -160,7 +160,7 @@ export default meta;
 type Story = StoryObj<typeof DataTable>;
 
 /* -----------------------------------------------------------------------------
- * Story: Basic
+ * Story: Default
  * -------------------------------------------------------------------------- */
 
 export const Default: Story = {
