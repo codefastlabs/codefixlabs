@@ -55,8 +55,7 @@ export const NavigationMenuIndicator = React.forwardRef<
     ref={forwardedRef}
     {...props}
     className={cn(
-      'top-full z-40 flex h-2.5 items-end justify-center overflow-hidden transition-[width,transform_250ms_ease]',
-      'data-[state=visible]:animate-fade-in data-[state=hidden]:animate-fade-out',
+      'data-[state=visible]:animate-fade-in data-[state=hidden]:animate-fade-out top-full z-40 flex h-2.5 items-end justify-center overflow-hidden transition-[width,transform_250ms_ease]',
       className,
     )}
   />
@@ -78,9 +77,7 @@ export const NavigationMenuViewport = React.forwardRef<
     ref={forwardedRef}
     {...props}
     className={cn(
-      'origin-top-center bg-popover text-popover-foreground relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md drop-shadow transition-[width,height] duration-300',
-      'sm:w-[var(--radix-navigation-menu-viewport-width)]',
-      'data-[state=open]:animate-scale-in data-[state=closed]:animate-scale-out',
+      'origin-top-center bg-popover text-popover-foreground data-[state=open]:animate-scale-in data-[state=closed]:animate-scale-out relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md drop-shadow transition-[width,height] duration-300 sm:w-[var(--radix-navigation-menu-viewport-width)]',
       className,
     )}
   />
@@ -158,13 +155,7 @@ export const NavigationMenuTrigger = React.forwardRef<
 >(({ children, className, ...props }, forwardedRef) => (
   <Trigger
     className={cn(
-      [
-        'bg-background group inline-flex h-10 w-max items-center justify-center gap-1 rounded-md px-4 py-2 text-sm font-medium transition-colors',
-        'hover:bg-accent hover:text-accent-foreground',
-        'focus:bg-accent focus:text-accent-foreground focus:outline-none',
-        'disabled:pointer-events-none disabled:opacity-50',
-        'data-[state=open]:bg-accent/50 data-active:bg-accent/50',
-      ],
+      'bg-background hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent/50 data-active:bg-accent/50 group inline-flex h-10 w-max items-center justify-center gap-1 rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50',
       className,
     )}
     ref={forwardedRef}
@@ -197,10 +188,7 @@ export const NavigationMenuContent = React.forwardRef<
     ref={forwardedRef}
     {...props}
     className={cn(
-      'absolute left-0 top-0 w-full',
-      'sm:w-auto',
-      'data-[motion=from-start]:animate-enter-from-left data-[motion=to-start]:animate-exit-to-left',
-      'data-[motion=from-end]:animate-enter-from-right data-[motion=to-end]:animate-exit-to-right',
+      'data-[motion=from-start]:animate-enter-from-left data-[motion=to-start]:animate-exit-to-left data-[motion=from-end]:animate-enter-from-right data-[motion=to-end]:animate-exit-to-right absolute left-0 top-0 w-full sm:w-auto',
       className,
     )}
   />

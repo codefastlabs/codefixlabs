@@ -74,9 +74,7 @@ export const CommandInput = React.forwardRef<
     <SearchIcon className="shrink-0 opacity-50" size={20} />
     <Input
       className={cn(
-        'h-11 w-full min-w-0 rounded-md bg-transparent py-3 text-sm outline-none',
-        'placeholder:text-muted-foreground',
-        'disabled:cursor-not-allowed disabled:opacity-50',
+        'placeholder:text-muted-foreground h-11 w-full min-w-0 rounded-md bg-transparent py-3 text-sm outline-none disabled:cursor-not-allowed disabled:opacity-50',
         className,
       )}
       ref={forwardedRef}
@@ -152,9 +150,7 @@ export const CommandGroup = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <Group
     className={cn(
-      'overflow-hidden p-1',
-      '[&_[cmdk-group-items]]:space-y-0.5',
-      '[&_[cmdk-group-heading]]:text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-sm [&_[cmdk-group-heading]]:font-semibold',
+      '[&_[cmdk-group-heading]]:text-foreground overflow-hidden p-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-sm [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-items]]:space-y-0.5',
       className,
     )}
     ref={forwardedRef}
@@ -197,10 +193,7 @@ export const CommandItem = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <Item
     className={cn(
-      'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
-      'hover:text-accent-foreground hover:bg-accent',
-      'aria-selected:text-accent-foreground aria-selected:bg-accent',
-      'aria-disabled:pointer-events-none aria-disabled:opacity-50',
+      'hover:text-accent-foreground hover:bg-accent aria-selected:text-accent-foreground aria-selected:bg-accent group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none aria-disabled:pointer-events-none aria-disabled:opacity-50',
       className,
     )}
     ref={forwardedRef}

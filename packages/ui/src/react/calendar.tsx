@@ -1,5 +1,4 @@
 import { Slot } from '@radix-ui/react-slot';
-import { cx } from 'class-variance-authority';
 import { format } from 'date-fns';
 import {
   CalendarDaysIcon,
@@ -71,12 +70,12 @@ export function DatePicker({
       case 'single':
         return props.selected
           ? props.selected.toLocaleDateString()
-          : placeholder || 'Select date';
+          : placeholder ?? 'Select date';
 
       case 'multiple':
         return props.selected
           ? props.selected.map((date) => date.toLocaleDateString()).join(', ')
-          : placeholder || 'Select dates';
+          : placeholder ?? 'Select dates';
 
       case 'range':
         if (props.selected?.from && props.selected.to) {
@@ -90,10 +89,10 @@ export function DatePicker({
           return format(props.selected.from, 'M/d hh:mm a');
         }
 
-        return placeholder || 'Select date range';
+        return placeholder ?? 'Select date range';
 
       default:
-        return placeholder || 'Select date';
+        return placeholder ?? 'Select date';
     }
   }, [placeholder, props.mode, props.selected]);
 
@@ -458,36 +457,17 @@ export function Calendar({
         classNames={{
           caption: 'relative flex items-center justify-center',
           caption_dropdowns: 'relative inline-flex gap-4',
-          caption_label: cx([
-            'inline-flex items-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium',
-            'ring-offset-background',
-            'peer-hover:border-input peer-hover:bg-accent',
-            'peer-focus:ring-ring peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-offset-2',
-          ]),
-          cell: cx([
-            'cell relative flex h-8 flex-1 items-center justify-center px-0.5 first:rounded-l-md last:rounded-r-md',
-            '[&:has(.weeknumber)+&]:rounded-l-md',
-            '[&:has(.day-range-middle)]:bg-accent',
-            '[&:has(.day-range-end:not(.day-range-start))]:before:bg-accent [&:has(.day-range-end:not(.day-range-start))]:before:absolute [&:has(.day-range-end:not(.day-range-start))]:before:inset-y-0 [&:has(.day-range-end:not(.day-range-start))]:before:left-0 [&:has(.day-range-end:not(.day-range-start))]:before:w-1/2',
-            '[&:has(.day-range-start:not(.day-range-end))]:after:bg-accent [&:has(.day-range-start:not(.day-range-end))]:after:absolute [&:has(.day-range-start:not(.day-range-end))]:after:inset-y-0 [&:has(.day-range-start:not(.day-range-end))]:after:right-0 [&:has(.day-range-start:not(.day-range-end))]:after:w-1/2',
-          ]),
-          day: cx([
-            'day relative z-40 flex size-8 items-center justify-center rounded-md border border-transparent text-center text-sm',
-            '[&:not(.day-today,[disabled])]:hover:border-primary',
-          ]),
+          caption_label:
+            'inline-flex items-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium ring-offset-background peer-hover:border-input peer-hover:bg-accent peer-focus:ring-ring peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-offset-2',
+          cell: 'cell relative flex h-8 flex-1 items-center justify-center px-0.5 first:rounded-l-md last:rounded-r-md [&:has(.weeknumber)+&]:rounded-l-md [&:has(.day-range-middle)]:bg-accent [&:has(.day-range-end:not(.day-range-start))]:before:bg-accent [&:has(.day-range-end:not(.day-range-start))]:before:absolute [&:has(.day-range-end:not(.day-range-start))]:before:inset-y-0 [&:has(.day-range-end:not(.day-range-start))]:before:left-0 [&:has(.day-range-end:not(.day-range-start))]:before:w-1/2 [&:has(.day-range-start:not(.day-range-end))]:after:bg-accent [&:has(.day-range-start:not(.day-range-end))]:after:absolute [&:has(.day-range-start:not(.day-range-end))]:after:inset-y-0 [&:has(.day-range-start:not(.day-range-end))]:after:right-0 [&:has(.day-range-start:not(.day-range-end))]:after:w-1/2',
+          day: 'day relative z-40 flex size-8 items-center justify-center rounded-md border border-transparent text-center text-sm [&:not(.day-today,[disabled])]:hover:border-primary',
           day_disabled: 'disabled:text-muted-foreground/25',
           day_outside: 'text-muted-foreground/75',
           day_range_end: 'day-range-end',
           day_range_middle: 'day-range-middle [&:not(.day-today)]:bg-accent',
           day_range_start: 'day-range-start',
-          day_selected: cx([
-            'bg-primary',
-            'ring-offset-background',
-            'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-            '[&:not(.day-range-middle)]:text-primary-foreground',
-            '[&:is(.day-today):not(.day-range-middle)]:border-primary',
-            '[&:is(.day-today):not(.day-range-middle)]:bg-primary',
-          ]),
+          day_selected:
+            'bg-primary ring-offset-background focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 [&:not(.day-range-middle)]:text-primary-foreground [&:is(.day-today):not(.day-range-middle)]:border-primary [&:is(.day-today):not(.day-range-middle)]:bg-primary',
           day_today:
             'day-today bg-primary/10 [&:not([disabled])]:hover:border-primary text-primary',
           dropdown: 'peer absolute inset-0 text-sm font-medium opacity-0',

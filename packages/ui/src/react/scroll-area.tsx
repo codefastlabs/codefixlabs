@@ -44,9 +44,7 @@ export const ScrollAreaScrollbar = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <Scrollbar
     className={cn(
-      'z-50 flex touch-none select-none p-0.5 transition-colors duration-[160ms] ease-out',
-      'data-[orientation=horizontal]:h-2.5 data-[orientation=horizontal]:flex-col',
-      'data-[orientation=vertical]:w-2.5',
+      'z-50 flex touch-none select-none p-0.5 transition-colors duration-[160ms] ease-out data-[orientation=horizontal]:h-2.5 data-[orientation=vertical]:w-2.5 data-[orientation=horizontal]:flex-col',
       className,
     )}
     ref={forwardedRef}
@@ -68,8 +66,7 @@ export const ScrollAreaThumb = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <Thumb
     className={cn(
-      'bg-border relative flex-1 rounded-full',
-      'before:absolute before:left-1/2 before:top-1/2 before:h-full before:min-h-11 before:w-full before:min-w-11 before:-translate-x-1/2 before:-translate-y-1/2',
+      'bg-border relative flex-1 rounded-full before:absolute before:left-1/2 before:top-1/2 before:h-full before:min-h-11 before:w-full before:min-w-11 before:-translate-x-1/2 before:-translate-y-1/2',
       className,
     )}
     ref={forwardedRef}

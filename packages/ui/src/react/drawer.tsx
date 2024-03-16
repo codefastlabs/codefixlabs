@@ -129,10 +129,7 @@ export const DrawerContent = React.forwardRef<
     <Portal>
       <Overlay
         className={cn(
-          [
-            'bg-background/80 fixed inset-0 z-40 flex',
-            'data-[state=open]:animate-overlay-show data-[state=closed]:animate-overlay-hide',
-          ],
+          'bg-background/80 data-[state=open]:animate-overlay-show data-[state=closed]:animate-overlay-hide fixed inset-0 z-40 flex',
           {
             'justify-end': side === 'right',
             'justify-start': side === 'left',

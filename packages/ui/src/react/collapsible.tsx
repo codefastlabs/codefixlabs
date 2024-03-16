@@ -35,8 +35,7 @@ export const CollapsibleContent = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <Content
     className={cn(
-      'overflow-hidden',
-      'data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up',
+      'data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up overflow-hidden',
       className,
     )}
     ref={forwardedRef}

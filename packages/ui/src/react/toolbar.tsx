@@ -106,10 +106,7 @@ export const ToolbarButton = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <Button
     className={cn(
-      'bg-primary my-auto flex h-7 shrink-0 grow-0 basis-auto items-center justify-center rounded px-2.5 text-sm text-white outline-none',
-      'hover:bg-primary/90',
-      'ring-offset-background',
-      'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+      'bg-primary hover:bg-primary/90 ring-offset-background focus-visible:ring-ring my-auto flex h-7 shrink-0 grow-0 basis-auto items-center justify-center rounded px-2.5 text-sm text-white outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
       className,
     )}
     ref={forwardedRef}
@@ -131,10 +128,7 @@ export const ToolbarLink = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <Link
     className={cn(
-      'px-1.25 text-muted-foreground my-auto flex h-7 shrink-0 grow-0 basis-auto items-center justify-center rounded-md bg-transparent text-sm',
-      'hover:text-primary hover:cursor-pointer hover:bg-transparent',
-      'ring-offset-background',
-      'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+      'px-1.25 text-muted-foreground hover:text-primary ring-offset-background focus-visible:ring-ring my-auto flex h-7 shrink-0 grow-0 basis-auto items-center justify-center rounded-md bg-transparent text-sm hover:cursor-pointer hover:bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
       className,
     )}
     ref={forwardedRef}
@@ -158,8 +152,7 @@ export const ToolbarToggleGroup = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <ToggleGroup
     className={cn(
-      'flex items-center gap-0.5',
-      'data-[orientation=vertical]:flex-col',
+      'flex items-center gap-0.5 data-[orientation=vertical]:flex-col',
       className,
     )}
     ref={forwardedRef}

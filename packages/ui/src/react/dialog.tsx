@@ -117,10 +117,7 @@ export const DialogContent = React.forwardRef<
     <Portal>
       <Overlay
         className={cn(
-          [
-            'bg-background/80 fixed inset-0 z-40 p-4 sm:p-10',
-            'data-[state=open]:animate-overlay-show data-[state=closed]:animate-overlay-hide',
-          ],
+          'bg-background/80 data-[state=open]:animate-overlay-show data-[state=closed]:animate-overlay-hide fixed inset-0 z-40 p-4 sm:p-10',
           scrollable
             ? 'flex items-center justify-center'
             : 'grid place-items-center overflow-auto',

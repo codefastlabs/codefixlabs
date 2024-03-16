@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.101
+
+### Patch Changes
+
+- Update UI component styles
+
 ## 0.1.100
 
 ### Patch Changes

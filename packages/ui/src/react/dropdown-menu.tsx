@@ -198,19 +198,7 @@ export const DropdownMenuContent = React.forwardRef<
   <Portal>
     <Content
       className={cn(
-        'bg-popover text-popover-foreground relative z-40 min-w-[8rem] rounded-md border p-1 shadow-lg will-change-[opacity,transform]',
-        [
-          'data-[state=open]:data-[side=top]:animate-slide-in-from-top',
-          'data-[state=open]:data-[side=bottom]:animate-slide-in-from-bottom',
-          'data-[state=open]:data-[side=left]:animate-slide-in-from-left',
-          'data-[state=open]:data-[side=right]:animate-slide-in-from-right',
-        ],
-        [
-          'data-[state=closed]:data-[side=top]:animate-slide-out-to-top',
-          'data-[state=closed]:data-[side=bottom]:animate-slide-out-to-bottom',
-          'data-[state=closed]:data-[side=left]:animate-slide-out-to-left',
-          'data-[state=closed]:data-[side=right]:animate-slide-out-to-right',
-        ],
+        'bg-popover text-popover-foreground data-[state=open]:data-[side=top]:animate-slide-in-from-top data-[state=open]:data-[side=bottom]:animate-slide-in-from-bottom data-[state=open]:data-[side=left]:animate-slide-in-from-left data-[state=open]:data-[side=right]:animate-slide-in-from-right data-[state=closed]:data-[side=top]:animate-slide-out-to-top data-[state=closed]:data-[side=bottom]:animate-slide-out-to-bottom data-[state=closed]:data-[side=left]:animate-slide-out-to-left data-[state=closed]:data-[side=right]:animate-slide-out-to-right relative z-40 min-w-[8rem] rounded-md border p-1 shadow-lg will-change-[opacity,transform]',
         className,
       )}
       ref={forwardedRef}
@@ -235,19 +223,7 @@ export const DropdownMenuSubContent = React.forwardRef<
   <Portal>
     <SubContent
       className={cn(
-        'bg-popover text-popover-foreground relative z-40 min-w-[8rem] rounded-md border p-1 shadow-lg will-change-[opacity,transform]',
-        [
-          'data-[state=open]:data-[side=top]:animate-slide-in-from-top',
-          'data-[state=open]:data-[side=bottom]:animate-slide-in-from-bottom',
-          'data-[state=open]:data-[side=left]:animate-slide-in-from-left',
-          'data-[state=open]:data-[side=right]:animate-slide-in-from-right',
-        ],
-        [
-          'data-[state=closed]:data-[side=top]:animate-slide-out-to-top',
-          'data-[state=closed]:data-[side=bottom]:animate-slide-out-to-bottom',
-          'data-[state=closed]:data-[side=left]:animate-slide-out-to-left',
-          'data-[state=closed]:data-[side=right]:animate-slide-out-to-right',
-        ],
+        'bg-popover text-popover-foreground data-[state=open]:data-[side=top]:animate-slide-in-from-top data-[state=open]:data-[side=bottom]:animate-slide-in-from-bottom data-[state=open]:data-[side=left]:animate-slide-in-from-left data-[state=open]:data-[side=right]:animate-slide-in-from-right data-[state=closed]:data-[side=top]:animate-slide-out-to-top data-[state=closed]:data-[side=bottom]:animate-slide-out-to-bottom data-[state=closed]:data-[side=left]:animate-slide-out-to-left data-[state=closed]:data-[side=right]:animate-slide-out-to-right relative z-40 min-w-[8rem] rounded-md border p-1 shadow-lg will-change-[opacity,transform]',
         className,
       )}
       ref={forwardedRef}

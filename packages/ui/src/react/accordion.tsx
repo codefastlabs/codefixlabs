@@ -105,8 +105,7 @@ export const AccordionContent = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <Content
     className={cn(
-      'text-muted-foreground overflow-hidden text-base',
-      'data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up',
+      'text-muted-foreground data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up overflow-hidden text-base',
       className,
     )}
     ref={forwardedRef}

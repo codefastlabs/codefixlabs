@@ -14,8 +14,7 @@ export function Skeleton({
   return (
     <div
       className={cn(
-        'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent',
-        'bg-secondary relative max-w-full overflow-hidden rounded',
+        'bg-secondary relative max-w-full overflow-hidden rounded before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent',
         className,
       )}
       {...props}
