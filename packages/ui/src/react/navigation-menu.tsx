@@ -56,7 +56,7 @@ export const NavigationMenuIndicator = React.forwardRef<
     {...props}
     className={cn(
       'top-full z-40 flex h-2.5 items-end justify-center overflow-hidden transition-[width,transform_250ms_ease]',
-      'data-state-visible:animate-fade-in data-state-hidden:animate-fade-out',
+      'data-[state=visible]:animate-fade-in data-[state=hidden]:animate-fade-out',
       className,
     )}
   />
@@ -80,7 +80,7 @@ export const NavigationMenuViewport = React.forwardRef<
     className={cn(
       'origin-top-center bg-popover text-popover-foreground relative mt-2.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md drop-shadow transition-[width,height] duration-300',
       'sm:w-[var(--radix-navigation-menu-viewport-width)]',
-      'data-state-open:animate-scale-in data-state-closed:animate-scale-out',
+      'data-[state=open]:animate-scale-in data-[state=closed]:animate-scale-out',
       className,
     )}
   />
@@ -163,7 +163,7 @@ export const NavigationMenuTrigger = React.forwardRef<
         'hover:bg-accent hover:text-accent-foreground',
         'focus:bg-accent focus:text-accent-foreground focus:outline-none',
         'disabled:pointer-events-none disabled:opacity-50',
-        'data-state-open:bg-accent/50 data-active:bg-accent/50',
+        'data-[state=open]:bg-accent/50 data-active:bg-accent/50',
       ],
       className,
     )}
@@ -174,7 +174,7 @@ export const NavigationMenuTrigger = React.forwardRef<
       {children}
 
       <ChevronDownIcon
-        className="group-data-state-open:rotate-180 text-accent-foreground transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)]"
+        className="text-accent-foreground transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180"
         size={16}
       />
     </>
@@ -199,8 +199,8 @@ export const NavigationMenuContent = React.forwardRef<
     className={cn(
       'absolute left-0 top-0 w-full',
       'sm:w-auto',
-      'data-motion-from-start:animate-enter-from-left data-motion-to-start:animate-exit-to-left',
-      'data-motion-from-end:animate-enter-from-right data-motion-to-end:animate-exit-to-right',
+      'data-[motion=from-start]:animate-enter-from-left data-[motion=to-start]:animate-exit-to-left',
+      'data-[motion=from-end]:animate-enter-from-right data-[motion=to-end]:animate-exit-to-right',
       className,
     )}
   />

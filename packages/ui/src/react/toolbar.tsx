@@ -27,7 +27,7 @@ const toolbarToggleItemVariants = cva(
     'hover:bg-accent hover:text-accent-foreground',
     'ring-offset-background',
     'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-    'data-state-on:bg-primary data-state-on:text-primary-foreground',
+    'data-[state=on]:bg-primary data-[state=on]:text-primary-foreground',
     'disabled:pointer-events-none disabled:opacity-50',
   ],
   {
@@ -159,7 +159,7 @@ export const ToolbarToggleGroup = React.forwardRef<
   <ToggleGroup
     className={cn(
       'flex items-center gap-0.5',
-      'data-orientation-vertical:flex-col',
+      'data-[orientation=vertical]:flex-col',
       className,
     )}
     ref={forwardedRef}

@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.50
+
+### Patch Changes
+
+- Fix data attribute selectors in UI components
+
 ## 0.1.49
 
 ### Patch Changes

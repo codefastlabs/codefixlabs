@@ -36,12 +36,12 @@ const drawerContentVariants = cva(
     },
     variants: {
       side: {
-        left: 'border-r data-state-open:animate-drawer-show-from-left data-state-closed:animate-drawer-hide-to-left',
+        left: 'border-r data-[state=open]:animate-drawer-show-from-left data-[state=closed]:animate-drawer-hide-to-left',
         right:
-          'border-l data-state-open:animate-drawer-show-from-right data-state-closed:animate-drawer-hide-to-right',
-        top: 'border-b data-state-open:animate-drawer-show-from-top data-state-closed:animate-drawer-hide-to-top',
+          'border-l data-[state=open]:animate-drawer-show-from-right data-[state=closed]:animate-drawer-hide-to-right',
+        top: 'border-b data-[state=open]:animate-drawer-show-from-top data-[state=closed]:animate-drawer-hide-to-top',
         bottom:
-          'border-t data-state-open:animate-drawer-show-from-bottom data-state-closed:animate-drawer-hide-to-bottom',
+          'border-t data-[state=open]:animate-drawer-show-from-bottom data-[state=closed]:animate-drawer-hide-to-bottom',
       },
       scrollable: {
         false: 'overflow-y-auto',
@@ -131,7 +131,7 @@ export const DrawerContent = React.forwardRef<
         className={cn(
           [
             'bg-background/80 fixed inset-0 z-40 flex',
-            'data-state-open:animate-overlay-show data-state-closed:animate-overlay-hide',
+            'data-[state=open]:animate-overlay-show data-[state=closed]:animate-overlay-hide',
           ],
           {
             'justify-end': side === 'right',

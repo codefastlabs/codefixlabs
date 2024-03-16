@@ -30,7 +30,7 @@ import { cn } from '@/server/cn';
 const dialogContentVariants = cva(
   [
     'bg-background relative rounded-lg border shadow-lg focus:outline-none',
-    'data-state-open:animate-content-show data-state-closed:animate-content-hide',
+    'data-[state=open]:animate-content-show data-[state=closed]:animate-content-hide',
   ],
   {
     defaultVariants: {
@@ -119,7 +119,7 @@ export const DialogContent = React.forwardRef<
         className={cn(
           [
             'bg-background/80 fixed inset-0 z-40 p-4 sm:p-10',
-            'data-state-open:animate-overlay-show data-state-closed:animate-overlay-hide',
+            'data-[state=open]:animate-overlay-show data-[state=closed]:animate-overlay-hide',
           ],
           scrollable
             ? 'flex items-center justify-center'

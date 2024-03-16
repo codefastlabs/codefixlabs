@@ -45,7 +45,7 @@ import { cn } from '@/server/cn';
 const menubarSubTriggerVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
+    'data-[disabled]:opacity-50 data-[disabled]:pointer-events-none',
   ],
   {
     defaultVariants: {
@@ -59,15 +59,15 @@ const menubarSubTriggerVariants = cva(
       variant: {
         default: [
           'focus:bg-accent focus:text-accent-foreground',
-          'data-state-open:bg-accent data-state-open:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
-          'data-highlighted:data-state-open:bg-accent data-highlighted:data-state-open:text-accent-foreground',
+          'data-[state=open]:bg-accent data-[state=open]:text-accent-foreground',
+          'data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground',
+          'data-[highlighted]:data-[state=open]:bg-accent data-[highlighted]:data-[state=open]:text-accent-foreground',
         ],
         destructive: [
           'focus:bg-destructive-foreground focus:text-destructive',
-          'data-state-open:bg-destructive-foreground data-state-open:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
-          'data-highlighted:data-state-open:bg-destructive-foreground data-highlighted:data-state-open:text-destructive',
+          'data-[state=open]:bg-destructive-foreground data-[state=open]:text-destructive',
+          'data-[highlighted]:bg-destructive-foreground data-[highlighted]:text-destructive',
+          'data-[highlighted]:data-[state=open]:bg-destructive-foreground data-[highlighted]:data-[state=open]:text-destructive',
         ],
       },
     },
@@ -81,7 +81,7 @@ type MenubarSubTriggerVariantsProps = VariantProps<
 const menubarItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
+    'data-[disabled]:opacity-50 data-[disabled]:pointer-events-none',
   ],
   {
     defaultVariants: {
@@ -95,12 +95,12 @@ const menubarItemVariants = cva(
       variant: {
         default: [
           'focus:bg-accent focus:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+          'data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground',
         ],
         destructive: [
           'text-destructive',
           'focus:bg-destructive-foreground focus:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
+          'data-[highlighted]:bg-destructive-foreground data-[highlighted]:text-destructive',
         ],
       },
     },
@@ -112,7 +112,7 @@ type MenubarItemVariantsProps = VariantProps<typeof menubarItemVariants>;
 const menubarCheckboxItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
+    'data-[disabled]:opacity-50 data-[disabled]:pointer-events-none',
   ],
   {
     defaultVariants: {
@@ -122,12 +122,12 @@ const menubarCheckboxItemVariants = cva(
       variant: {
         default: [
           'focus:bg-accent focus:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+          'data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground',
         ],
         destructive: [
           'text-destructive',
           'focus:bg-destructive-foreground focus:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
+          'data-[highlighted]:bg-destructive-foreground data-[highlighted]:text-destructive',
         ],
       },
     },
@@ -141,7 +141,7 @@ type MenubarCheckboxItemVariantsProps = VariantProps<
 const menubarRadioItemVariants = cva(
   [
     'group relative flex cursor-pointer select-none items-center gap-2 rounded px-2 py-1.5 pl-8 text-sm outline-none',
-    'data-disabled:opacity-50 data-disabled:pointer-events-none',
+    'data-[disabled]:opacity-50 data-[disabled]:pointer-events-none',
   ],
   {
     defaultVariants: {
@@ -151,12 +151,12 @@ const menubarRadioItemVariants = cva(
       variant: {
         default: [
           'focus:bg-accent focus:text-accent-foreground',
-          'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+          'data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground',
         ],
         destructive: [
           'text-destructive',
           'focus:bg-destructive-foreground focus:text-destructive',
-          'data-highlighted:bg-destructive-foreground data-highlighted:text-destructive',
+          'data-[highlighted]:bg-destructive-foreground data-[highlighted]:text-destructive',
         ],
       },
     },
@@ -226,7 +226,7 @@ export const MenubarTrigger = React.forwardRef<
     className={cn(
       'flex cursor-pointer select-none items-center justify-between gap-1 rounded px-3 py-1.5 text-sm font-medium outline-none',
       'focus:bg-accent focus:text-accent-foreground',
-      'data-state-open:bg-accent data-state-open:text-accent-foreground',
+      'data-[state=open]:bg-accent data-[state=open]:text-accent-foreground',
       className,
     )}
     ref={forwardedRef}
@@ -251,10 +251,10 @@ export const MenubarContent = React.forwardRef<
       className={cn(
         'bg-popover text-popover-foreground relative z-40 min-w-[8rem] overflow-hidden rounded-md border p-1 shadow-lg',
         [
-          'data-state-open:data-side-top:animate-slide-in-from-top',
-          'data-state-open:data-side-bottom:animate-slide-in-from-bottom',
-          'data-state-open:data-side-left:animate-slide-in-from-left',
-          'data-state-open:data-side-right:animate-slide-in-from-right',
+          'data-[state=open]:data-[side=top]:animate-slide-in-from-top',
+          'data-[state=open]:data-[side=bottom]:animate-slide-in-from-bottom',
+          'data-[state=open]:data-[side=left]:animate-slide-in-from-left',
+          'data-[state=open]:data-[side=right]:animate-slide-in-from-right',
         ],
         className,
       )}
@@ -282,16 +282,16 @@ export const MenubarSubContent = React.forwardRef<
       className={cn(
         'bg-popover text-popover-foreground relative z-40 min-w-[8rem] rounded-md border p-1 shadow-lg will-change-[opacity,transform]',
         [
-          'data-state-open:data-side-top:animate-slide-in-from-top',
-          'data-state-open:data-side-bottom:animate-slide-in-from-bottom',
-          'data-state-open:data-side-left:animate-slide-in-from-left',
-          'data-state-open:data-side-right:animate-slide-in-from-right',
+          'data-[state=open]:data-[side=top]:animate-slide-in-from-top',
+          'data-[state=open]:data-[side=bottom]:animate-slide-in-from-bottom',
+          'data-[state=open]:data-[side=left]:animate-slide-in-from-left',
+          'data-[state=open]:data-[side=right]:animate-slide-in-from-right',
         ],
         [
-          'data-state-closed:data-side-top:animate-slide-out-to-top',
-          'data-state-closed:data-side-bottom:animate-slide-out-to-bottom',
-          'data-state-closed:data-side-left:animate-slide-out-to-left',
-          'data-state-closed:data-side-right:animate-slide-out-to-right',
+          'data-[state=closed]:data-[side=top]:animate-slide-out-to-top',
+          'data-[state=closed]:data-[side=bottom]:animate-slide-out-to-bottom',
+          'data-[state=closed]:data-[side=left]:animate-slide-out-to-left',
+          'data-[state=closed]:data-[side=right]:animate-slide-out-to-right',
         ],
         className,
       )}

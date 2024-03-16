@@ -16,7 +16,7 @@ const primitiveInputVariants = cva(
     'ring-offset-background',
     'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
     'disabled:cursor-not-allowed disabled:opacity-50',
-    'data-invalid:border-destructive',
+    'data-[invalid=true]:border-destructive',
   ],
   {
     defaultVariants: {

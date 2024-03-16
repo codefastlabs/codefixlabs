@@ -57,7 +57,7 @@ export const TableBody = React.forwardRef<
 >(({ className, ...props }, forwardedRef) => (
   <tbody
     className={cn(
-      '*:bg-background data-state-selected:*:bg-muted/75 hover:*:bg-muted/50 *:transition-colors empty:*:hidden',
+      '*:bg-background data-[state=selected]:*:bg-muted/75 hover:*:bg-muted/50 *:transition-colors empty:*:hidden',
       className,
     )}
     ref={forwardedRef}

@@ -1,5 +1,11 @@
 # @codefixlabs/ui
 
+## 0.1.100
+
+### Patch Changes
+
+- Fix data attribute selectors in UI components
+
 ## 0.1.99
 
 ### Patch Changes

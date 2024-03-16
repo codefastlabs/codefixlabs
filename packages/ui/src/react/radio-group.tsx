@@ -40,7 +40,7 @@ const radioGroupItemVariants = cva(
           'text-primary border-muted-foreground size-4.25 aspect-square rounded-full border',
           'ring-offset-background',
           'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-          'data-state-checked:border-primary',
+          'data-[state=checked]:border-primary',
         ],
         simple: ['group'],
       },
@@ -56,7 +56,9 @@ type RadioGroupItemVariantsProps = VariantProps<typeof radioGroupItemVariants>;
 
 export const RadioGroupContext = React.createContext<
   Pick<RadioGroupVariantsProps, 'variant'>
->({});
+>({
+  variant: 'default',
+});
 
 /* -----------------------------------------------------------------------------
  * Component: RadioGroup
@@ -67,7 +69,7 @@ export interface RadioGroupProps extends RootProps, RadioGroupVariantsProps {}
 export const RadioGroup = React.forwardRef<
   React.ElementRef<typeof Root>,
   RadioGroupProps
->(({ className, variant, ...props }, forwardedRef) => (
+>(({ className, variant = 'default', ...props }, forwardedRef) => (
   <RadioGroupContext.Provider value={{ variant }}>
     <Root
       className={cn(radioGroupVariants({ variant }), className)}

@@ -45,8 +45,8 @@ export const ScrollAreaScrollbar = React.forwardRef<
   <Scrollbar
     className={cn(
       'z-50 flex touch-none select-none p-0.5 transition-colors duration-[160ms] ease-out',
-      'data-orientation-horizontal:h-2.5 data-orientation-horizontal:flex-col',
-      'data-orientation-vertical:w-2.5',
+      'data-[orientation=horizontal]:h-2.5 data-[orientation=horizontal]:flex-col',
+      'data-[orientation=vertical]:w-2.5',
       className,
     )}
     ref={forwardedRef}

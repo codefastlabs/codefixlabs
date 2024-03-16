@@ -46,7 +46,7 @@ const tabsTriggerVariants = cva(
       variant: {
         default: [
           'inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium',
-          'data-state-active:bg-background data-state-active:text-foreground data-state-active:shadow-sm',
+          'data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm',
         ],
         simple: undefined,
       },

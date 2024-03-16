@@ -19,7 +19,7 @@ const toggleGroupItemVariants = cva(
     'hover:bg-primary hover:text-primary-foreground',
     'ring-offset-background',
     'focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-    'data-state-on:bg-primary data-state-on:text-primary-foreground',
+    'data-[state=on]:bg-primary data-[state=on]:text-primary-foreground',
     'disabled:pointer-events-none disabled:opacity-50',
   ],
   {

@@ -82,7 +82,7 @@ export const AccordionTrigger = React.forwardRef<
         <ChevronDownIcon
           aria-hidden
           className={cn(
-            'group-data-state-open:rotate-180 text-accent-foreground size-4 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)]',
+            'text-accent-foreground size-4 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180',
             classNames?.icon,
           )}
         />
@@ -106,7 +106,7 @@ export const AccordionContent = React.forwardRef<
   <Content
     className={cn(
       'text-muted-foreground overflow-hidden text-base',
-      'data-state-open:animate-collapsible-down data-state-closed:animate-collapsible-up',
+      'data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up',
       className,
     )}
     ref={forwardedRef}
