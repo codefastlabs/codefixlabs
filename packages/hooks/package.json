@@ -1,6 +1,6 @@
 {
   "name": "@codefixlabs/hooks",
-  "version": "0.1.36",
+  "version": "0.1.37",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -30,15 +30,15 @@
   },
   "dependencies": {
     "country-state-city": "^3.2.1",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@codefixlabs/tsconfig": "workspace:*",
-    "@types/react": "^18.2.66",
+    "@types/react": "^18.3.2",
     "eslint-config-codefixlabs": "workspace:*",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.5"
   },
   "publishConfig": {
     "access": "public"

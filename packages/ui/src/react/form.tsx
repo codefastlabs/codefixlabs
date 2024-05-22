@@ -1,16 +1,18 @@
-import { type SlotProps as FormControlProps, Slot } from '@radix-ui/react-slot';
-import { type VariantProps, cva } from 'class-variance-authority';
+import { Slot, type SlotProps as FormControlProps } from '@radix-ui/react-slot';
+import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 import {
+  Controller,
   type ControllerProps as FormFieldProps,
   type FieldError,
+  type FieldErrorsImpl,
   type FieldPath,
   type FieldValues,
-  Controller,
   FormProvider,
+  type Merge,
   useFormContext,
 } from 'react-hook-form';
-import { type LabelProps as FormLabelProps, Label } from '@/react/label';
+import { Label, type LabelProps as FormLabelProps } from '@/react/label';
 import { cn } from '@/server/cn';
 
 /* -----------------------------------------------------------------------------
@@ -55,15 +57,16 @@ export const FormItemContext = React.createContext<{
 }>({} as FormItemContextValue);
 
 export function useFormField(): {
+  error?: FieldError | Merge<FieldError, FieldErrorsImpl> | undefined;
+  formDescriptionId: string;
+  formItemId: string;
+  formMessageId: string;
+  id: string;
   invalid: boolean;
   isDirty: boolean;
   isTouched: boolean;
-  error?: FieldError;
-  id: string;
+  isValidating: boolean;
   name: string;
-  formItemId: string;
-  formDescriptionId: string;
-  formMessageId: string;
 } {
   const fieldContext = React.useContext(FormFieldContext);
   const itemContext = React.useContext(FormItemContext);
