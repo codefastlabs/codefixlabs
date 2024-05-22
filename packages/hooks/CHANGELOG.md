@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.37
+
+### Patch Changes
+
+- Update react and typescript versions in hooks package
+
 ## 0.1.36
 
 ### Patch Changes

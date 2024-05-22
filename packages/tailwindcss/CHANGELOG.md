@@ -1,5 +1,11 @@
 # @codefixlabs/tailwindcss
 
+## 0.1.51
+
+### Patch Changes
+
+- Update dependency versions in tailwindcss package
+
 ## 0.1.50
 
 ### Patch Changes
