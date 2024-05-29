@@ -1,5 +1,14 @@
 # @codefixlabs/ui
 
+## 0.1.103
+
+### Patch Changes
+
+- Update package versions in ui, lib, and hooks
+- Updated dependencies
+  - @codefixlabs/hooks@0.1.38
+  - @codefixlabs/lib@0.1.41
+
 ## 0.1.102
 
 ### Patch Changes

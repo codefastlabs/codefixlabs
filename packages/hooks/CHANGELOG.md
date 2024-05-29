@@ -1,5 +1,11 @@
 # @codefixlabs/hooks
 
+## 0.1.38
+
+### Patch Changes
+
+- Update package versions in ui, lib, and hooks
+
 ## 0.1.37
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @codefixlabs/lib
 
+## 0.1.41
+
+### Patch Changes
+
+- Update package versions in ui, lib, and hooks
+
 ## 0.1.40
 
 ### Patch Changes
