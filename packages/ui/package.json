@@ -78,7 +78,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
-    "lucide-react": "^0.379.0",
+    "lucide-react": "^0.381.0",
     "pluralize": "^8.0.0",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
@@ -90,7 +90,7 @@
   "devDependencies": {
     "@codefixlabs/tailwindcss": "workspace:*",
     "@codefixlabs/tsconfig": "workspace:*",
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.12.13",
     "@types/pluralize": "^0.0.33",
     "@types/react": "^18.3.3",
     "autoprefixer": "^10.4.19",
